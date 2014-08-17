@@ -42,6 +42,55 @@
 ;;; Code:
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; packages and repositories
+;;;
+(require 'package)
+
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar my-packages
+  '(
+    ;; base editing packages and settings
+    ;; based on Technomancy's better-defaults.el
+    ;; customized in /custom/set-base.el
+
+    ) "Packages managed as elpa repositories.")
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; non packaged (vendor) code goes here:
+;;;
+(add-to-list 'load-path "~/.emacs.d/vendor")
+
+(add-to-list 'load-path "~/.emacs.d/vendor")
+
+;;; vendor/better-defaults.el
+;;;  provides: ido, uniquify, better settings
+(load "better-defaults.el")
+; TODO: ido-use-virual-buffers?
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;  customizations for emacs and various emacs modes.
+;;;
+(add-to-list 'load-path "~/.emacs.d/custom")
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
