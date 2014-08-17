@@ -45,12 +45,44 @@
 ;; 
 ;;; Code:
 
+;;; ido and smex settings
+;(setq ido-use-filename-at-point nil) ;; TODO
+(ido-ubiquitous-mode 1)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;;; smex
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;;;    C-f   Confirm create file in 'smex'
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; misc settings
+
+;;; display column number in mode-line
+(column-number-mode t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; some key bindings
+
+;;; Window switching.
+(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
+(global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
+
+;;; Jump to a definition in the current file.
+(global-set-key (kbd "C-x C-i") 'idomenu)
 
 ;;; toggle menu bar mode
 (global-set-key (kbd "<f7>") 'menu-bar-mode)
+
+;;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
+
 
 (provide 'set-base)
 (message "end set-base.el")

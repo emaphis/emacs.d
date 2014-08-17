@@ -67,7 +67,12 @@
     cl-lib
     dash
     s
-
+    ido-hacks
+    ido-ubiquitous
+    idomenu
+    smex
+    magit  ;; yes, I consider vc to be part of base.
+    markdown-mode
 
 
 
@@ -98,5 +103,12 @@
 
 
 
+;;; Keep emacs custom-settings in separate file
+(setq custom-file "~/.emacs.d/custom/set-custom.el")
+(load custom-file)
+
+
+(message "end init.el")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
+
