@@ -106,7 +106,6 @@ A handy remider of key bindings
                   side. (: is a visual mnemnoic for the split.)
     0             deletes the current window
 
-
 * execute commands (smex) and find files (ido) in mini buffer
    M-x             extended-execute-command (smex)
    M-X             smex-major-mode-commands (only command relevant to mode)
@@ -226,7 +225,7 @@ A handy remider of key bindings
  undo-tree-save-history      (command)       manually save undo history to file
  undo-tree-load-history      (command)       manually load undo history from file
 
- * magit
+* magit
    from: http://daemianmack.com/magit-cheatsheet.html
 ** Buffers
    M-x             magit-status            Magit's status buffer
@@ -436,3 +435,86 @@ A handy remider of key bindings
 
 * Programming modes
 
+* company completion
+  M-n / M-p        select next/previous item
+  Ret              complete item
+  Tab              complete common part
+  C-s / C-r / C-o  search through completions
+  none             company-complete - initiate completion manually
+  <F1>             show documentation of selection
+  C-w              show the selections source
+
+* smartparens
+** summary
+  M-(              paredit-wrap-round, surround expression after point
+                   in parentheses
+  C-→              Slurp; move closing parenthesis to the right to include
+                   next expression
+  C-←              Barf; move closing parenthesis to the left to exclude
+                   last expression
+  C-M-f, C-M-b     Move to the opening/closing parenthesis
+
+** SEXP navagation
+  C-M-f            sp-forward-sexp (&optional arg)
+  C-M-b            sp-backward-sexp (&optional arg)
+  C-M-d            sp-down-sexp (&optional arg)
+  C-M-a            sp-backward-down-sexp (&optional arg)
+  C-M-e            sp-up-sexp (&optional arg)
+  C-M-u            sp-backward-up-sexp (&optional arg)
+  C-M-n            sp-next-sexp (&optional arg)
+  C-M-p            sp-previous-sexp (&optional arg)
+  C-S-d            sp-beginning-of-sexp (&optional arg)
+  C-S-a            sp-end-of-sexp (&optional arg)
+  none             sp-beginning-of-next-sexp (&optional arg)
+  none             sp-beginning-of-previous-sexp (&optional arg)
+  none             sp-end-of-next-sexp (&optional arg)
+  none             sp-end-of-previous-sexp (&optional arg)
+
+** manipulation functions
+  C-M-k            sp-kill-sexp (&optional arg)
+  C-- C-M-k        sp-backward-kill-sexp (&optional arg)
+
+  C-M-w            sp-copy-sexp (&optional arg)
+  C-- C-M-w        sp-backward-copy-sexp (&optional arg)
+
+  M-<delete>       sp-unwrap-sexp (&optional arg)
+  M-<backspace>    sp-backward-unwrap-sexp (&optional arg)
+
+  C-M-t            sp-transpose-sexp
+
+  M-D              sp-splice-sexp (&optional arg)
+  C-M-<delete>     sp-splice-sexp-killing-forward (&optional arg)
+  C-M-<backspace>  sp-splice-sexp-killing-backward (&optional arg)
+  C-S-<backspace>  sp-splice-sexp-killing-around (&optional arg)
+
+  none             sp-convolute-sexp (&optional arg)
+  none             sp-absorb-sexp (&optional arg)
+  none             sp-emit-sexp (&optional arg)
+  none             sp-extract-before-sexp (&optional arg)
+  none             sp-extract-after-sexp (&optional arg)
+
+  none             sp-split-sexp (arg)
+  none             sp-join-sexp (&optional arg)
+
+  none             sp-rewrap-sexp (&optional arg)
+  none             sp-swap-enclosing-sexp (&optional arg)
+
+  C-<right>        sp-forward-slurp-sexp (&optional arg)
+  C-<left>         sp-forward-barf-sexp (&optional arg)
+  C-M-<left>       sp-backward-slurp-sexp (&optional arg)
+  C-M-<right>      sp-backward-barf-sexp (&optional arg)
+
+  none             sp-add-to-next-sexp (&optional arg)
+  none             sp-add-to-previous-sexp (&optional arg)
+
+  C-M-]            sp-select-next-thing (&optional arg)
+  C-[              sp-select-previous-thing (&optional arg)
+
+  C-]              sp-select-next-thing-exchange (&optional arg)
+  C-- C-]          sp-select-previous-thing-exchange (&optional arg)
+
+* flycheck
+  C-c ! c          flycheck-buffer
+  C-c ! n          flycheck-next-error
+  C-c ! p          flycheck-previous-error
+  C-c ! l          flycheck-list-errors

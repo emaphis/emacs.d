@@ -87,6 +87,17 @@
     solarized-theme
     monokai-theme
 
+    ;; general programming modes including
+    ;; emacs lisp addon modes.
+    ;; ./custom/set-programming.el and
+    ;; ./custom/set-elisp.el
+    idle-highlight-mode
+    yasnippet
+    smartparens
+    flycheck
+    company
+    rainbow-delimiters
+    elisp-slime-nav
 
     ) "Packages managed as elpa repositories.")
 
@@ -111,8 +122,15 @@
 ;;;
 (add-to-list 'load-path "~/.emacs.d/custom")
 
+;;; general editing settings
+;;; continuation of better-defaults
 (load "set-base.el")
 
+;;; general programming settings
+(load "set-programming.el")
+
+;;; elisp mode settings
+(load "set-elisp.el")
 
 
 ;;; Keep emacs custom-settings in separate file
