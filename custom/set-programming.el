@@ -52,12 +52,14 @@
                    '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\):"
                       1 font-lock-warning-face t)))))
 
+
 ;;; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
 
 (setq yas-snippet-dirs (append yas-snippet-dirs
                                '("~/.emacs.d/snippets")))
+
 
 ;;; smart parens
 (require 'smartparens-config)
@@ -66,6 +68,46 @@
 (show-smartparens-global-mode t) ; highlights matching pairs
 (setq sp-highlight-pair-overlay nil) ; will experiment later
 
+
+;;; company mode
+(require 'company)
+
+(setq company-idle-delay 0.5)
+(setq company-tooltip-limit 10)
+(setq company-minimum-prefix-length 2)
+(setq company-echo-delay 0)
+(setq company-auto-complete nil)
+
+;; invert display  when cusor is at the top
+(setq company-tooltip-flip-when-above t)
+
+(global-company-mode 1)
+
+;;; company mode yasnippets fix:
+;;    http://www.emacswiki.org/emacs/CompanyMode
+(defun check-expansion ()
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
+        (backward-char 1)
+        (if (looking-at "->") t nil)))))
+
+(defun do-yas-expand ()
+  (let ((yas/fallback-behavior 'return-nil))
+    (yas/expand)))
+
+(defun tab-indent-or-complete ()
+  (interactive)
+  (if (minibufferp)
+      (minibuffer-complete)
+    (if (or (not yas/minor-mode)
+            (null (do-yas-expand)))
+        (if (check-expansion)
+            (company-complete-common)
+          (indent-for-tab-command)))))
+
+(global-set-key [tab] 'tab-indent-or-complete)
 
 
 (message "end set-programming.el")

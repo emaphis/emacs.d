@@ -95,6 +95,7 @@
     yasnippet
     smartparens
     flycheck
+    company
 
     ) "Packages managed as elpa repositories.")
 
