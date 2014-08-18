@@ -99,6 +99,13 @@
     rainbow-delimiters
     elisp-slime-nav
 
+    ;;; clojure packages customized in
+    ;;; ./custom/set-clojure.el
+    clojure-mode
+    cider
+    clojure-mode-extra-font-locking
+    midje-mode
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -132,6 +139,8 @@
 ;;; elisp mode settings
 (load "set-elisp.el")
 
+;;; clojure settings
+(load "set-clojure.el")
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
