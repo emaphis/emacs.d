@@ -130,6 +130,9 @@
 ;;; Integration with other modes
 ;;;
 
+;;; idle-highlight
+(add-hook 'clojure-mode-hook (lambda () (idle-highlight-mode t)))
+
 ;;; java style camelCase
 (add-hook 'clojure-mode-hook 'subword-mode)
 (add-hook 'cider-repl-mode-hook 'subword-mode)

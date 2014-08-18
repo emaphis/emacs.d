@@ -724,3 +724,23 @@ A handy remider of key bindings
   d               toggle display of duplicate frames
   a               toggle display of all frames
 
+* midje mode
+  C-c ,           within a fact, sends fact to REPL, 
+                  within a defn, recompiles the defn and rechecks
+                  the last checke fact
+  C-c u           outside the 'unfinished' list, adds to list and declares the
+                  defn to the REPL
+                  inside the 'unfinished' list, removes the identifier, and 
+                  creates the defn and a fact for it.
+  C-c k           removes fact check comments from the buffer
+  C-c h / C-c s   hides or shows all facts by condensing them into a single line,
+                  the second restores them
+  C-c f           focus attention on one fact by hiding the others.
+  C-h j           jump to to file point indicated in the error message
+
+** midje-doc elements
+  [[[[:chapter {:title "Hello World" :tag "hello"}]]]]
+  [[[[:section {:title "Birds"}]]]]
+  [[[[:subsection {:title "Flying Birds"}]]]]
+  [[[[:subsubsection {:title "Eagle"}]]]]
+  [[[[:file {:src "test/docs/first_section.clj"}]]]]
