@@ -518,3 +518,209 @@ A handy remider of key bindings
   C-c ! n          flycheck-next-error
   C-c ! p          flycheck-previous-error
   C-c ! l          flycheck-list-errors
+* clojure mode bindings (cider)
+** summary
+  C-c C-k          compile and load current buffer
+  C-x C-f          open file
+  C-x C-s          save file
+  C-x b            switch buffer
+  C-c C-,          run tests
+  C-c '            check test error
+  C-x o            swtich to other window
+  M-p              scroll back in repl historyq
+  M-n              scroll forwareds in repl history
+  C-c M-n          change namespace of REPL
+  C-c C-d          clojure doc of symbol
+  M-.              jump to source
+  M-,              pop back to where you were
+  C-c M-,          jump to resource
+  M-x imenu        list definitions in a menu
+  (use 'clojure.repl)
+  (use 'midje.repl)
+  
+** cider-mode
+*** evaluation
+  C-c C-k         Load the current buffer.
+  C-c C-l         Load a file.
+  C-x C-e or
+  C-c C-e         Evaluate the form preceding point and display the result in
+                  the echo area. If invoked with a prefix argument, insert the
+                  result into the current buffer.
+  C-c C-p         pretty  print last sexp
+  C-c C-w         Evaluate the form preceding point and replace it with
+                  its result
+  C-c M-e         Evaluate the form preceding point and output it result to
+                  the REPL buffer. If invoked with a prefix argument, takes
+                  you to the REPL buffer after being invoked.
+  C-c C-p         Evaluate the form preceding point and pretty-print the result
+                  in a popup buffer.
+  C-c C-f         Evaluate the top level form under point and pretty-print the
+                  result in a popup buffer.
+  C-c C-n         Eval the ns form.
+  C-M-x   or
+  C-c C-c         Evaluate the top level form under point and display the result
+                  in the echo area. If invoked with a prefix argument, insert
+                  the result into the current buffer.
+  C-c C-r         Evaluate the region and display the result in the echo area.
+  C-C m-:         cider-read-and-eval
+  C-c M-i         Inspect expression. Will act on expression at point
+                  if present.
+
+*** macro expansion
+  C-c C-m         Invoke macroexpand-1 on the form at point and display the
+                  result in a macroexpansion buffer. If invoked with a prefix
+                  argument, macroexpand is used instead of macroexpand-1.
+  C-c M-m         Invoke clojure.walk/macroexpand-all on the form at point and
+                  display the result in a macroexpansion buffer.
+
+*** completion 
+  M-TAB / C-M-i   Complete the symbol at point.
+
+*** clojure documentation
+  C-c C-d         cider-doc-map
+  C-c C-d d  or
+  C-c C-d C-d     Display doc string for the symbol at point. If invoked with a
+                  prefix argument, or no symbol is found at point, prompt for
+                  a symbol.
+  C-c C-d j  or
+  C-c C-d C-j     Display JavaDoc (in your default browser) for the symbol at
+                  point. If invoked with a prefix argument, or no symbol is
+                  found at point, prompt for a symbol.
+  C-c C-d a       Apropos search for functions/vars.
+  C-c C-d A       Apropos search for documentation.
+  C-c C-d g       Lookup symbol in Grimoire.
+  C-c C-d h       cider-grimore-web
+
+*** cider control
+  C-c M-p         Load the form preceding point in the REPL buffer.
+
+  C-c C-z         Switch to the relevant REPL buffer. Use a prefix argument to
+                  change the namespace of the REPL buffer to match the currently
+                  visited source file.
+  C-c M-o         Clear the entire REPL buffer, leaving only a prompt. Useful if
+                  you're running the REPL buffer in a side by side buffer.
+  C-c M-s         cider-selector
+  C-c M-d         Display default REPL connection details, including project
+                  directory name, buffer namespace, host and port.
+  C-c M-r         Rotate and display the default nREPL connection.
+  C-c M-n         Switch the namespace of the REPL buffer to the namespace of
+                  the current buffer.
+  C-c M-t         Toggle var tracing.
+  C-c C-b         Interrupt any pending evaluations.
+  C-c C-x         cider-refresh
+  C-u C-u C-c or
+  C-z             Switch to the REPL buffer based on a user prompt for
+                  a directory.
+  C-c C-q         cider-quit
+
+*** testing (clojure test)
+  C-c ,           Run tests for namespace.
+  C-c C-,         Re-run test failures/errors for namespace.
+  C-c M-,         Run test at point.
+  C-c C-t         Show the test report buffer.
+
+*** source navigation
+  M-.             Jump to the definition of a symbol. If invoked with a prefix
+                  argument, or no symbol is found at point, prompt for a symbol.
+  M-,             Return to your pre-jump location.
+  C-c M-.         Jump to the resource referenced by the string at point.
+
+** cider repl mode
+  RET             Evaluate the current input in Clojure if it is complete. If
+                  incomplete, open a new line and indent. If invoked with a
+                  prefix argument is given then the input is evaluated without
+                  checking for completeness.
+  C-RET           Close any unmatched parenthesis and then evaluate the current
+                  input in Clojure.
+  C-j             Open a new line and indent.
+  C-c M-o         Clear the entire REPL buffer, leaving only a prompt.
+  C-c C-o         Remove the output of the previous evaluation from the
+                  REPL buffer.
+  C-c C-u         Kill all text from the prompt to the current point.
+  C-c C-b  or
+  C-c C-c         Interrupt any pending evaluations.
+  C-up C-down     Goto to previous/next input in history.
+  M-p M-n         Search the previous/next item in history using the current
+                  input as search pattern. If M-p/M-n is typed two times in a
+                  row, the second invocation uses the same search pattern (even
+                  if the current input has changed).
+  M-s M-r         Search forward/reverse through command history with regex.
+  C-c C-n  or
+  C-c C-p         Move between the current and previous prompts in the REPL
+                  buffer. Pressing RET on a line with old input copies that
+                  line to the newest prompt.
+  TAB             Complete symbol at point.
+
+
+  C-c C-d d       Display doc string for the symbol at point. If invoked with
+                  a prefix argument, or no symbol is found at point, prompt
+                  for a symbol
+  C-c C-d j       Display JavaDoc (in your default browser) for the symbol at
+                  point. If invoked with a prefix argument, or no symbol is
+                  found at point, prompt for a symbol.
+  C-c C-d g       Lookup symbol in Grimoire.
+  C-c C-d a       Apropos search for functions/vars.
+  C-c C-d A       Apropos search for documentation.
+
+
+  C-c C-z         Switch to the previous Clojure buffer. This complements
+                  C-c C-z used in cider-mode.
+  C-c M-f         Select a function from the current namespace and insert into
+                  the REPL buffer.
+  C-c M-i         Inspect expression. Will act on expression at point
+                  if present.
+  C-c M-n         Select a namespace and switch to it.
+  C-c M-t         Toggle var tracing.
+  ,               Short-cut command ad REPL
+
+** cider macroexpansion
+  C-c C-m         Invoke macroexpand-1 on the form at point and replace the
+                  original form with its expansion. If invoked with a prefix
+                  argument, macroexpand is used instead of macroexpand-1.
+  C-c M-m         Invoke clojure.walk/macroexpand-all on the form at point and
+                  replace the original form with its expansion.
+  g               Theprior macroexpansion is performed again and the current
+                  contents of the macroexpansion buffer are replaced with the
+                  new expansion.
+  C-/ C-x u       Undo the last inplace expansion performed in the
+                  macroexpansion buffer.
+
+** cider inspector mode
+  Tab   or
+  Shift-Tab       navigate inspectable sub-objects
+  Return          inspect sub-objects
+  l               pop to the parent object
+  g               refresh the inspector (e.g. if viewing an atom/ref/agent)
+
+** cider test report mode
+  C-c ,           Run tests for namespace.
+  C-c C-,         Re-run test failures/errors for namespace.
+  C-c M-,         Run test at point.
+  M-p             Move point to previous test.
+  M-n             Move point to next test.
+  t and M-.       Jump to test definition.
+  d               Display diff of actual vs expected.
+  e               Display test error cause and stacktrace info.
+
+** cider stacktrace mode
+  M-p             move point to previous cause
+  M-n             move point to next cause
+  M-.  or
+  Return          navigate to the source location (if available) for
+                  the stacktrace frame
+  Tab             Cycle current cause detail
+  0 or
+  S-Tab           Cycle all cause detail
+  1               Cycle cause #1 detail
+  2               Cycle cause #2 detail
+  3               Cycle cause #3 detail
+  4               Cycle cause #4 detail
+  5               Cycle cause #5 detail
+  j               toggle display of java frames
+  c               toggle display of clj frames
+  r               toggle display of repl frames
+  t               toggle display of tooling frames (e.g. compiler,
+                  nREPL middleware)
+  d               toggle display of duplicate frames
+  a               toggle display of all frames
+
