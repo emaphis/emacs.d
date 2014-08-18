@@ -61,3 +61,378 @@ A handy remider of key bindings
    M-d             Kill word
    C-k             Kill line (from point)
 
+* help
+   C-h t           Tutorial (goes over the basics)
+   C-h b           Describe all current key bindings
+   C-h m           Describe the current mode
+   C-h a           Apropos - search the help for a term
+   C-h k           Describe key
+
+* keyboard macros
+  C-x (’ or <f3>   start defining a keyboard macro
+  C-x )’ or <f4>   stop defining the keyboard macro
+  C-x e’ or <f4>   execute the keyboard macro
+
+* win-switch (C-x o)
+   transient mode that aids window navigation
+** direct navigation:
+    i             select the window above the current window.
+    k             select the window below the current window.
+    j             select the window left of the current window.
+    l             select the window right of the current window.
+
+** cycling navigation
+    o             cycles forward through the window list in the current frame.
+    p             cycles backward through the window list in the current frame.
+    SPACE         cycles among existing frames.
+
+** exiting
+    u / <Ret>     exit window switching mode.
+    Any key not bound to a win-switch command exits window switching mode
+    (like u does) and then executes the original function. Waiting idle for more
+    than win-switch-idle-time will exit window switching mode (like u does)
+    C-M-g         is an “emergency” exit
+
+** resizing
+    I             vertically enlarges the current window
+    K             vertically shrinks the current window
+    L             horizontally enlarges the current window
+    J             horizontally shrinks the current window
+
+** splitting and deleting windows
+    h             splits the current window into two equal windows, one above
+                  the other. (H is a visual mnemonic for the split.)
+    ;             splits the current window into two equal windows, side by
+                  side. (: is a visual mnemnoic for the split.)
+    0             deletes the current window
+
+
+* execute commands (smex) and find files (ido) in mini buffer
+   M-x             extended-execute-command (smex)
+   M-X             smex-major-mode-commands (only command relevant to mode)
+   C-c C-c M-x     extended-execute-command (old)
+   C-s / C-r       next / previous match in 'smex' and 'ido'
+   C-f / C-b       switch find file or find buffer in 'smex' and 'ido'
+   Tab             tab completion
+   Ret             choose selection
+   //              go to root directory
+   ~/              go to home directory
+   C-SPC (C-@)     type some characters then execute for name filtering.
+   M-p / M-n or
+   M-UP / M-DOWN   to change to previous/next directories from the history
+   M-s             search for a file matching your input
+   C-h f           describe function on selection
+   M-.             jump to definition of selected function
+   C-h w           show key binding of selected funtion (where-is)
+   none            smex-show-unbound-commands
+
+* ace jump mode
+  C-c Spc         ace-jump-word-mode
+  C-u C-c Spc     ace-jump-char-mode
+  C-u C-uC-c Spc  ace-jump-line-mode
+
+* multiple cursors
+** bindings
+  C-S-c C-S-c     mc/edit-lines)
+  C->             mc/mark-next-like-this
+  C-<             mc/mark-previous-like-this
+  C-c C-<         mc/mark-all-like-this
+
+** Command overview
+*** Mark one more occurrence
+
+   mc/mark-next-like-this:            Adds a cursor and region at the next part of the buffer forwards that matches the current region.
+   mc/mark-next-word-like-this:       Like mc/mark-next-like-this but only for whole words.
+   mc/mark-next-symbol-like-this:     Like mc/mark-next-like-this but only for whole symbols.
+   mc/mark-previous-like-this:        Adds a cursor and region at the next part of the buffer backwards that matches the current region.
+   mc/mark-previous-word-like-this:   Like mc/mark-previous-like-this but only for whole words.
+   mc/mark-previous-symbol-like-this: Like mc/mark-previous-like-this but only for whole symbols.
+   mc/mark-more-like-this-extended:   Use arrow keys to quickly mark/skip next/previous occurances.
+   mc/add-cursor-on-click:            Bind to a mouse event to add cursors by clicking. See tips-section.
+   mc/mark-pop:                       Set a cursor at the current point and move to the next (different) position on the mark stack. This allows for fine grained control over the placement of cursors.
+
+*** Juggle around with the current cursors
+   mc/unmark-next-like-this:          Remove the cursor furthest down in the buffer.
+   mc/unmark-previous-like-this:      Remove the cursor furthest up in the buffer.
+   mc/skip-to-next-like-this:         Remove the cursor furthest down, marking the next occurance down.
+   mc/skip-to-previous-like-this:     Remove the cursor furthest up, marking the next occurance up.
+   mc/mark-next-like-this-extended:   Temporarily bind the arrow keys to mark/unmark/skip cursors.
+
+*** Mark many occurrences
+   mc/edit-lines:                     Adds one cursor to each line in the current region.
+   mc/edit-beginnings-of-lines:       Adds a cursor at the start of each line in the current region.
+   mc/edit-ends-of-lines:             Adds a cursor at the end of each line in the current region.
+   mc/mark-all-like-this:             Marks all parts of the buffer that matches the current region.
+   mc/mark-all-words-like-this:       Like mc/mark-all-like-this but only for whole words.
+   mc/mark-all-symbols-like-this:     Like mc/mark-all-like-this but only for whole symbols.
+   mc/mark-all-in-region:             Prompts for a string to match in the region, adding cursors to all of them.
+   mc/mark-all-like-this-in-defun:    Marks all parts of the current defun that matches the current region.
+   mc/mark-all-words-like-this-in-defun: Like mc/mark-all-like-this-in-defun but only for whole words.
+   mc/mark-all-symbols-like-this-in-defun: Like mc/mark-all-like-this-in-defun but only for whole symbols.
+   mc/mark-all-dwim:                  Tries to be smart about marking everything you want. Can be pressed multiple times.
+
+*** Special
+   set-rectangular-region-anchor:     Think of this one as set-mark except you're marking a rectangular region.
+   mc/mark-sgml-tag-pair:             Mark the current opening and closing tag.
+   mc/insert-numbers:                 Insert increasing numbers for each cursor, top to bottom.
+   mc/sort-regions:                   Sort the marked regions alphabetically.
+   mc/reverse-regions:                Reverse the order of the marked regions.
+
+* undo-tree-mode
+  C-_  C-/         (`undo-tree-undo')   Undo changes.
+  M-_  C-?         (`undo-tree-redo')   Redo changes.
+ `undo-tree-switch-branch'   Switch undo-tree branch.
+  C-x u            (`undo-tree-visualize')  Visualize the undo tree.
+  C-x r u          (`undo-tree-save-state-to-register')   Save current buffer state to register.
+  C-x r U          (`undo-tree-restore-state-from-register')  Restore buffer state from register.
+
+** In the undo-tree visualizer:
+  <up>  p  C-p     (`undo-tree-visualize-undo')  Undo changes.
+  <down>  n  C-n   (`undo-tree-visualize-redo')  Redo changes.
+  <left>  b  C-b   (`undo-tree-visualize-switch-branch-left')  Switch to previous undo-tree branch.
+  <right>  f  C-f  (`undo-tree-visualize-switch-branch-right')  Switch to next undo-tree branch.
+  C-<up>  M-{      (`undo-tree-visualize-undo-to-x')  Undo changes up to last branch point.
+  C-<down>  M-}    (`undo-tree-visualize-redo-to-x')  Redo changes down to next branch point.
+  <down>  n  C-n   (`undo-tree-visualize-redo')   Redo changes.
+  <mouse-1>        (`undo-tree-visualizer-mouse-set')   Set state to node at mouse click.
+  t                (`undo-tree-visualizer-toggle-timestamps')   Toggle display of time-stamps.
+  d                (`undo-tree-visualizer-toggle-diff')   Toggle diff display.
+  s                (`undo-tree-visualizer-selection-mode')   Toggle keyboard selection mode.
+  q                (`undo-tree-visualizer-quit')   Quit undo-tree-visualizer.
+  C-               q  (`undo-tree-visualizer-abort')   Abort undo-tree-visualizer.
+  ,  <             Scroll left.
+  .  >             Scroll right.
+  <pgup>  M-v      Scroll up.
+  <pgdown>  C-v    Scroll down.
+
+** In visualizer selection mode:
+  <up>  p  C-p     (`undo-tree-visualizer-select-previous')   Select previous node.
+  <down>  n  C-n   (`undo-tree-visualizer-select-next')       Select next node.
+  <left>  b  C-b   (`undo-tree-visualizer-select-left')     Select left sibling node.
+  <right>  f  C-f  (`undo-tree-visualizer-select-right')     Select right sibling node.
+  <pgup>  M-v      Select node 10 above.
+  <pgdown>  C-v    Select node 10 below.
+  <enter>          (`undo-tree-visualizer-set')     Set state to selected node and exit selection mode.
+  s                (`undo-tree-visualizer-mode')     Exit selection mode.
+  t                (`undo-tree-visualizer-toggle-timestamps')     Toggle display of time-stamps.
+  d                (`undo-tree-visualizer-toggle-diff')     Toggle diff display.
+  q                (`undo-tree-visualizer-quit')     Quit undo-tree-visualizer.
+  C-q              (`undo-tree-visualizer-abort')     Abort undo-tree-visualizer.
+  ,  <             Scroll left.
+  .  >             Scroll right.
+
+**  Persistent undo history:
+ undo-tree-auto-save-history (variable)      automatically save and restore undo-tree history along with buffer
+ undo-tree-save-history      (command)       manually save undo history to file
+ undo-tree-load-history      (command)       manually load undo history from file
+
+ * magit
+   from: http://daemianmack.com/magit-cheatsheet.html
+** Buffers
+   M-x             magit-status            Magit's status buffer
+                   The main entry point to Magit, and the context where the
+                   commands described in this cheatsheet are meant to be
+                   executed. Probably a good idea to bind magit-status
+                   to a key.
+
+  $                magit-process buffer    Behind-the-scenes
+                   Displays the git command and its output.
+
+  g                reload status buffer
+                   Necessary to update an existing Magit status buffer after
+                   saving a file in emacs, or after making changes to repo
+                   outside of emacs.
+
+** Section Visibility
+  TAB              Toggle visibility of current section
+
+  S-TAB            Toggle visibility of current section and its children
+
+  1,2,3,4          Expand current section to the corresponding level of detail
+                   - 1, 2, 3 or 4   e.g., 4 will show all detail for the current
+                   section.
+
+  M-1,2,3,4        Expand all sections to the corresponding level of detail
+                   - 1, 2, 3 or 4   e.g., M-4 will show all detail for the
+                   entire buffer.
+
+** Untracked Files
+  s                Add untracked file to staging area
+
+  i                Add file to .gitignore
+
+  C-u i            Prompt for file/directory to add to .gitignore
+
+  I                Add file to .git/info/exclude instead of .gitignore
+
+** Staging and Committing
+  s                Stage current hunk
+                   If point is in diff header, will stage all hunks belonging
+                   to current diff. If a region is active, only lines in that
+                   region will be staged. This is a distinct improvement on the
+                   conventional 'git add -p', the splitting mechanics of which
+                   are... 'imperfect'.
+
+  u                Unstage current hunk
+                   As with s command, only in reverse: diff headers and regions
+                   provide a corresponding context to the unstage action.
+
+  S                Stage all hunks
+
+  U                Unstage all hunks
+
+  k                Discard uncommitted changes   As with s command.
+
+  c                Prepare for commit
+                   Pops up magit-log-edit buffer. to allow you to enter your
+                   commit message.
+
+  C-c C-c          Execute commit
+                   Actually triggers commit action. Fire this inside the magit
+                   -log-edit commit message buffer. To postpone the commit for
+                   later, just C-x b to a different buffer and come back to
+                   this buffer when you're ready,
+
+  C-c C-a          Make the next commit an amend
+
+** History
+  l                History
+                   Shows terse history for repository.
+
+  L                Verbose history
+
+  C-u l            History segment
+                   Will prompt for beginning and end points.
+
+  RET              Inspect commit
+                   Shows full information for commit and move point into the
+                   new buffer.
+
+  a                Stage current commit on your current branch
+                   Useful to cherrypick changes while browsing an alternative
+                   branch. Cherrypicked changes need to be committed manually.
+
+  A                Commit current commit on your current branch
+                   As with 'a', but will automatically commit changes when
+                   there aren't any conflicts.
+
+  C-w              Copy sha1 of current commit into kill ring
+
+  =                Show differences between current and marked commits
+
+  ..               Mark current commit
+
+  .                Unmark current commit if marked
+
+  C-u ..           Unmark marked commit from anywhere
+
+** Reflogs
+  h                Browse reflog from HEAD
+                   Reflog buffer works just like History buffer described above.
+
+  H                Browse reflog from chosen point
+
+** Diffing
+  d                Show changes between working tree and HEAD
+
+  D                Show changes between two arbitrary revisions
+
+  a                Apply current changes to working tree
+                   Change-selection works as described in 'Staging and
+                   Committing' above.
+
+  v                Apply current changes to working tree in reverse
+
+** Tagging
+  t                Make lightweight tag
+
+  T                Prepare annotated tag
+                   Launches magit-log-edit buffer for writing annotation.
+
+  C-c C-c          Commit annotated tag
+                   Actually triggers annotated tag action.
+
+** Resetting
+  x                Reset your current head to chosen revision
+                   No changes will be made to working tree or staging area.
+                   Typing x while point is in a line describing a commit will
+                   offer this commit as the default revision to reset to.
+
+  X                Reset working tree and staging area to most recent
+                   committed state
+                   Destructive! Will discard all local modifications.
+
+** Stashing
+  z                Create new stash
+                   Stashes are listed in the status buffer.
+
+  Z                Create new stash and maintain state
+                   Leaves current changes in working tree and staging area.
+
+  RET              View stash
+
+  a                Apply stash
+
+  A                Pop stash
+
+  k                Drop stash
+
+** Branching
+  b                Switch to different branch
+                   Current branch is indicated in header of status buffer.
+
+  B                Create and switch to new branch
+
+** Wazzup
+  w                Show summary of how other branches relate to current branch
+
+  i                Toggle ignore branch
+
+  C-u w            Show all branches including ignored ones
+
+** Merging
+  m                Initiate manual merge
+                   Applies all changes to working area and index, without
+                   committing.
+
+  M                Initiate automatic merge
+                   Applies all changes to working area and index. Commits
+                   changes immediately.
+
+** Rebasing
+  R                Initiate or continue a rebase
+
+** Rewriting
+  r s              Start a rewrite
+
+  v                Revert a given commit
+
+  r t              Remove bookkeeping information from buffer
+
+  r a              Abort rewriting
+
+  r f              Finish rewriting
+                   Applies all unused commits.
+
+  r *              Toggle the * mark on a pending commit
+
+  r ..             Toggle the . mark on a pending commit
+
+** Pushing and Pulling
+  P                git push
+                   Uses default remote repository.
+
+  C-u P            git push to specified remote repository
+
+  f                git remote update
+
+  F                git pull
+
+** Interfacing with Subversion
+  N r              git svn rebase
+
+  N c              git svn dcommit
+
+
+* Programming modes
+
