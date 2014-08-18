@@ -1,0 +1,62 @@
+A handy remider of key bindings
+
+* general editing bindings
+** summary
+
+** file/buffer/window
+   C-x C-f        Find file
+   C-x C-s        Save buffer
+   C-x s          Save file (like save-as)
+   C-x b          Switch buffer
+   C-x k          Kill buffer
+   C-x 1          Delete other windows
+   C-x 0          Delete current window
+   C-x 2          Split window horizontally
+   C-x 3          Split window vertically
+
+** movement
+   C-a             Move to beginning of line
+   M-m             Move to the first non-whitespace character on the line
+   C-e             Move to end of line
+   C-n             Next line (down)
+   C-p             Previous line (up)
+   C-f             Move forward one character
+   C-b             Move backward one character
+   M-f             Move forward one word (I use this a lot)
+   M-b             Move backward one word (I use this a lot, too)
+   C-s             Regex search for text in the current buffer and move to it.
+                   Hit C-s again to move to the next match
+   C-r             Same as above, but search in reverse
+   C-v             Forward a page
+   M-v             Back a page
+   M-<             Move to beginning of buffer
+   M->             Move to end of buffer
+   M-g g           Go to line
+
+** edit
+   C-d             Kill character
+   M-d             Kill word
+   M-delete        Kill word backwards
+
+** misc
+   C-s             Regex search forwards
+   C-r             Regex search backwards
+   M-%             Query replace
+
+** kill ring and regions
+   C-Spc           Set mark
+   C-w             Kill region
+   M-w             Copy region to kill ring
+   C-y             Yank
+   M-y             Cycle through kill ring after yanking
+   M-d             Kill word
+   C-k             Kill line (from point)
+
+** custom key bindings
+   C-x g           magit-status
+   C-x O           back one window
+   C-x C-o         forward two windows
+   C-x C-i         idomenu
+   <F6>            toggle whitespace mode
+   <F7>            toggle menu bar
+

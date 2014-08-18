@@ -73,6 +73,8 @@
     smex
     magit  ;; yes, I consider vc to be part of base.
     markdown-mode
+    popup
+    win-switch
 
 
 
