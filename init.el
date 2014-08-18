@@ -92,8 +92,9 @@
     ;; ./custom/set-programming.el and
     ;; ./custom/set-elisp.el
     idle-highlight-mode
-
-
+    yasnippet
+    smartparens
+    flycheck
 
     ) "Packages managed as elpa repositories.")
 
