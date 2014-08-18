@@ -101,6 +101,9 @@
 
     ;;; clojure packages customized in
     ;;; ./custom/set-clojure.el
+    clojure-mode
+    cider
+    clojure-mode-extra-font-locking
 
 
     ) "Packages managed as elpa repositories.")
