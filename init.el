@@ -122,6 +122,8 @@
 ;;;
 (add-to-list 'load-path "~/.emacs.d/custom")
 
+;;; general editing settings
+;;; continuation of better-defaults
 (load "set-base.el")
 
 ;;; general programming settings
