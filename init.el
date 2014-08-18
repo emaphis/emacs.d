@@ -75,10 +75,17 @@
     markdown-mode
     popup
     win-switch
-    rainbow
+    rainbow-mode
     ace-jump-mode
     multiple-cursors
     undo-tree
+
+    ;;; themes
+    cyberpunk-theme
+    gandalf-theme
+    zenburn-theme
+    solarized-theme
+    monokai-theme
 
 
     ) "Packages managed as elpa repositories.")

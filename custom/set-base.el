@@ -81,10 +81,15 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 
+;;; Themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'load-path "~/.emacs.d/themes")
+(load-theme 'zenburn t)
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; misc settings
-
 
 
 ;;; display column number in mode-line
