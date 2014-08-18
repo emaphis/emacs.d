@@ -96,6 +96,8 @@
     smartparens
     flycheck
     company
+    rainbow-delimiters
+    elisp-slime-nav
 
     ) "Packages managed as elpa repositories.")
 
@@ -125,6 +127,8 @@
 ;;; general programming settings
 (load "set-programming.el")
 
+;;; elisp mode settings
+(load "set-elisp.el")
 
 
 ;;; Keep emacs custom-settings in separate file
