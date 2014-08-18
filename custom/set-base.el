@@ -68,6 +68,20 @@
 (global-set-key "\C-xo" 'win-switch-dispatch)
 
 
+;;; ace jump mode
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+
+;;; multiple cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; misc settings
 
@@ -108,7 +122,11 @@
 ;;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
-
+;;; open key bind documentation
+(global-set-key (kbd "C-h C-d")
+                (lambda ()
+                  (interactive)
+                  (find-file-other-window "~/.emacs.d/doc/key-bind.org")))
 
 (provide 'set-base)
 (message "end set-base.el")

@@ -3,6 +3,15 @@ A handy remider of key bindings
 * general editing bindings
 ** summary
 
+** custom key bindings
+   C-x g           magit-status
+   C-x O           back one window
+   C-x C-o         forward two windows
+   C-x C-i         idomenu
+   <F6>            toggle whitespace mode
+   <F7>            toggle menu bar
+   C-h C-d         open key binding reminder doc
+
 ** file/buffer/window
    C-x C-f        Find file
    C-x C-s        Save buffer
@@ -51,12 +60,4 @@ A handy remider of key bindings
    M-y             Cycle through kill ring after yanking
    M-d             Kill word
    C-k             Kill line (from point)
-
-** custom key bindings
-   C-x g           magit-status
-   C-x O           back one window
-   C-x C-o         forward two windows
-   C-x C-i         idomenu
-   <F6>            toggle whitespace mode
-   <F7>            toggle menu bar
 

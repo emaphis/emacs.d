@@ -75,7 +75,10 @@
     markdown-mode
     popup
     win-switch
-
+    rainbow
+    ace-jump-mode
+    multiple-cursors
+    undo-tree
 
 
     ) "Packages managed as elpa repositories.")
