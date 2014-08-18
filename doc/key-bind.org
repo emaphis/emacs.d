@@ -106,7 +106,6 @@ A handy remider of key bindings
                   side. (: is a visual mnemnoic for the split.)
     0             deletes the current window
 
-
 * execute commands (smex) and find files (ido) in mini buffer
    M-x             extended-execute-command (smex)
    M-X             smex-major-mode-commands (only command relevant to mode)
@@ -226,7 +225,7 @@ A handy remider of key bindings
  undo-tree-save-history      (command)       manually save undo history to file
  undo-tree-load-history      (command)       manually load undo history from file
 
- * magit
+* magit
    from: http://daemianmack.com/magit-cheatsheet.html
 ** Buffers
    M-x             magit-status            Magit's status buffer
