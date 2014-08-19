@@ -148,6 +148,23 @@
 ;;; A little more syntax highlighting
 (require 'clojure-mode-extra-font-locking)
 
+;;; A function for creating midje facts from cider repl output:
+;;  brittle: it requires that the cider-repl-result-prefix be set to "=>"
+;;           and that the clojure buffer is before the repl in window order.
+(defun cem-extract-midje-fact ()
+  "Extract the repl output  and generate a midje fact."
+  (interactive)
+  (let (pt1 pt1 my-str)
+    (setq pt1 (point))
+    (search-forward "=>")
+    (end-of-line)
+    (setq pt2 (point))
+    (setq my-str (buffer-substring pt1 pt2))
+    (other-window -1)
+    (insert (concat  "(fact "  my-str ")"))
+    (newline)))
+
+(define-key cider-repl-mode-map (kbd "C-c a") 'cem-extract-midje-fact)
 
 
 (message "end set-clojure.el")
