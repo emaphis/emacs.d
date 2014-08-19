@@ -164,7 +164,10 @@
     (insert (concat  "(fact "  my-str ")"))
     (newline)))
 
-(define-key cider-repl-mode-map (kbd "C-c a") 'cem-extract-midje-fact)
+(add-hook 'cider-repl-mode-hook
+          (lambda ()
+            (define-key cider-repl-mode-map
+              (kbd "C-c a") 'cem-extract-midje-fact)))
 
 
 (message "end set-clojure.el")
