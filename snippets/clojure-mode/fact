@@ -1,0 +1,5 @@
+# name: fact
+# key: fact
+# --
+(fact $1 => $0)$>
+

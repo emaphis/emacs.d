@@ -537,7 +537,7 @@ A handy remider of key bindings
   M-x imenu        list definitions in a menu
   (use 'clojure.repl)
   (use 'midje.repl)
-  
+
 ** cider-mode
 *** evaluation
   C-c C-k         Load the current buffer.
@@ -573,7 +573,7 @@ A handy remider of key bindings
   C-c M-m         Invoke clojure.walk/macroexpand-all on the form at point and
                   display the result in a macroexpansion buffer.
 
-*** completion 
+*** completion
   M-TAB / C-M-i   Complete the symbol at point.
 
 *** clojure documentation
@@ -725,12 +725,12 @@ A handy remider of key bindings
   a               toggle display of all frames
 
 * midje mode
-  C-c ,           within a fact, sends fact to REPL, 
+  C-c ,           within a fact, sends fact to REPL,
                   within a defn, recompiles the defn and rechecks
                   the last checke fact
   C-c u           outside the 'unfinished' list, adds to list and declares the
                   defn to the REPL
-                  inside the 'unfinished' list, removes the identifier, and 
+                  inside the 'unfinished' list, removes the identifier, and
                   creates the defn and a fact for it.
   C-c k           removes fact check comments from the buffer
   C-c h / C-c s   hides or shows all facts by condensing them into a single line,
@@ -738,7 +738,27 @@ A handy remider of key bindings
   C-c f           focus attention on one fact by hiding the others.
   C-h j           jump to to file point indicated in the error message
 
+** midje repl
+  (use 'midje.repl)    Load midje repl functions
+  (load-facts)         Initially, load everything. Subsequently, load
+                       the last "working set"
+  (load-facts :all)    Load everything.
+  (load-facts 'proj.namespace 'proj.other.namespace)
+  (load-facts 'proj.subdir.*)  Load a namespace tree.
+  (check-facts)        Recheck same facts over again.
+  (check-facts :all)   Check everything (if a previous command narrowed the
+                       "working set")
+  (forget-facts)       Forget the current "working set".
+  (forget-facts :all)  Forget everything
+  (autotest)
+  (autotest :dirs "test/midje/util" "src/midje/util")
+  (autotest :filter :core) ; Check only core facts.
+  (autotest :pause)
+  (autotest :resume)
+  (autotest :stop)
+
 ** midje-doc elements
+  lein midje-doc  (once)
   [[[[:chapter {:title "Hello World" :tag "hello"}]]]]
   [[[[:section {:title "Birds"}]]]]
   [[[[:subsection {:title "Flying Birds"}]]]]

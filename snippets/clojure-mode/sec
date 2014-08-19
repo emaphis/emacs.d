@@ -1,0 +1,4 @@
+# name: sec
+# key: sec
+# --
+[[:section {:title "$1 --  page: $0"}]]$>

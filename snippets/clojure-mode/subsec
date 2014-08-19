@@ -1,0 +1,4 @@
+# name: subsec
+# key: sec
+# --
+[[:subsection {:title "$1 -- page: $0"}]]$>
