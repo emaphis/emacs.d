@@ -162,7 +162,14 @@
     (setq my-str (buffer-substring pt1 pt2))
     (other-window -1)
     (insert (concat  "(fact "  my-str ")"))
-    (newline)))
+    (newline)
+    (previous-line)
+    (tab-indent-or-complete)
+    (next-line)
+    (move-beginning-of-line 1)
+    (tab-indent-or-complete)
+    (other-window +1)
+    (next-line)))
 
 (add-hook 'cider-repl-mode-hook
           (lambda ()
