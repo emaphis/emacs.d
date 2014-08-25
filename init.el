@@ -99,6 +99,10 @@
     rainbow-delimiters
     elisp-slime-nav
 
+    ;; haskell modules
+    ;; .custom/set-haskell.el
+    
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -131,6 +135,9 @@
 
 ;;; elisp mode settings
 (load "set-elisp.el")
+
+;;; haskell settings
+(load "set-haskell.el")
 
 
 ;;; Keep emacs custom-settings in separate file
