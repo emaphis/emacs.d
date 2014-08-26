@@ -41,6 +41,67 @@
 ;;
 ;;; Code:
 
+;;; customization directions here: https://github.com/haskell/haskell-mode/wiki
+;;; also: https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
+
+;;; things to setup in cabal to use this mode:
+;;; $ cabal install hasktags stylish-haskell present ghc-mod hlint hoogle
+;;;                structured-haskell-mode
+
+;; setup custom PATH
+(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
+(add-to-list 'exec-path "~/.cabal/bin")
+
+
+;;; Haskell mode settings:
+
+;;; select indentation mode:
+;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
+
+;;; Non interactive commands
+(eval-after-load 'haskell-mode
+          '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
+
+(custom-set-variables '(haskell-tags-on-save t))
+
+;;; Interactive commands
+
+(custom-set-variables
+  '(haskell-process-suggest-remove-import-lines t)
+  '(haskell-process-auto-import-loaded-modules t)
+  '(haskell-process-log t))
+
+;;; Hakell mode bindings (deviate from the ones in the wiki for ghc-core-mode
+;;    and HaRe setup)
+(eval-after-load 'haskell-mode '(progn
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+  (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
+  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
+  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
+(eval-after-load 'haskell-cabal '(progn
+  (define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
+  (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-ode-clear)
+  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+
+;;; GHCi process types
+;;; ghci cabal-repl cabal-dev cabal-ghci
+(custom-set-variables
+ '(haskell-process-type 'cabal-repl))
+
+
+;;; ghc-mod
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+
 
 (message "end haskell.el")
 (provide 'haskell)

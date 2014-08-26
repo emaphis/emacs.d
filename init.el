@@ -101,7 +101,8 @@
 
     ;; haskell modules
     ;; .custom/set-haskell.el
-    
+    haskell-mode
+    ghc
 
     ) "Packages managed as elpa repositories.")
 
