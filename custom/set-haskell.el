@@ -6,7 +6,7 @@
 ;;
 ;; Author: Ed Maphis
 ;;
-;; Created: Sat Aug 16 23:24:41 2014 (-0400)
+;; Created: Sat Aug 25 23:24:41 2014 (-0400)
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
@@ -68,6 +68,7 @@
 (custom-set-variables '(haskell-tags-on-save t))
 
 ;;; Interactive commands
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 (custom-set-variables
   '(haskell-process-suggest-remove-import-lines t)

@@ -103,6 +103,7 @@
     ;; .custom/set-haskell.el
     haskell-mode
     ghc
+    company-ghc
 
     ) "Packages managed as elpa repositories.")
 

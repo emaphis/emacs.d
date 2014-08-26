@@ -104,6 +104,9 @@
 (setq company-echo-delay 0)
 (setq company-auto-complete nil)
 
+(add-to-list 'company-backends 'company-ghc)
+(custom-set-variables '(company-ghc-show-info t))
+
 ;; invert display  when cusor is at the top
 (setq company-tooltip-flip-when-above t)
 
