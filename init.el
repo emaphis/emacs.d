@@ -106,6 +106,13 @@
     clojure-mode-extra-font-locking
     midje-mode
 
+    ;; haskell modules
+    ;; .custom/set-haskell.el
+    haskell-mode
+    ghc
+    company-ghc
+
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -141,6 +148,10 @@
 
 ;;; clojure settings
 (load "set-clojure.el")
+
+;;; haskell settings
+(load "set-haskell.el")
+
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
