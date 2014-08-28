@@ -99,6 +99,9 @@
     rainbow-delimiters
     elisp-slime-nav
 
+    ;; scala programming modes
+    ;; set in ./custom/set-scala.el
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -131,6 +134,9 @@
 
 ;;; elisp mode settings
 (load "set-elisp.el")
+
+;;; scala language settings
+(load "set-scala.el")
 
 
 ;;; Keep emacs custom-settings in separate file
