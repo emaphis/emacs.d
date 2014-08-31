@@ -112,6 +112,10 @@
     ghc
     company-ghc
 
+    ;; scala programming modes
+    ;; set in ./custom/set-scala.el
+    scala-mode2
+    ensime
 
     ) "Packages managed as elpa repositories.")
 
@@ -151,6 +155,10 @@
 
 ;;; haskell settings
 (load "set-haskell.el")
+
+;;; scala language settings
+(load "set-scala.el")
+
 
 
 ;;; Keep emacs custom-settings in separate file
