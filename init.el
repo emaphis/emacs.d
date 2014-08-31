@@ -101,6 +101,8 @@
 
     ;; scala programming modes
     ;; set in ./custom/set-scala.el
+    scala-mode2
+    ensime
 
     ) "Packages managed as elpa repositories.")
 
