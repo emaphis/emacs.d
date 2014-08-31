@@ -105,6 +105,7 @@
     cider
     clojure-mode-extra-font-locking
     midje-mode
+    4clojure
 
     ) "Packages managed as elpa repositories.")
 
