@@ -117,6 +117,11 @@
     scala-mode2
     ensime
 
+    ;; java mode
+    ;; ./custom/set-java.el
+    emacs-eclim
+
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -159,6 +164,8 @@
 ;;; scala language settings
 (load "set-scala.el")
 
+;;; java mode settings
+(load "set-java.el")
 
 
 ;;; Keep emacs custom-settings in separate file
@@ -169,4 +176,3 @@
 (message "end init.el")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
-
