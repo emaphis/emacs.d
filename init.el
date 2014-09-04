@@ -105,6 +105,7 @@
     cider
     clojure-mode-extra-font-locking
     midje-mode
+    4clojure
 
     ;; haskell modules
     ;; .custom/set-haskell.el
