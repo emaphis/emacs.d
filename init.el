@@ -99,6 +99,10 @@
     rainbow-delimiters
     elisp-slime-nav
 
+    ;; java mode
+    ;; ./custom/set-java.el
+    emacs-eclim
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -131,6 +135,9 @@
 
 ;;; elisp mode settings
 (load "set-elisp.el")
+
+;;; java mode settings
+(load "set-java.el")
 
 
 ;;; Keep emacs custom-settings in separate file

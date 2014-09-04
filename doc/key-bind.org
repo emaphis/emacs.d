@@ -518,3 +518,67 @@ A handy remider of key bindings
   C-c ! n          flycheck-next-error
   C-c ! p          flycheck-previous-error
   C-c ! l          flycheck-list-errors
+
+* java eclim
+  M-x start-eclimd
+  M-x stop-eclimd
+  M-x eclim-java-show-documentation-for-current-element
+
+** eclim java
+  C-c C-e s        eclim-java-method-signature-at-point
+  C-c C-e f d      eclim-java-find-declaration
+  C-c C-e f r      eclim-java-find-references
+  C-c C-e f t      eclim-java-find-type
+  C-c C-e f f      eclim-java-find-generic
+  C-c C-e r        eclim-java-refactor-rename-symbol-at-point
+  C-c C-e i        eclim-java-import-organize
+  C-c C-e h        eclim-java-hierarchy
+  C-c C-e z        eclim-java-implement
+  C-c C-e d        eclim-java-doc-comment
+  C-c C-e f s      eclim-java-format
+  C-c C-e g        eclim-java-generate-getter-and-setter
+
+** eclim show java documentation
+  <tab>            forword button
+  S-<tab>          backward button
+  q                eclim-quit-window
+
+** eclim java problems
+  M-x eclim-problems-correct
+  M-x eclim-problems
+  M-x eclim-problems-compilation-buffer
+  0-9              eclim-java-correct-choose-by-digit
+  <RET>            eclim-java-correct-choose
+
+** eclim project
+  C-c C-e g        eclim-project-goto
+  C-c C-e p p      eclim-project-mode
+  C-c C-e p m      eclim-project-mode
+  C-c C-e p i      eclim-project-import
+  C-c C-e p c      eclim-project-create
+  C-c C-e p g      eclim-project-goto
+  N                eclim-project-create
+  m                eclim-project-mark-current
+  M                eclim-project-mark-all
+  u                eclim-project-unmark-current
+  U                eclim-project-unmark-all
+  o                eclim-project-open
+  c                eclim-project-close
+  i                eclim-project-info-mode
+  I                eclim-project-import
+  RET              eclim-project-goto
+  D                eclim-project-delete
+  p                eclim-project-update
+  g                eclim-project-mode-refresh
+  R                eclim-project-rename
+  q                eclim-quit-window
+
+** eclim ant
+  C-c C-e a c      eclim-ant-clear-cache
+  C-c C-e a r      eclim-ant-run
+  C-c C-e a a      eclim-ant-run
+  C-c C-e a v      eclim-ant-validate
+
+** eclim maven
+  C-c C-e m p      eclim-maven-lifecycle-phase-run
+  C-c C-e m r      eclim-maven-run
