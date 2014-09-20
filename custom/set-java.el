@@ -68,6 +68,23 @@
 (global-company-mode t)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Flymake settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'flymake)
+
+;;(setq flymake-log-level -1) ;; 3 is debug
+
+;; On the fly checkstyle & pmd checking
+(defun my-java-flymake-init ()
+  (list "java-check.sh"
+        (list (flymake-init-create-temp-buffer-copy
+               'flymake-create-temp-with-folder-structure))))
+
+(add-to-list 'flymake-allowed-file-name-masks
+             '("\\.java$" my-java-flymake-init flymake-simple-cleanup))
+
+
 (message "end set-java.el")
 (provide 'set-java)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
