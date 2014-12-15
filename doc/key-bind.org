@@ -523,9 +523,9 @@ A handy remider of key bindings
   F8               jump to imports
   C-c C-.          sort and align imports
   M-.              jump to definition
-  M-x              haskell-mode-stylish-buffer  format file
+  M-x haskell-mode-stylish-buffer    format file
   C-c C-l          load file in interpreter
-  C-`              navigate errors in the file (haskell-mode, interactive)
+  C-c C-z          navigate errors in the file (haskell-mode, interactive)
   C-c C-n C-t      show type of expression (haskell-mode, interactive)
   C-c C-n C-t      show info of expression (interactive)
   C-c C-n C-c      run cabal build (interactive)
