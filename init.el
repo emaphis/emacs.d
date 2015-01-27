@@ -99,6 +99,10 @@
     rainbow-delimiters
     elisp-slime-nav
 
+    ;;; erlang
+    erlang
+    ;edts
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -131,6 +135,9 @@
 
 ;;; elisp mode settings
 (load "set-elisp.el")
+
+;;; erlang mode settings
+(load "set-erlang.el")
 
 
 ;;; Keep emacs custom-settings in separate file
