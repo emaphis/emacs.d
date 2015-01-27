@@ -11,6 +11,7 @@ A handy remider of key bindings
    <F6>            toggle whitespace mode
    <F7>            toggle menu bar
    C-h C-d         open key binding reminder doc
+   C-x M-d         insdate-insert-current-date
 
 ** file/buffer/window
    C-x C-f        Find file
