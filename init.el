@@ -122,6 +122,9 @@
     ;; ./custom/set-java.el
     emacs-eclim
 
+    ;; erlang
+    erlang
+    ;edts
 
     ) "Packages managed as elpa repositories.")
 
@@ -167,6 +170,9 @@
 
 ;;; java mode settings
 (load "set-java.el")
+
+;;; erlang mode settings
+(load "set-erlang.el")
 
 
 ;;; Keep emacs custom-settings in separate file
