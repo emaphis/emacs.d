@@ -16,8 +16,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary: provides erlang-mode
-;;
-;;
+;;   Using erlang installed with fedora yum  - version R16.3
+;;   erlang-mode installed with 'package'
 ;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -40,6 +40,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
+;; installed with package manager, so don't use local copy
+;(setq load-path (cons "/usr/lib64/tools-2.6.13/emacs"
+;                      load-path))
+(setq erlang-root-dir "/usr/lib64/erlang")
+(setq exec-path (cons "/usr/lib64/erlang/bin" exec-path))
+(require 'erlang-start)
 
 
 (message "end set-erlang.el")
