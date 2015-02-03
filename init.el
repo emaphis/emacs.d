@@ -101,7 +101,7 @@
 
     ;;; erlang
     erlang
-    ;edts
+;    edts
 
     ) "Packages managed as elpa repositories.")
 

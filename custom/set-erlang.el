@@ -48,6 +48,11 @@
 (setq exec-path (cons "/usr/lib64/erlang/bin" exec-path))
 (require 'erlang-start)
 
+;; edts
+(add-hook 'after-init-hook 'my-after-init-hook)
+(defun my-after-init-hook ()
+  (require 'edts-start))
+
 
 (message "end set-erlang.el")
 (provide 'set-erlang)
