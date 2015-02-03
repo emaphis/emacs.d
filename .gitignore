@@ -35,7 +35,9 @@ tramp
 /backups/
 /url/
 /back/
+/edts/
 
 # untracked files
 places
 ido.last
+ac-comphist.dat
