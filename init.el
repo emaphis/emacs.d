@@ -126,6 +126,9 @@
     erlang
 ;    edts
 
+    ;; R programming with ESS
+    ess
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -173,6 +176,9 @@
 
 ;;; erlang mode settings
 (load "set-erlang.el")
+
+;;; R settings
+(load "set-ess.el")
 
 
 ;;; Keep emacs custom-settings in separate file
