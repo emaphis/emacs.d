@@ -99,6 +99,9 @@
     rainbow-delimiters
     elisp-slime-nav
 
+    ;; R programming with ESS
+    ess
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
@@ -131,6 +134,9 @@
 
 ;;; elisp mode settings
 (load "set-elisp.el")
+
+;;; R settings
+(load "set-ess.el")
 
 
 ;;; Keep emacs custom-settings in separate file
