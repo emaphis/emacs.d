@@ -137,7 +137,6 @@
 
 
 (require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode t)
 
 
 (message "end set-programming.el")
