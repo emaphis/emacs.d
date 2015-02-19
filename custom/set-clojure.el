@@ -7,6 +7,7 @@
 ;; Author: Ed Maphis
 ;;
 ;; Created: Sat Aug 18 9:41:00 2014 (-0400)
+;; Updated: Wed Feb 18, 2015
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
@@ -42,14 +43,16 @@
 ;;; customizations are mostly from: https://github.com/clojure-emacs/cider
 
 ;;; turn on eldoc mode
-(add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-repl-mode-hook #'eldoc-mode)
+(add-hook 'cider-mode-hook #'eldoc-mode)
 
+;;; Let's log nREPL server comunications
+(setq nrepl-log-messages t)
 
 ;;; hide special buffers: *nrepl-connection* and *nrepl-server*
 (setq nrepl-hide-special-buffers t)
 
-;;; 'TAB' key behavior
+;;; 'TAB' key behavior - only TAB
 ; (setq cider-repl-tab-command 'indent-for-tab-command)
 
 ;;;  prefer local resources to remote (tramp) ones when both are available:
@@ -111,6 +114,8 @@
 ;;; setting cider known endpoints
 ;; (setq cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888")))
 
+;;; Show tests even if success
+;(setq cider-test-show-report-on-success t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
