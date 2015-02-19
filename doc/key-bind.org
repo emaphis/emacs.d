@@ -672,7 +672,8 @@ A handy remider of key bindings
   C-c M-i         Inspect expression. Will act on expression at point
                   if present.
   C-c M-n         Select a namespace and switch to it.
-  C-c M-t         Toggle var tracing.
+  C-c M-t v       Toggle var tracing.
+  C-c M-t n       Toggle namespace tracing.
   ,               Short-cut command ad REPL
 
 ** cider macroexpansion
