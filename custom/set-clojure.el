@@ -181,6 +181,30 @@
             (define-key cider-repl-mode-map
               (kbd "C-c a") 'cem-extract-midje-fact)))
 
+(eval-after-load 'clojure-mode
+  '(define-clojure-indent
+     (fact 'defun)
+     (facts 'defun)
+     (against-background 'defun)
+     (provided 0)))
+
+(add-hook 'clojure-mode-hook 'midje-colorize)
+(defun midje-colorize ()
+  (flet ((f (keywords face)
+            (cons (concat "\\<\\("
+                          (mapconcat 'symbol-name keywords "\\|")
+                          "\\)\\>")
+                  face)))
+    (font-lock-add-keywords
+     nil
+     (list (f '(fact facts future-fact future-facts tabular provided)
+              'font-lock-keyword-face)
+           (f '(just contains has has-suffix has-prefix
+                     truthy falsey anything exactly roughly throws)
+              'font-lock-type-face)
+           '("=>\\|=not=>" . font-lock-negation-char-face) ; arrows
+           '("\\<\\.+[a-zA-z]+\\.+\\>" . 'font-lock-type-face))))) ; metaconstants
+
 
 (message "end set-clojure.el")
 (provide 'set-clojure)
