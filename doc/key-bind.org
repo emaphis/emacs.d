@@ -11,6 +11,7 @@ A handy remider of key bindings
    <F6>            toggle whitespace mode
    <F7>            toggle menu bar
    C-h C-d         open key binding reminder doc
+   C-x M-d         insdate-insert-current-date
 
 ** file/buffer/window
    C-x C-f        Find file
@@ -446,8 +447,7 @@ A handy remider of key bindings
 
 * smartparens
 ** summary
-  M-(              paredit-wrap-round, surround expression after point
-                   in parentheses
+  M-(, M-{, M-[    surround expression after point in brackets
   C-→              Slurp; move closing parenthesis to the right to include
                    next expression
   C-←              Barf; move closing parenthesis to the left to exclude

@@ -89,10 +89,11 @@
 
 ;;; smart parens
 (require 'smartparens-config)
-(sp-use-smartparens-bindings)
 (smartparens-global-mode t)
 (show-smartparens-global-mode t) ; highlights matching pairs
-(setq sp-highlight-pair-overlay nil) ; will experiment later
+(sp-pair "(" ")" :wrap "M-(")
+(sp-pair "[" "]" :wrap "M-[")
+(sp-pair "{" "}" :wrap "M-{")
 
 
 ;;; company mode
@@ -137,7 +138,6 @@
 
 
 (require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode t)
 
 
 (message "end set-programming.el")
