@@ -447,8 +447,7 @@ A handy remider of key bindings
 
 * smartparens
 ** summary
-  M-(              paredit-wrap-round, surround expression after point
-                   in parentheses
+  M-(, M-{, M-[    surround expression after point in brackets
   C-→              Slurp; move closing parenthesis to the right to include
                    next expression
   C-←              Barf; move closing parenthesis to the left to exclude
