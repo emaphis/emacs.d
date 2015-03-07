@@ -205,6 +205,8 @@
            '("=>\\|=not=>" . font-lock-negation-char-face) ; arrows
            '("\\<\\.+[a-zA-z]+\\.+\\>" . 'font-lock-type-face))))) ; metaconstants
 
+;; outputs value of sexp in the edit buffer
+(global-set-key (kbd "M-p") 'cider-eval-print-last-sexp)
 
 (message "end set-clojure.el")
 (provide 'set-clojure)
