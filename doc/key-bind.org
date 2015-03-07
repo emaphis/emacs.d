@@ -12,6 +12,7 @@ A handy remider of key bindings
    <F7>            toggle menu bar
    C-h C-d         open key binding reminder doc
    C-x M-d         insdate-insert-current-date
+   C-x M-r         eval-and-replace elisp sexp
 
 ** file/buffer/window
    C-x C-f        Find file
