@@ -567,6 +567,7 @@ A handy remider of key bindings
   C-C m-:         cider-read-and-eval
   C-c M-i         Inspect expression. Will act on expression at point
                   if present.
+  M-p             cider-eval-print-last-sexp
 
 *** macro expansion
   C-c C-m         Invoke macroexpand-1 on the form at point and display the
