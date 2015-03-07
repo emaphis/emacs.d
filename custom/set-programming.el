@@ -89,6 +89,7 @@
 
 ;;; smart parens
 (require 'smartparens-config)
+(sp-use-smartparens-bindings)
 (smartparens-global-mode t)
 (show-smartparens-global-mode t) ; highlights matching pairs
 (sp-pair "(" ")" :wrap "M-(")
