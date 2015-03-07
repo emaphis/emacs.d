@@ -143,7 +143,18 @@
                   (find-file-other-window "~/.emacs.d/doc/key-bind.org")))
 
 ;;; insert date
-(global-set-key (kbd "C-x M-d") `insdate-insert-current-date)
+(global-set-key (kbd "C-x M-d") #`insdate-insert-current-date)
+
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (condition-case nil
+      (insert (format "%s" (eval (read (current-kill 0)))))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
+
+(global-set-key (kbd "C-x M-r") #'eval-and-replace)
 
 
 (provide 'set-base)
