@@ -727,6 +727,46 @@ A handy remider of key bindings
   d               toggle display of duplicate frames
   a               toggle display of all frames
 
+** clojure re-factor
+  M-n             refactor prefix   
+  ad:             add declaration for current top-level form
+  ai:             add import to namespace declaration, then jump back
+  ar:             add require to namespace declaration, then jump back (see optional setup)
+  au:             add "use" (ie require refer all) to namespace declaration, then jump back
+  cc:             cycle surrounding collection type
+  ci:             refactoring between if and if-not
+  cp:             cycle privacy of defns and defs
+  dk:             destructure keys
+  el:             expand let
+  il:             introduce let
+  mf:             move one or more forms to another namespace, :refer any functions
+  ml:             move to let
+  pc:             run project cleaner functions on the whole project
+  pf:             promote function literal or fn, or fn to defn
+  rf:             rename file, update ns-declaration, and then query-replace new ns in project.
+  rl:             remove-let, inline all variables and remove the let form
+  rr:             remove unused requires
+  ru:             replace all :use in namespace with :refer :all
+  sn:             sort :use, :require and :import in the ns form
+  sp:             Sort all dependency vectors in project.clj
+  sr:             stop referring (removes :refer [] from current require, fixing references)
+  tf:             wrap in thread-first (->) and fully thread
+  th:             thread another expression
+  tl:             wrap in thread-last (->>) and fully thread
+  ua:             fully unwind a threaded expression
+  uw:             unwind a threaded expression
+
+ Using refactor-nrepl, you also get:
+
+  am:             add a missing libspec
+  ap:             add a dependency to your project
+  cn:             Perform various cleanups on the ns form
+  ef:             Extract function
+  fu:             Find usages
+  hd:             Hotload dependency
+  rd:             Remove (debug) function invocations
+  rs:             Rename symbol
+
 * midje mode
   C-c ,           within a fact, sends fact to REPL,
                   within a defn, recompiles the defn and rechecks

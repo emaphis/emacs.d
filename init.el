@@ -104,6 +104,7 @@
     clojure-mode
     cider
     clojure-mode-extra-font-locking
+    clj-refactor
   ;  midje-mode
   ;  4clojure
 

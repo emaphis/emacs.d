@@ -143,7 +143,7 @@
                   (find-file-other-window "~/.emacs.d/doc/key-bind.org")))
 
 ;;; insert date
-(global-set-key (kbd "C-x M-d") #`insdate-insert-current-date)
+(global-set-key (kbd "C-x M-d") #'insdate-insert-current-date)
 
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."

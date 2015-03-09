@@ -153,6 +153,14 @@
 ;;; A little more syntax highlighting
 (require 'clojure-mode-extra-font-locking)
 
+;; set up clojure refactor
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+                               (cljr-add-keybindings-with-prefix "M-n")
+                               ;; eg. rename files with `M-n rf`.
+                               ))
+
 ;;; A function for creating midje facts from cider repl output:
 ;;  brittle: it requires that the cider-repl-result-prefix be set to "=>"
 ;;           and that the clojure buffer is before the repl in window order.
