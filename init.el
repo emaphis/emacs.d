@@ -2,7 +2,7 @@
 ;;
 ;; Filename: init.el
 ;;
-;; Copyright (c) 2014 Ed Maphis
+;; Copyright (c) 2016 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 24.4
+;; Compatibility: emacs 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,16 +41,23 @@
 ;;
 ;;; Code:
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Stuff to load early goes here.
+;;;
+(add-to-list 'load-path "~/.emacs.d/vendor")
+
+;;; vendor/better-defaults.el
+;;;  provides: ido, uniquify, better settings
+(load "better-defaults.el")
+; TODO: ido-use-virual-buffers?
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; packages and repositories
 ;;;
 (require 'package)
 
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+;;(add-to-list 'package-archives
+;;             '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
@@ -64,7 +71,6 @@
     ;; base editing packages and settings
     ;; based on Technomancy's better-defaults.el
     ;; customized in /custom/set-base.el
-    cl-lib
     dash
     s
     ido-hacks
@@ -81,9 +87,9 @@
     undo-tree
 
     ;;; themes
-    cyberpunk-theme
-    gandalf-theme
-    zenburn-theme
+;;    cyberpunk-theme
+;;    gandalf-theme
+;;    zenburn-theme
     solarized-theme
     monokai-theme
 
@@ -101,30 +107,30 @@
 
     ;;; clojure packages customized in
     ;;; ./custom/set-clojure.el
-    clojure-mode
-    cider
-    clojure-mode-extra-font-locking
-    clj-refactor
+;;    clojure-mode
+;;    cider
+;;    clojure-mode-extra-font-locking
+;;    clj-refactor
   ;  midje-mode
   ;  4clojure
 
     ;; haskell modules
     ;; .custom/set-haskell.el
     haskell-mode
-    ghc
-    company-ghc
+;;    ghc
+;;    company-ghc
 
     ;; scala programming modes
     ;; set in ./custom/set-scala.el
-    scala-mode2
-    ensime
+;;    scala-mode2
+;;    ensime
 
     ;; java mode
     ;; ./custom/set-java.el
-    emacs-eclim
+;    emacs-eclim
 
     ;; erlang
-    erlang
+;;    erlang
 ;    edts
 
     ;; R programming with ESS
@@ -135,17 +141,6 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; non packaged (vendor) code goes here:
-;;;
-(add-to-list 'load-path "~/.emacs.d/vendor")
-
-;;; vendor/better-defaults.el
-;;;  provides: ido, uniquify, better settings
-(load "better-defaults.el")
-; TODO: ido-use-virual-buffers?
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -170,13 +165,13 @@
 (load "set-haskell.el")
 
 ;;; scala language settings
-(load "set-scala.el")
+;(load "set-scala.el")
 
 ;;; java mode settings
-(load "set-java.el")
+;(load "set-java.el")
 
 ;;; erlang mode settings
-(load "set-erlang.el")
+;(load "set-erlang.el")
 
 ;;; R settings
 (load "set-ess.el")
