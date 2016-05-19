@@ -2,7 +2,7 @@
 ;;
 ;; Filename: haskell.el
 ;;
-;; Copyright (c) 2014 Ed Maphis
+;; Copyright (c) 2016 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -19,6 +19,14 @@
 ;;
 ;;  My haskell settings, largely derived from the excellent tutorial:
 ;;  https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
+;;
+;; Trouble shooting:
+;;   If the REPL ever goes funny, you can clear the command queue via:
+;; M-x haskell-process-clear
+;;   Alternatively, you can just restart the process:
+;; M-x haskell-process-restart
+;;   Dump the  haskell-process  state:
+;; M-: (haskell-process)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,25 +57,22 @@
 ;;;                structured-haskell-mode
 
 ;; setup custom PATH
-(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
-(add-to-list 'exec-path "~/.cabal/bin")
+;;(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
+;;(add-to-list 'exec-path "~/.cabal/bin")
 
 
 ;;; Haskell mode settings:
 
-;;; select indentation mode:
-;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'my-haskell-hook)
+
+(defun my-haskell-hook ()
+  (flycheck-mode 1)
+  "This is my haskell mode hook")
 
 
-;;; Non interactive commands
-(eval-after-load 'haskell-mode
-          '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
-
-(custom-set-variables '(haskell-tags-on-save t))
-
-;;; Interactive commands
+;; haskell interactive suttings
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 (custom-set-variables
@@ -75,43 +80,27 @@
   '(haskell-process-auto-import-loaded-modules t)
   '(haskell-process-log t))
 
-;;; Hakell mode bindings (deviate from the ones in the wiki for ghc-core-mode
-;;    and HaRe setup)
-(eval-after-load 'haskell-mode '(progn
-  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
+(define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+(define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
+(define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+(define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+(define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+(define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
+(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 
-(eval-after-load 'haskell-cabal '(progn
-  (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)          
-  (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+(define-key haskell-mode-map [f8] 'haskell-navigate-imports)
 
-(eval-after-load 'haskell-mode
-  '(define-key haskell-mode-map (kbd "C-c C-o") 'haskell-compile))
-(eval-after-load 'haskell-cabal
-  '(define-key haskell-cabal-mode-map (kbd "C-c C-o") 'haskell-compile))
-
-;;; GHCi process types
-;;; ghci cabal-repl cabal-dev cabal-ghci
 (custom-set-variables
- '(haskell-process-type 'cabal-repl))
+ '(haskell-process-type 'ghci))
 
 
-;;; ghc-mod
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;; ghc-mod stuff
+;(autoload 'ghc-init "ghc" nil t)
+;(autoload 'ghc-debug "ghc" nil t)
+;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
-;; company completion mode
-(add-to-list 'company-backends 'company-ghc)
-(custom-set-variables '(company-ghc-show-info t))
-
+;(add-to-list 'company-backends 'company-ghc)
 
 (message "end haskell.el")
 (provide 'haskell)
