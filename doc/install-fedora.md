@@ -2,6 +2,7 @@
 
 
 I like to compile install and run the latest emacs to my local home dir.  Here is how I did it.
+If you follow these directions, replace UserName with your accounts name.
 
 
 * install dev tools on a new Fedora installation *
@@ -28,7 +29,7 @@ tar -xvf emacs.whatever.tar.xz
 
 * run configure (with my ops)
 ```
-$ ./configure --prefix=/home/emaphis/emacs --bindir=/home/UserName/bin --with-x-toolkit=gtk3 --with-dbus --with-gif --with-jpeg --with-png --with-rsvg --with-tiff --with-xft --with-xpm --with-gpm=no
+$ ./configure --prefix=/home/UserName/emacs --bindir=/home/UserName/bin --with-x-toolkit=gtk3 --with-dbus --with-gif --with-jpeg --with-png --with-rsvg --with-tiff --with-xft --with-xpm --with-gpm=no
 ```
 of course with your one home directory and ops
 
