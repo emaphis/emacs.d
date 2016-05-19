@@ -159,7 +159,7 @@
 (load "set-elisp.el")
 
 ;;; clojure settings
-(load "set-clojure.el")
+;(load "set-clojure.el")
 
 ;;; haskell settings
 (load "set-haskell.el")
