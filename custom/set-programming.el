@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-programming.el
 ;;
-;; Copyright (c) 2014 Ed Maphis
+;; Copyright (c) 2016 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -96,6 +96,12 @@
 (sp-pair "[" "]" :wrap "M-[")
 (sp-pair "{" "}" :wrap "M-{")
 
+;; flycheck
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
 
 ;;; company mode
 (require 'company)
