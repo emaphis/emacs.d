@@ -87,12 +87,11 @@
 (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 
 (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
 
 (custom-set-variables
- '(haskell-process-type 'ghci))
+ '(haskell-process-type 'stack-ghci))
 
 
 ;; ghc-mod stuff
@@ -102,8 +101,9 @@
 
 ;(add-to-list 'company-backends 'company-ghc)
 
+
 (message "end haskell.el")
-(provide 'haskell)
+(provide 'set-haskell)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; haskell.el ends here
+;;; set-haskell.el ends here
 
