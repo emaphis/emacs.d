@@ -107,12 +107,11 @@
 
     ;;; clojure packages customized in
     ;;; ./custom/set-clojure.el
-;;    clojure-mode
-;;    cider
+    clojure-mode
+    cider
 ;;    clojure-mode-extra-font-locking
-;;    clj-refactor
-  ;  midje-mode
-  ;  4clojure
+  ;  clj-refactor
+
 
     ;; haskell modules
     ;; .custom/set-haskell.el

@@ -2,12 +2,12 @@
 ;;
 ;; Filename: set-clojure.el
 ;;
-;; Copyright (c) 2014 Ed Maphis
+;; Copyright (c) 2016 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
 ;; Created: Sat Aug 18 9:41:00 2014 (-0400)
-;; Updated: Wed Feb 18, 2015
+;; Updated: Sun May 22, 2016
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
@@ -40,127 +40,58 @@
 ;;
 ;;; Code:
 
-;;; customizations are mostly from: https://github.com/clojure-emacs/cider
+;;; customizations are mostly from: http://cider.readthedocs.io/en/latest/
 
-;;; turn on eldoc mode
-(add-hook 'cider-repl-mode-hook #'eldoc-mode)
-(add-hook 'cider-mode-hook #'eldoc-mode)
+(require 'clojure-mode)
+(require 'cider)
 
-;;; Let's log nREPL server comunications
-(setq nrepl-log-messages t)
+;; REPL related stuff
 
-;;; hide special buffers: *nrepl-connection* and *nrepl-server*
-(setq nrepl-hide-special-buffers t)
+;; REPL history file
+(setq cider-repl-history-file "~/.emacs.d/cider-history")
 
-;;; 'TAB' key behavior - only TAB
-; (setq cider-repl-tab-command 'indent-for-tab-command)
+;; nice pretty printing
+(setq cider-repl-use-pretty-printing t)
 
-;;;  prefer local resources to remote (tramp) ones when both are available:
-; (setq cider-prefer-local-resources t)
-
-;;; prevent the auto-display of the REPL buffer in a separate window
-;;; after connection is established:
-; (setq cider-repl-pop-to-buffer-on-connect nil)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; error handling
-;;;
-;;; Configure whether the error buffer with stacktraces should be
-;;; automatically shown on error:
-;;; Use 'cider-visit-error-buffer' to visit this buffer
-;(setq cider-show-error-buffer nil) ;; Don't show on error
-
-;;; Independently of the value of 'cider-show-error-buffer', the error buffer
-;;; is always generated in the background. Use 'cider-visit-error-buffer' to
-;;; visit this buffer.
-;(setq cider-show-error-buffer 'except-in-repl) ; or
-;(setq cider-show-error-buffer 'only-in-repl)
-
-;;;  To disable auto-selection of the error buffer when it's displayed:
-(setq cider-auto-select-error-buffer nil)
-
-;;; Using the wrap-stacktrace middleware from cider-nrepl, filter stack-trace
-;;; output. Options: java, clj, repl, tooling, dup, and nil.
-(setq cider-stacktrace-default-filters '(tooling dup))
-
-;; error message wrapping
-(setq cider-stacktrace-fill-column 80)
-
-
-;;; REPL buffer name separator.
-(setq nrepl-buffer-name-separator "-")
-;;; show the port in the buffer name
-(setq nrepl-buffer-name-show-port t)
-
-
-;;; Make C-c C-z switch to the CIDER REPL buffer in the current window:
-(setq cider-repl-display-in-current-window t)
-
-;;;  Prevent C-c C-k from prompting to save the file corresponding to
-;;; the buffer being loaded, if it's modified:
-(setq cider-prompt-save-file-on-load nil)
-
-;;; Change the result prefix for REPL evaluation (by default there's no prefix):
-(setq cider-repl-result-prefix " => ")
-
-;;; Change the result prefix for interactive evaluation (by default it's =>):
-;;; To remove the prefix altogether just set it to an empty string("").
-(setq cider-interactive-eval-result-prefix " => ")
-
-;;;  font-lock the repl  as in clojure-mode, instead of 'cider-repl-input-face'
+;; nicer font lock in REPL
 (setq cider-repl-use-clojure-font-lock t)
 
-;;; setting cider known endpoints
-;; (setq cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888")))
+;; result prefix for the REPL
+(setq cider-repl-result-prefix ";; => ")
 
-;;; Show tests even if success
-;(setq cider-test-show-report-on-success t)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; REPL history
-;;;
-;;; To make the REPL history wrap around when its end is reached:
+;; never ending REPL history
 (setq cider-repl-wrap-history t)
 
-;;; To adjust the maximum number of items kept in the REPL history:
-(setq cider-repl-history-size 1000) ; the default is 500
+;; looong history
+(setq cider-repl-history-size 3000)
 
-;;; To store the REPL history in a file:
-(setq cider-repl-history-file "~/.emacs.d/auto-save-list/cider-history")
+;; eldoc for clojure
+(add-hook 'cider-mode-hook #'eldoc-mode)
 
+;; error buffer not popping up
+(setq cider-show-error-buffer nil)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Integration with other modes
-;;;
+;; company mode for completion
+(add-hook 'cider-repl-mode-hook #'company-mode)
+(add-hook 'cider-mode-hook #'company-mode)
 
-;;; idle-highlight
-(add-hook 'clojure-mode-hook (lambda () (idle-highlight-mode t)))
+;; paredit
+;;(add-hook 'clojure-mode-hook #'paredit-mode)
+;;(add-hook 'cider-repl-mode-hook #'paredit-mode)
 
-;;; java style camelCase
-(add-hook 'clojure-mode-hook 'subword-mode)
-(add-hook 'cider-repl-mode-hook 'subword-mode)
+;; hl-sexp
+(add-hook 'clojure-mode-hook #'hl-sexp-mode)
 
-;;; 'smartparens'
-(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
-(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
+;; flycheck for clojure
+(require 'flycheck-clojure)
+(eval-after-load 'flycheck '(flycheck-clojure-setup))
 
-;;; rainbow-delimiters
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+;; clojure refactor
+;;(require 'multiple-cursors)
+;;(require 'dash)
+;;(require 'clj-refactor)
 
-;;; A little more syntax highlighting
-(require 'clojure-mode-extra-font-locking)
-
-;; set up clojure refactor
-(require 'clj-refactor)
-(add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-                               (cljr-add-keybindings-with-prefix "M-n")
-                               ;; eg. rename files with `M-n rf`.
-                               ))
-
+;;; midje stuff
 ;;; A function for creating midje facts from cider repl output:
 ;;  brittle: it requires that the cider-repl-result-prefix be set to "=>"
 ;;           and that the clojure buffer is before the repl in window order.
@@ -215,6 +146,7 @@
 
 ;; outputs value of sexp in the edit buffer
 (global-set-key (kbd "M-p") 'cider-eval-print-last-sexp)
+
 
 (message "end set-clojure.el")
 (provide 'set-clojure)
