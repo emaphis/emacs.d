@@ -54,7 +54,7 @@
 (setq cider-repl-use-pretty-printing t)
 
 ;; nicer font lock in REPL
-(setq cider-repl-use-clojure-font-lock t)
+;;(setq cider-repl-use-clojure-font-lock t)
 
 ;; result prefix for the REPL
 (setq cider-repl-result-prefix ";; => ")

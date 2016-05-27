@@ -58,13 +58,16 @@
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
-;;(add-to-list 'package-archives
-;;             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
+
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(company . "melpa-stable") t)
 
 (defvar my-packages
   '(
