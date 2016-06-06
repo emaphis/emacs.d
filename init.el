@@ -88,9 +88,9 @@
     undo-tree
 
     ;;; themes
-;;    cyberpunk-theme
-;;    gandalf-theme
-;;    zenburn-theme
+    cyberpunk-theme
+    gandalf-theme
+    zenburn-theme
     solarized-theme
     monokai-theme
 
@@ -117,6 +117,7 @@
     ;; haskell modules
     ;; .custom/set-haskell.el
     haskell-mode
+;;    intero
     ghc
     company-ghc
 

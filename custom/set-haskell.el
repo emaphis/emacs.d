@@ -63,6 +63,8 @@
 
 ;;; Haskell mode settings:
 
+(require 'haskell-mode)
+
 (add-hook 'haskell-mode-hook 'my-haskell-hook)
 
 (defun my-haskell-hook ()
@@ -92,6 +94,9 @@
 
 (custom-set-variables
  '(haskell-process-type 'stack-ghci))
+
+;; Intero setup <http://commercialhaskell.github.io/intero/>
+;(add-hook 'haskell-mode-hook 'intero-mode)
 
 
 ;; ghc-mod stuff
