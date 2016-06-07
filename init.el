@@ -123,8 +123,8 @@
 
     ;; scala programming modes
     ;; set in ./custom/set-scala.el
-;;    scala-mode2
-;;    ensime
+    scala-mode
+    ensime
 
     ;; java mode
     ;; ./custom/set-java.el
@@ -160,13 +160,13 @@
 (load "set-elisp.el")
 
 ;;; clojure settings
-;(load "set-clojure.el")
+(load "set-clojure.el")
 
 ;;; haskell settings
 (load "set-haskell.el")
 
 ;;; scala language settings
-;(load "set-scala.el")
+(load "set-scala.el")
 
 ;;; java mode settings
 ;(load "set-java.el")
