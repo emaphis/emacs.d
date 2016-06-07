@@ -83,8 +83,8 @@
 (add-hook 'clojure-mode-hook #'hl-sexp-mode)
 
 ;; flycheck for clojure
-(require 'flycheck-clojure)
-(eval-after-load 'flycheck '(flycheck-clojure-setup))
+;(require 'flycheck-clojure)
+;(eval-after-load 'flycheck '(flycheck-clojure-setup))
 
 ;; clojure refactor
 ;;(require 'multiple-cursors)
