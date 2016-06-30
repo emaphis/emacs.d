@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-erlang.el
 ;;
-;; Copyright (c) 2015
+;; Copyright (c) 2016
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,14 +11,13 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings erlang
-;; Compatibility: emacs 24.4
+;; Compatibility: emacs 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;; Commentary: provides erlang-mode
-;;   Using erlang installed with fedora yum  - version R16.3
-;;   erlang-mode installed with 'package'
-;;
+;;; Commentary:
+;;   Using erlang downloade from erlang.org
+;;   erlang-mode using local copy
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,17 +40,35 @@
 ;;
 ;;; Code:
 
-;; installed with package manager, so don't use local copy
-;(setq load-path (cons "/usr/lib64/tools-2.6.13/emacs"
-;                      load-path))
-(setq erlang-root-dir "/usr/lib64/erlang")
-(setq exec-path (cons "/usr/lib64/erlang/bin" exec-path))
+;; Set up erlang mode -- use local copy
+(setq load-path (cons "/usr/lib/erlang/lib/tools-2.8.4/emacs"  load-path))
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
 (require 'erlang-start)
 
+
+;; Set up flycheck
+;; advice from: http://www.lambdacat.com/post-modern-emacs-setup-for-erlang/
+;;(flycheck-define-checker erlang-otp
+;;  "An Erlang syntax checker using the Erlang interpreter."
+;;  :command ("erlc" "-o" temporary-directory "-Wall"
+;;            "-I" "../include" "-I" "../../include"
+;;            "-I" "../../../include" source)
+;;  :error-patterns
+;;  ((warning line-start (file-name) ":" line ": Warning:" (message) line-end)
+;;   (error line-start (file-name) ":" line ": " (message) line-end)))
+
+;;(add-hook 'erlang-mode-hook
+;;          (lambda ()
+;;            (flycheck-select-checker 'erlang-otp)
+;;            (flycheck-mode)))
+
+;;(require 'erlang-flymake)
+
 ;; edts
-(add-hook 'after-init-hook 'my-after-init-hook)
-(defun my-after-init-hook ()
-  (require 'edts-start))
+;;(add-hook 'after-init-hook 'my-after-init-hook)
+;;(defun my-after-init-hook ()
+;;  (require 'edts-start))
 
 
 (message "end set-erlang.el")
