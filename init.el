@@ -131,11 +131,16 @@
 ;    emacs-eclim
 
     ;; erlang
-;;    erlang
-;    edts
+    ;  erlang  ; local copy
+    edts
+;    distel
+;    company-distel
 
     ;; R programming with ESS
     ess
+
+    ;; sml
+    sml-mode
 
     ) "Packages managed as elpa repositories.")
 

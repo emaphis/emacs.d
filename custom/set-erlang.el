@@ -41,10 +41,11 @@
 ;;; Code:
 
 ;; Set up erlang mode -- use local copy
-(setq load-path (cons "/usr/lib/erlang/lib/tools-2.8.4/emacs"  load-path))
-(setq erlang-root-dir "/usr/lib/erlang")
-(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang-start)
+;(setq load-path (cons "/usr/lib/erlang/lib/tools-2.8.3/emacs"  load-path))
+;(setq erlang-root-dir "/usr/lib/erlang")
+;(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+;(setq erlang-man-root-dir "/usr/lib/erlang/man")
+;(require 'erlang-start)
 
 
 ;; Set up flycheck
@@ -66,9 +67,11 @@
 ;;(require 'erlang-flymake)
 
 ;; edts
-;;(add-hook 'after-init-hook 'my-after-init-hook)
-;;(defun my-after-init-hook ()
-;;  (require 'edts-start))
+(add-hook 'after-init-hook 'my-after-init-hook)
+(defun my-after-init-hook ()
+  (company-mode -1)
+  (flycheck-mode -1)
+  (require 'edts-start))
 
 
 (message "end set-erlang.el")
