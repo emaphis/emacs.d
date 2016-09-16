@@ -102,6 +102,7 @@
     yasnippet
     smartparens
     flycheck
+    flycheck-pos-tip
     company
     rainbow-delimiters
     elisp-slime-nav
@@ -171,23 +172,25 @@
 (load "set-haskell.el")
 
 ;;; scala language settings
-(load "set-scala.el")
+;(load "set-scala.el")
 
 ;;; java mode settings
 ;(load "set-java.el")
 
 ;;; erlang mode settings
-(load "set-erlang.el")
+;(load "set-erlang.el")
 
 ;;; R settings
-(load "set-ess.el")
+;(load "set-ess.el")
 
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
 (load custom-file)
 
+;(global-set-key (kbd "<f7>") 'menu-bar-mode)
 
 (message "end init.el")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
+

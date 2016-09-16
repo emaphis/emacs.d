@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-base.el
 ;;
-;; Copyright (c) 2014 Ed Maphis
+;; Copyright (c) 2016 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
