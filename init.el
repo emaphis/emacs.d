@@ -143,6 +143,9 @@
     ;; sml
     sml-mode
 
+    ;; racket
+    racket-mode
+
     ) "Packages managed as elpa repositories.")
 
 (dolist (p my-packages)
