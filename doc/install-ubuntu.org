@@ -1,0 +1,25 @@
+How to build emacs on Ubuntu
+
+apt-get build-dp emacs24
+
+lftp ftp.gnu.org
+
+tar xvf emacs-24.5.tar.xz
+
+cd emacs-24.5
+
+./configure --prefix=/home/emaphis/emacs --bindir=/home/emaphis/bin
+
+make -j4
+
+make install
+
+-- sudo apt install ubuntu-make
+
+
+line I ran:
+
+./configure --prefix=/home/emaphis/emacs --bindir=/home/emaphis/bin --with-x-toolkit=gtk3 --with-modules --enable-link-time-optimization
+
+# to test run:
+src/emacs -Q

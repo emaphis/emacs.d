@@ -184,7 +184,10 @@
 ;(load "set-erlang.el")
 
 ;;; R settings
-;(load "set-ess.el")
+(load "set-ess.el")
+
+;;; Ocaml
+(load "set-ocaml.el")
 
 
 ;;; Keep emacs custom-settings in separate file
