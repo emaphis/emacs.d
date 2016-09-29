@@ -1,0 +1,629 @@
+Smartparens default key-binds
+
+
+* key             binding
+   ---                 -------
+
+* ESC              Prefix Command
+* C-]              sp-select-next-thing-exchange
+Just like ‘sp-select-next-thing’ but run ‘exchange-point-and-mark’ afterwards.
+* C-S-a            sp-end-of-sexp
+** Jump to end of the sexp the point is in.
+
+The end is the point before the closing delimiter.
+
+With no argument, this is the same as calling
+C-u C-u ‘sp-backward-down-sexp’.
+
+With ARG positive N > 1, move forward out of the current
+expression, move N-1 expressions forward and move down backward
+one level into previous expression.
+
+With ARG negative -N < 1, move backward out of the current
+expression, move N-2 expressions backward and move down backward
+one level into previous expression.
+
+With ARG raw prefix argument C-u move out of the current expressions
+and then to the end of enclosing expression.
+
+** Examples:
+
+  (foo |(bar baz) quux (blab glob)) -> (foo (bar baz) quux (blab glob)|)
+
+  (foo (|bar baz) quux (blab glob)) -> (foo (bar baz|) quux (blab glob))
+
+  (|foo) (bar) (baz quux) -> (foo) (bar) (baz quux|) ;; 3
+
+  (foo bar) (baz) (quux|) -> (foo bar|) (baz) (quux) ;; -3
+
+  ((foo |bar) (baz quux) blab) -> ((foo bar) (baz quux) blab|) ;; C-u
+ 
+* C-S-d            sp-beginning-of-sexp
+** Jump to beginning of the sexp the point is in.
+
+The beginning is the point after the opening delimiter.
+
+With no argument, this is the same as calling
+C-u C-u ‘sp-down-sexp’
+
+With ARG positive N > 1, move forward out of the current
+expression, move N-2 expressions forward and move down one level
+into next expression.
+
+With ARG negative -N < 1, move backward out of the current
+expression, move N-1 expressions backward and move down one level
+into next expression.
+
+With ARG raw prefix argument C-u move out of the current expressions
+and then to the beginning of enclosing expression.
+
+** Examples:
+
+  (foo (bar baz) quux| (blab glob)) -> (|foo (bar baz) quux (blab glob))
+
+  (foo (bar baz|) quux (blab glob)) -> (foo (|bar baz) quux (blab glob))
+
+  (|foo) (bar) (baz quux) -> (foo) (bar) (|baz quux) ;; 3
+
+  (foo bar) (baz) (quux|) -> (|foo bar) (baz) (quux) ;; -3
+
+  ((foo bar) (baz |quux) blab) -> (|(foo bar) (baz quux) blab) ;; C-u
+
+* <C-M-backspace>  sp-splice-sexp-killing-backward
+** Unwrap the current list and kill all the expressions
+between start of this list and the point.
+
+With the optional argument ARG, repeat that many times.  This
+argument should be positive number.
+
+** Examples:
+
+  (foo (let ((x 5)) |(sqrt n)) bar)  -> (foo |(sqrt n) bar)
+
+​  (when ok|                             |(perform-operation-1)
+​    (perform-operation-1)            ->  (perform-operation-2)
+​    (perform-operation-2))
+
+​  (save-excursion                    -> |(awesome-stuff-happens) ;; 2
+​    (unless (test)
+​      |(awesome-stuff-happens)))
+
+Note that to kill only the content and not the enclosing
+delimiters you can use C-u M-x sp-backward-kill-sexp.
+See ‘sp-backward-kill-sexp’ for more information.
+
+* <C-M-delete>     sp-splice-sexp-killing-forward
+** Unwrap the current list and kill all the expressions
+between start of this list and the point.
+
+With the optional argument ARG, repeat that many times.  This
+argument should be positive number.
+
+** Examples:
+
+  (foo (let ((x 5)) |(sqrt n)) bar)  -> (foo |(sqrt n) bar)
+
+​  (when ok|                             |(perform-operation-1)
+​    (perform-operation-1)            ->  (perform-operation-2)
+​    (perform-operation-2))
+
+​  (save-excursion                    -> |(awesome-stuff-happens) ;; 2
+​    (unless (test)
+​      |(awesome-stuff-happens)))
+
+Note that to kill only the content and not the enclosing
+delimiters you can use C-u M-x sp-backward-kill-sexp.
+See ‘sp-backward-kill-sexp’ for more information.
+
+* <C-M-left>       sp-backward-slurp-sexp
+** Add the sexp preceding the current list in it by moving the opening delimiter.
+
+If the current list is the first in a parent list, extend that
+list (and possibly apply recursively until we can extend a list
+or beginning of file).
+
+If arg is N, apply this function that many times.
+
+If arg is negative -N, extend the closing pair instead (that is,
+forward).
+
+If ARG is raw prefix C-u, extend all the way to the beginning of the parent list.
+
+If both the current expression and the expression to be slurped
+are strings, they are joined together.
+
+** Examples:
+
+  foo (bar| baz)        -> (foo bar| baz)
+
+  foo [(bar| baz)]      -> [foo (bar| baz)]
+
+  [foo (bar| baz)]      -> [(foo bar| baz)]
+
+  (foo bar baz (|quux)) -> ((foo bar baz |quux)) ;; with C-u
+
+  "foo bar" "baz |quux" -> "foo bar baz |quux"
+
+* <C-M-right>      sp-backward-barf-sexp
+** This is exactly like calling ‘sp-forward-barf-sexp’ with minus ARG.
+In other words, instead of contracting the closing pair, the
+opening pair is contracted.  For more information, see the
+documentation of ‘sp-forward-barf-sexp’.
+
+** Examples:
+
+  (foo bar| baz) -> foo (bar| baz)
+
+  ([foo bar] |baz) -> [foo bar] (|baz)
+
+  (1 2 3 |4 5 6) -> 1 2 3 (|4 5 6) ;; C-u (or 3)
+
+* <C-S-backspace>  sp-splice-sexp-killing-around
+** Unwrap the current list and kill everything inside except next expression.
+
+With ARG save that many next expressions.  With ARG negative -N,
+save that many expressions backward.
+
+If ARG is raw prefix argument C-u this function behaves exactly
+the same as ‘sp-splice-sexp-killing-backward’.
+
+If ARG is negative raw prefix argument - C-u this function
+behaves exactly the same as ‘sp-splice-sexp-killing-forward’.
+
+Note that the behaviour with the prefix argument seems to be
+reversed.  This is because the backward variant is much more
+common and hence deserve shorter binding.
+
+If ARG is raw prefix argument C-u C-u raise the expression the point
+is inside of.  This is the same as ‘sp-backward-up-sexp’ followed by
+‘sp-splice-sexp-killing-around’.
+
+** Examples:
+
+  (a b |(c d) e f)      -> |(c d)     ;; with arg = 1
+
+  (a b |c d e f)        -> |c d       ;; with arg = 2
+
+  (- (car x) |a 3)      -> (car x)|   ;; with arg = -1
+
+  (foo (bar |baz) quux) -> |(bar baz) ;; with arg = C-u C-u
+
+* <C-left>         sp-forward-barf-sexp
+** Remove the last sexp in the current list by moving the closing delimiter.
+
+If ARG is positive number N, barf that many expressions.
+
+If ARG is negative number -N, contract the opening pair instead.
+
+If ARG is raw prefix C-u, barf all expressions from the one after
+point to the end of current list and place the point before the
+closing delimiter of the list.
+
+If the current list is empty, do nothing.
+
+** Examples: (prefix arg in comment)
+
+  (foo bar| baz)   -> (foo bar|) baz   ;; nil (defaults to 1)
+
+  (foo| [bar baz]) -> (foo|) [bar baz] ;; 1
+
+  (1 2 3| 4 5 6)   -> (1 2 3|) 4 5 6   ;; C-u (or numeric prefix 3)
+
+  (foo bar| baz)   -> foo (bar| baz)   ;; -1
+
+* <C-right>        sp-forward-slurp-sexp
+** Add sexp following the current list in it by moving the closing delimiter.
+
+If the current list is the last in a parent list, extend that
+list (and possibly apply recursively until we can extend a list
+or end of file).
+
+If ARG is N, apply this function that many times.
+
+If ARG is negative -N, extend the opening pair instead (that is,
+backward).
+
+If ARG is raw prefix C-u, extend all the way to the end of the parent list.
+
+If both the current expression and the expression to be slurped
+are strings, they are joined together.
+
+See also ‘sp-slurp-hybrid-sexp’ which is similar but handles
+C-style syntax better.
+
+** Examples:
+
+  (foo |bar) baz        -> (foo |bar baz)
+
+  [(foo |bar)] baz      -> [(foo |bar) baz]
+
+  [(foo |bar) baz]      -> [(foo |bar baz)]
+
+  ((|foo) bar baz quux) -> ((|foo bar baz quux)) ;; with C-u
+
+  "foo| bar" "baz quux" -> "foo| bar baz quux"
+
+* <M-backspace >   sp-backward-unwrap-sexp
+** Unwrap the previous expression.
+
+With ARG N, unwrap Nth expression as returned by
+‘sp-backward-sexp’.  If ARG is negative -N, unwrap Nth expression
+forward as returned by ‘sp-forward-sexp’.
+
+** Examples:
+
+  (foo bar baz)|     -> foo bar baz|
+
+  (foo bar)| (baz)   -> foo bar| (baz)
+
+  (foo) (bar) (baz)| -> foo (bar) (baz) ;; 3
+
+* <M-delete>       sp-unwrap-sexp
+** Unwrap the following expression.
+
+With ARG N, unwrap Nth expression as returned by
+‘sp-forward-sexp’.  If ARG is negative -N, unwrap Nth expression
+backwards as returned by ‘sp-backward-sexp’.
+
+Return the information about the just unwrapped expression.  Note
+that this structure does not represent a valid expression in the
+buffer.
+
+** Examples:
+
+  |(foo bar baz)     -> |foo bar baz
+
+  (foo bar| baz)     -> foo bar| baz
+
+  |(foo) (bar) (baz) -> |(foo) bar (baz) ;; 2
+
+* C-M-a            sp-backward-down-sexp
+** Move backward down one level of sexp.
+
+With ARG, do this that many times.  A negative argument -N means
+move forward but still go down a level.
+
+If ARG is raw prefix argument C-u, descend backward as much as
+possible.
+
+If ARG is raw prefix argument C-u C-u, jump to the end of current
+list.
+
+If the point is inside sexp and there is no down expression to
+descend to, jump to the end of current one.  If moving forward,
+jump to beginning of current one.
+
+** Examples:
+
+  foo (bar (baz quux))| -> foo (bar (baz quux)|)
+
+  (bar (baz quux)) foo| -> (bar (baz quux|)) foo ;; 2
+
+  foo (bar (baz (quux) blab))| -> foo (bar (baz (quux|) blab)) ;; C-u
+
+  (foo| (bar baz) quux) -> (foo (bar baz) quux|)
+
+  (foo (bar baz) |quux blab) -> (foo (bar baz) quux blab|) ;; C-u C-u
+
+* C-M-b            sp-backward-sexp
+** Move backward across one balanced expression (sexp).
+
+With ARG, do it that many times.  Negative arg -N means move
+forward across N balanced expressions.  If there is no previous
+expression, jump out of the current one (effectively doing
+‘sp-backward-up-sexp’).
+
+With ‘sp-navigate-consider-symbols’ symbols and strings are also
+considered balanced expressions.
+
+** Examples: (prefix arg in comment)
+
+  (foo bar baz)|   -> |(foo bar baz)
+
+  (foo| bar baz)   -> (|foo bar baz)
+
+  (foo bar| baz)   -> (|foo bar baz) ;; 2
+
+  (|(foo bar) baz) -> ((|foo bar) baz)
+
+* C-M-d            sp-down-sexp
+** Move forward down one level of sexp.
+
+With ARG, do this that many times.  A negative argument -N means
+move backward but still go down a level.
+
+If ARG is raw prefix argument C-u, descend forward as much as
+possible.
+
+If ARG is raw prefix argument C-u C-u, jump to the beginning of
+current list.
+
+If the point is inside sexp and there is no down expression to
+descend to, jump to the beginning of current one.  If moving
+backwards, jump to end of current one.
+
+** Examples:
+
+  |foo (bar (baz quux)) -> foo (|bar (baz quux))
+
+  |foo (bar (baz quux)) -> foo (bar (|baz quux)) ;; 2
+
+  |foo (bar (baz (quux) blab)) -> foo (bar (baz (|quux) blab)) ;; C-u
+
+  (foo (bar baz) |quux) -> (|foo (bar baz) quux)
+
+  (blab foo |(bar baz) quux) -> (|blab foo (bar baz) quux) ;; C-u C-u
+
+* C-M-e            sp-up-sexp
+** Move forward out of one level of parentheses.
+
+With ARG, do this that many times.  A negative argument means
+move backward but still to a less deep spot.
+
+The argument INTERACTIVE is for internal use only.
+
+If called interactively and ‘sp-navigate-reindent-after-up’ is
+enabled for current major-mode, remove the whitespace between end
+of the expression and the last "thing" inside the expression.
+
+If ‘sp-navigate-close-if-unbalanced’ is non-nil, close the
+unbalanced expressions automatically.
+
+** Examples:
+
+  (foo |(bar baz) quux blab) -> (foo (bar baz) quux blab)|
+
+  (foo (bar |baz) quux blab) -> (foo (bar baz) quux blab)| ;; 2
+
+  (foo bar |baz              -> (foo bar baz)| ;; re-indent the expression
+​   )
+
+  (foo  |(bar baz)           -> (foo)| (bar baz) ;; close unbalanced expr.
+
+* C-M-f            sp-forward-sexp
+** Move forward across one balanced expression.
+
+With ARG, do it that many times.  Negative arg -N means move
+backward across N balanced expressions.  If there is no forward
+expression, jump out of the current one (effectively doing
+‘sp-up-sexp’).
+
+With ‘sp-navigate-consider-symbols’ symbols and strings are also
+considered balanced expressions.
+
+** Examples: (prefix arg in comment)
+
+  |(foo bar baz)   -> (foo bar baz)|
+
+  (|foo bar baz)   -> (foo| bar baz)
+
+  (|foo bar baz)   -> (foo bar| baz) ;; 2
+
+  (foo (bar baz|)) -> (foo (bar baz)|)
+
+* C-M-k            sp-kill-sexp
+
+** With ARG being positive number N, repeat that many times.
+
+With ARG being Negative number -N, repeat that many times in
+backward direction.
+
+With ARG being raw prefix C-u, kill all the expressions from
+point up until the end of current list.  With raw prefix - C-u,
+kill all the expressions from beginning of current list up until
+point.  If point is inside a symbol, this is also killed.  If
+there is no expression after/before the point, just delete the
+whitespace up until the closing/opening delimiter.
+
+With ARG being raw prefix C-u C-u, kill current list (the list
+point is inside).
+
+With ARG numeric prefix 0 (zero) kill the insides of the current
+list, that is everything from after the opening delimiter to
+before the closing delimiter.
+
+If ARG is nil, default to 1 (kill single expression forward)
+
+If second optional argument DONT-KILL is non-nil, save the to be
+killed region in the kill ring, but do not kill the region from
+buffer.
+
+With ‘sp-navigate-consider-symbols’, symbols and strings are also
+considered balanced expressions.
+
+** Examples:
+
+ (foo |(abc) bar)  -> (foo | bar) ;; nil, defaults to 1
+
+ (foo (bar) | baz) -> |           ;; 2
+
+ (foo |(bar) baz)  -> |           ;; C-u C-u
+
+ (1 |2 3 4 5 6)    -> (1|)        ;; C-u
+
+ (1 |2 3 4 5 6)    -> (1 | 5 6)   ;; 3
+
+ (1 2 3 4 5| 6)    -> (1 2 3 | 6) ;; -2
+
+ (1 2 3 4| 5 6)    -> (|5 6)      ;; - C-u
+
+ (1 2 |   )        -> (1 2|)      ;; C-u, kill useless whitespace
+
+ (1 2 3 |4 5 6)    -> (|)         ;; 0
+
+Note: prefix argument is shown after the example in
+"comment". Assumes ‘sp-navigate-consider-symbols’ equal to t.
+
+* C-M-n            sp-next-sexp
+** Move forward to the beginning of next balanced expression.
+
+With ARG, do it that many times.  If there is no next expression
+at current level, jump one level up (effectively doing
+‘sp-backward-up-sexp’).  Negative arg -N means move to the
+beginning of N-th previous balanced expression.
+
+With ‘sp-navigate-consider-symbols’ symbols and strings are also
+considered balanced expressions.
+
+** Examples:
+
+  ((foo) |bar (baz quux)) -> ((foo) bar |(baz quux))
+
+  ((foo) bar |(baz quux)) -> |((foo) bar (baz quux))
+
+* C-M-p            sp-previous-sexp
+** Move backward to the end of previous balanced expression.
+
+With ARG, do it that many times.  If there is no next
+expression at current level, jump one level up (effectively
+doing ‘sp-up-sexp’).  Negative arg -N means move to the end of
+N-th following balanced expression.
+
+With ‘sp-navigate-consider-symbols’ symbols and strings are also
+considered balanced expressions.
+
+** Examples:
+
+  ((foo) bar| (baz quux)) -> ((foo)| bar (baz quux))
+
+  ((foo)| bar (baz quux)) -> ((foo) bar (baz quux))|
+
+* C-M-u            sp-backward-up-sexp
+** Move backward out of one level of parentheses.
+
+With ARG, do this that many times.  A negative argument means
+move forward but still to a less deep spot.
+
+The argument INTERACTIVE is for internal use only.
+
+If called interactively and ‘sp-navigate-reindent-after-up’ is
+enabled for current major-mode, remove the whitespace between
+beginning of the expression and the first "thing" inside the
+expression.
+
+** Examples:
+
+  (foo (bar baz) quux| blab) -> |(foo (bar baz) quux blab)
+
+  (foo (bar |baz) quux blab) -> |(foo (bar baz) quux blab) ;; 2
+
+  (                  -> |(foo bar baz)
+​    foo |bar baz)
+
+* C-M-w            sp-copy-sexp
+** Copy the following ARG expressions to the kill-ring.
+
+This is exactly like calling ‘sp-kill-sexp’ with second argument
+t.  All the special prefix arguments work the same way.
+
+* C-M-]            sp-select-next-thing
+** Set active region over next thing as recognized by ‘sp-get-thing’.
+
+If ARG is positive N, select N expressions forward.
+
+If ARG is negative -N, select N expressions backward.
+
+If ARG is a raw prefix C-u select all the things up until the
+end of current expression.
+
+If ARG is a raw prefix C-u C-u select the current expression (as
+if doing ‘sp-backward-up-sexp’ followed by
+‘sp-select-next-thing’).
+
+If ARG is number 0 (zero), select all the things inside the
+current expression.
+
+If POINT is non-nil, it is assumed it’s a point inside the buffer
+from which the selection extends, either forward or backward,
+depending on the value of ARG.
+
+If the currently active region contains a balanced expression,
+following invocation of ‘sp-select-next-thing’ will select the
+inside of this expression .  Therefore calling this function
+twice with no active region will select the inside of the next
+expression.
+
+If the point is right in front of the expression any potential
+prefix is ignored.  For example, ’|(foo) would only select (foo)
+and not include ’ in the selection.  If you wish to also select
+the prefix, you have to move the point backwards.
+
+With ‘sp-navigate-consider-symbols’ symbols and strings are also
+considered balanced expressions.
+
+* M-B              sp-backward-symbol
+** Move point to the next position that is the beginning of a symbol.
+
+With ARG being positive number N, repeat that many times.
+
+With ARG being Negative number -N, repeat that many times in
+forward direction.
+
+A symbol is any sequence of characters that are in either the word
+constituent or symbol constituent syntax class.  Current symbol only
+extend to the possible opening or closing delimiter as defined by
+‘sp-add-pair’ even if part of this delimiter would match "symbol"
+syntax classes.
+
+** Examples:
+
+  foo bar| baz            -> foo |bar baz
+
+  ((foo bar) baz)|        -> ((foo |bar) baz) ;; 2
+
+  (quux ((foo) bar) baz)| -> (|quux ((foo) bar) baz) ;; 4
+
+* M-D              sp-splice-sexp
+** Unwrap the current list.
+
+With ARG N, unwrap Nth list as returned by applying ‘sp-up-sexp’
+N times.  This function expect positive arg.
+
+** Examples:
+
+  (foo (bar| baz) quux) -> (foo bar| baz quux)
+
+  (foo |(bar baz) quux) -> foo |(bar baz) quux
+
+  (foo (bar| baz) quux) -> foo (bar| baz) quux ;; 2
+
+* M-F              sp-forward-symbol
+** Move point to the next position that is the end of a symbol.
+
+With ARG being positive number N, repeat that many times.
+
+With ARG being Negative number -N, repeat that many times in
+backward direction.
+
+A symbol is any sequence of characters that are in either the
+word constituent or symbol constituent syntax class.  Current
+symbol only extend to the possible opening or closing delimiter
+as defined by ‘sp-add-pair’ even if part of this delimiter
+would match "symbol" syntax classes.
+
+** Examples:
+
+  |foo bar baz          -> foo| bar baz
+
+  |foo (bar (baz))      -> foo (bar| (baz)) ;; 2
+
+  |foo (bar (baz) quux) -> foo (bar (baz) quux|) ;; 4
+
+ 
+--------------------------------
+
+* C-M-q           prog-indent-sexp
+* 
+* C-M-@           mark-sexp
+
+* C-M-t           transpose-sexps
+
+* C-M-SPC         mark-sexp
+
+* ESC <C-backspace>               backward-kill-sexp
+* ESC <C-delete>                  backward-kill-sexp
+* ESC <C-down>                    down-list
+* ESC <C-end>                     end-of-defun
+* ESC <C-home>                    beginning-of-defun
+* ESC <C-left>                    backward-sexp
+* ESC <C-right>                   forward-sexp

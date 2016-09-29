@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 24.4
+;; Compatibility: emacs 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -62,7 +62,7 @@
 
 ;; Completing point by some yasnippet key
 (defun yas-ido-expand ()
-  "Lets you select (and expand) a yasnippet key"
+  "Lets you select (and expand) a yasnippet key."
   (interactive)
     (let ((original-point (point)))
       (while (and
@@ -89,12 +89,15 @@
 
 ;;; smart parens
 (require 'smartparens-config)
+;(setq sp-base-key-bindings 'paredit)
+;(sp-use-paredit-bindings)
+
 (sp-use-smartparens-bindings)
 (smartparens-global-mode t)
 (show-smartparens-global-mode t) ; highlights matching pairs
-(sp-pair "(" ")" :wrap "M-(")
-(sp-pair "[" "]" :wrap "M-[")
-(sp-pair "{" "}" :wrap "M-{")
+;(sp-pair "(" ")" :wrap "M-(")
+;(sp-pair "[" "]" :wrap "M-[")
+;(sp-pair "{" "}" :wrap "M-{")
 
 ;; flycheck
 (require 'flycheck)
