@@ -61,7 +61,7 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (leuven-theme racket-mode zenburn-theme win-switch undo-tree solarized-theme sml-mode smex smartparens rainbow-mode rainbow-delimiters multiple-cursors monokai-theme markdown-mode magit idomenu ido-ubiquitous ido-hacks idle-highlight-mode gandalf-theme flycheck-pos-tip ess ensime elisp-slime-nav edts cyberpunk-theme company-ghc cider ace-jump-mode)))
+    (use-package leuven-theme racket-mode zenburn-theme win-switch undo-tree solarized-theme sml-mode smex smartparens rainbow-mode rainbow-delimiters multiple-cursors monokai-theme markdown-mode magit idomenu ido-ubiquitous ido-hacks idle-highlight-mode gandalf-theme flycheck-pos-tip ess ensime elisp-slime-nav edts cyberpunk-theme company-ghc cider ace-jump-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
@@ -104,7 +104,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 100 :width normal)))))
+;; '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 100 :width normal))))
+ )
  
  
 (message "end set-custom.el")

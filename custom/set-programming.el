@@ -43,7 +43,7 @@
 ;;; Code:
 
 ;;; show function name in mode-line.
-(which-function-mode 1)
+;(which-function-mode 1)
 
 ;;; hi-light TODO:
 (add-hook 'prog-mode-hook
@@ -62,7 +62,7 @@
 
 ;; Completing point by some yasnippet key
 (defun yas-ido-expand ()
-  "Lets you select (and expand) a yasnippet key."
+  "Let you select (and expand) a yasnippet key."
   (interactive)
     (let ((original-point (point)))
       (while (and
