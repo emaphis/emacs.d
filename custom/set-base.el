@@ -18,9 +18,9 @@
 ;;; Commentary:
 ;;
 ;; Provides basic settings not set in vendor/better-setting.el
-;; These settings are mostly useful for base text editing. Any modes
+;; These settings are mostly useful for base text editing.  Any modes
 ;; that don't realy belong to a programming type mode will most
-;; likely be included here. Yes, I consider version control to be
+;; likely be included here. Y es, I consider version control to be
 ;; a base editing function.
 ;;
 ;;
@@ -46,45 +46,75 @@
 ;;; Code:
 
 ;;; ido and smex settings
+
 ;(setq ido-use-filename-at-point nil) ;; TODO
-(ido-ubiquitous-mode 1)
+;(ido-ubiquitous-mode 1)
+
+(use-package ido
+  :ensure t
+  :config
+  (setq ido-enable-prefix t
+        ido-use-filename-at-point 'guess)
+  (ido-mode +1))
+
+(use-package ido-ubiquitous
+  :ensure t
+  :config
+  (ido-ubiquitous-mode +1))
+
+;; TODO: look at flex-ido
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;;; smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+(use-package smex
+  :ensure t
+  :config
+  (setq smex-save-file (concat user-emacs-directory ".smex-items"))
+  (smex-initialize)
+  :bind (("M-x" . smex)  ; This is your old M-x.
+         ("M-X" . smex-major-mode-commands)
+      ;;   ("C-c C-c M-x". execute-extended-command--last-typed)
+         ))
+
 ;;;    C-f   Confirm create file in 'smex'
 
 ;;; win-switch
-(require 'win-switch)
-(setq win-switch-feedback-background-color "lightyellow")
-(setq win-switch-feedback-foreground-color "black")
-(setq win-switch-window-threshold 1)
-(setq win-switch-idle-time .7)
-(global-set-key "\C-xo" 'win-switch-dispatch)
-
+(use-package win-switch
+  :ensure t
+  :config
+  (setq win-switch-feedback-background-color "yellow"
+        win-switch-feedback-foreground-color "black"
+        win-switch-window-threshold 1
+        win-switch-idle-time .7)
+:bind ("C-x o" . win-switch-dispatch))
 
 ;;; ace jump mode
-(require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
+(use-package ace-jump-mode
+  :ensure t
+  :bind ("C-c SPC" . ace-jump-mode))
 
 ;;; multiple cursors
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-ths)
+         ("C-c C-<" . mc-mark-all-like-this)))
 
 
 ;;; Themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'zenburn t)
+;(use-package zenburn-theme
+;  :ensure t
+;  :config
+;  (load-theme 'zenburn t))
+
+(use-package leuven-theme
+  :ensure t
+  :config
+  (load-theme 'leuven t))
+
+(set-frame-font "Ubuntu Mono 10")
 
 ;;; Insert Date:
 (require 'calendar)
@@ -96,10 +126,25 @@
   (interactive "P*")
   (insert (calendar-date-string (calendar-current-date) nil
                                 omit-day-of-week-p)))
+;;; insert date
+(global-set-key (kbd "C-x M-d") #'insdate-insert-current-date)
+
+
+;(use-package calendar
+;  :ensure t
+;  :config
+;  (defun insdate-insert-current-date (&optional omit-day-of-week-p)
+;    "Insert today's date using the current locale.
+;     With a prefix argument, the date is inserted without the day of
+;     the week."
+;     (iteractive "P*")
+;     (insert (calendar-date-string (calendar-current-date) nil
+;                                   omit-day-of-week-p)))
+;  :bind ("C-x M-d" .  insdate-insert-current-date)
+;  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; misc settings
-
 
 ;;; display column number in mode-line
 (column-number-mode t)
@@ -111,18 +156,22 @@
 (column-number-mode t)
 
 ;;; flyspell   TODO: check whether I should use aspell.
-(require 'flyspell)
-(add-hook 'text-mode-hook  (lambda ()(flyspell-mode +1)))
+;(require 'flyspell)
+;(add-hook 'text-mode-hook  (lambda ()(flyspell-mode +1)))
+(use-package flyspell
+  :config
+  (add-hook 'text-mode-hook #'flyspell-mode)
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; some custom key bindings
 
 ;;; Window switching.
-          (global-set-key (kbd "C-x O")     ;; back one
-                          (lambda () (interactive) (other-window -1)))
-          (global-set-key (kbd "C-x C-o")   ;; forward two
-                          (lambda () (interactive) (other-window 2)))
+(global-set-key (kbd "C-x O")     ;; back one
+                (lambda () (interactive) (other-window -1)))
+(global-set-key (kbd "C-x C-o")   ;; forward two
+                (lambda () (interactive) (other-window 2)))
 
 ;;; Jump to a definition in the current file.
 (global-set-key (kbd "C-x C-i") 'idomenu)
@@ -142,8 +191,6 @@
                   (interactive)
                   (find-file-other-window "~/.emacs.d/doc/key-bind.org")))
 
-;;; insert date
-(global-set-key (kbd "C-x M-d") #'insdate-insert-current-date)
 
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
