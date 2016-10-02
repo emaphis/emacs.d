@@ -54,101 +54,46 @@
 
 
 ;;; yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
-
-(setq yas-snippet-dirs (append yas-snippet-dirs
-                               '("~/.emacs.d/snippets")))
-
-;; Completing point by some yasnippet key
-(defun yas-ido-expand ()
-  "Lets you select (and expand) a yasnippet key."
-  (interactive)
-    (let ((original-point (point)))
-      (while (and
-              (not (= (point) (point-min) ))
-              (not
-               (string-match "[[:space:]\n]" (char-to-string (char-before)))))
-        (backward-word 1))
-    (let* ((init-word (point))
-           (word (buffer-substring init-word original-point))
-           (list (yas-active-keys)))
-      (goto-char original-point)
-      (let ((key (remove-if-not
-                  (lambda (s) (string-match (concat "^" word) s)) list)))
-        (if (= (length key) 1)
-            (setq key (pop key))
-          (setq key (ido-completing-read "key: " list nil nil word)))
-        (delete-char (- init-word original-point))
-        (insert key)
-        (yas-expand)))))
-
-(define-key yas-minor-mode-map (kbd "<C-tab>")     'yas-ido-expand)
-(setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
+(use-package yasnippet
+  :init
+  (progn
+    (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
+    (setq yas-prompt-functions '(yas/ido-prompt))
+    (setq yas-indent-line 'fixed)
+    (yas-global-mode 1))
+  :mode ("\\.yasnippet" . snippet-mode))
 
 
-;;; smart parens
-(require 'smartparens-config)
-;(setq sp-base-key-bindings 'paredit)
-;(sp-use-paredit-bindings)
-
-(setq sp-base-key-bindings 'smartparens)
-(sp-use-smartparens-bindings)
-(smartparens-global-mode t)
-(show-smartparens-global-mode t) ; highlights matching pairs
-;(sp-pair "(" ")" :wrap "M-(")
-;(sp-pair "[" "]" :wrap "M-[")
-;(sp-pair "{" "}" :wrap "M-{")
+;;; smartparens
+(use-package smartparens
+  :config
+  (progn
+    (require 'smartparens-config)
+   ;(setq sp-base-key-bindings 'paredit)
+   ;(sp-use-paredit-bindings)
+    (setq sp-base-key-bindings 'smartparens)
+    (sp-use-smartparens-bindings)
+    (smartparens-global-mode t)
+    (show-smartparens-global-mode t) ; highlights matching pairs
+    ))
 
 ;; flycheck
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
 
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
 
 ;;; company mode
-(require 'company)
-
-(setq company-idle-delay 0.5)
-(setq company-tooltip-limit 10)
-(setq company-minimum-prefix-length 2)
-(setq company-echo-delay 0)
-;;(setq company-auto-complete nil)
-
-;; invert display  when cusor is at the top
-(setq company-tooltip-flip-when-above t)
-
-(global-company-mode 1)
-
-;;; company mode yasnippets fix:
-;;    http://www.emacswiki.org/emacs/CompanyMode
-;(defun check-expansion ()
-;  (save-excursion
-;    (if (looking-at "\\_>") t
-;      (backward-char 1)
-;      (if (looking-at "\\.") t
-;        (backward-char 1)
-;        (if (looking-at "->") t nil)))))
-
-;(defun do-yas-expand ()
-;  (let ((yas-fallback-behavior 'return-nil))
-;    (yas-expand)))
-
-;(defun tab-indent-or-complete ()
-;  (interactive)
-;  (if (minibufferp)
-;      (minibuffer-complete)
-;    (if (or (not yas-minor-mode)
-;            (null (do-yas-expand)))
-;        (if (check-expansion)
-;            (company-complete-common)
-;          (indent-for-tab-command)))))
-
-;(global-set-key [tab] 'tab-indent-or-complete)
+(use-package company
+  :ensure t
+  :config (progn
+            (global-company-mode 1)
+            (setq company-tooltip-flip-when-above t)))
 
 
-(require 'rainbow-delimiters)
+(use-package rainbow-delimiters)
 
 
 (message "end set-programming.el")

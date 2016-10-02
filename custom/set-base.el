@@ -53,7 +53,8 @@
 (use-package ido
   :ensure t
   :config
-  (setq ido-enable-prefix t
+  (setq ido-enable-prefix nil
+        ido-enable-flex-matching t
         ido-use-filename-at-point 'guess)
   (ido-mode +1))
 
@@ -114,7 +115,7 @@
   :config
   (load-theme 'leuven t))
 
-(set-frame-font "Ubuntu Mono 10")
+(set-frame-font "Ubuntu Mono 11")
 
 ;;; Insert Date:
 (require 'calendar)
