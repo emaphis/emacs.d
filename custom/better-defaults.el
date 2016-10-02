@@ -43,8 +43,8 @@
 
 ;;;###autoload
 (progn
-;;  (ido-mode t)
-;;  (setq ido-enable-flex-matching t)
+  (ido-mode t)
+  (setq ido-enable-flex-matching t)
 
   (menu-bar-mode -1)
   (when (fboundp 'tool-bar-mode)
@@ -72,8 +72,8 @@
 
   (show-paren-mode 1)
   (setq-default indent-tabs-mode nil)
-  (setq select-enable-clipboard t
-        select-enable-primary t
+  (setq x-select-enable-clipboard t
+        x-select-enable-primary t
         save-interprogram-paste-before-kill t
         apropos-do-all t
         mouse-yank-at-point t

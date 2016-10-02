@@ -75,7 +75,6 @@
     ace-jump-mode
     multiple-cursors
     undo-tree
-    use-package
 
     ;;; themes
     cyberpunk-theme
@@ -151,85 +150,9 @@
 ;;;  provides: ido, uniquify, better settings
 (load "better-defaults.el")
 
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-verbose t)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; general editing settings
 ;;; continuation of better-defaults
 (load "set-base.el")
-
-;(use-package zenburn-theme
-;  :ensure t
-;  :config
-;  (load-theme 'zenburn t))
-
-(use-package leuven-theme
-  :ensure t
-  :config
-  (load-theme 'leuven t))
-
-(use-package ido
-  :ensure t
-  :config
-  (setq ido-enable-prefix t
-        ido-use-filename-at-point 'guess)
-  (ido-mode +1))
-
-(use-package ido-ubiquitous
-  :ensure t
-  :config
-  (ido-ubiquitous-mode +1))
-
-;; TODO: look a flex-ido
-
-(use-package smex
-  :ensure t
-  :config
-  (setq smex-save-file (concat user-emacs-directory ".smex-items"))
-  :bind (("M-x" . smex)))
-;;;    C-f   Confirm create file in 'smex'
-
-(use-package win-switch
-  :ensure t
-  :config
-  (setq win-switch-feedback-background-color "yellow"
-        win-switch-feedback-foreground-color "black"
-        win-switch-window-threshold 1
-        win-switch-idle-time .7)
-  :bind ("C-x o" . win-switch-dispatch))
-
-(use-package ace-jump-mode
-  :ensure t
-  :bind ("C-c SPC" . ace-jump-mode))
-
-(use-package flyspell
-  :config
-  (add-hook 'text-mode-hook #'flyspell-mode)
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
-;;; flyspell   TODO: check whether I should use aspell.
-
-
-(column-number-mode t)
-
-(global-hl-line-mode +1)
-
-;; some global key settings:
-
-(global-set-key (kbd "<f7>") 'menu-bar-mode)
-
-(global-set-key (kbd "<f6>") 'whitespace-mode)
-
-;;; open key bind documentation
-(global-set-key (kbd "C-h C-d")
-                (lambda ()
-                  (interactive)
-                  (find-file-other-window "~/.emacs.d/doc/key-bind.org")))
-
 
 ;;; general programming settings
 (load "set-programming.el")
