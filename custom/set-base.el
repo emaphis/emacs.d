@@ -47,30 +47,30 @@
 
 ;;; ido and smex settings
 ;(setq ido-use-filename-at-point nil) ;; TODO
-(ido-ubiquitous-mode 1)
+;(ido-ubiquitous-mode 1)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;;; smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+;(smex-initialize)
+;(global-set-key (kbd "M-x") 'smex)
+;(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 ;;;    C-f   Confirm create file in 'smex'
 
 ;;; win-switch
-(require 'win-switch)
-(setq win-switch-feedback-background-color "lightyellow")
-(setq win-switch-feedback-foreground-color "black")
-(setq win-switch-window-threshold 1)
-(setq win-switch-idle-time .7)
-(global-set-key "\C-xo" 'win-switch-dispatch)
+;(require 'win-switch)
+;(setq win-switch-feedback-background-color "lightyellow")
+;(setq win-switch-feedback-foreground-color "black")
+;(setq win-switch-window-threshold 1)
+;(setq win-switch-idle-time .7)
+;(global-set-key "\C-xo" 'win-switch-dispatch)
 
 
 ;;; ace jump mode
-(require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+;(require 'ace-jump-mode)
+;(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 
 ;;; multiple cursors
@@ -82,9 +82,9 @@
 
 
 ;;; Themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'zenburn t)
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;(add-to-list 'load-path "~/.emacs.d/themes")
+;(load-theme 'zenburn t)
 
 ;;; Insert Date:
 (require 'calendar)
@@ -102,17 +102,15 @@
 
 
 ;;; display column number in mode-line
-(column-number-mode t)
+;(column-number-mode t)
 
 ;;; Highlight current line
-(global-hl-line-mode +1)
+;(global-hl-line-mode +1)
 
-;;; Display the column number in the mode line.
-(column-number-mode t)
 
 ;;; flyspell   TODO: check whether I should use aspell.
-(require 'flyspell)
-(add-hook 'text-mode-hook  (lambda ()(flyspell-mode +1)))
+;(require 'flyspell)
+;(add-hook 'text-mode-hook  (lambda ()(flyspell-mode +1)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -128,19 +126,19 @@
 (global-set-key (kbd "C-x C-i") 'idomenu)
 
 ;;; toggle menu bar mode
-(global-set-key (kbd "<f7>") 'menu-bar-mode)
+;(global-set-key (kbd "<f7>") 'menu-bar-mode)
 
 ;;; toggle whitespace mode
-(global-set-key (kbd "<f6>") 'whitespace-mode)
+;(global-set-key (kbd "<f6>") 'whitespace-mode)
 
 ;;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;;; open key bind documentation
-(global-set-key (kbd "C-h C-d")
-                (lambda ()
-                  (interactive)
-                  (find-file-other-window "~/.emacs.d/doc/key-bind.org")))
+;(global-set-key (kbd "C-h C-d")
+;                (lambda ()
+;                  (interactive)
+;                  (find-file-other-window "~/.emacs.d/doc/key-bind.org")))
 
 ;;; insert date
 (global-set-key (kbd "C-x M-d") #'insdate-insert-current-date)
