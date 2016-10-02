@@ -18,9 +18,9 @@
 ;;; Commentary:
 ;;
 ;; Provides basic settings not set in vendor/better-setting.el
-;; These settings are mostly useful for base text editing.  Any modes
+;; These settings are mostly useful for base text editing. Any modes
 ;; that don't realy belong to a programming type mode will most
-;; likely be included here.  Yes, I consider version control to be
+;; likely be included here. Yes, I consider version control to be
 ;; a base editing function.
 ;;
 ;;
@@ -48,25 +48,6 @@
 ;;; ido and smex settings
 ;(setq ido-use-filename-at-point nil) ;; TODO
 ;(ido-ubiquitous-mode 1)
-
-(use-package ido
-  :ensure t
-  :config
-  (setq ido-enable-prefix t
-        ido-use-filename-at-point 'guess)
-  (ido-mode +1))
-
-
-(global-set-key (kbd "C-x C-i") 'idomenu)
-
-(use-package ido-ubiquitous
-  :ensure t
-  :config
-  (ido-ubiquitous-mode +1))
-
-;; TODO: look at flex-ido
-
-
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;;; smex
@@ -142,7 +123,7 @@
                           (lambda () (interactive) (other-window 2)))
 
 ;;; Jump to a definition in the current file.
-;(global-set-key (kbd "C-x C-i") 'idomenu)
+(global-set-key (kbd "C-x C-i") 'idomenu)
 
 ;;; toggle menu bar mode
 ;(global-set-key (kbd "<f7>") 'menu-bar-mode)
@@ -162,16 +143,16 @@
 ;;; insert date
 (global-set-key (kbd "C-x M-d") #'insdate-insert-current-date)
 
-;(defun eval-and-replace ()
-;  "Replace the preceding sexp with its value."
-;  (interactive)
-;  (backward-kill-sexp)
-;  (condition-case nil
-;      (insert (format "%s" (eval (read (current-kill 0)))))
-;    (error (message "Invalid expression")
-;           (insert (current-kill 0)))))
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (condition-case nil
+      (insert (format "%s" (eval (read (current-kill 0)))))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
 
-;(global-set-key (kbd "C-x M-r") #'eval-and-replace)
+(global-set-key (kbd "C-x M-r") #'eval-and-replace)
 
 
 (provide 'set-base)

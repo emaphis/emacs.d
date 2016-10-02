@@ -161,7 +161,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; general editing settings
 ;;; continuation of better-defaults
-(require set-base.el)
+(load "set-base.el")
 
 ;(use-package zenburn-theme
 ;  :ensure t
@@ -173,9 +173,19 @@
   :config
   (load-theme 'leuven t))
 
-(set-frame-font "Ubuntu Mono 10")
-;(set-frame-font "Consolas 10")
+(use-package ido
+  :ensure t
+  :config
+  (setq ido-enable-prefix t
+        ido-use-filename-at-point 'guess)
+  (ido-mode +1))
 
+(use-package ido-ubiquitous
+  :ensure t
+  :config
+  (ido-ubiquitous-mode +1))
+
+;; TODO: look a flex-ido
 
 (use-package smex
   :ensure t
@@ -220,26 +230,9 @@
                   (interactive)
                   (find-file-other-window "~/.emacs.d/doc/key-bind.org")))
 
-(defun eval-and-replace ()
-  "Replace the preceding sexp with its value."
-  (interactive)
-  (backward-kill-sexp)
-  (condition-case nil
-      (insert (format "%s" (eval (read (current-kill 0)))))
-    (error (message "Invalid expression")
-           (insert (current-kill 0)))))
 
-(global-set-key (kbd "C-x M-r") #'eval-and-replace)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; general programming settings
 (load "set-programming.el")
-
-;;; show function name in mode-line.
-(which-function-mode 1)
-
-
 
 ;;; elisp mode settings
 (load "set-elisp.el")
