@@ -2,7 +2,7 @@
 ;; 
 ;; Filename: set-elisp.el
 ;;
-;; Copyright (c) 2014 Ed Maphis
+;; Copyright (c) 2016 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 24.4
+;; Compatibility: Emacs 25.1
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
@@ -40,25 +40,30 @@
 ;; 
 ;;; Code:
 
-;;; Company mode and flycheck turn on by defualt.
+;;; Company mode and flycheck turned on by defualt.
 
-;;; turn on eldo mode
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+;;; turn on eldoc mode (I think this is now default in 25)
 
-;;; strict smartparens mode
-(add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)
-(add-hook 'lisp-interaction-mode-hook 'smartparens-strict-mode)
-(add-hook 'ielm-mode-hook 'smartparens-strict-mode)
+(use-package lisp-mode
+  :init
+  (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)
+  (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t))))
 
-;;; idle-highlight
-(add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
-(add-hook 'lisp-iteraction-mode-hook (lambda () (idle-highlight-mode t)))
+(use-package lisp-interaction-mode
+  :init
+  (add-hook 'lisp-interaction-mode-hook 'smartparens-strict-mode)
+  (add-hook 'lisp-iteraction-mode-hook (lambda () (idle-highlight-mode t))))
+
+(use-package ielm-mode
+  :init
+  (add-hook 'ielm-mode-hook 'smartparens-strict-mode))
 
 ;;; slime nav
-(require 'elisp-slime-nav)
-(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
+(use-package elisp-slime-nav
+  :ensure t
+  :config
+  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+    (add-hook hook #'elisp-slime-nav-mode)))
 
 
 (message "end set-elisp.el")
