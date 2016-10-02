@@ -12,6 +12,8 @@ With many ideas from:
     [flyingmachine's settings](https://github.com/flyingmachine/emacs.d),
     [Emacs Live](https://github.com/overtone/emacs-live),
 
+Now porting to use-package
+
 Including instructions on how to compile and install emacs on in local directories on Fedora Linux [install-fedora.md](./doc/install-fedora.md)
 
 A handy key binding reference: [key-bind.org](./doc/key-bind.org) acsessible with the C-h C-d key combo.

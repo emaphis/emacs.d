@@ -92,6 +92,7 @@
 ;(setq sp-base-key-bindings 'paredit)
 ;(sp-use-paredit-bindings)
 
+(setq sp-base-key-bindings 'smartparens)
 (sp-use-smartparens-bindings)
 (smartparens-global-mode t)
 (show-smartparens-global-mode t) ; highlights matching pairs

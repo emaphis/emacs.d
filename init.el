@@ -41,28 +41,17 @@
 ;;
 ;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Stuff to load early goes here.
-;;;
-(add-to-list 'load-path "~/.emacs.d/vendor")
-
-;;; vendor/better-defaults.el
-;;;  provides: ido, uniquify, better settings
-(load "better-defaults.el")
-; TODO: ido-use-virual-buffers?
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; packages and repositories
-;;;
+
 (require 'package)
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
-;;(add-to-list 'package-archives
- ;;            '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+;;            '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 (package-initialize)
 
+;; update package metadata when local cache is missing
 (when (not package-archive-contents)
   (package-refresh-contents))
 
@@ -155,8 +144,11 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  customizations for emacs and various emacs modes.
-;;;
+
 (add-to-list 'load-path "~/.emacs.d/custom")
+
+;;;  provides: ido, uniquify, better settings
+(load "better-defaults.el")
 
 ;;; general editing settings
 ;;; continuation of better-defaults
@@ -169,10 +161,10 @@
 (load "set-elisp.el")
 
 ;;; clojure settings
-(load "set-clojure.el")
+;(load "set-clojure.el")
 
 ;;; haskell settings
-(load "set-haskell.el")
+;(load "set-haskell.el")
 
 ;;; scala language settings
 ;(load "set-scala.el")
@@ -184,10 +176,10 @@
 ;(load "set-erlang.el")
 
 ;;; R settings
-(load "set-ess.el")
+;(load "set-ess.el")
 
 ;;; Ocaml
-(load "set-ocaml.el")
+;(load "set-ocaml.el")
 
 
 ;;; Keep emacs custom-settings in separate file
