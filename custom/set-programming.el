@@ -93,6 +93,11 @@
             (setq company-tooltip-flip-when-above t)))
 
 
+;;; Magit
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))  ; every one is doing it.
+
 (use-package rainbow-delimiters)
 
 

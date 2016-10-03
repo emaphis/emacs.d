@@ -161,10 +161,10 @@
 (load "set-elisp.el")
 
 ;;; clojure settings
-;(load "set-clojure.el")
+(load "set-clojure.el")
 
 ;;; haskell settings
-;(load "set-haskell.el")
+(load "set-haskell.el")
 
 ;;; scala language settings
 ;(load "set-scala.el")

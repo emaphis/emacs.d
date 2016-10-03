@@ -20,8 +20,7 @@
 ;; Provides basic settings not set in vendor/better-setting.el
 ;; These settings are mostly useful for base text editing.  Any modes
 ;; that don't realy belong to a programming type mode will most
-;; likely be included here. Y es, I consider version control to be
-;; a base editing function.
+;; likely be included here.
 ;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -116,6 +115,7 @@
   (load-theme 'leuven t))
 
 (set-frame-font "Ubuntu Mono 11")
+;;(set-default-font "Inconsolata 11")
 
 ;;; Insert Date:
 (require 'calendar)
@@ -183,8 +183,6 @@
 ;;; toggle whitespace mode
 (global-set-key (kbd "<f6>") 'whitespace-mode)
 
-;;; magit
-(global-set-key (kbd "C-x g") 'magit-status)
 
 ;;; open key bind documentation
 (global-set-key (kbd "C-h C-d")
