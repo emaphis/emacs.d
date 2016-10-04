@@ -77,17 +77,8 @@
       ;;   ("C-c C-c M-x". execute-extended-command--last-typed)
          ))
 
-;;;    C-f   Confirm create file in 'smex'
+;;; *** C-f   Confirm create file in 'smex' ***
 
-;;; win-switch
-(use-package win-switch
-  :ensure t
-  :config
-  (setq win-switch-feedback-background-color "yellow"
-        win-switch-feedback-foreground-color "black"
-        win-switch-window-threshold 1
-        win-switch-idle-time .7)
-:bind ("C-x o" . win-switch-dispatch))
 
 ;;; ace jump mode
 (use-package ace-jump-mode
@@ -102,20 +93,6 @@
          ("C-<" . mc/mark-previous-like-ths)
          ("C-c C-<" . mc-mark-all-like-this)))
 
-
-;;; Themes
-;(use-package zenburn-theme
-;  :ensure t
-;  :config
-;  (load-theme 'zenburn t))
-
-(use-package leuven-theme
-  :ensure t
-  :config
-  (load-theme 'leuven t))
-
-(set-frame-font "Ubuntu Mono 11")
-;;(set-default-font "Inconsolata 11")
 
 ;;; Insert Date:
 (require 'calendar)

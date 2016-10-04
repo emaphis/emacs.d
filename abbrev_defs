@@ -43,9 +43,13 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
+(define-abbrev-table 'bibtex-mode-abbrev-table '())
+
 (define-abbrev-table 'bookmark-bmenu-mode-abbrev-table '())
 
 (define-abbrev-table 'bookmark-edit-annotation-mode-abbrev-table '())
+
+(define-abbrev-table 'calc-trail-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -78,6 +82,10 @@
 (define-abbrev-table 'comint-mode-abbrev-table '())
 
 (define-abbrev-table 'completion-list-mode-abbrev-table '())
+
+(define-abbrev-table 'custom-new-theme-mode-abbrev-table '())
+
+(define-abbrev-table 'custom-theme-choose-mode-abbrev-table '())
 
 (define-abbrev-table 'debugger-mode-abbrev-table '())
 

@@ -41,6 +41,10 @@
 ;;
 ;;; Code:
 
+;; load ui settings early
+
+(load "~/.emacs.d/set-ui.el")
+
 ;;; packages and repositories
 
 (require 'package)
@@ -178,8 +182,8 @@
 ;;; R settings
 ;(load "set-ess.el")
 
-;;; Ocaml
-;(load "set-ocaml.el")
+;;; OCaml
+(load "set-ocaml.el")
 
 
 ;;; Keep emacs custom-settings in separate file

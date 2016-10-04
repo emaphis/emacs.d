@@ -49,27 +49,28 @@
 
 ;;; Code:
 
-;; this will change with every ocaml upgrade
-(load
- "/home/emaphis/.opam/4.03.0/share/emacs/site-lisp/tuareg-site-file")
+(use-package tuareg
+  :ensure
+  :mode ("\\.ml[ily?$]" . tuareg-mode) )
 
-(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
- (when (and opam-share (file-directory-p opam-share))
-  (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-  (autoload 'merlin-mode "merlin" nil t nil)
+;; Setup environment variables using opam
+;(dolist (var (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
+;  (setenv (car var) (cadr var)))
+
+(use-package merlin
+  :config
+  (bind-keys :map merlin-mode-map
+             ("M-." . merlin-locate)
+             ("M-," . merlin-pop-stack))
+  ;; Start merlin on ocaml files
   (add-hook 'tuareg-mode-hook 'merlin-mode t)
-  (add-hook 'caml-mode-hook 'merlin-mode t)))
+  (add-hook 'caml-mode-hook 'merlin-mode t)
+  ;; Use opam switch to lookup ocamlmerlin binary
+  (setq merlin-command 'opam))
 
-; Make company aware of merlin
-(require 'merlin-company)
-;(with-eval-after-load 'company
-; (add-to-list 'company-backends 'merlin-company-backend))
-
-;; Automatically load utop.el
-(autoload 'utop "utop" "Toplevel for OCaml" t)
-
-;; Use the opam installed utop
-(setq utop-command "opam config exec -- utop -emacs")
+;(use-package utop
+;  :config
+;  (add-hook 'tuareg-mode-hook 'utop-minor-mode))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
