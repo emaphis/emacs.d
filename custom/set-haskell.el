@@ -49,6 +49,8 @@
 ;;
 ;;; Code:
 
+;;; the 'use-package' version is shamelessly lifted from:
+;;; "https://github.com/lunaryorn/.emacs.d/blob/master/init.el"
 ;;; customization directions here: https://github.com/haskell/haskell-mode/wiki
 ;;; also: https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
 
@@ -63,76 +65,71 @@
 
 ;;; Haskell mode settings:
 
-;;(require 'haskell-mode)
 
-(use-package haskell-mode
+(use-package haskell-mode               ; Haskell major mode
   :ensure t
-;  :defer t
+  :defer t
+  :bind (:map haskell-mode-map
+              ("M-." . haskell-mode-jump-to-def-or-tag)
+              ("<f8>" . haskell-navigate-imports)
+              ("C-c m i s" . haskell-sort-imports)
+              ("C-c m i a" . haskell-align-imports)
+              ;; Recommended Haskell Mode bindings, see
+              ;; http://haskell.github.io/haskell-mode/manual/latest/Interactive-Haskell.html
+              )
+  :config  ; like haskell-mode-hook
+  (setq haskell-tags-on-save t ; Regenerate TAGS on save
+        haskell-process-log t  ; Show log for GHCI process
+        haskell-stylish-on-save t
+        haskell-process-suggest-remove-import-lines t
+        haskell-process-auto-import-loaded-modules t)
+  (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode) ; IMenu support
+  (add-hook 'haskell-mode-hook #'interactive-haskell-mode)
+  (add-hook 'haskell-mode-hook #'haskell-auto-insert-module-template))
+
+(use-package haskell                    ; Interactive Haskell
+  :ensure haskell-mode
+  :defer t
+  :bind (:map haskell-mode-map
+         ("C-c C-l" . haskell-process-load-file)
+         ("C-`" . haskell-interactive-bring)
+         ("C-c C-t" . haskell-process-do-type)
+         ("C-c C-i" . haskell-process-do-info)
+         ("C-c C-c" . haskell-process-cabal-build)
+         ("C-c C-k" . haskell-interactive-mode-clear)
+         ("C-c c" . haskell-process-cabal)
+         :map interactive-haskell-mode-map
+         ("M-." . haskell-mode-goto-loc)
+         ("C-c C-T" . haskell-mode-show-type-at))
+  :init (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
+
+(use-package haskell-compile            ; Haskell compilation
+  :ensure haskell-mode
+  :defer t
+  :bind (:map haskell-mode-map
+              ("C-c C-c" . haskell-compile)
+              ("<f5>" . haskell-compile))
+  :config
+  ;; Build with Stack
+  (setq haskell-compile-cabal-build-command "stack build"))
+
+(use-package cabal-mode                 ; Cabal files
+  :ensure haskell-mode
+  :defer t
+  :bind (:map haskell-cabal-mode-map
+              ("C-`" . haskell-interactive-bring)
+              ("C-c C-k" . haskell-interactive-mode-clear)
+              ("C-c C-c" . haskell-process-cabal-build)
+              ("C-c c" . haskell-process-cabal)))
+
+(use-package hindent                    ; Haskell indentation
+  :ensure t
+  :defer t
   :init
- ; :config
- ; (custom-set-variables
- ;  '(haskell-process-suggest-remove-import-lines t)
- ;  '(haskell-process-auto-import-loaded-modules t)
- ;  '(haskell-process-log t)
- ;  '(haskell-process-type 'stack-ghci)
- ;  )
-  (progn (setq haskell-mode-hook nil)
-         (add-hook 'haskell-mode-hook #'interactive-haskell-mode)
-;         (add-hook 'haskell-mode-hook #'hindent-mode)
-         (add-hook 'haskell-mode-hook #'flycheck-mode))
-;  :bind (("C-c C-l" . 'haskell-process-load-or-reload)
-;         ("C-`" . 'haskell-interactive-bring)
-;         ("C-c C-t" . 'haskell-process-do-type)
-;         ("C-c C-i" . 'haskell-process-do-info)
-;         ("C-c C-c" . 'haskell-process-cabal-build)
-;         ("C-c C-k" . 'haskell-interactive-mode-clear)
-;         ("C-c c"   . 'haskell-process-cabal))
-  
+  (add-hook 'haskell-mode-hook #'hindent-mode)
+  :config
+  ;(validate-setq hindent-style "gibiansky")
   )
-
-;(use-package haskell-interactive-mode)
-
-;(add-hook 'haskell-mode-hook 'my-haskell-hook)
-
-;(defun my-haskell-hook ()
-;  (flycheck-mode 1)
-;  "This is my haskell mode hook")
-
-
-;; haskell interactive suttings
-;(require 'haskell-interactive-mode)
-;(require 'haskell-process)
-;(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-
-;(custom-set-variables
-;  '(haskell-process-suggest-remove-import-lines t)
-;  '(haskell-process-auto-import-loaded-modules t)
-;  '(haskell-process-log t))
-
-;(define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-;(define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
-;(define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-;(define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-;(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-;(define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-;(define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-
-(define-key haskell-mode-map [f8] 'haskell-navigate-imports)
-
-;(custom-set-variables
-; '(haskell-process-type 'stack-ghci))
-
-;; Intero setup <http://commercialhaskell.github.io/intero/>
-;(add-hook 'haskell-mode-hook 'intero-mode)
-
-
-;; ghc-mod stuff
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-
-(add-to-list 'company-backends 'company-ghc)
-
 
 (message "end haskell.el")
 (provide 'set-haskell)

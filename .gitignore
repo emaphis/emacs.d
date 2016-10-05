@@ -7,7 +7,7 @@
 auto-save-list
 tramp
 .\#*
-
+*.bck*
 # Org-mode
 .org-id-locations
 *_archive
