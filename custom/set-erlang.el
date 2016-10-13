@@ -16,8 +16,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
-;;   Using erlang downloade from erlang.org
-;;   erlang-mode using local copy
+;;   Using Erlang downloade from
+;;   https://www.erlang-solutions.com/resources/download.html
+;;   erlang-mode from Melpa
+;;   following this set up:
+;;      https://gist.github.com/jaseemabid/75f5607304a8186ba228
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,38 +43,24 @@
 ;;
 ;;; Code:
 
-;; Set up erlang mode -- use local copy
-;(setq load-path (cons "/usr/lib/erlang/lib/tools-2.8.3/emacs"  load-path))
-;(setq erlang-root-dir "/usr/lib/erlang")
-;(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-;(setq erlang-man-root-dir "/usr/lib/erlang/man")
-;(require 'erlang-start)
-
-
-;; Set up flycheck
-;; advice from: http://www.lambdacat.com/post-modern-emacs-setup-for-erlang/
-;;(flycheck-define-checker erlang-otp
-;;  "An Erlang syntax checker using the Erlang interpreter."
-;;  :command ("erlc" "-o" temporary-directory "-Wall"
-;;            "-I" "../include" "-I" "../../include"
-;;            "-I" "../../../include" source)
-;;  :error-patterns
-;;  ((warning line-start (file-name) ":" line ": Warning:" (message) line-end)
-;;   (error line-start (file-name) ":" line ": " (message) line-end)))
-
-;;(add-hook 'erlang-mode-hook
-;;          (lambda ()
-;;            (flycheck-select-checker 'erlang-otp)
-;;            (flycheck-mode)))
-
-;;(require 'erlang-flymake)
+(use-package erlang
+  :init
+  (add-to-list 'auto-mode-alist '("\\.P\\'" . erlang-mode))
+  (add-to-list 'auto-mode-alist '("\\.E\\'" . erlang-mode))
+  (add-to-list 'auto-mode-alist '("\\.S\\'" . erlang-mode))
+  :config
+  (add-hook 'erlang-mode-hook
+            (lambda ()
+              (setq mode-name "erl"
+                    erlang-compile-extra-opts '((i . "../include"))
+                    erlang-root-dir "/usr/lib/erlang"))))
 
 ;; edts
-(add-hook 'after-init-hook 'my-after-init-hook)
-(defun my-after-init-hook ()
-  (company-mode -1)
-  (flycheck-mode -1)
-  (require 'edts-start))
+
+;(use-package edts
+;  :init
+;  (setq edts-inhibit-package-check t
+;        edts-man-root "~/.emacs.d/edts/doc/18.2.1"))
 
 
 (message "end set-erlang.el")
