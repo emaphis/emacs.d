@@ -94,6 +94,11 @@
          ("C-c C-<" . mc-mark-all-like-this)))
 
 
+;;; Which key
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
+
 ;;; Insert Date:
 (require 'calendar)
 
@@ -140,7 +145,6 @@
   :config
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; some custom key bindings

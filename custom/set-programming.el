@@ -34,7 +34,7 @@
 ;; WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
-;;
+;;b
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 ;;
@@ -69,10 +69,10 @@
   :config
   (progn
     (require 'smartparens-config)
-   ;(setq sp-base-key-bindings 'paredit)
-   ;(sp-use-paredit-bindings)
-    (setq sp-base-key-bindings 'smartparens)
-    (sp-use-smartparens-bindings)
+   (setq sp-base-key-bindings 'paredit)
+   (sp-use-paredit-bindings)
+   ; (setq sp-base-key-bindings 'smartparens)
+    ;(sp-use-smartparens-bindings)
     (smartparens-global-mode t)
     (show-smartparens-global-mode t) ; highlights matching pairs
     ))
