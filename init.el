@@ -41,10 +41,6 @@
 ;;
 ;;; Code:
 
-;; load ui settings early
-
-(load "~/.emacs.d/set-ui.el")
-
 ;;; packages and repositories
 
 (require 'package)
@@ -148,6 +144,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  customizations for emacs and various emacs modes.
+
+;; load ui settings early
+(load "~/.emacs.d/set-ui.el")
 
 (add-to-list 'load-path "~/.emacs.d/custom")
 
