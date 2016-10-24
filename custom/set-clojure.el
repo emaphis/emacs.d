@@ -56,7 +56,7 @@
 
 ;;(require 'cider)
 (use-package cider
-;  :ensure t
+  :ensure t
   :defer t
   :config
   ;; Mode related stuff
@@ -65,13 +65,27 @@
   (setq cider-repl-history-file "~/.emacs.d/cider-history")
   (setq cider-repl-use-pretty-printing t)
   (setq cider-repl-result-prefix ";; => ")
+  (setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))")
   ;;(add-hook 'cider-mode-hook #'eldoc-mode) ; maybe don't need?
   (add-hook 'cider-repl-mode-hook #'company-mode))
 
 ;; outputs value of sexp in the edit buffer
 ;;(global-set-key (kbd "M-p") 'cider-eval-print-last-sexp)
 
-;;(use-package clj-refactor)
+
+(use-package clj-refactor
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook (lambda ()
+                                 (clj-refactor-mode 1)
+                                 ;; insert keybinding here
+                                 ))
+  (cljr-add-keybindings-with-prefix "C-c C-m")
+  (setq cljr-warn-on-evaql nil))
+
 
 (message "end set-clojure.el")
 (provide 'set-clojure)
