@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 24.4
+;; Compatibility: emacs 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,8 +41,10 @@
 ;;
 ;;; Code:
 
-(require 'ess-site)
-(add-to-list 'auto-mode-alist '("\\.R$" . ess-mode))
+(use-package ess-site
+ ; :ensure t
+  :defer t
+  :commands R)
 
 (message "end set-ess.el")
 (provide 'set-ess)
