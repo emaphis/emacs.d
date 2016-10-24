@@ -54,14 +54,9 @@
 ;;; customization directions here: https://github.com/haskell/haskell-mode/wiki
 ;;; also: https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
 
-;;; things to setup in cabal to use this mode:
-;;; $ cabal install hasktags stylish-haskell present ghc-mod hlint hoogle
+;;; things to setup in stack to use this mode:
+;;; $ stack install hasktags stylish-haskell present hlint hoogle
 ;;;                structured-haskell-mode
-
-;; setup custom PATH
-;;(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
-;;(add-to-list 'exec-path "~/.cabal/bin")
-
 
 ;;; Haskell mode settings:
 
@@ -69,58 +64,10 @@
 (use-package haskell-mode               ; Haskell major mode
   :ensure t
   :defer t
-  :bind (:map haskell-mode-map
-              ("M-." . haskell-mode-jump-to-def-or-tag)
-              ("<f8>" . haskell-navigate-imports)
-              ("C-c m i s" . haskell-sort-imports)
-              ("C-c m i a" . haskell-align-imports)
-              ;; Recommended Haskell Mode bindings, see
-              ;; http://haskell.github.io/haskell-mode/manual/latest/Interactive-Haskell.html
-              )
   :config  ; like haskell-mode-hook
-  (setq haskell-tags-on-save t ; Regenerate TAGS on save
-        haskell-process-log t  ; Show log for GHCI process
-        haskell-stylish-on-save t
-        haskell-process-suggest-remove-import-lines t
-        haskell-process-auto-import-loaded-modules t)
   (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode) ; IMenu support
-  (add-hook 'haskell-mode-hook #'interactive-haskell-mode)
   (add-hook 'haskell-mode-hook #'haskell-auto-insert-module-template))
 
-(use-package haskell                    ; Interactive Haskell
-  :ensure haskell-mode
-  :defer t
-  :bind (:map haskell-mode-map
-         ("C-c C-l" . haskell-process-load-file)
-         ("C-`" . haskell-interactive-bring)
-         ("C-c C-t" . haskell-process-do-type)
-         ("C-c C-i" . haskell-process-do-info)
-         ("C-c C-c" . haskell-process-cabal-build)
-         ("C-c C-k" . haskell-interactive-mode-clear)
-         ("C-c c" . haskell-process-cabal)
-         :map interactive-haskell-mode-map
-         ("M-." . haskell-mode-goto-loc)
-         ("C-c C-T" . haskell-mode-show-type-at))
-  :init (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
-
-(use-package haskell-compile            ; Haskell compilation
-  :ensure haskell-mode
-  :defer t
-  :bind (:map haskell-mode-map
-              ("C-c C-c" . haskell-compile)
-              ("<f5>" . haskell-compile))
-  :config
-  ;; Build with Stack
-  (setq haskell-compile-cabal-build-command "stack build"))
-
-(use-package cabal-mode                 ; Cabal files
-  :ensure haskell-mode
-  :defer t
-  :bind (:map haskell-cabal-mode-map
-              ("C-`" . haskell-interactive-bring)
-              ("C-c C-k" . haskell-interactive-mode-clear)
-              ("C-c C-c" . haskell-process-cabal-build)
-              ("C-c c" . haskell-process-cabal)))
 
 (use-package hindent                    ; Haskell indentation
   :ensure t
@@ -130,6 +77,12 @@
   :config
   ;(validate-setq hindent-style "gibiansky")
   )
+
+(use-package intero
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'haskell-mode-hook 'intero-mode))
 
 (message "end haskell.el")
 (provide 'set-haskell)
