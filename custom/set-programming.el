@@ -34,7 +34,7 @@
 ;; WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
-;;b
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 ;;
@@ -91,6 +91,11 @@
   :config (progn
             (global-company-mode 1)
             (setq company-tooltip-flip-when-above t)))
+
+(use-package company-quickhelp
+  :ensure t
+  :config
+  (company-quickhelp-mode))
 
 
 ;;; Magit

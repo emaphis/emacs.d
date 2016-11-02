@@ -145,6 +145,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  customizations for emacs and various emacs modes.
 
+;; because, why not:
+(setq garbage-collection-messages t)
+
 ;; load ui settings early
 (load "~/.emacs.d/set-ui.el")
 

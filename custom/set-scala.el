@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings scala
-;; Compatibility: emacs 24.4
+;; Compatibility: Emacs 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -39,15 +39,13 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; Sugestions from: https://github.com/ensime/scala-mode
-;;                  https://github.com/ensime/ensime-emacs
+;; Suggestions from:  http://ensime.github.io/editors/emacs/install/
+;;
 
 ;;; Code:
 
-(require 'scala-mode)
-(require 'ensime)
-
-(add-hook 'scala-mode-hook 'ensime-mode)
+(use-package ensime
+  :ensure t)
 
 
 (message "end set-scala.el")
