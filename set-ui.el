@@ -15,13 +15,13 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-;(load-theme 'zenburn t)
-(load-theme 'leuven t)
+(load-theme 'zenburn t)
+;(load-theme 'leuven t)
 
 ;; nothing like experimenting with fonts!
 ;(set-frame-font "Consolas 11")
 ;(set-frame-font "Consolas Bold 11")
-(set-frame-font "Ubuntu Mono 10")
+(set-frame-font "Ubuntu Mono 11")
 ;(set-frame-font "Ubuntu Mono Bold 11")
 ;(set-frame-font "Ubuntu Light 11")
 ;(set-frame-font "Inconsolata 11")

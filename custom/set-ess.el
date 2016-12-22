@@ -15,7 +15,8 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;; Commentary: Provides setting for 'R' programming using
+;;; Commentary:
+;; Provides setting for 'R' programming using
 ;;   Emacs Speaks Statistics mode
 ;;   http://ess.r-project.org/
 ;;   TODO:  check out polymode

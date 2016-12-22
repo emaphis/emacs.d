@@ -156,6 +156,13 @@
 ;;;  provides: ido, uniquify, better settings
 (load "better-defaults.el")
 
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-verbose t)
+
 ;;; general editing settings
 ;;; continuation of better-defaults
 (load "set-base.el")
