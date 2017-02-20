@@ -38,6 +38,7 @@ tramp
 /edts/
 /ensime/
 /distel/
+/distel-completion/
 
 # untracked files
 places
@@ -45,3 +46,4 @@ ido.last
 ac-comphist.dat
 cider-history
 abbrev_defs
+recentf
