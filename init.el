@@ -186,7 +186,7 @@
 ;(load "set-java.el")
 
 ;;; erlang mode settings
-;(load "set-erlang.el")
+(load "set-erlang.el")
 
 ;;; R settings
 ;(load "set-ess.el")

@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-erlang.el
 ;;
-;; Copyright (c) 2016
+;; Copyright (c) 2017
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -41,6 +41,9 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
+;; Look here: http://www.lambdacat.com/post-modern-emacs-setup-for-erlang/
+;;
+;;
 ;;; Code:
 
 (use-package erlang
@@ -64,16 +67,8 @@
 
 ;; distel
 (push "~/.emacs.d/distel/elisp/" load-path)
-(load "distel.el")
+(require 'distel)
 (distel-setup)
-
-(push "~/.emacs.d/company-distel/" load-path)
-(require 'company-distel)
-(with-eval-after-load 'company
-  (add-to-list 'company-backends 'company-distel))
-(require 'company-distel-frontend)
-(setq company-distel-popup-help t)
-;;(setq distel-completion-get-doc-from-internet t)
 
 ;; prevent annoying hang-on-compile
 (defvar inferior-erlang-prompt-timeout t)
@@ -87,7 +82,13 @@
         ;; Mac OS X uses "name.local" instead of "name", this should work
         ;; pretty much anywhere without having to muck with NetInfo
         ;; ... but I only tested it on Mac OS X.
-                (car (split-string (shell-command-to-string "hostname")))))
+                (car (split-string (shell-command-to-string "hostname"))))))
+
+(push "~/.emacs.d/company-distel/" load-path)
+(require 'company-distel)
+(with-eval-after-load 'company
+  (add-to-list 'company-backends 'company-distel))
+
 
 (message "end set-erlang.el")
 (provide 'set-erlang)
