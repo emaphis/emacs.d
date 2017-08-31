@@ -2,11 +2,11 @@
 ;;
 ;; Filename: init.el
 ;;
-;; Copyright (c) 2016 Ed Maphis
+;; Copyright (c) 2017 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
-;; Created: Sat Aug 16 23:24:41 2014 (-0400)
+;; Created: Aug 16 2014
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
@@ -21,132 +21,29 @@
 ;; loads various configuration files.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; License:
-;;
-;; This program is free software: you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or (at
-;; your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful, but
-;; WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
+
 ;;; Code:
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; packages and repositories
 
 (require 'package)
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
-;;            '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+;; keep the installed packages in .emacs.d
+(setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 
 (package-initialize)
 
 ;; update package metadata when local cache is missing
-(when (not package-archive-contents)
+(unless package-archive-contents
   (package-refresh-contents))
-
-
-(defvar my-packages
-  '(
-    ;; base editing packages and settings
-    ;; based on Technomancy's better-defaults.el
-    ;; customized in /custom/set-base.el
-    dash
-    s
-    ido-hacks
-    ido-ubiquitous
-    idomenu
-    smex
-    magit  ;; yes, I consider vc to be part of base.
-    markdown-mode
-    popup
-    win-switch
-    rainbow-mode
-    ace-jump-mode
-    multiple-cursors
-    undo-tree
-
-    ;;; themes
-    cyberpunk-theme
-    gandalf-theme
-    zenburn-theme
-    solarized-theme
-    monokai-theme
-
-    ;; general programming modes including
-    ;; emacs lisp addon modes.
-    ;; ./custom/set-programming.el and
-    ;; ./custom/set-elisp.el
-    idle-highlight-mode
-    yasnippet
-    smartparens
-    flycheck
-    flycheck-pos-tip
-    company
-    rainbow-delimiters
-    elisp-slime-nav
-
-    ;;; clojure packages customized in
-    ;;; ./custom/set-clojure.el
-    clojure-mode
-    cider
-;;    clojure-mode-extra-font-locking
-  ;  clj-refactor
-
-
-    ;; haskell modules
-    ;; .custom/set-haskell.el
-    haskell-mode
-;;    intero
-    ghc
-    company-ghc
-
-    ;; scala programming modes
-    ;; set in ./custom/set-scala.el
-    scala-mode
-    ensime
-
-    ;; java mode
-    ;; ./custom/set-java.el
-;    emacs-eclim
-
-    ;; erlang
-    ;  erlang  ; local copy
-    edts
-;    distel
-;    company-distel
-
-    ;; R programming with ESS
-    ess
-
-    ;; sml
-    sml-mode
-
-    ;; racket
-    racket-mode
-
-    ) "Packages managed as elpa repositories.")
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  customizations for emacs and various emacs modes.
-
-;; because, why not:
-(setq garbage-collection-messages t)
 
 ;; load ui settings early
 (load "~/.emacs.d/set-ui.el")
@@ -156,6 +53,8 @@
 ;;;  provides: ido, uniquify, better settings
 (load "better-defaults.el")
 
+
+;;; use package
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
@@ -177,7 +76,7 @@
 (load "set-clojure.el")
 
 ;;; haskell settings
-(load "set-haskell.el")
+;;(load "set-haskell.el")
 
 ;;; scala language settings
 ;(load "set-scala.el")
@@ -192,7 +91,7 @@
 ;(load "set-ess.el")
 
 ;;; OCaml
-(load "set-ocaml.el")
+;;(load "set-ocaml.el")
 
 
 ;;; Keep emacs custom-settings in separate file
@@ -204,4 +103,3 @@
 (message "end init.el")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
-

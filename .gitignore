@@ -39,6 +39,7 @@ tramp
 /ensime/
 /distel/
 /distel-completion/
+/savefile/
 
 # untracked files
 places

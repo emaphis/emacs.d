@@ -11,47 +11,58 @@
 ;; This file is NOT part of GNU Emacs.
 
 ;;; Commentary:
-
-;; There are a number of unfortunate facts about the way Emacs works
-;; out of the box. While all users will eventually need to learn their
-;; way around in order to customize it to their particular tastes,
-;; this package attempts to address the most obvious of deficiencies
-;; in uncontroversial ways that nearly everyone can agree upon.
-
-;; Obviously there are many further tweaks you could do to improve
-;; Emacs, (like those the Starter Kit and similar packages) but this
-;; package focuses only on those that have near-universal appeal.
-
-;;; License:
-
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 3, or (at your option)
-;; any later version.
-;;
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to the
-;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-;; Boston, MA 02110-1301, USA.
+;; general settings before use-package
 
 ;;; Code:
 
+(setq user-full-name "Ed Maphis"
+      user-mail-address "emaphis85@gmail.com")
+
+;; save dir  ???
+(defconst maph-savefile-dir (expand-file-name "savefile" user-emacs-directory))
+
+;; create the savefile dir if it doesn't exist
+(unless (file-exists-p maph-savefile-dir)
+  (make-directory maph-savefile-dir))
+
+
+;; Newline at end of file
+(setq require-final-newline t)
+
+;; revert buffers automatically when underlying files are changed externally
+(global-auto-revert-mode t)
+
+;; set coding system to prevent anoying interuptions
+(prefer-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+
+
+;; hippie expand is dabbrev expand on steroids
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev
+                                         try-expand-dabbrev-all-buffers
+                                         try-expand-dabbrev-from-kill
+                                         try-complete-file-name-partially
+                                         try-complete-file-name
+                                         try-expand-all-abbrevs
+                                         try-expand-list
+                                         try-expand-line
+                                         try-complete-lisp-symbol-partially
+                                         try-complete-lisp-symbol))
+
+;; replace buffer-menu with ibuffer
+(global-set-key (kbd "C-x C-b") #'ibuffer)
+
+;; smart tab behavior - indent or complete
+(setq tab-always-indent 'complete)
+
+;; highlight the current line
+(global-hl-line-mode +1)
+
+
 ;;;###autoload
 (progn
-;  (ido-mode t)
-;  (setq ido-enable-flex-matching t)
-
-;  (menu-bar-mode -1)
-;  (when (fboundp 'tool-bar-mode)
-;    (tool-bar-mode -1))
-;  (when (fboundp 'scroll-bar-mode)
-;    (scroll-bar-mode -1))
-
   (autoload 'zap-up-to-char "misc"
     "Kill up to, but not including ARGth occurrence of CHAR." t)
 

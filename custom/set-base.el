@@ -2,11 +2,11 @@
 ;;
 ;; Filename: set-base.el
 ;;
-;; Copyright (c) 2016 Ed Maphis
+;; Copyright (c) 2017 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
-;; Created: Sat Aug 16 23:24:41 2014 (-0400)
+;; Created: Aug 16 2014
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
@@ -22,26 +22,7 @@
 ;; that don't realy belong to a programming type mode will most
 ;; likely be included here.
 ;;
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; License:
-;;
-;; This program is free software: you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or (at
-;; your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful, but
-;; WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
+
 ;;; Code:
 
 ;;; ido and smex settings
@@ -54,17 +35,28 @@
   :config
   (setq ido-enable-prefix nil
         ido-enable-flex-matching t
-        ido-use-filename-at-point 'guess)
+        ido-create-new-buffer 'always
+        ido-use-filename-at-point 'guess
+        ido-max-prospects 10
+        ido-save-directory-list-file (expand-file-name "ido.hist" maph-savefile-dir)
+        ido-default-file-method 'selected-window
+        ido-auto-merge-work-directories-length -1)
   (ido-mode +1))
 
-(use-package ido-ubiquitous
+;; see ido-completing-read
+;; https://github.com/DarwinAwardWinner/ido-ubiquitous#version-40-changes
+(use-package ido-completing-read+
   :ensure t
   :config
   (ido-ubiquitous-mode +1))
 
-;; TODO: look at flex-ido
+(use-package flx-ido
+  :ensure t
+  :config
+  (flx-ido-mode +1)
+  ;; disable ido faces to see flx highlights
+  (setq ido-use-faces nil))
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;;; smex
 (use-package smex
@@ -78,6 +70,12 @@
          ))
 
 ;;; *** C-f   Confirm create file in 'smex' ***
+
+(use-package imenu-anywhere
+  :ensure t
+  :bind (("C-c i" . imenu-anywhere)
+         ("s-i" . imenu-anywhere)))
+
 
 
 ;;; ace jump mode
@@ -97,7 +95,28 @@
 ;;; Which key
 (use-package which-key
   :ensure t
-  :config (which-key-mode))
+  :config (which-key-mode +1)
+  (setq which-key-idle-delay 1.2))
+
+(use-package undo-tree
+  :ensure t
+  :config
+  ;; autosave the undo-tree history
+  (setq undo-tree-history-directory-alist
+        `((".*" . ,temporary-file-directory)))
+  (setq undo-tree-auto-save-history t))
+
+
+;;; Documentation modes
+
+(use-package markdown-mode
+  :ensure t
+  :defer t)
+
+(use-package yaml-mode
+  :ensure t
+  :defer t)
+
 
 ;;; Insert Date:
 (require 'calendar)
@@ -129,22 +148,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; misc settings
 
-;;; display column number in mode-line
-(column-number-mode t)
-
-;;; Highlight current line
-(global-hl-line-mode +1)
-
-;;; Display the column number in the mode line.
-(column-number-mode t)
-
-;;; flyspell   TODO: check whether I should use aspell.
-;(require 'flyspell)
-;(add-hook 'text-mode-hook  (lambda ()(flyspell-mode +1)))
+;;; flyspell
 (use-package flyspell
-  :config
-  (add-hook 'text-mode-hook #'flyspell-mode)
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
+   :config
+   (when (eq system-type 'windows-nt)
+     (add-to-list 'exec-path "C:/Program Files/Aspell/bin/"))
+   (setq ispell-program-name "aspell" ; use aspell instead of ispell
+         ispell-extra-args '("--sug-mode=ultra"))
+   (add-hook 'text-mode-hook #'flyspell-mode)
+   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; some custom key bindings
@@ -189,4 +203,3 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set-base.el ends here
-
