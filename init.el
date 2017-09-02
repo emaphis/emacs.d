@@ -48,7 +48,12 @@
 ;; load ui settings early
 (load "~/.emacs.d/set-ui.el")
 
+;; custom settings
 (add-to-list 'load-path "~/.emacs.d/custom")
+
+;; stuff not on melpa
+(add-to-list 'load-path "~/.emacs.d/vendor")
+
 
 ;;;  provides: ido, uniquify, better settings
 (load "better-defaults.el")
@@ -92,6 +97,18 @@
 
 ;;; OCaml
 ;;(load "set-ocaml.el")
+
+;;; Ruby
+(use-package inf-ruby
+  :ensure t
+  :config
+  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode))s
+
+(use-package ruby-mode
+  :config
+  (add-hook 'ruby-mode-hook #'subword-mode))
+
+
 
 
 ;;; Keep emacs custom-settings in separate file
