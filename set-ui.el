@@ -32,8 +32,8 @@
 ;;(setq-default tab-width 4)            ;; but maintain correct appearance
 
 
-(load-theme 'zenburn t)
-;(load-theme 'leuven t)
+;(load-theme 'zenburn t)
+(load-theme 'leuven t)
 
 ;; nothing like experimenting with fonts!
 (set-frame-font "Consolas 10")

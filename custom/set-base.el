@@ -64,10 +64,10 @@
   :config
   (setq smex-save-file (concat user-emacs-directory ".smex-items"))
   (smex-initialize)
-  :bind (("M-x" . smex)  ; This is your old M-x.
+  :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)
-      ;;   ("C-c C-c M-x". execute-extended-command--last-typed)
-         ))
+         ;; This is your old M-x.
+         ("C-c C-c M-x". execute-extended-command)))
 
 ;;; *** C-f   Confirm create file in 'smex' ***
 

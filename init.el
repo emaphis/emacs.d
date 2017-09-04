@@ -99,17 +99,19 @@
 ;;(load "set-ocaml.el")
 
 ;;; Ruby
-(use-package inf-ruby
-  :ensure t
-  :config
-  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode))s
-
 (use-package ruby-mode
   :config
   (add-hook 'ruby-mode-hook #'subword-mode))
 
 
-
+(use-package robe
+  :defer t
+  :ensure t
+  :init
+  (progn
+    (add-hook 'ruby-mode-hook #'robe-mode)
+    (with-eval-after-load 'company
+      (add-to-list 'company-backends 'company-robe))))
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
