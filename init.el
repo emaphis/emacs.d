@@ -24,6 +24,9 @@
 
 ;;; Code:
 
+;; load ui settings early
+(load "~/.emacs.d/set-ui.el")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; packages and repositories
 
@@ -44,9 +47,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  customizations for emacs and various emacs modes.
-
-;; load ui settings early
-(load "~/.emacs.d/set-ui.el")
 
 ;; custom settings
 (add-to-list 'load-path "~/.emacs.d/custom")
@@ -82,6 +82,7 @@
 
 ;;; haskell settings
 ;;(load "set-haskell.el")
+
 
 ;;; scala language settings
 ;(load "set-scala.el")
