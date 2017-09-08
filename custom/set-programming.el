@@ -156,6 +156,13 @@
 (setq inferior-lisp-program "sbcl")
 
 
+;;; org babel stuff - may move it to it's own module
+
+(setq org-confirm-babel-evaluate nil
+      org-src-fontify-natively t
+      org-src-tab-acts-natively t)
+
+
 (message "end set-programming.el")
 (provide 'set-programming)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
