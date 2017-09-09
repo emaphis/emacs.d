@@ -17,16 +17,10 @@
 ;;
 ;;; Commentary:
 ;;
-;;  My haskell settings, largely derived from the excellent tutorial:
-;;  https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
+;;  My Haskell settings for Haskell stack
+;;  https://commercialhaskell.github.io/intero/
+;;  https://gist.github.com/snoyberg/3807bac2cdf276fd0aecd2f26916e025
 ;;
-;; Trouble shooting:
-;;   If the REPL ever goes funny, you can clear the command queue via:
-;; M-x haskell-process-clear
-;;   Alternatively, you can just restart the process:
-;; M-x haskell-process-restart
-;;   Dump the  haskell-process  state:
-;; M-: (haskell-process)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,36 +41,28 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
+
 ;;; Code:
-
-;;; the 'use-package' version is shamelessly lifted from:
-;;; "https://github.com/lunaryorn/.emacs.d/blob/master/init.el"
-;;; customization directions here: https://github.com/haskell/haskell-mode/wiki
-;;; also: https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
-
-;;; things to setup in stack to use this mode:
-;;; $ stack install hasktags stylish-haskell present hlint hoogle
-;;;                structured-haskell-mode
 
 ;;; Haskell mode settings:
 
 
-(use-package haskell-mode               ; Haskell major mode
-  :ensure t
-  :defer t
-  :config  ; like haskell-mode-hook
-  (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode) ; IMenu support
-  (add-hook 'haskell-mode-hook #'haskell-auto-insert-module-template))
+;; (use-package haskell-mode               ; Haskell major mode
+;;   :ensure t
+;;   :defer t
+;;   :config  ; like haskell-mode-hook
+;; ;  (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode) ; IMenu support
+;;   (add-hook 'haskell-mode-hook #'haskell-auto-insert-module-template))
 
 
-(use-package hindent                    ; Haskell indentation
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'haskell-mode-hook #'hindent-mode)
-  :config
-  ;(validate-setq hindent-style "gibiansky")
-  )
+;; (use-package hindent                    ; Haskell indentation
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'haskell-mode-hook #'hindent-mode)
+;;   :config
+;;   ;(validate-setq hindent-style "gibiansky")
+;;   )
 
 (use-package intero
   :ensure t

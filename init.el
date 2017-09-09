@@ -81,8 +81,8 @@
 (load "set-clojure.el")
 
 ;;; haskell settings
-;;(load "set-haskell.el")
-
+(load "set-haskell.el")
+;;(load "set-haskell-cabal.el")
 
 ;;; scala language settings
 ;(load "set-scala.el")
