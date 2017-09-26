@@ -114,6 +114,30 @@
     (with-eval-after-load 'company
       (add-to-list 'company-backends 'company-robe))))
 
+;;; SML stuff
+
+(use-package sml-mode
+  :defer t
+  :mode "\\.sml\\'"
+  :functions sml-prog-proc-send-buffer
+  :config
+  (defun my-sml-prog-proc-send-buffer ()
+    "If sml repl exists, then restart it else create a new repl."
+    (interactive)
+    (when (get-buffer "*sml*")
+      (with-current-buffer "*sml*"
+        (when (get-process "sml")
+          (comint-send-eof)))
+      (sleep-for 0.2)
+      (sml-run "sml" ""))
+    (sml-prog-proc-send-buffer t))
+  (bind-key "C-c C-b" 'my-sml-prog-proc-send-buffer sml-mode-map))
+
+(require 'company-sml)
+(add-hook 'company-sml 'company-sml-setup)
+
+(use-package flycheck-sml)
+
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
 (load custom-file)
