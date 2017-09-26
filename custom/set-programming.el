@@ -36,14 +36,14 @@
 
 
 ;;; yasnippet
-;; (use-package yasnippet
-;;   :init
-;;   (progn
-;;     (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
-;;     (setq yas-prompt-functions '(yas/ido-prompt))
-;;     (setq yas-indent-line 'fixed)
-;;     (yas-global-mode 1))
-;;   :mode ("\\.yasnippet" . snippet-mode))
+(use-package yasnippet
+  :init
+  (progn
+    (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
+    (setq yas-prompt-functions '(yas/ido-prompt))
+    (setq yas-indent-line 'fixed)
+    (yas-global-mode 1))
+  :mode ("\\.yasnippet" . snippet-mode))
 
 
 ;;; smartparens
