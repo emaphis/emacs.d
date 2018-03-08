@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-base.el
 ;;
-;; Copyright (c) 2017 Ed Maphis
+;; Copyright (c) 2018 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -152,9 +152,8 @@
 (use-package flyspell
    :config
    (when (eq system-type 'windows-nt)
-     (add-to-list 'exec-path "C:/Program Files/Aspell/bin/"))
-   (setq ispell-program-name "aspell" ; use aspell instead of ispell
-         ispell-extra-args '("--sug-mode=ultra"))
+     (add-to-list 'exec-path "c:/apps/hunspell/bin/"))
+   (setq ispell-program-name "hunspell") ; use hunspell instead of ispell
    (add-hook 'text-mode-hook #'flyspell-mode)
    (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 

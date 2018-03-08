@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-elisp.el
 ;;
-;; Copyright (c) 2017 Ed Maphis
+;; Copyright (c) 2018 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -34,13 +34,8 @@
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t))))
 
-(use-package lisp-interaction-mode
-  :init
-  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'lisp-iteraction-mode-hook (lambda () (idle-highlight-mode t))))
-
-(use-package ielm-mode
+;;; ielm - elisp repl
+(use-package ielm
   :init
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'ielm-mode-hook #'paredit-mode))
