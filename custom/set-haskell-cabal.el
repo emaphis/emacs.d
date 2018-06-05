@@ -2,7 +2,7 @@
 ;;
 ;; Filename: haskell.el
 ;;
-;; Copyright (c) 2017 Ed Maphis
+;; Copyright (c) 2018 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;

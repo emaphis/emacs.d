@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-ocaml.el
 ;;
-;; Copyright (c) 2016 Ed Maphis
+;; Copyright (c) 2018 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -17,7 +17,7 @@
 ;;
 ;;; Commentary:
 ;;
-;;  settings for taureg mode and merlin mode
+;;  settings for taureg mode, merlin mode, utop mode
 ;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -42,35 +42,52 @@
 ;; Sugestions from:
 ;;   https://github.com/ocaml/tuareg
 ;;   https://github.com/the-lambda-church/merlin/wiki/emacs-from-scratch
+;;   https://github.com/kuwze/emacs-reasonml-ocaml/blob/master/init.el.org
 
 ;; opam install tuareg
 ;; opam install merlin
-;;
+;; opam install utop
+;; opam install ocp-indent
 
 ;;; Code:
 
+(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))))
+
+;;(use-package ocp-indent)
+
+;; tuareg provides ocaml mode
 (use-package tuareg
   :ensure
-  :mode ("\\.ml[ily?$]" . tuareg-mode) )
+  :config
+  ;(add-hook 'before-save-hook 'ocp-indent-buffer nil t)
+  (add-hook 'tuareg-mode-hook #'electric-pair-local-mode)
+  :mode ("\\.ml[ily?$]" . tuareg-mode))
 
 ;; Setup environment variables using opam
 ;(dolist (var (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
 ;  (setenv (car var) (cadr var)))
 
+;; merlin provides ide capability
 (use-package merlin
+  :ensure t
+  :custom
+  (merlin-command 'opam)
+  (company-quickhelp-mode t)
   :config
-  (bind-keys :map merlin-mode-map
-             ("M-." . merlin-locate)
-             ("M-," . merlin-pop-stack))
   ;; Start merlin on ocaml files
-  (add-hook 'tuareg-mode-hook 'merlin-mode t)
-  (add-hook 'caml-mode-hook 'merlin-mode t)
-  ;; Use opam switch to lookup ocamlmerlin binary
-  (setq merlin-command 'opam))
+  (add-hook 'tuareg-mode-hook 'merlin-mode)
+  (add-hook 'merlin-mode-hook #'company-mode)
+ ; (setq merlin-error-after-save nil)
+  )
 
-;(use-package utop
-;  :config
-;  (add-hook 'tuareg-mode-hook 'utop-minor-mode))
+;; utop provides an advanced repl
+(use-package utop
+  :ensure
+  :config
+  (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+  (add-hook 'tuareg-mode-hook 'utop-minor-mode))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

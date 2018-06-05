@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-programming.el
 ;;
-;; Copyright (c) 2017 Ed Maphis
+;; Copyright (c) 2018 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -88,14 +88,16 @@
 ;;; company mode
 (use-package company
   :ensure t
-  :config (progn
-            (global-company-mode 1)
-            (setq company-tooltip-flip-when-above t)))
+  :config
+  (progn
+    (global-company-mode 1)
+    (setq company-tooltip-flip-when-above t)))
 
 (use-package company-quickhelp
   :ensure t
   :config
-  (company-quickhelp-mode))
+  (company-quickhelp-mode 1)
+  (define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
 
 
 ;;; Magit

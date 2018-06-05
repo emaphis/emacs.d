@@ -81,7 +81,7 @@
 (load "set-clojure.el")
 
 ;;; haskell settings
-;;(load "set-haskell.el")
+(load "set-haskell.el")
 ;;(load "set-haskell-cabal.el")
 
 ;;; scala language settings
@@ -91,13 +91,13 @@
 ;(load "set-java.el")
 
 ;;; erlang mode settings
-;;(load "set-erlang.el")
+(load "set-erlang.el")
 
 ;;; R settings
 ;(load "set-ess.el")
 
 ;;; OCaml
-;;(load "set-ocaml.el")
+(load "set-ocaml.el")
 
 ;;; FSharp
 (use-package fsharp-mode

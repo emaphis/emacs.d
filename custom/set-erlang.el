@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-erlang.el
 ;;
-;; Copyright (c) 2017
+;; Copyright (c) 2018
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -44,8 +44,8 @@
   :defer t
   :config
   (when (eq system-type 'windows-nt)
-    (setq erlang-root-dir "C:/erl7.0")
-    (add-to-list 'exec-path "C:/erl7.0/bin")))
+    (setq erlang-root-dir "c:/apps/erl9.2")
+    (add-to-list 'exec-path "c:/apps/erl9.2/bin")))
 
 ;; edts
 

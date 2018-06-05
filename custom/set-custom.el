@@ -55,7 +55,7 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (fsharp-mode yasnippet haskell-mode ess-site ess intero clj-refactor hl-sexp highlight-sexp moe-theme toxi-theme leuven-theme racket-mode zenburn-theme win-switch undo-tree solarized-theme sml-mode smex smartparens rainbow-mode rainbow-delimiters multiple-cursors monokai-theme markdown-mode magit idomenu ido-ubiquitous ido-hacks idle-highlight-mode gandalf-theme flycheck-pos-tip ensime elisp-slime-nav edts cyberpunk-theme company-ghc cider ace-jump-mode)))
+    (utop merlin tuareg erlang fsharp-mode yasnippet haskell-mode ess-site ess intero clj-refactor hl-sexp highlight-sexp moe-theme toxi-theme leuven-theme racket-mode zenburn-theme win-switch undo-tree solarized-theme sml-mode smex smartparens rainbow-mode rainbow-delimiters multiple-cursors monokai-theme markdown-mode magit idomenu ido-ubiquitous ido-hacks idle-highlight-mode gandalf-theme flycheck-pos-tip ensime elisp-slime-nav edts cyberpunk-theme company-ghc cider ace-jump-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
