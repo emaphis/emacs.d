@@ -2,7 +2,7 @@
 ;;
 ;; Filename: init.el
 ;;
-;; Copyright (c) 2018 Ed Maphis
+;; Copyright (c) 2019 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 25.1
+;; Compatibility: emacs 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -80,8 +80,8 @@
 ;;; clojure settings
 (load "set-clojure.el")
 
-;;; haskell settings
-(load "set-haskell.el")
+;;; haskell settings - one of two:
+;;(load "set-haskell.el")
 ;;(load "set-haskell-cabal.el")
 
 ;;; scala language settings
@@ -91,22 +91,25 @@
 ;(load "set-java.el")
 
 ;;; erlang mode settings
-(load "set-erlang.el")
+;;(load "set-erlang.el")
 
 ;;; R settings
 ;(load "set-ess.el")
 
 ;;; OCaml
-(load "set-ocaml.el")
+;;(load "set-ocaml.el")
+
+;;; Python with jedi
+(load "set-python.el")
 
 ;;; FSharp
-(use-package fsharp-mode
-  :config
-  (if (eq system-type 'windows-nt)
-      (setq inferior-fsharp-program
-            "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsi.exe\"")
-    (setq fsharp-compile-command
-          "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsc.exe\"")))
+;; (use-package fsharp-mode
+;;   :config
+;;   (if (eq system-type 'windows-nt)
+;;       (setq inferior-fsharp-program
+;;             "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsi.exe\"")
+;;     (setq fsharp-compile-command
+;;           "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsc.exe\"")))
 
 ;;; Ruby
 ;;(use-package ruby-mode

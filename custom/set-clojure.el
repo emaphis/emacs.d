@@ -2,17 +2,17 @@
 ;;
 ;; Filename: set-clojure.el
 ;;
-;; Copyright (c) 2017 Ed Maphis
+;; Copyright (c) 2019 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
 ;; Created: Aug 18 2014
-;; Updated: Thr Aug 10, 2017
+;; Updated: Feb, 5 2018
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
-;; Keywords: Emacs settings Clojure
-;; Compatibility: Emacs 25.1
+;; Keywords: Emacs settings, Clojure, Programming
+;; Compatibility: Emacs 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,7 +47,7 @@
   (setq cider-repl-history-file "~/.emacs.d/cider-history")
   (setq cider-repl-use-pretty-printing t)
   (setq cider-repl-result-prefix ";; => ")
-  (setq cider-cljs-lein-repl
+  (setq cider-default-cljs-repl
       "(do (require 'figwheel-sidecar.repl-api)
            (figwheel-sidecar.repl-api/start-figwheel!)
            (figwheel-sidecar.repl-api/cljs-repl))")
@@ -68,6 +68,9 @@
 ;;   (cljr-add-keybindings-with-prefix "C-c C-m")
 ;;   (setq cljr-warn-on-evaql nil))
 
+
+(use-package flycheck-joker
+  :ensure t)
 
 (message "end set-clojure.el")
 (provide 'set-clojure)

@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-programming.el
 ;;
-;; Copyright (c) 2018 Ed Maphis
+;; Copyright (c) 2019 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -10,8 +10,8 @@
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
-;; Keywords: emacs settings
-;; Compatibility: emacs 25.1
+;; Keywords: emacs settings, programming
+;; Compatibility: emacs 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -28,11 +28,16 @@
 (which-function-mode 1)
 
 ;;; hi-light TODO:
-(add-hook 'prog-mode-hook
-               (lambda ()
-                (font-lock-add-keywords nil
-                   '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\):"
-                      1 font-lock-warning-face t)))))
+(use-package hl-todo
+  :ensure t
+  :config
+  (setq hl-todo-highlight-puntuation ":")
+  (global-hl-todo-mode))
+
+(use-package aggressive-indent
+  :ensure t
+  :config
+  (global-aggressive-indent-mode 1))
 
 
 ;;; yasnippet
@@ -114,11 +119,19 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-mode))
 
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode)
+  ;;(setq projectile-completion-system 'ivy)
+  )
+
+
 ;;; miscellaneous languages:
 
 
-(use-package fsharp-mode
-  :defer t)
+;; (use-package fsharp-mode
+;;   :defer t)
 
 ;; C:\Program Files\dotnet\sdk\2.0.0\FSharp
 ;;(setq inferior-fsharp-program "\"C:\\Program Files\dotnet\sdk\2.0.0\FSharp\Fse.exe\"")
@@ -126,36 +139,35 @@
 
 
 ;; Scheme programming
-(use-package geiser
-  :ensure t
-  :defer t
-  :config
-  (add-hook 'scheme-mode-hook 'geiser-mode))
+;; (use-package geiser
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (add-hook 'scheme-mode-hook 'geiser-mode))
 
 ;; Common Lisp programming
-(use-package slime
-  :ensure t
-  :defer t
-  :init
-  (setq slime-contribs                     '(slime-fancy)
-        slime-complete-symbol-function     'slime-fuzzy-complete-symbol
-        slime-net-coding-system            'utf-8-unix
-        ;; slime-lisp-implementations
-        ;; '((ccl64 ("/usr/local/bin/ccl64"))
-        ;;   (sbcl  ("/usr/local/bin/sbcl"))
-        ;;   (abcl  ("/usr/local/bin/abcl"))
-        ;;   (clisp ("/usr/local/bin/clisp"))
-        ;;   (ccl   ("/usr/local/bin/ccl")))
-        )
-  :config
-  (add-hook 'slime-mode-hook #'paredit-mode)
-  (add-hook 'slime-mode-hook #'rainbow-delimiters-mode)
+;; (use-package slime
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (setq slime-contribs                     '(slime-fancy)
+;;         slime-complete-symbol-function     'slime-fuzzy-complete-symbol
+;;         slime-net-coding-system            'utf-8-unix
+;;         ;; slime-lisp-implementations
+;;         ;; '((ccl64 ("/usr/local/bin/ccl64"))
+;;         ;;   (sbcl  ("/usr/local/bin/sbcl"))
+;;         ;;   (abcl  ("/usr/local/bin/abcl"))
+;;         ;;   (clisp ("/usr/local/bin/clisp"))
+;;         ;;   (ccl   ("/usr/local/bin/ccl")))
+;;         )
+;;   :config
+;;   (add-hook 'slime-mode-hook #'paredit-mode)
+;;   (add-hook 'slime-mode-hook #'rainbow-delimiters-mode)
   ;; (setq common-lisp-hyperspec-root         "/usr/local/share/doc/hyperspec/HyperSpec/"
   ;;       common-lisp-hyperspec-symbol-table (concat common-lisp-hyperspec-root "Data/Map_Sym.txt")
-  ;;       common-lisp-hyperspec-issuex-table (concat common-lisp-hyperspec-root "Data/Map_IssX.txt"))
-  )
+  ;;       common-lisp-hyperspec-issuex-table (concat common-lisp-hyperspec-root "Data/Map_IssX.txt")))
 
-(setq inferior-lisp-program "sbcl")
+;;(setq inferior-lisp-program "sbcl")
 
 
 ;;; org babel stuff - may move it to it's own module

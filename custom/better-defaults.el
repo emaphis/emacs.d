@@ -32,7 +32,7 @@
 ;; revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
 
-;; set coding system to prevent anoying interuptions
+;; set coding system to prevent annoying interruptions
 (prefer-coding-system 'utf-8-unix)
 (set-default-coding-systems 'utf-8-unix)
 (set-terminal-coding-system 'utf-8-unix)
@@ -51,8 +51,6 @@
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
 
-;; replace buffer-menu with ibuffer
-(global-set-key (kbd "C-x C-b") #'ibuffer)
 
 ;; smart tab behavior - indent or complete
 (setq tab-always-indent 'complete)
@@ -61,7 +59,6 @@
 (global-hl-line-mode +1)
 
 
-;;;###autoload
 (progn
   (autoload 'zap-up-to-char "misc"
     "Kill up to, but not including ARGth occurrence of CHAR." t)
@@ -69,11 +66,10 @@
   (require 'uniquify)
   (setq uniquify-buffer-name-style 'forward)
 
-  (require 'saveplace)
-  (setq-default save-place t)
+  (save-place-mode 1)
 
   (global-set-key (kbd "M-/") 'hippie-expand)
-  (global-set-key (kbd "C-x C-b") 'ibuffer)
+  (global-set-key (kbd "C-x C-b") 'ibuffer) ;; replace buffer-menu with ibuffer
   (global-set-key (kbd "M-z") 'zap-up-to-char)
 
   (global-set-key (kbd "C-s") 'isearch-forward-regexp)
@@ -83,9 +79,7 @@
 
   (show-paren-mode 1)
   (setq-default indent-tabs-mode nil)
-  (setq select-enable-clipboard t
-        select-enable-primary t
-        save-interprogram-paste-before-kill t
+  (setq save-interprogram-paste-before-kill t
         apropos-do-all t
         mouse-yank-at-point t
         require-final-newline t
@@ -96,5 +90,6 @@
         backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                  "backups")))))
 
+(message "... end better=defaults ...")
 (provide 'better-defaults)
 ;;; better-defaults.el ends here

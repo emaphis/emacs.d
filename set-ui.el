@@ -1,6 +1,6 @@
 ;;; set-ui.el --- some basic UI settings.
 ;; Created: Tuesday, October 4, 2016
-
+;; 
 ;;; Commentary:
 ;; set basic UI setting early in the process
 
@@ -36,7 +36,7 @@
 (load-theme 'leuven t)
 
 ;; nothing like experimenting with fonts!
-(set-frame-font "Consolas 10")
+(set-frame-font "Consolas 11")
 ;(set-frame-font "Consolas Bold 11")
 ;(set-frame-font "Ubuntu Mono 11")
 ;(set-frame-font "Ubuntu Mono Bold 11")b
@@ -51,6 +51,9 @@
 
 ;;; display column number in mode-line
 (column-number-mode t)
+
+;;; global line number mode
+(global-linum-mode)
 
 ;;; Highlight current line
 (global-hl-line-mode +1)

@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-base.el
 ;;
-;; Copyright (c) 2018 Ed Maphis
+;; Copyright (c) 2019 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 25.1
+;; Compatibility: emacs 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -107,11 +107,36 @@
   (setq undo-tree-auto-save-history t))
 
 
+;; TODO: smooth scrolling
+;; (use-package smooth-scrolling
+;;   :ensure
+;;   :config
+;;   (smooth-scrolling-mode 1))
+
+
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1)
+  ;;(setq beacon-color "#666600")
+  )
+
+
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
+
+
 ;;; Documentation modes
 
 (use-package markdown-mode
   :ensure t
-  :defer t)
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+	 ("\\.md\\'" . markdown-mode)
+	 ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 
 (use-package yaml-mode
   :ensure t
@@ -198,7 +223,7 @@
 
 
 (provide 'set-base)
-(message "end set-base.el")
+(message "... end set-base.el ...")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set-base.el ends here
