@@ -8,12 +8,11 @@ I'm starting from scratch to remove old cruft and make it more modular.
 
 Based on Technomancy's [Better Defaults](https://github.com/technomancy/better-defaults)
 With many ideas from: 
-    [BBatsov's prelude](https://github.com/bbatsov/prelude),
+    [BBatsov's settings](https://github.com/bbatsov/emacs.d),
     [flyingmachine's settings](https://github.com/flyingmachine/emacs.d),
     [Emacs Live](https://github.com/overtone/emacs-live),
     [Zamansky's setup](https://github.com/zamansky/using-emacs)
-    [Zamansky's videos]()
-Now porting to use-package
+    [Zamansky's videos](https://www.youtube.com/watch?v=49kBWM3RQQ8)
 
 Including instructions on how to compile and install emacs on in local directories on Fedora Linux [install-fedora.md](./doc/install-fedora.md)
 
@@ -21,13 +20,13 @@ A handy key binding reference: [key-bind.org](./doc/key-bind.org) acsessible wit
 
 *Directories*
 
-```custom```      contains customization files for various modules and custom lisp code
+```custom``` contains customization files for various modules and custom lisp code
 
-```vendor```      contains lisp modules not in any of the ```elpa``` repositories
+```vendor``` contains lisp modules not in any of the ```elpa``` repositories
 
-```melpa```       contains ```elpa``` installed elisp modules.
+```melpa```  contains ```elpa``` installed elisp modules.
 
-```doc```         contains various usefull (hmm, to me) files.
+```doc```    contains various usefull (hmm, to me) files.
 
 
 This software is under the GPL3 license.
