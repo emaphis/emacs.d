@@ -2,7 +2,6 @@ A handy remider of key bindings
 
 * general editing bindings
 ** summary
-
 ** custom key bindings
    C-x g           magit-status
    C-x O           back one window
@@ -48,7 +47,6 @@ A handy remider of key bindings
    C-d             Kill character
    M-d             Kill word
    M-delete        Kill word backwards
-
 ** misc
    C-s             Regex search forwards
    C-r             Regex search backwards
@@ -434,10 +432,8 @@ A handy remider of key bindings
 
   N c              git svn dcommit
 
-
 * Programming modes
-
-* company completion
+** company completion
   M-n / M-p        select next/previous item
   Ret              complete item
   Tab              complete common part
@@ -446,7 +442,7 @@ A handy remider of key bindings
   <F1>             show documentation of selection
   C-w              show the selections source
 
-* smartparens
+** smartparens
 ** summary
   M-(, M-{, M-[    surround expression after point in brackets
   C-→              Slurp; move closing parenthesis to the right to include
@@ -514,13 +510,13 @@ A handy remider of key bindings
   C-]              sp-select-next-thing-exchange (&optional arg)
   C-- C-]          sp-select-previous-thing-exchange (&optional arg)
 
-* flycheck
+** flycheck
   C-c ! c          flycheck-buffer
   C-c ! n          flycheck-next-error
   C-c ! p          flycheck-previous-error
   C-c ! l          flycheck-list-errors
 
-* clojure mode bindings (cider)
+** clojure mode bindings (cider)
 ** summary
   C-c C-k          compile and load current buffer
   C-x C-f          open file
@@ -768,48 +764,7 @@ A handy remider of key bindings
   rd:             Remove (debug) function invocations
   rs:             Rename symbol
 
-* midje mode
-  C-c ,           within a fact, sends fact to REPL,
-                  within a defn, recompiles the defn and rechecks
-                  the last checke fact
-  C-c u           outside the 'unfinished' list, adds to list and declares the
-                  defn to the REPL
-                  inside the 'unfinished' list, removes the identifier, and
-                  creates the defn and a fact for it.
-  C-c k           removes fact check comments from the buffer
-  C-c h / C-c s   hides or shows all facts by condensing them into a single line,
-                  the second restores them
-  C-c f           focus attention on one fact by hiding the others.
-  C-h j           jump to to file point indicated in the error message
-
-** midje repl
-  (use 'midje.repl)    Load midje repl functions
-  (load-facts)         Initially, load everything. Subsequently, load
-                       the last "working set"
-  (load-facts :all)    Load everything.
-  (load-facts 'proj.namespace 'proj.other.namespace)
-  (load-facts 'proj.subdir.*)  Load a namespace tree.
-  (check-facts)        Recheck same facts over again.
-  (check-facts :all)   Check everything (if a previous command narrowed the
-                       "working set")
-  (forget-facts)       Forget the current "working set".
-  (forget-facts :all)  Forget everything
-  (autotest)
-  (autotest :dirs "test/midje/util" "src/midje/util")
-  (autotest :filter :core) ; Check only core facts.
-  (autotest :pause)
-  (autotest :resume)
-  (autotest :stop)
-
-** midje-doc elements
-  lein midje-doc  (once)
-  [[[[:chapter {:title "Hello World" :tag "hello"}]]]]
-  [[[[:section {:title "Birds"}]]]]
-  [[[[:subsection {:title "Flying Birds"}]]]]
-  [[[[:subsubsection {:title "Eagle"}]]]]
-  [[[[:file {:src "test/docs/first_section.clj"}]]]]
-
-* haskell
+** haskell
   F8               jump to imports
   C-c C-.          sort and align imports
   M-.              jump to definition
@@ -845,7 +800,7 @@ A handy remider of key bindings
   M-a              go to parent node (SHM)
   C-j              newline and indent
 
-* scala mode and ensime
+** scala mode and ensime
 ** source
   C-c C-v f        Format the current source file
   C-c C-v r        List all references to the symbol under the cursor
@@ -924,7 +879,7 @@ A handy remider of key bindings
   M-x ensime-reload           Reload the .ensime file and recompile the project
   M-x ensime-inspect-by-path  Prompt for a type or package and inspect it
 
-* java eclim
+** java eclim
   M-x start-eclimd
   M-x stop-eclimd
   M-x eclim-java-show-documentation-for-current-element
@@ -988,7 +943,7 @@ A handy remider of key bindings
   C-c C-e m p      eclim-maven-lifecycle-phase-run
   C-c C-e m r      eclim-maven-run
 
-* Erlang
+** Erlang
 ** Erlang Mode
 *** Indent
   TAB              (erlang-indent-command)

@@ -3,8 +3,7 @@ emacs.d
 
 This is an Emacs config. There are many like it, but this one is mine.
 
-My rebuilt emacs settings.
-I'm starting from scratch to remove old cruft and make it more modular.
+A setup that attempts to be modular.
 
 Based on Technomancy's [Better Defaults](https://github.com/technomancy/better-defaults)
 With many ideas from: 
