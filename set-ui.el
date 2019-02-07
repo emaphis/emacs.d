@@ -1,14 +1,21 @@
 ;;; set-ui.el --- some basic UI settings.
+;;
+;; Copyright (c) 2019 Ed Maphis
+;;
+;; Author: Ed Maphis
+;;
 ;; Created: Tuesday, October 4, 2016
 ;; 
 ;;; Commentary:
 ;; set basic UI setting early in the process
-
-
+;;
 ;;; CODE:
 
-;; I'll keep menu-bar for the time being.
-;(menu-bar-mode -1)
+;; I don't mind the splash screen.
+;; (setq inhibit-splash-screen t)
+
+;; <F7> toggles the menu-bar
+;;(menu-bar-mode -1)
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))

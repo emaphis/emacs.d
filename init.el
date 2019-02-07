@@ -1,10 +1,6 @@
 ;;; init.el ---  Emacs' intital configuration file.
 ;;
-;; Filename: init.el
-;;
 ;; Copyright (c) 2019 Ed Maphis
-;;
-;; Author: Ed Maphis
 ;;
 ;; Created: Aug 16 2014
 ;;
@@ -16,9 +12,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
+;; This is an Emacs configuration.
+;; There are many like it, but this one is mine.
 ;;
 ;; This file sets up 'package' managment and
-;; loads various configuration files.
+;; loads various configuration modules segregated by topic.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -31,11 +29,11 @@
 ;;; packages and repositories
 
 (require 'package)
-
+(setq package-enable-at-startup nil)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
-;; keep the installed packages in .emacs.d
+;; keep the installed packages in .emacs.d/elpa;
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 
 (package-initialize)
@@ -43,6 +41,15 @@
 ;; update package metadata when local cache is missing
 (unless package-archive-contents
   (package-refresh-contents))
+
+
+;;; use package setup.
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-verbose t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -54,22 +61,15 @@
 ;; stuff not on melpa
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
-
-;;;  provides: ido, uniquify, better settings
+;;;  provides: uniquify, better settings
 (load "better-defaults.el")
-
-
-;;; use package
-
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-verbose t)
 
 ;;; general editing settings
 ;;; continuation of better-defaults
 (load "set-base.el")
+
+;;; Navagation - Ido or Ivy
+(load "set-ido.el")
 
 ;;; general programming settings
 (load "set-programming.el")
@@ -80,21 +80,24 @@
 ;;; clojure settings
 (load "set-clojure.el")
 
+;;; Org-mode settings
+(load "set-orgmode.el")
+
 ;;; haskell settings - one of two:
 ;;(load "set-haskell.el")
 ;;(load "set-haskell-cabal.el")
 
 ;;; scala language settings
-;(load "set-scala.el")
+;;(load "set-scala.el")
 
 ;;; java mode settings
-;(load "set-java.el")
+;;(load "set-java.el")
 
 ;;; erlang mode settings
 ;;(load "set-erlang.el")
 
 ;;; R settings
-;(load "set-ess.el")
+;;(load "set-ess.el")
 
 ;;; OCaml
 ;;(load "set-ocaml.el")
@@ -154,7 +157,6 @@
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
 (load custom-file)
 
-;(global-set-key (kbd "<f7>") 'menu-bar-mode)
 
 (message "end init.el")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

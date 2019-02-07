@@ -1,7 +1,7 @@
 emacs.d
 =======
 
-My emacs config
+This is an Emacs config. There are many like it, but this one is mine.
 
 My rebuilt emacs settings.
 I'm starting from scratch to remove old cruft and make it more modular.
@@ -11,7 +11,8 @@ With many ideas from:
     [BBatsov's prelude](https://github.com/bbatsov/prelude),
     [flyingmachine's settings](https://github.com/flyingmachine/emacs.d),
     [Emacs Live](https://github.com/overtone/emacs-live),
-
+    [Zamansky's setup](https://github.com/zamansky/using-emacs)
+    [Zamansky's videos]()
 Now porting to use-package
 
 Including instructions on how to compile and install emacs on in local directories on Fedora Linux [install-fedora.md](./doc/install-fedora.md)

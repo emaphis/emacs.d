@@ -1179,3 +1179,4 @@ The syntax highlighting can be activated from the Erlang menu. There are four di
 
 *** Version
   M-x              erlang-version
+* Orgmode

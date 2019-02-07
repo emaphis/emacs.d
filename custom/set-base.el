@@ -25,57 +25,15 @@
 
 ;;; Code:
 
-;;; ido and smex settings
+;;; Try packages temporarily.
+(use-package try
+  :ensure t)
 
-;(setq ido-use-filename-at-point nil) ;; TODO
-;(ido-ubiquitous-mode 1)
-
-(use-package ido
-  :ensure t
-  :config
-  (setq ido-enable-prefix nil
-        ido-enable-flex-matching t
-        ido-create-new-buffer 'always
-        ido-use-filename-at-point 'guess
-        ido-max-prospects 10
-        ido-save-directory-list-file (expand-file-name "ido.hist" maph-savefile-dir)
-        ido-default-file-method 'selected-window
-        ido-auto-merge-work-directories-length -1)
-  (ido-mode +1))
-
-;; see ido-completing-read
-;; https://github.com/DarwinAwardWinner/ido-ubiquitous#version-40-changes
-(use-package ido-completing-read+
-  :ensure t
-  :config
-  (ido-ubiquitous-mode +1))
-
-(use-package flx-ido
-  :ensure t
-  :config
-  (flx-ido-mode +1)
-  ;; disable ido faces to see flx highlights
-  (setq ido-use-faces nil))
-
-
-;;; smex
-(use-package smex
-  :ensure t
-  :config
-  (setq smex-save-file (concat user-emacs-directory ".smex-items"))
-  (smex-initialize)
-  :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)
-         ;; This is your old M-x.
-         ("C-c C-c M-x". execute-extended-command)))
-
-;;; *** C-f   Confirm create file in 'smex' ***
 
 (use-package imenu-anywhere
   :ensure t
   :bind (("C-c i" . imenu-anywhere)
          ("s-i" . imenu-anywhere)))
-
 
 
 ;;; ace jump mode
