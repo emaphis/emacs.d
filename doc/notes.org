@@ -1,0 +1,28 @@
+Just some quick notes.
+
+* Buffers.
+
+**  Regular fill text:
+lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
+ C-c l p - lorem-ipsum-insert-paragraphs
+ C-c l s - lorem-ipsum-insert-sentences
+ C-c l l - lorem-ipsum-insert-list
+
+* org-mode
+** org babel
+;; <s TAB  - create code block
+;; C-c C-c - Run code block
+;; C-c '   - Edit code block 
+#+BEGIN_SRC emacs-lisp
+  (defun add-3 (num)
+    (+ 4 num))
+
+  (add-3 4)
+
+#+END_SRC
+
+Compiling org file
+#+BEGIN_SRC emacs-lisp
+  (org-babel-load-file (expand-file-name "somefile.org"))
+#+END_SRC
+

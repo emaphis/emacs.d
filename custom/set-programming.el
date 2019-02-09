@@ -40,13 +40,14 @@
 
 ;;; yasnippet
 (use-package yasnippet
+  :ensure t
   :init
-  (progn
-    (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
-    (setq yas-prompt-functions '(yas/ido-prompt))
-    (setq yas-indent-line 'fixed)
-    (yas-global-mode 1))
-  :mode ("\\.yasnippet" . snippet-mode))
+  (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :ensure t)
+
 
 
 ;;; smartparens
@@ -82,7 +83,7 @@
 ;; flycheck
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode))
+  :init (global-flycheck-mode t))
 
 ;; TODO:
 ;; (with-eval-after-load 'flycheck

@@ -27,22 +27,26 @@
   :ensure t
   :commands python-mode
   :config
-  (progn  ; python programmers like 7no2 columns
+  (progn  ; python programmers like 72 columns
     (set-fill-column 72)))
 
-(use-package jedi
-  :ensure t
-  :commands jedi:setu
-  :init
-  (progn
-    (setq jedi:use-shortcuts t)
-    (setq jedi:complete-on-dot t)))
-
+;; Python company completion
+;; http://tkf.github.io/emacs-jedi/latest/
+;; Requires: `pip install jedi`
+;; Company backend for Python jedi
+;; https://github.com/syohex/emacs-company-jedi
 (use-package company-jedi
+  :defer t
   :ensure t
   :init
-  (add-hook 'python-mode-hook
-	    (lambda () (add-to-list 'company-backends 'company-jedi))))
+  (setq-default
+   jedi:complete-on-dot t
+   jedi:get-in-function-call-delay 0.2))
+
+;; Used by virtualenvwrapper.el
+;;(setq venv-location (expand-file-name "~/.envs"))   ;; Change with the path to your virtualenvs
+;; Used python-environment.el and by extend jedi.el
+;; (setq python-environment-directory venv-location)
 
 (message "end python.el")
 (provide 'set-pthon)

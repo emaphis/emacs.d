@@ -24,6 +24,12 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 
+;;; org babel stuff - may move it to it's own module
+(setq org-confirm-babel-evaluate nil
+      org-src-fontify-natively t
+      org-src-tab-acts-natively t)
+
+
 (provide 'set-orgmode)
 (message "... set-orgmode ends ...")
 ;;; set-orgmode.el ends here

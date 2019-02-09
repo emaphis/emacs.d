@@ -25,6 +25,10 @@
 
 ;;; Code:
 
+;; TODO: list-buffers vs. ibuffer
+;;(defalias #'list-buffers #'ibuffer)
+
+
 ;;; Try packages temporarily.
 (use-package try
   :ensure t)
@@ -160,6 +164,8 @@
 ;;; toggle whitespace mode
 (global-set-key (kbd "<f6>") 'whitespace-mode)
 
+;;; revert buffer
+(global-set-key (kbd "<f5>") 'revert-buffer)
 
 ;;; open key bind documentation
 (global-set-key (kbd "C-h C-d")

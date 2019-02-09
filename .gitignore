@@ -30,6 +30,7 @@ tramp
 
 # smex
 .smex-items
+smex-itmes
 
 # untracked directories
 /backups/
@@ -49,3 +50,4 @@ cider-history
 abbrev_defs
 recentf
 projectile-bookmarks.eld
+projectile.cache

@@ -69,7 +69,8 @@
 (load "set-base.el")
 
 ;;; Navagation - Ido or Ivy
-(load "set-ido.el")
+;;(load "set-ido.el") ; one of either.
+(load "set-ivy.el")
 
 ;;; general programming settings
 (load "set-programming.el")
@@ -113,6 +114,9 @@
 
 ;;; SML NJ
 ;;(load "set-sml.el")
+
+;;; Common List
+;;(load "set-lisp.el")
 
 
 ;;; Keep emacs custom-settings in separate file

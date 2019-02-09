@@ -39,22 +39,22 @@
 ;;(setq-default tab-width 4)            ;; but maintain correct appearance
 
 
-;(load-theme 'zenburn t)
+;;(load-theme 'zenburn t)
 (load-theme 'leuven t)
 
 ;; nothing like experimenting with fonts!
 (set-frame-font "Consolas 11")
-;(set-frame-font "Consolas Bold 11")
-;(set-frame-font "Ubuntu Mono 11")
-;(set-frame-font "Ubuntu Mono Bold 11")b
-;(set-frame-font "Ubuntu Light 11")
-;(set-frame-font "Inconsolata 11")
-;(set-frame-font "DejaVu Sans Mono Book 10")
-;(set-frame-font "FreeMono 11")
-;(set-frame-font "Liberation Mono 10")
-;(set-frame-font "Nimbus Mono L 11")
-;(set-frame-font "Source Code Pro 9")
-
+;;(set-frame-font "Consolas Bold 11")
+;;(set-frame-font "Ubuntu Mono 11")
+;;(set-frame-font "Ubuntu Mono Bold 11")b
+;;(set-frame-font "Inconsolata 11")
+;;(set-frame-font "DejaVu Sans Mono Book 10")
+;;(set-frame-font "FreeMono 11")
+;;(set-frame-font "Nimbus Mono L 11")
+;;(set-frame-font "Source Code Pro 10")
+;;(set-frame-font "Consolas 10")
+;;(set-frame-font "DejaVu Sans Mono Book 10")
+;;(set-frame-font "Liberation Mono 10")
 
 ;;; display column number in mode-line
 (column-number-mode t)
