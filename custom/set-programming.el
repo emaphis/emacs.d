@@ -39,15 +39,17 @@
 
 
 ;;; yasnippet
+;;  http://joaotavora.github.io/yasnippet/
 (use-package yasnippet
   :ensure t
   :init
   (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
   (yas-global-mode 1))
 
+;; https://github.com/AndreaCrotti/yasnippet-snippets
 (use-package yasnippet-snippets
-  :ensure t)
-
+  :ensure t
+  :after yasnippet)
 
 
 ;;; smartparens
@@ -63,6 +65,8 @@
 ;;     (show-smartparens-global-mode t) ; highlights matching pairs
 ;;     ))
 
+;; http://mumble.net/~campbell/emacs/paredit/paredit.html
+;; http://pub.gajendra.net/src/paredit-refcard.pdf
 (use-package paredit
   :ensure t
   :config
@@ -80,16 +84,23 @@
 (use-package idle-highlight-mode
   :ensure t)
 
+
 ;; flycheck
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode t))
 
-;; TODO:
-;; (with-eval-after-load 'flycheck
-;;   (flycheck-pos-tip-mode))
+;; TODO:  maybe try flycheck-inline
+;;; Show Flycheck errors in tooltip
+(use-package flycheck-pos-tip
+  :ensure t
+  ;;:disabled t
+  :after flycheck
+  :config (flycheck-pos-tip-mode))
+
 
 ;;; company mode
+;;  http://company-mode.github.io/
 (use-package company
   :ensure t
   :config
@@ -99,6 +110,7 @@
 
 (use-package company-quickhelp
   :ensure t
+  :after company
   :config
   (company-quickhelp-mode 1)
   (define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
@@ -109,21 +121,21 @@
   :ensure t
   :bind (("C-x g" . magit-status)))  ; every one is doing it.
 
+
 (use-package rainbow-delimiters
   :ensure t)
-
 
 (use-package rainbow-mode
   :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-mode))
 
+
 (use-package projectile
   :ensure t
   :config
   (projectile-mode)
-  ;;(setq projectile-completion-system 'ivy)
-  )
+  (setq projectile-completion-system 'ivy))
 
 
 (message "end set-programming.el")
