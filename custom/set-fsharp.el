@@ -21,11 +21,15 @@
   :config
   (if (eq system-type 'windows-nt)
       (setq inferior-fsharp-program
-            "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsi.exe\"")
+            "\"C:\\Program Files\\dotnet\\sdk\\2.1.503\\FSharp\\fsi.exe\"")
     (setq fsharp-compile-command
-          "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsc.exe\"")))
+          "\"C:\\Program Files\\dotnet\\sdk\\2.1.503\\FSharp\\fsc.exe\"")))
 
+;; "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsi.exe\""
+;; "\"C:\\Program Files\\dotnet\\sdk\\2.1.503\\FSharp\\fsi.exe\""
 
+;; "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsc.exe\""
+;; "\"C:\\Program Files\\dotnet\\sdk\\2.1.503\\FSharp\\fsc.exe\""
 
 
 (provide 'set-fsharp)

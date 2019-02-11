@@ -1,8 +1,6 @@
 ;;; set-elisp.el ---  Emacs lisp programming customizations.
 ;;
-;; Filename: set-elisp.el
-;;
-;; Copyright (c) 2018 Ed Maphis
+;; Copyright (c) 2019
 ;;
 ;; Author: Ed Maphis
 ;;

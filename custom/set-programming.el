@@ -111,9 +111,10 @@
 (use-package company-quickhelp
   :ensure t
   :after company
+  :bind (:map company-active-map
+              ("C-c h" . company-quickhelp-manual-begin))
   :config
-  (company-quickhelp-mode 1)
-  (define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
+  (company-quickhelp-mode 1))
 
 
 ;;; Magit
@@ -123,19 +124,26 @@
 
 
 (use-package rainbow-delimiters
-  :ensure t)
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
   :ensure t
-  :config
-  (add-hook 'prog-mode-hook #'rainbow-mode))
+  :hook ('prog-mode . rainbow-mode))
 
 
 (use-package projectile
   :ensure t
   :config
   (projectile-mode)
-  (setq projectile-completion-system 'ivy))
+  ;;(setq projectile-completion-system 'ivy)
+  )
+
+(use-package counsel-projectile
+  :ensure t
+  :after (counsel projectile)
+  :config
+  (counsel-projectile-mode 1))
 
 
 (message "end set-programming.el")

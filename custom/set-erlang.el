@@ -1,8 +1,6 @@
 ;;; set-erlang.el ---  Emacs' erlang settings file.
 ;;
-;; Filename: set-erlang.el
-;;
-;; Copyright (c) 2018
+;; Copyright (c) 2019
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -44,8 +42,8 @@
   :defer t
   :config
   (when (eq system-type 'windows-nt)
-    (setq erlang-root-dir "c:/apps/erl9.2")
-    (add-to-list 'exec-path "c:/apps/erl9.2/bin")))
+    (setq erlang-root-dir "c:/apps/erl10.2")
+    (add-to-list 'exec-path "c:/apps/erl10.2/bin")))
 
 ;; edts
 
