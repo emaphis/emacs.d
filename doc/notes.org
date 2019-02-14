@@ -26,3 +26,11 @@ Compiling org file
   (org-babel-load-file (expand-file-name "somefile.org"))
 #+END_SRC
 
+* Macros
+- <F3> or C-x (  - Start macro
+- <F4> or C-x )  - end macro
+- <F4> or C-x e  - execute macro
+- C-u num C-x e  - execute macro `num` times
+- C-x C-k n      - name macro
+- name-last-kbd-macro
+- insert-kbd-macro

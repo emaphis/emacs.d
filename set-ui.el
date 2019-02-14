@@ -60,7 +60,8 @@
 (column-number-mode t)
 
 ;;; global line number mode
-(global-linum-mode)
+;;(global-linum-mode -1)
+(global-display-line-numbers-mode 1)
 
 ;;; Highlight current line
 (global-hl-line-mode +1)

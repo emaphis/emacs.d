@@ -27,6 +27,15 @@
   (lorem-ipsum-use-default-bindings))
 
 
+;;; weather from wttr.in
+(use-package wttrin
+  :ensure t
+  :commands (wttrin)
+  :init
+  (setq wttrin-default-cities '("Painesville,Ohio"
+                                "Chardon,Ohio"))
+  (setq wttrin-default-accept-language '("Accept-Language" . "en-US")))
+
 
 (provide 'set-misc)
 (message "... set-misc ends ...")
