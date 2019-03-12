@@ -40,7 +40,8 @@
 
 
 ;;(load-theme 'zenburn t)
-(load-theme 'leuven t)
+;;(load-theme 'leuven t)
+;;(load-theme 'nimbus t)
 
 ;; nothing like experimenting with fonts!
 (set-frame-font "Consolas 11")

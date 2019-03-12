@@ -1,6 +1,6 @@
 ;;; set-ruby.el -- Ruby Settings
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2020 Ed Maphis
 ;;
 ;; Created: Jul 4, 2018
 ;;
@@ -37,6 +37,6 @@
 
 
 
-(provide 'set-template)
-(message "... set-template ends ...")
-;;; set-template.el ends here
+(provide 'set-ruby)
+(message "... set-ruby ends ...")
+;;; set-ruby.el ends here

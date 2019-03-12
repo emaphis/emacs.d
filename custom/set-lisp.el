@@ -14,6 +14,7 @@
 ;;; Commentary:
 ;;  Common Lisp setup using Slime and SBCL
 ;; TODO: Try SLY
+;; Scheme with Geiser.
 ;;
 ;;; Code:
 
@@ -28,12 +29,20 @@
   :config
   (add-hook 'slime-mode-hook #'paredit-mode)
   (add-hook 'slime-mode-hook #'rainbow-delimiters-mode)
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
   (setq common-lisp-hyperspec-root         "/usr/local/share/doc/hyperspec/HyperSpec/"
         common-lisp-hyperspec-symbol-table (concat common-lisp-hyperspec-root "Data/Map_Sym.txt")
         common-lisp-hyperspec-issuex-table (concat common-lisp-hyperspec-root "Data/Map_IssX.txt")))
 
 (setq inferior-lisp-program "sbcl")
 
+;;; Scheme with Geiser.
+(use-package geiser
+  :ensure t
+  :config
+  ;;  (add-hook gieser-mode-hook #'paredit-mode)
+  ;; (add-hook geiser- #'rainbow-delimiters-mode)
+  )
 
 (provide 'set-lisp)
 (message "... set-lisp ends ...")

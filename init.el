@@ -107,7 +107,7 @@
 (load "set-python.el")
 
 ;;; Ruby with robe
-;;(load "set-ruby.el")
+(load "set-ruby.el")
 
 ;;; FSharp
 ;;(load "set-fsharp.el")
