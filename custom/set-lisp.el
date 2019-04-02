@@ -40,8 +40,8 @@
 (use-package geiser
   :ensure t
   :config
-  ;;  (add-hook gieser-mode-hook #'paredit-mode)
-  ;; (add-hook geiser- #'rainbow-delimiters-mode)
+  ;;(add-hook gieser-mode-hook #'paredit-mode)
+  ;;(add-hook geiser- #'rainbow-delimiters-mode)
   )
 
 (provide 'set-lisp)

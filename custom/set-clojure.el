@@ -42,13 +42,13 @@
   :defer t
   :config
   ;; Mode related stuff
-;  (add-hook 'cider-mode-hook #'company-mode)
+  ;;  (add-hook 'cider-mode-hook #'company-mode)
   ;; REPL related stuff
   (setq cider-repl-history-file "~/.emacs.d/cider-history")
   (setq cider-repl-use-pretty-printing t)
   (setq cider-repl-result-prefix ";; => ")
   (setq cider-default-cljs-repl
-      "(do (require 'figwheel-sidecar.repl-api)
+        "(do (require 'figwheel-sidecar.repl-api)
            (figwheel-sidecar.repl-api/start-figwheel!)
            (figwheel-sidecar.repl-api/cljs-repl))")
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
