@@ -44,12 +44,12 @@
 ;;(load-theme 'nimbus t)
 
 ;; nothing like experimenting with fonts!
-(set-frame-font "Consolas 11")
+;;(set-frame-font "Consolas 10")
 ;;(set-frame-font "Consolas Bold 11")
 ;;(set-frame-font "Ubuntu Mono 11")
 ;;(set-frame-font "Ubuntu Mono Bold 11")b
 ;;(set-frame-font "Inconsolata 11")
-;;(set-frame-font "DejaVu Sans Mono Book 10")
+(set-frame-font "DejaVu Sans Mono Book 9")
 ;;(set-frame-font "FreeMono 11")
 ;;(set-frame-font "Nimbus Mono L 11")
 ;;(set-frame-font "Source Code Pro 10")
