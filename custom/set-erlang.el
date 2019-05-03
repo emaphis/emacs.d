@@ -42,8 +42,8 @@
   :defer t
   :config
   (when (eq system-type 'windows-nt)
-    (setq erlang-root-dir "c:/apps/erl10.2")
-    (add-to-list 'exec-path "c:/apps/erl10.2/bin")))
+    (setq erlang-root-dir "c:/apps/erl10.3")
+    (add-to-list 'exec-path "c:/apps/erl10.3/bin")))
 
 ;; edts
 

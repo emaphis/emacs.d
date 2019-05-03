@@ -72,7 +72,17 @@
 (use-package flycheck-joker
   :ensure t)
 
-(message "end set-clojure.el")
+
+;; see: https://github.com/nubank/emidje/
+;; ~/.lein/profiles.clj:
+;; :plugins [[nubank/midje-nrepl "x.x.x"]]
+(use-package emidje
+  :ensure t
+  :defer t
+  :init (eval-after-load 'cider #'emidje-setup))
+
+
+(message "...end set-clojure.el")
 (provide 'set-clojure)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set-clojure.el ends here
