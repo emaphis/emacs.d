@@ -44,7 +44,8 @@
   :ensure t
   :init
   (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
-  (yas-global-mode 1))
+  ;; (yas-global-mode 1)  ; TODO: error.
+  )
 
 ;; https://github.com/AndreaCrotti/yasnippet-snippets
 (use-package yasnippet-snippets

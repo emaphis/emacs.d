@@ -9,7 +9,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings erlang
-;; Compatibility: emacs 25.1
+;; Compatibility: emacs 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,8 +42,8 @@
   :defer t
   :config
   (when (eq system-type 'windows-nt)
-    (setq erlang-root-dir "c:/apps/erl10.3")
-    (add-to-list 'exec-path "c:/apps/erl10.3/bin")))
+    (setq erlang-root-dir "c:/apps/erl10.4")
+    (add-to-list 'exec-path "c:/apps/erl10.4/bin")))
 
 ;; edts
 
