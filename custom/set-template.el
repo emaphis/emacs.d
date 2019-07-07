@@ -1,8 +1,8 @@
-;;; template.el -- An Elisp file template
+;;; set-template.el -- An Elisp file template
 ;;
 ;; Copyright (c) 2019 Ed Maphis
 ;;
-;; Created: Feb 7, 2000
+;; Created: Feb 7, 2019
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;

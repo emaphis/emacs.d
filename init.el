@@ -118,6 +118,8 @@
 ;;; Common List
 ;;(load "set-lisp.el")
 
+;;; C++/C
+(load "set-cpp.el")
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
