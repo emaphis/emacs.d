@@ -68,6 +68,8 @@
 ;;   (cljr-add-keybindings-with-prefix "C-c C-m")
 ;;   (setq cljr-warn-on-evaql nil))
 
+;; TODO: check out this package:
+;; <https://github.com/wandersoncferreira/ivy-clojuredocs>
 
 (use-package flycheck-joker
   :ensure t)
@@ -76,10 +78,10 @@
 ;; see: https://github.com/nubank/emidje/
 ;; ~/.lein/profiles.clj:
 ;; :plugins [[nubank/midje-nrepl "x.x.x"]]
-(use-package emidje
-  :ensure t
-  :defer t
-  :init (eval-after-load 'cider #'emidje-setup))
+;; (use-package emidje
+;;   :ensure t
+;;   :defer t
+;;   :init (eval-after-load 'cider #'emidje-setup))
 
 
 (message "...end set-clojure.el")

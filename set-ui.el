@@ -36,8 +36,7 @@
 
 ;; tab settings
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
-;;(setq-default tab-width 4)            ;; but maintain correct appearance
-
+(setq-default tab-width 4)            ;; but maintain correct appearance
 
 ;;(load-theme 'zenburn t)
 ;;(load-theme 'leuven t)
@@ -47,13 +46,13 @@
 ;;(set-frame-font "Consolas 10")
 ;;(set-frame-font "Consolas Bold 11")
 ;;(set-frame-font "Ubuntu Mono 11")
-;;(set-frame-font "Ubuntu Mono Bold 11")b
+;;(set-frame-font "Ubuntu Mono Bold 11")
+(set-frame-font "IBM Plex Mono 11")
 ;;(set-frame-font "Inconsolata 11")
-(set-frame-font "DejaVu Sans Mono Book 9")
+;;(set-frame-font "DejaVu Sans Mono Book 9")
 ;;(set-frame-font "FreeMono 11")
 ;;(set-frame-font "Nimbus Mono L 11")
 ;;(set-frame-font "Source Code Pro 10")
-;;(set-frame-font "Consolas 10")
 ;;(set-frame-font "DejaVu Sans Mono Book 10")
 ;;(set-frame-font "Liberation Mono 10")
 
@@ -67,6 +66,6 @@
 ;;; Highlight current line
 (global-hl-line-mode +1)
 
-
+(message "... end set-ui ...")
 (provide 'set-ui)
 ;;; set-ui.el ends here

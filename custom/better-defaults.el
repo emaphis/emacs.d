@@ -90,6 +90,6 @@
         backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                  "backups")))))
 
-(message "... end better=defaults ...")
+(message "... end better-defaults ...")
 (provide 'better-defaults)
 ;;; better-defaults.el ends here

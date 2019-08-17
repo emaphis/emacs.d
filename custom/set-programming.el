@@ -42,6 +42,7 @@
 ;;  http://joaotavora.github.io/yasnippet/
 (use-package yasnippet
   :ensure t
+  :pin melpa-stable
   :init
   (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
   ;; (yas-global-mode 1)  ; TODO: error.
@@ -50,7 +51,8 @@
 ;; https://github.com/AndreaCrotti/yasnippet-snippets
 (use-package yasnippet-snippets
   :ensure t
-  :after yasnippet)
+  :after yasnippet
+  :pin melpa-stable)
 
 
 ;;; smartparens

@@ -31,7 +31,9 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; keep the installed packages in .emacs.d/elpa;
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
@@ -69,7 +71,7 @@
 (load "set-base.el")
 
 ;;; Navagation - Ido or Ivy
-;;(load "set-ido.el") ; one of either.
+;;(load "set-ido.el") ; one of either ido or ivy.
 (load "set-ivy.el")
 
 ;;; general programming settings
@@ -95,7 +97,7 @@
 ;;(load "set-java.el")
 
 ;;; erlang mode settings
-(load "set-erlang.el")
+;;(load "set-erlang.el")
 
 ;;; R settings
 ;;(load "set-ess.el")
@@ -104,10 +106,10 @@
 ;;(load "set-ocaml.el")
 
 ;;; Python with jedi
-(load "set-python.el")
+;;(load "set-python.el")
 
 ;;; Ruby with robe
-(load "set-ruby.el")
+;;(load "set-ruby.el")
 
 ;;; FSharp
 ;;(load "set-fsharp.el")
@@ -119,7 +121,7 @@
 ;;(load "set-lisp.el")
 
 ;;; C++/C
-(load "set-cpp.el")
+;;(load "set-cpp.el")
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
