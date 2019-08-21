@@ -22,9 +22,6 @@
 
 ;;; Code:
 
-;; load ui settings early
-(load "~/.emacs.d/set-ui.el")
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; packages and repositories
 
@@ -34,6 +31,7 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
 
 ;; keep the installed packages in .emacs.d/elpa;
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
@@ -62,6 +60,9 @@
 
 ;; stuff not on melpa
 (add-to-list 'load-path "~/.emacs.d/vendor")
+
+;;; load ui settings early
+(load "~/.emacs.d/set-ui.el")
 
 ;;;  provides: uniquify, better settings
 (load "better-defaults.el")
@@ -122,6 +123,9 @@
 
 ;;; C++/C
 ;;(load "set-cpp.el")
+
+;;; Scheme
+(set-variable (quote scheme-program-name) "scheme")
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")

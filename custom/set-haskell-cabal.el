@@ -16,12 +16,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
+;; Now using dante <https://github.com/jyp/dante>
+;;  Using a light weight setup that doesn't require heavyweight back-ends like ghc-mod
+;;  Also see: <https://github.com/soupi/minimal-haskell-emacs/>
 ;;
-;;  My haskell settings, largely derived from the excellent tutorial:
-;;  https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
-;;  Using Cabal, GHCi, GHC-MOD for my development environment.
-;;
-;; (*** NOTE: haven't set up ghc-mode yet)
+;; Another possible solution: <https://github.com/ndmitchell/ghcid>
 ;;
 ;; Trouble shooting:
 ;;   If the REPL ever goes funny, you can clear the command queue via:
@@ -52,27 +51,40 @@
 ;;
 ;;; Code:
 
-;;; the 'use-package' version is shamelessly lifted from:
-;;; "https://github.com/lunaryorn/.emacs.d/blob/master/init.el"
-;;; customization directions here: https://github.com/haskell/haskell-mode/wiki
-;;; also: https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
-
-;;; things to setup in stack to use this mode:
-;;; $ stack install hasktags stylish-haskell present hlint hoogle
+;;; see also:
+;;; https://git.dsfn.ml/dots/file/emacs/cfg/lang/lang-haskell.el.html
+;;; https://git.sr.ht/~bandali/dotfiles
+;;; https://github.com/drewr/dotemacs/blob/master/d/init.el
+;;; $ cabal install hasktags stylish-haskell present hlint hoogle
 ;;;                structured-haskell-mode
 
 ;;; Haskell mode settings:
 
+(use-package haskell-mode
+  :commands haskell-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.l?hs$" . haskell-mode))
+  :config
+  (progn
+    (add-hook 'haskell-mode-hook #'haskell-auto-insert-module-template)
+    (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
+    (add-hook 'haskell-mode-hook #'subword-mode)
+    (add-hook 'haskell-mode-hook #'interactive-haskell-mode)
+    (add-hook 'haskell-mode-hook #'haskell-doc-mode)
+    ))
+
+
+(use-package haskell-cabal :mode "\\.cabal$")
 
 ;; Imports
-;(define-key haskell-mode-map (kbd "<f8>") 'haskell-navigate-imports)
+                                        ;(define-key haskell-mode-map (kbd "<f8>") 'haskell-navigate-imports)
 
-(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
-(add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
+
+
 
 (eval-after-load "haskell-mode"
-    '(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
+  '(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
 
 (eval-after-load "haskell-cabal"
     '(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
@@ -107,6 +119,15 @@
 
 ;; GHCi process type
 (custom-set-variables '(haskell-process-type 'cabal-repl))
+
+(use-package dante
+  :ensure t
+  :after haskell-mode
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  (add-hook 'haskell-mode-hook 'dante-mode)
+  )
 
 
 (message "end haskell-cabal.el")
