@@ -60,10 +60,10 @@
  '(org-drill-new-count-color "#004488")
  '(package-selected-packages
    (quote
-    (dante parchment-theme zenburn-theme flycheck-irony irony-eldoc company-irony-c-headers company-irony emidje cider which-key geiser slime nimbus-theme wttrin counsel-projectile yasnippet-snippets lorem-ipsum counsel swiper ace-window inf-ruby org-bullets org-bullet try hl-todo expand-region aggressive-indent beacon smooth-scroll smooth-scrolling projectile company-jedi jedi flycheck-joker utop merlin tuareg erlang fsharp-mode yasnippet haskell-mode ess-site ess intero clj-refactor hl-sexp highlight-sexp moe-theme toxi-theme leuven-theme racket-mode win-switch undo-tree solarized-theme sml-mode smex smartparens rainbow-mode rainbow-delimiters multiple-cursors monokai-theme markdown-mode magit idomenu ido-ubiquitous ido-hacks idle-highlight-mode gandalf-theme flycheck-pos-tip ensime elisp-slime-nav edts cyberpunk-theme company-ghc ace-jump-mode)))
+    (rainbow-delimiters dante parchment-theme zenburn-theme flycheck-irony irony-eldoc company-irony-c-headers company-irony emidje cider which-key geiser slime nimbus-theme wttrin counsel-projectile yasnippet-snippets lorem-ipsum counsel swiper ace-window inf-ruby org-bullets org-bullet try hl-todo expand-region aggressive-indent beacon smooth-scroll smooth-scrolling projectile company-jedi jedi flycheck-joker utop merlin tuareg erlang fsharp-mode yasnippet haskell-mode ess-site ess intero clj-refactor hl-sexp highlight-sexp moe-theme toxi-theme leuven-theme racket-mode win-switch undo-tree solarized-theme sml-mode smex smartparens rainbow-mode multiple-cursors monokai-theme markdown-mode magit idomenu ido-ubiquitous ido-hacks idle-highlight-mode gandalf-theme flycheck-pos-tip ensime elisp-slime-nav edts cyberpunk-theme company-ghc ace-jump-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
- '(pos-tip-background-color "#073642")
- '(pos-tip-foreground-color "#93a1a1")
+ '(pos-tip-background-color "#073642" t)
+ '(pos-tip-foreground-color "#93a1a1" t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")

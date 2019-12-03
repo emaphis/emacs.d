@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-ocaml.el
 ;;
-;; Copyright (c) 2018 Ed Maphis
+;; Copyright (c) 2019 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings ocaml
-;; Compatibility: emacs 25.1
+;; Compatibility: emacs 26.3
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -55,13 +55,15 @@
   (when (and opam-share (file-directory-p opam-share))
     (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))))
 
+(load "C:/Users/emaphis/home/.opam/ocaml-variants.4.08.0+mingw64c/share/emacs/site-lisp/tuareg-site-file")
+
 ;;(use-package ocp-indent)
 
 ;; tuareg provides ocaml mode
 (use-package tuareg
   :ensure
   :config
-  ;(add-hook 'before-save-hook 'ocp-indent-buffer nil t)
+  ;;(add-hook 'before-save-hook 'ocp-indent-buffer nil t)
   (add-hook 'tuareg-mode-hook #'electric-pair-local-mode)
   :mode ("\\.ml[ily?$]" . tuareg-mode))
 
