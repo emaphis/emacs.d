@@ -1,8 +1,8 @@
-;; set-python.el -- An Elisp file template
+;; set-python.el -- Settings for Python
 ;;
 ;; Filename: set-python.el
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2020 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, python, programming.
-;; Compatibility: emacs 26.1
+;; Compatibility: emacs 26.3
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

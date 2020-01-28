@@ -1,6 +1,6 @@
 ;;; set-ui.el --- some basic UI settings.
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2020 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -15,7 +15,7 @@
 ;; (setq inhibit-splash-screen t)
 
 ;; <F7> toggles the menu-bar
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
@@ -40,15 +40,17 @@
 
 ;;(load-theme 'zenburn t)
 ;;(load-theme 'leuven t)
-(load-theme 'nimbus t)
+;;(load-theme 'nimbus t)
+(load-theme 'faff t)
 
 ;; nothing like experimenting with fonts!
 ;;(set-frame-font "Consolas 10")
 ;;(set-frame-font "Consolas Bold 11")
 ;;(set-frame-font "Ubuntu Mono 11")
 ;;(set-frame-font "Ubuntu Mono Bold 11")
-(set-frame-font "IBM Plex Mono 10")
-;;(set-frame-font "Inconsolata 11")
+;;(set-frame-font "IBM Plex Mono 10")
+(set-frame-font "IBM Plex Mono Medium 10")
+;;(set-frame-font "Inconsolata 11")q
 ;;(set-frame-font "DejaVu Sans Mono Book 9")
 ;;(set-frame-font "FreeMono 11")
 ;;(set-frame-font "Nimbus Mono L 11")

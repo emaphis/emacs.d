@@ -1,6 +1,6 @@
 ;;; init.el ---  Emacs' intital configuration file.
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2020 Ed Maphis
 ;;
 ;; Created: Aug 16 2014
 ;;
@@ -107,7 +107,7 @@
 ;;(load "set-ocaml.el")
 
 ;;; Python with jedi
-;;(load "set-python.el")
+(load "set-python.el")
 
 ;;; Ruby with robe
 ;;(load "set-ruby.el")
