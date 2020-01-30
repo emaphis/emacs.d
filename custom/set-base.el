@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-base.el
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2020 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,15 +11,15 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 26.1
+;; Compatibility: emacs 26.3
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; Provides basic settings not set in vendor/better-setting.el
-;; These settings are mostly useful for base text editing.  Any modes
-;; that don't realy belong to a programming type mode will most
+;; Provides basic text editing utilities and document modes.
+;; These settings and better-defaults provide basic functionality.
+;; Any modes aren't really useful for programming type mode will most
 ;; likely be included here.
 ;;
 
@@ -110,8 +110,8 @@
 
 (defun insdate-insert-current-date (&optional omit-day-of-week-p)
   "Insert today's date using the current locale.
-  With a prefix argument, the date is inserted without the day of
-  the week."
+With a prefix argument, the date is inserted without the day of
+the week."
   (interactive "P*")
   (insert (calendar-date-string (calendar-current-date) nil
                                 omit-day-of-week-p)))
@@ -137,12 +137,12 @@
 
 ;;; flyspell
 (use-package flyspell
-   :config
-   (when (eq system-type 'windows-nt)
-     (add-to-list 'exec-path "c:/apps/hunspell/bin/"))
-   (setq ispell-program-name "hunspell") ; use hunspell instead of ispell
-   (add-hook 'text-mode-hook #'flyspell-mode)
-   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
+  :config
+  (when (eq system-type 'windows-nt)
+    (add-to-list 'exec-path "c:/apps/hunspell/bin/"))
+  (setq ispell-program-name "hunspell") ; use hunspell instead of ispell
+  (add-hook 'text-mode-hook #'flyspell-mode)
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
 
 
