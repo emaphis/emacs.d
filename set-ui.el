@@ -51,11 +51,11 @@
 ;;(set-frame-font "IBM Plex Mono 10")
 (set-frame-font "IBM Plex Mono Medium 10")
 ;;(set-frame-font "Inconsolata 11")q
-;;(set-frame-font "DejaVu Sans Mono Book 9")
+;;(set-frame-font "DejaVu Sans Mono Book 9")Source Code Pro Medium
 ;;(set-frame-font "FreeMono 11")
 ;;(set-frame-font "Nimbus Mono L 11")
 ;;(set-frame-font "Source Code Pro 10")
-;;(set-frame-font "DejaVu Sans Mono Book 10")
+;;(set-frame-font "JetBrains Mono Medium")
 ;;(set-frame-font "Liberation Mono 10")
 
 ;;; display column number in mode-line

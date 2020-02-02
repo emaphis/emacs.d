@@ -66,6 +66,7 @@
   (require 'uniquify)
   (setq uniquify-buffer-name-style 'forward)
 
+  ;; https://www.emacswiki.org/emacs/SavePlace
   (save-place-mode 1)
 
   (global-set-key (kbd "M-/") 'hippie-expand)

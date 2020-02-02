@@ -26,9 +26,11 @@
 
 (use-package erlang
   :ensure t
+  :hook (after-save . ivy-erlang-complete-reparse)
+  :custom (ivy-erlang-complete-erlang-root "c:/apps/erl10.6/")
   :mode (("\\.erl?$" . erlang-mode)
          ("rebar\\.config$" . erlang-mode)
-         ("relx\\.config$" . erlang-mode)
+         ("relx\\.confoig$" . erlang-mode)
          ("sys\\.config\\.src$" . erlang-mode)
          ("sys\\.config$" . erlang-mode)
          ("\\.config\\.src?$" . erlang-mode)
@@ -38,6 +40,7 @@
          ("\\.app.src?$" . erlang-mode)
          ("\\Emakefile" . erlang-mode))
   :config
+  (ivy-erlang-complete-init)
   (when (eq system-type 'windows-nt)  ; windows setup
     (setq erlang-root-dir "c:/apps/erl10.6")
     (add-to-list 'exec-path "c:/apps/erl10.6/bin")))
