@@ -98,7 +98,7 @@
 ;;(load "set-java.el")
 
 ;;; erlang mode settings
-(load "set-erlang.el")
+;;(load "set-erlang.el")
 
 ;;; R settings
 ;;(load "set-ess.el")
@@ -107,7 +107,7 @@
 ;;(load "set-ocaml.el")
 
 ;;; Python with jedi
-(load "set-python.el")
+;;(load "set-python.el")
 
 ;;; Ruby with robe
 ;;(load "set-ruby.el")
@@ -125,7 +125,7 @@
 ;;(load "set-cpp.el")
 
 ;;; Scheme
-(set-variable (quote scheme-program-name) "scheme")
+;;(set-variable (quote scheme-program-name) "scheme")
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")

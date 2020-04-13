@@ -15,7 +15,7 @@
 ;; (setq inhibit-splash-screen t)
 
 ;; <F7> toggles the menu-bar
-(menu-bar-mode -1)
+;;(menu-bar-mode -1)
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
@@ -40,8 +40,8 @@
 
 ;;(load-theme 'zenburn t)
 ;;(load-theme 'leuven t)
-;;(load-theme 'nimbus t)
-(load-theme 'faff t)
+(load-theme 'nimbus t)
+;;(load-theme 'faff t)
 
 ;; nothing like experimenting with fonts!
 ;;(set-frame-font "Consolas 10")
