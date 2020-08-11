@@ -54,3 +54,5 @@ projectile-bookmarks.eld
 projectile.cache
 .mc-lists.el
 /transient/history.el
+.cache/
+.lsp-session-*

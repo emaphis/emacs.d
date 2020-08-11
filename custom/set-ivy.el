@@ -17,6 +17,9 @@
 ;;
 ;;; Code:
 
+;; last recently used sorting.
+(use-package smex)
+
 
 (use-package ace-window
   :ensure t
