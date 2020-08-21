@@ -7,12 +7,12 @@
 ;; Author: Ed Maphis
 ;;
 ;; Created: Aug 18 2014
-;; Updated: Feb, 5 2018
+;; Updated: Aug 13 2020
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: Emacs settings, Clojure, Programming
-;; Compatibility: Emacs 26.1
+;; Compatibility: Emacs 27.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -32,6 +32,7 @@
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+  (require 'flycheck-clj-kondo)
   ;;(add-hook 'clojure-mode-hook #'hl-sexp-mode)
   )
 
@@ -71,7 +72,11 @@
 ;; TODO: check out this package:
 ;; <https://github.com/wandersoncferreira/ivy-clojuredocs>
 
-(use-package flycheck-joker
+;;; Linters
+;; (use-package flycheck-joker
+;;   :ensure t)
+
+(use-package flycheck-clj-kondo
   :ensure t)
 
 

@@ -17,10 +17,19 @@
 ;;; Code:
 
 (use-package lsp-mode
-  :hook ((lsp-mode . lsp-enable-which-key-intergration))
-  :config (setq lsp-completion-enable-additional-text-edit nil))
+  :hook ((python-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-intergration))
+  :config (setq lsp-completion-enable-additional-text-edit nil)
+  :commands lsp)
 
-(use-package lsp-ui)
+(setq lsp-completion-provider :capf)
+
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
+(use-package lsp-ivy
+  :commands lsp-ivy-workspace-symbol)
 
 (use-package lsp-java
   :config (add-hook 'java-mode-hook 'lsp))

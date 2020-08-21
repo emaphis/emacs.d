@@ -56,3 +56,4 @@ projectile.cache
 /transient/history.el
 .cache/
 .lsp-session-*
+.dap-breakpoints

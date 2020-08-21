@@ -17,6 +17,12 @@
 ;; <F7> toggles the menu-bar
 ;;(menu-bar-mode -1)
 
+;; Virtual machine pparameters.
+;; See: https://www.reddit.com/r/emacs/comments/brc05y/is_lspmode_too_slow_to_use_for_anyone_else/eofulix/
+;; And: https://emacs-lsp.github.io/lsp-mode/page/performance/
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode)

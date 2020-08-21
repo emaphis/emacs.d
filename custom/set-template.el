@@ -1,13 +1,13 @@
 ;;; set-template.el -- An Elisp file template
 ;;
-;; Copyright (c) 2029 Maphis
+;; Copyright (c) 2020 Maphis
 ;;
-;; Created: Feb 7, 2020
+;; Created: Aug 15, 2020
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 26.3
+;; Compatibility: emacs 27.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 26.3
+;; Compatibility: emacs 27.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -27,11 +27,6 @@
 
 ;; TODO: list-buffers vs. ibuffer
 ;;(defalias #'list-buffers #'ibuffer)
-
-
-;;; Try packages temporarily.
-(use-package try
-  :ensure t)
 
 
 (use-package imenu-anywhere
