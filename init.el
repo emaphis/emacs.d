@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 26.1
+;; Compatibility: emacs 27.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -31,6 +31,9 @@
 ;;              '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+;; (add-to-list 'package-archives
+;; 	         '("melpa" . "https://melpa.org/packages/") t)
 
 
 ;; keep the installed packages in .emacs.d/elpa;
@@ -97,8 +100,6 @@
 ;;; scala language settings
 ;;(load "set-scala.el")
 
-;;; java mode settings
-;;(load "set-java.el")
 
 ;;; erlang mode settings
 ;;(load "set-erlang.el")
@@ -121,7 +122,7 @@
 ;;; SML NJ
 ;;(load "set-sml.el")
 
-;;; Common List
+;;; Common Lisp
 ;;(load "set-lisp.el")
 
 ;;; C++/C
@@ -129,6 +130,10 @@
 
 ;;; Scheme
 ;;(set-variable (quote scheme-program-name) "scheme")
+
+(use-package racket-mode
+  :ensure)
+
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")

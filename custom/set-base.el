@@ -140,6 +140,9 @@ the week."
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
 
+;;; Find unbound keys
+;;  https://www.emacswiki.org/emacs/unbound.el
+(load "unbound.el")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; some custom key bindings

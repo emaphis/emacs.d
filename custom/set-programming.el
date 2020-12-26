@@ -80,6 +80,9 @@
   (add-hook 'lisp-mode-hook #'paredit-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
 
+(define-key paredit-mode-map (kbd "C-c f") #'paredit-forward-slurp-sexp) ; bunged up keyboard
+
+
 (use-package paren
   :config
   (show-paren-mode +1))

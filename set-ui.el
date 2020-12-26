@@ -46,19 +46,18 @@
 
 ;;(load-theme 'zenburn t)
 ;;(load-theme 'leuven t)
-(load-theme 'nimbus t)
+;;(load-theme 'nimbus t)
 ;;(load-theme 'faff t)
+(load-theme 'modus-vivendi t)
 
 ;; nothing like experimenting with fonts!
 ;;(set-frame-font "Consolas 10")
+;;(set-frame-font "Cascadia Code 9")
+(set-frame-font "Ubuntu Mono 9")
 ;;(set-frame-font "Consolas Bold 11")
-;;(set-frame-font "Ubuntu Mono 11")
-;;(set-frame-font "Ubuntu Mono Bold 11")
-;;(set-frame-font "IBM Plex Mono 10")
-(set-frame-font "IBM Plex Mono Medium 10")
-;;(set-frame-font "Inconsolata 11")q
-;;(set-frame-font "DejaVu Sans Mono Book 9")Source Code Pro Medium
-;;(set-frame-font "FreeMono 11")
+;;(set-frame-font "IBM Plex Mono 9")
+;;(set-frame-font "Inconsolata 11")
+;;(set-frame-font "DejaVu Sans Mono Book 9")
 ;;(set-frame-font "Nimbus Mono L 11")
 ;;(set-frame-font "Source Code Pro 10")
 ;;(set-frame-font "JetBrains Mono Medium")

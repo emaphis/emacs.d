@@ -42,6 +42,7 @@ smex-items
 /distel-completion/
 /savefile/
 /irony/
+/eclipse.jdt.ls/
 
 # untracked files
 places
