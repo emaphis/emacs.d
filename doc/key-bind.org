@@ -1,7 +1,7 @@
-A handy remider of key bindings
+A handy reminder of key bindings
+- Open with C-h C-d
 
 * general editing bindings
-** summary
 ** custom key bindings
    C-x g           magit-status
    C-x O           back one window
@@ -446,8 +446,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
 
   N c              git svn dcommit
 
-* Programming modes
-** company completion
+* company completion
   M-n / M-p        select next/previous item
   Ret              complete item
   Tab              complete common part
@@ -456,8 +455,8 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   <F1>             show documentation of selection
   C-w              show the selections source
 
-** smartparens
-*** summary
+* smartparens
+** summary
   M-(, M-{, M-[    surround expression after point in brackets
   C-→              Slurp; move closing parenthesis to the right to include
                    next expression
@@ -465,7 +464,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
                    last expression
   C-M-f, C-M-b     Move to the opening/closing parenthesis
 
-*** SEXP navagation
+** SEXP navagation
   C-M-f            sp-forward-sexp (&optional arg)
   C-M-b            sp-backward-sexp (&optional arg)
   C-M-d            sp-down-sexp (&optional arg)
@@ -481,7 +480,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   none             sp-end-of-next-sexp (&optional arg)
   none             sp-end-of-previous-sexp (&optional arg)
 
-*** manipulation functions
+** manipulation functions
   C-M-k            sp-kill-sexp (&optional arg)
   C-- C-M-k        sp-backward-kill-sexp (&optional arg)
 
@@ -524,14 +523,14 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   C-]              sp-select-next-thing-exchange (&optional arg)
   C-- C-]          sp-select-previous-thing-exchange (&optional arg)
 
-** flycheck
+* flycheck
   C-c ! c          flycheck-buffer
   C-c ! n          flycheck-next-error
   C-c ! p          flycheck-previous-error
   C-c ! l          flycheck-list-errors
 
-** clojure mode bindings (cider)
-*** summary
+* clojure mode bindings (cider)
+** summary (basics)
   C-c C-k          compile and load current buffer
   C-x C-f          open file
   C-x C-s          save file
@@ -548,10 +547,9 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   C-c M-,          jump to resource
   M-x imenu        list definitions in a menu
   (use 'clojure.repl)
-  (use 'midje.repl)
 
-*** cider-mode
-*** evaluation
+* cider-mode
+** evaluation
   C-c C-k         Load the current buffer.
   C-c C-l         Load a file.
   C-x C-e or
@@ -579,17 +577,17 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
                   if present.
   M-p             cider-eval-print-last-sexp
 
-*** macro expansion
+** macro expansion
   C-c C-m         Invoke macroexpand-1 on the form at point and display the
                   result in a macroexpansion buffer. If invoked with a prefix
                   argument, macroexpand is used instead of macroexpand-1.
   C-c M-m         Invoke clojure.walk/macroexpand-all on the form at point and
                   display the result in a macroexpansion buffer.
 
-*** completion
+** completion
   M-TAB / C-M-i   Complete the symbol at point.
 
-*** clojure documentation
+** clojure documentation
   C-c C-d         cider-doc-map
   C-c C-d d  or
   C-c C-d C-d     Display doc string for the symbol at point. If invoked with a
@@ -604,7 +602,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   C-c C-d g       Lookup symbol in Grimoire.
   C-c C-d h       cider-grimore-web
 
-*** cider control
+** cider control
   C-c M-p         Load the form preceding point in the REPL buffer.
 
   C-c C-z         Switch to the relevant REPL buffer. Use a prefix argument to
@@ -626,19 +624,19 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
                   a directory.
   C-c C-q         cider-quit
 
-*** testing (clojure test)
+** testing (clojure test)
   C-c ,           Run tests for namespace.
   C-c C-,         Re-run test failures/errors for namespace.
   C-c M-,         Run test at point.
   C-c C-t         Show the test report buffer.
 
-*** source navigation
+** source navigation
   M-.             Jump to the definition of a symbol. If invoked with a prefix
                   argument, or no symbol is found at point, prompt for a symbol.
   M-,             Return to your pre-jump location.
   C-c M-.         Jump to the resource referenced by the string at point.
 
-*** cider repl mode
+** cider repl mode
   RET             Evaluate the current input in Clojure if it is complete. If
                   incomplete, open a new line and indent. If invoked with a
                   prefix argument is given then the input is evaluated without
@@ -687,7 +685,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   C-c M-t n       Toggle namespace tracing.
   ,               Short-cut command ad REPL
 
-*** cider macroexpansion
+** cider macroexpansion
   C-c C-m         Invoke macroexpand-1 on the form at point and replace the
                   original form with its expansion. If invoked with a prefix
                   argument, macroexpand is used instead of macroexpand-1.
@@ -699,14 +697,14 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   C-/ C-x u       Undo the last inplace expansion performed in the
                   macroexpansion buffer.
 
-*** cider inspector mode
+** cider inspector mode
   Tab   or
   Shift-Tab       navigate inspectable sub-objects
   Return          inspect sub-objects
   l               pop to the parent object
   g               refresh the inspector (e.g. if viewing an atom/ref/agent)
 
-*** cider test report mode
+** cider test report mode
   C-c ,           Run tests for namespace.
   C-c C-,         Re-run test failures/errors for namespace.
   C-c M-,         Run test at point.
@@ -716,7 +714,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   d               Display diff of actual vs expected.
   e               Display test error cause and stacktrace info.
 
-*** cider stacktrace mode
+** cider stacktrace mode
   M-p             move point to previous cause
   M-n             move point to next cause
   M-.  or
@@ -738,7 +736,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   d               toggle display of duplicate frames
   a               toggle display of all frames
 
-*** clojure re-factor
+* clojure re-factor
   M-n             refactor prefix   
   ad:             add declaration for current top-level form
   ai:             add import to namespace declaration, then jump back
@@ -778,7 +776,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   rd:             Remove (debug) function invocations
   rs:             Rename symbol
 
-** haskell
+* haskell
   F8               jump to imports
   C-c C-.          sort and align imports
   M-.              jump to definition
@@ -813,153 +811,9 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   C-c C-r r        rename refactoring
   M-a              go to parent node (SHM)
   C-j              newline and indent
-
-** scala mode and ensime
-*** source
-  C-c C-v f        Format the current source file
-  C-c C-v r        List all references to the symbol under the cursor
-  C-c C-v i  or
-  Control+Right-click   Inspect the type of the expression under the cursor
-  C-c C-v 5  i     Inspect the type of the expression under the cursor, in
-                   other frame
-  C-c C-v p        Inspect the package of the current source file, or the
-                   package under the cursor
-  C-c C-v o        Inspect the package specified in .ensime as :project-package.
-  C-c C-v c        Typecheck the current file
-  C-c C-v a        Typecheck all files in the project
-  C-c C-v e        Show all errors and warnings from the last typecheck or
-                   compilation
-  C-c C-v u        Undo a refactoring or formatting change
-
-*** testing
-  C-c C-t t        Go to (or create) test for current class
-  C-c C-t i        Go to implementation of the current test
-
-*** refactoring
-  C-c C-r o        Organize imports in the current file
-  C-c C-r t        Import the type under the cursor
-  C-c C-r r        Rename the symbol under the cursor
-  C-c C-r l        Extract the region into a local value
-  C-c C-r m        Extract the region into a method
-  C-c C-r i        Inline the local value under the cursor
-
-*** navigation
-  M-. or
-  Control+Left-Click   Jump to the definition of the symbol under the cursor
-  M-x ensime-edit-definition-other-window
-                   Jump to the definition of the symbol under the cursor,
-                   into another window
-  M-x ensime-edit-definition-other-frame
-                   Jump to the definition of the symbol under the cursor, into
-                   another frame
-  M-,              Pop back to the previously visited position
-  M-n              Go  to the next compilation note in the current buffer
-  M-p              Go to the previous compilation note in the current buffer
-  C-c C-v .        Select the surrounding syntactic context. Subsequent taps of
-                   '.' and ',' will grow and shrink the selection, respectively
-  C-c C-v v        Search globally for methods or types
-  C-c C-v s        Search for methods and types using the Scalex search engine
-
-*** documentation
-  C-c C-v t        Browse the documentation of the symbol under the cursor
-
-*** type/package inspector
-  TAB or M-n       Forward page
-  M-p              Backward page
-  RET or
-  Left-Click       If the cursor is over a type, inspect that type. If the
-                   cursor is over a method, go to its source code
-  ,                Go back in the inspector history
-  .                Go forward in the inspector history
-
-*** debugger
-  C-c C-d d        Start the debugger
-  C-c C-d b        Set a breakpoint at the current line
-  C-c C-d u        Remove the breakpoint at the current line
-  C-c C-d a        Remove all breakpoints
-  C-c C-d r        Start debugging the current program
-  C-c C-d s        Step into method invocations
-  C-c C-d o        Step out of method invocations
-  C-c C-d n        Step to the next line
-  C-c C-d c        Continue the program execution
-  C-c C-d q        Stop debugging the current program
-  C-c C-d t        Show the current backtrace
-  C-c C-d i        Inspect the value of the symbol under the cursor
-
-*** miscellaneous
-  C-c C-v z        Start the Scala REPL or switch to it
-  C-c C-b S        Create a "stacktrace" buffer or switch to it
-  M-x ensime-shutdown         Shut down ENSIME
-  M-x ensime-reload           Reload the .ensime file and recompile the project
-  M-x ensime-inspect-by-path  Prompt for a type or package and inspect it
-
-** java eclim
-  M-x start-eclimd
-  M-x stop-eclimd
-  M-x eclim-java-show-documentation-for-current-element
-
-*** eclim java
-  C-c C-e s        eclim-java-method-signature-at-point
-  C-c C-e f d      eclim-java-find-declaration
-  C-c C-e f r      eclim-java-find-references
-  C-c C-e f t      eclim-java-find-type
-  C-c C-e f f      eclim-java-find-generic
-  C-c C-e r        eclim-java-refactor-rename-symbol-at-point
-  C-c C-e i        eclim-java-import-organize
-  C-c C-e h        eclim-java-hierarchy
-  C-c C-e z        eclim-java-implement
-  C-c C-e d        eclim-java-doc-comment
-  C-c C-e f s      eclim-java-format
-  C-c C-e g        eclim-java-generate-getter-and-setter
-
-*** eclim show java documentation
-  <tab>            forword button
-  S-<tab>          backward button
-  q                eclim-quit-window
-
-*** eclim java problems
-  M-x eclim-problems-correct
-  M-x eclim-problems
-  M-x eclim-problems-compilation-buffer
-  0-9              eclim-java-correct-choose-by-digit
-  <RET>            eclim-java-correct-choose
-
-*** eclim project
-  C-c C-e g        eclim-project-goto
-  C-c C-e p p      eclim-project-mode
-  C-c C-e p m      eclim-project-mode
-  C-c C-e p i      eclim-project-import
-  C-c C-e p c      eclim-project-create
-  C-c C-e p g      eclim-project-goto
-  N                eclim-project-create
-  m                eclim-project-mark-current
-  M                eclim-project-mark-all
-  u                eclim-project-unmark-current
-  U                eclim-project-unmark-all
-  o                eclim-project-open
-  c                eclim-project-close
-  i                eclim-project-info-mode
-  I                eclim-project-import
-  RET              eclim-project-goto
-  D                eclim-project-delete
-  p                eclim-project-update
-  g                eclim-project-mode-refresh
-  R                eclim-project-rename
-  q                eclim-quit-window
-
-*** eclim ant
-  C-c C-e a c      eclim-ant-clear-cache
-  C-c C-e a r      eclim-ant-run
-  C-c C-e a a      eclim-ant-run
-  C-c C-e a v      eclim-ant-validate
-
-*** eclim maven
-  C-c C-e m p      eclim-maven-lifecycle-phase-run
-  C-c C-e m r      eclim-maven-run
-
-** Erlang
-*** Erlang Mode
-*** Indent
+* Erlang
+** Erlang Mode
+** Indent
   TAB              (erlang-indent-command)
                     Indents the current line of code.
   M-C-\            (indent-region)
@@ -977,7 +831,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
   M-x erlang-indent-clause                Indent the current Erlang clause.
   M-x erlang-indent-current-buffer        Indent the entire buffer.
 
-*** Edit - Fill Comment
+** Edit - Fill Comment
   When editing normal text in text mode you can let Emacs reformat the text by
   the fill-paragraph command. This command will not work for comments since it
   will treat the comment characters as words.
@@ -994,13 +848,13 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
       %% This is just a very simple test to show how the Erlang fill
       %% paragraph command works.
 
-*** Edit - Comment/Uncomment Region
+** Edit - Comment/Uncomment Region
   C-c C-c          will put comment characters at the beginning of all lines in
                    a marked region. If you want to have two comment characters
                    instead of one you can do C-u 2 C-c C-c
   C-c C-u          will undo a comment-region command.
 
-*** Edit - Moving the marker
+** Edit - Moving the marker
   C-a M-a          (erlang-beginning-of-function)
                     Move the point to the beginning of the current or preceding
                     Erlang function. With an numeric argument (ex C-u 2 C-a M-a)
@@ -1021,7 +875,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
                     As above but move point to the end of the current or
                     following Erlang clause.
 
-*** Edit - Marking
+** Edit - Marking
   C-c M-h          (erlang-mark-function)
                      Put the region around the current Erlang function. The
                      point is placed in the beginning and the mark at the end
@@ -1031,7 +885,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
                      is placed in the beginning and the mark at the end of the
                      function.
 
-*** Edit - Function Header Commands
+** Edit - Function Header Commands
   C-c C-j          (erlang-generate-new-clause)
                     Create a new clause in the current Erlang function. The
                     point is placed between the parentheses of the
@@ -1041,7 +895,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
                     This command is useful when defining a new clause with
                      almost the same argument as the preceding.
 
-*** Edit - Arrows
+** Edit - Arrows
   C-c C-a          (erlang-align-arrows)
                     aligns arrows after clauses inside a region.
 
@@ -1057,7 +911,7 @@ lorem-ipsum https://github.com/jschaf/emacs-lorem-ipsum
             sum([H|T], Sum) -> sum(T, Sum + H);
             sum([], Sum)    -> Sum.
 
-*** Syntax highlighting
+** Syntax highlighting
 The syntax highlighting can be activated from the Erlang menu. There are four different alternatives:
 
     Off: Normal black and white display.
@@ -1068,7 +922,7 @@ The syntax highlighting can be activated from the Erlang menu. There are four di
     Level 3: The above, variables, records, and macros will be colored. 
              (This level is also known as the Christmas tree level.)
 
-*** Tags
+** Tags
      For the tag commands to work it requires that you have generated a tag file.
      See Erlang mode users guide
   M-.              (find-tag)
@@ -1090,7 +944,7 @@ The syntax highlighting can be activated from the Erlang menu. There are four di
                     Search through all files listed in tags table for match for
                     REGEXP. Stops when a match is found.
 
-*** Skeletons
+** Skeletons
     A skeleton is a piece of pre-written code that can be inserted into the buffer.
     Erlang mode comes with a set of predefined skeletons. The skeletons can be
     accessed either from the Erlang menu of from commands named
@@ -1111,13 +965,13 @@ The syntax highlighting can be activated from the Erlang menu. There are four di
   Corba callback   skeleton for a Corba callback module.
   Erlang test suite  skeleton for a callback module for the erlang test server.
 
-*** Shell
+** Shell
   New shell        (erlang-shell)   Starts a new Erlang shell.
   C-c C-z          (erlang-shell-display)
                     Displays an Erlang shell, or starts a new one if there is no
                     shell started.
 
-*** Compile
+** Compile
   C-c C-k          (erlang-compile)
                     Compiles the Erlang module in the current buffer. You can
                     also use C-u C-c C-k to debug compile the module with the
@@ -1131,7 +985,7 @@ The syntax highlighting can be activated from the Erlang menu. There are four di
                      the compilation errors will be updated so that the current
                      error will be visible.
 
-*** Man
+** Man
    On unix you can view the manual pages in emacs. In order to find the manual
     pages, the variable `erlang-root-dir' should be bound to the name of the
     directory containing the Erlang installation. The name should not include
@@ -1140,13 +994,13 @@ The syntax highlighting can be activated from the Erlang menu. There are four di
 
       (setq erlang-root-dir "/the/erlang/root/dir/goes/here")
 
-*** Starting IMenu
+** Starting IMenu
   M-x              imenu-add-to-menubar
                      This command will create the IMenu menu containing all the
                      functions in the current buffer.The command will ask you
                      for a suitable name for the menu.
 
-*** Version
+** Version
   M-x              erlang-version
 * Orgmode
 ** org babel

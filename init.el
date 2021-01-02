@@ -131,8 +131,8 @@
 ;;; Scheme
 ;;(set-variable (quote scheme-program-name) "scheme")
 
-(use-package racket-mode
-  :ensure)
+;; (use-package racket-mode
+;;   :ensure)
 
 
 ;;; Keep emacs custom-settings in separate file
