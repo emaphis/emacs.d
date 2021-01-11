@@ -1,5 +1,7 @@
 Just some quick notes.
 * TODO:
+look at: https://github.com/BrunoBonacci/lambdamacs/
+- for ideas
 
 ** check out:  <https://www.manueluberti.eu/archive/>
   eyebrows  - a window config manager
