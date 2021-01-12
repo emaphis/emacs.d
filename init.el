@@ -1,6 +1,6 @@
 ;;; init.el ---  Emacs' intital configuration file.
 ;;
-;; Copyright (c) 2020 Ed Maphis
+;; Copyright (c) 2021 Ed Maphis
 ;;
 ;; Created: Aug 16 2014
 ;;
@@ -27,10 +27,10 @@
 
 (require 'package)
 (setq package-enable-at-startup nil)
-;; (add-to-list 'package-archives
-;;              '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; (add-to-list 'package-archives
 ;; 	         '("melpa" . "https://melpa.org/packages/") t)
@@ -91,7 +91,7 @@
 (load "set-orgmode.el")
 
 ;;; LSP modes
-(load "set-lsp.el")
+;;(load "set-lsp.el")
 
 ;;; haskell settings - one of two:
 ;;(load "set-haskell.el")

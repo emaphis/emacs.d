@@ -1,6 +1,6 @@
 ;;; set-elisp.el ---  Emacs lisp programming customizations.
 ;;
-;; Copyright (c) 2019
+;; Copyright (c) 2019,2021
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -9,7 +9,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: Emacs 25.1
+;; Compatibility: Emacs 27.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,6 +44,10 @@
   :config
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook #'elisp-slime-nav-mode)))
+
+;;; evaluation overlays
+;;; https://github.com/xiongtx/eros
+;;(use-package )
 
 
 (message "end set-elisp.el")

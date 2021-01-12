@@ -24,6 +24,7 @@
 
 ;;; customizations are mostly from: http://cider.readthedocs.io/en/latest/
 
+
 ;;(require 'clojure-mode)
 (use-package clojure-mode
   :ensure t
@@ -55,32 +56,29 @@
 
 ;; (use-package clj-refactor
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   (add-hook 'clojure-mode-hook (lambda ()
 ;;                                  (clj-refactor-mode 1)
 ;;                                  ;; insert keybinding here
 ;;                                  ))
-;;   (cljr-add-keybindings-with-prefix "C-c C-m")
-;;   (setq cljr-warn-on-evaql nil))
+;;   (cljr-add-keybindings-with-prefix "C-c C-r")
+;;   (setq yas-minor-mode 1))
 
 ;; TODO: check out this package:
 ;; <https://github.com/wandersoncferreira/ivy-clojuredocs>
+
+;; (use-package cider-eval-sexp-fu
+;;   :ensure t
+;;   :defer t)
 
 ;;; Linters
 ;; (use-package flycheck-joker
 ;;   :ensure t)
 
 (use-package flycheck-clj-kondo
-  :ensure t)
-
-
-;; see: https://github.com/nubank/emidje/
-;; ~/.lein/profiles.clj:
-;; :plugins [[nubank/midje-nrepl "x.x.x"]]
-;; (use-package emidje
-;;   :ensure t
-;;   :defer t
-;;   :init (eval-after-load 'cider #'emidje-setup))
+  :ensure t
+  :defer t)
 
 
 (message "...end set-clojure.el")

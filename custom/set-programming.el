@@ -1,6 +1,6 @@
 ;;; set-programming.el ---  General programming settings.
 ;;
-;; Copyright (c) 2019
+;; Copyright (c) 2019, 2021
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -9,7 +9,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, programming
-;; Compatibility: emacs 26.1
+;; Compatibility: emacs 27.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,7 +42,7 @@
 ;;  http://joaotavora.github.io/yasnippet/
 (use-package yasnippet
   :ensure t
-  :pin melpa-stable
+  ;;:pin melpa-stable
   :init
   (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
   ;; (yas-global-mode 1)  ; TODO: error.
@@ -52,7 +52,8 @@
 (use-package yasnippet-snippets
   :ensure t
   :after yasnippet
-  :pin melpa-stable)
+  ;;:pin melpa-stable
+  )
 
 
 ;;; smartparens
