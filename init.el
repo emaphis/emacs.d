@@ -100,7 +100,6 @@
 ;;; scala language settings
 ;;(load "set-scala.el")
 
-
 ;;; erlang mode settings
 ;;(load "set-erlang.el")
 
@@ -132,8 +131,20 @@
 ;;(set-variable (quote scheme-program-name) "scheme")
 
 ;; (use-package racket-mode
-;;   :ensure)
+;;   :ensure
+;;   :config
+;;   (add-hook 'racket-mode-hook #'paredit-mode))
 
+;;; https://www.nongnu.org/geiser/
+(use-package geiser
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'geiser-mode-hook #'paredit-mode)
+  (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
+
+;;; Miscellaneous packages
+(load "set-misc.el")
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
