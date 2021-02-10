@@ -130,18 +130,20 @@
 ;;; Scheme
 ;;(set-variable (quote scheme-program-name) "scheme")
 
-;; (use-package racket-mode
-;;   :ensure
-;;   :config
-;;   (add-hook 'racket-mode-hook #'paredit-mode))
-
-;;; https://www.nongnu.org/geiser/
-(use-package geiser
+(use-package racket-mode
   :ensure t
   :defer t
   :config
-  (add-hook 'geiser-mode-hook #'paredit-mode)
-  (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'racket-mode-hook #'paredit-mode)
+  (add-hook 'racket-mode-hook #'rainbow-delimiters-mode))
+
+;;; https://www.nongnu.org/geiser/
+;; (use-package geiser
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (add-hook 'geiser-mode-hook #'paredit-mode)
+;;   (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
 
 ;;; Miscellaneous packages
 (load "set-misc.el")
