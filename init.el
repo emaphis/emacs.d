@@ -79,10 +79,10 @@
 (load "set-ivy.el")
 
 ;;; general programming settings
-;;(load "set-programming.el")
+(load "set-programming.el")
 
 ;;; elisp mode settings
-;;(load "set-elisp.el")
+(load "set-elisp.el")
 
 ;;; clojure settings
 ;;(load "set-clojure.el")

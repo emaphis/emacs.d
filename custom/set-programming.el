@@ -139,11 +139,14 @@
   :hook ('prog-mode . rainbow-mode))
 
 
+;;; https://projectile.mx/
+;;; https://github.com/bbatsov/projectile
 (use-package projectile
   :ensure t
   :config
-  (projectile-mode)
-  ;;(setq projectile-completion-system 'ivy)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1)
+  (setq projectile-completion-system 'ivy)
   )
 
 (use-package counsel-projectile

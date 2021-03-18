@@ -15,7 +15,7 @@
 ;; (setq inhibit-splash-screen t)
 
 ;; <F7> toggles the menu-bar
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; Virtual machine pparameters.
 ;; See: https://www.reddit.com/r/emacs/comments/brc05y/is_lspmode_too_slow_to_use_for_anyone_else/eofulix/
@@ -46,12 +46,12 @@
 
 ;;(load-theme 'zenburn t)
 ;;(load-theme 'leuven t)
-;;(load-theme 'nimbus t)
+(load-theme 'nimbus t)
 ;;(load-theme 'faff t)
 ;;(load-theme 'modus-vivendi t)
 
 ;; nothing like experimenting with fonts!
-;;(set-frame-font "Consolas 10")
+(set-frame-font "Consolas 10")
 ;;(set-frame-font "Cascadia Code 9")
 ;;(set-frame-font "Ubuntu Mono 10")
 ;;(set-frame-font "Consolas Bold 11")
