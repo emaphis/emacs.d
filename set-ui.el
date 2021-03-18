@@ -48,12 +48,12 @@
 ;;(load-theme 'leuven t)
 ;;(load-theme 'nimbus t)
 ;;(load-theme 'faff t)
-(load-theme 'modus-vivendi t)
+;;(load-theme 'modus-vivendi t)
 
 ;; nothing like experimenting with fonts!
 ;;(set-frame-font "Consolas 10")
 ;;(set-frame-font "Cascadia Code 9")
-(set-frame-font "Ubuntu Mono 10")
+;;(set-frame-font "Ubuntu Mono 10")
 ;;(set-frame-font "Consolas Bold 11")
 ;;(set-frame-font "IBM Plex Mono 9")
 ;;(set-frame-font "Inconsolata 11")

@@ -79,16 +79,16 @@
 (load "set-ivy.el")
 
 ;;; general programming settings
-(load "set-programming.el")
+;;(load "set-programming.el")
 
 ;;; elisp mode settings
-(load "set-elisp.el")
+;;(load "set-elisp.el")
 
 ;;; clojure settings
-(load "set-clojure.el")
+;;(load "set-clojure.el")
 
 ;;; Org-mode settings
-(load "set-orgmode.el")
+;;(load "set-orgmode.el")
 
 ;;; LSP modes
 ;;(load "set-lsp.el")
@@ -130,12 +130,12 @@
 ;;; Scheme
 ;;(set-variable (quote scheme-program-name) "scheme")
 
-(use-package racket-mode
-  :ensure t
-  :defer t
-  :config
-  (add-hook 'racket-mode-hook #'paredit-mode)
-  (add-hook 'racket-mode-hook #'rainbow-delimiters-mode))
+;;(use-package racket-mode
+;;  :ensure t
+;;  :defer t
+;;  :config
+;;  (add-hook 'racket-mode-hook #'paredit-mode)
+;;  (add-hook 'racket-mode-hook #'rainbow-delimiters-mode))
 
 ;;; https://www.nongnu.org/geiser/
 ;; (use-package geiser
@@ -146,7 +146,7 @@
 ;;   (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
 
 ;;; Miscellaneous packages
-(load "set-misc.el")
+;;(load "set-misc.el")
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom/set-custom.el")
