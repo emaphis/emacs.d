@@ -114,28 +114,33 @@ the week."
 (global-set-key (kbd "C-x M-d") #'insdate-insert-current-date)
 
 
-;(use-package calendar
-;  :ensure t
-;  :config
-;  (defun insdate-insert-current-date (&optional omit-day-of-week-p)
-;    "Insert today's date using the current locale.
-;     With a prefix argument, the date is inserted without the day of
-;     the week."
-;     (iteractive "P*")
-;     (insert (calendar-date-string (calendar-current-date) nil
-;                                   omit-day-of-week-p)))
-;  :bind ("C-x M-d" .  insdate-insert-current-date)
-;  )
+;;(use-package calendar
+;;  :ensure t
+;;  :config
+;;  (defun insdate-insert-current-date (&optional omit-day-of-week-p)
+;;    "Insert today's date using the current locale.
+;;     With a prefix argument, the date is inserted without the day of
+;;     the week."
+;;     (iteractive "P*")
+;;     (insert (calendar-date-string (calendar-current-date) nil
+;;                                   omit-day-of-week-p)))
+;;  :bind ("C-x M-d" .  insdate-insert-current-date)
+;;  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; misc settings
 
-;;; flyspell
+;;; flyspell - use hunspell instead of ispell
+;;  see: https://www.reddit.com/r/emacs/comments/dgj0ae/tutorial_spellchecking_with_hunspell_170_for/
+;;  and: http://blog.binchen.org/posts/what-s-the-best-spell-check-set-up-in-emacs.html
 (use-package flyspell
   :config
   (when (eq system-type 'windows-nt)
-    (add-to-list 'exec-path "c:/apps/hunspell/bin/"))
-  (setq ispell-program-name "hunspell") ; use hunspell instead of ispell
+    (add-to-list 'exec-path "c:/Apps/hunspell/"))
+  (setq ispell-program-name "hunspell")
+  (setq ispell-local-dictionary "en_US")
+  (setq ispell-local-dictionary-alist
+        '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8)))
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
