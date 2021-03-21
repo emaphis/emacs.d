@@ -131,17 +131,16 @@ the week."
 ;;; misc settings
 
 ;;; flyspell - use hunspell instead of ispell
-;;  see: https://www.reddit.com/r/emacs/comments/dgj0ae/tutorial_spellchecking_with_hunspell_170_for/
-;;  and: http://blog.binchen.org/posts/what-s-the-best-spell-check-set-up-in-emacs.html
+;; NOTE: Use the ezwinports: https://sourceforge.net/projects/ezwinports/
+;; Other versions don't seem to work
 (use-package flyspell
   :config
+  (setq ispell-dictionary "en_US")
   (when (eq system-type 'windows-nt)
-    (add-to-list 'exec-path "c:/Apps/hunspell/"))
-  (setq ispell-program-name "hunspell")
-  (setq ispell-local-dictionary "en_US")
-  (setq ispell-local-dictionary-alist
-        '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8)))
+    (add-to-list 'exec-path "c:/apps/hunspell/bin/"))
+  (setq ispell-program-name "hunspell") ; use hunspell instead of ispell
   (add-hook 'text-mode-hook #'flyspell-mode)
+  (add-hook 'org-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
 
