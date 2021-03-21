@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, navigation.
-;; Compatibility: emacs 26.1
+;; Compatibility: emacs 27.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -74,6 +74,22 @@
   :bind
   ("C-:" . avy-goto-char)
   ("C-'" . avy-goto-char-2))
+
+;;; Spell checking with ivy
+;; https://github.com/d12frosted/flyspell-correct
+(use-package flyspell-correct
+  :after flyspell
+  :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
+
+(use-package flyspell-correct-ivy
+  :after flyspell-correct)
+
+;;; TODO: try ivy-rich
+;; https://github.com/Yevgnen/ivy-rich
+(use-package ivy-rich
+  :ensure t
+  :init
+  (ivy-rich-mode 1))
 
 
 (provide 'set-ivy)
