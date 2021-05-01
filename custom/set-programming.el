@@ -109,7 +109,8 @@
 ;;; company mode
 ;;  http://company-mode.github.io/
 (use-package company
-  :ensure t
+  :after lsp-mode
+  :hook (prog-mode . company-mode)
   :config
   (progn
     (global-company-mode 1)

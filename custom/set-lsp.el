@@ -3,11 +3,12 @@
 ;; Copyright (c) 2020 Ed Maphis
 ;;
 ;; Created: Aug 11, 2020
+;; Updated: April 30, 2021
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 26.3
+;; Compatibility: emacs 27.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -17,10 +18,11 @@
 ;;; Code:
 
 (use-package lsp-mode
-  :hook ((python-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-intergration))
-  :config (setq lsp-completion-enable-additional-text-edit nil)
-  :commands lsp)
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")  ; or 'C-l', 's-l'
+  :config
+  (lsp-enable-which-key-intergration t))
 
 (setq lsp-completion-provider :capf)
 
@@ -31,16 +33,26 @@
 (use-package lsp-ivy
   :commands lsp-ivy-workspace-symbol)
 
-(use-package lsp-java
-  :config (add-hook 'java-mode-hook 'lsp))
-
 (use-package dap-mode
   :after lsp-mode
   :config (dap-auto-configure-mode))
 
-;;(use-package dap-java)
-
 (use-package lsp-treemacs)
+
+
+;;; Typescript
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2))
+
+
+;;; Java
+;; (use-package lsp-java
+;;   :config (add-hook 'java-mode-hook 'lsp))
+
+;;(use-package dap-java)
 
 
 (provide 'set-lsp)

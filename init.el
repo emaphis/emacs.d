@@ -85,7 +85,7 @@
 (load "set-elisp.el")
 
 ;;; clojure settings
-;;(load "set-clojure.el")
+(load "set-clojure.el")
 
 ;;; Org-mode settings
 ;;(load "set-orgmode.el")
@@ -96,9 +96,6 @@
 ;;; haskell settings - one of two:
 ;;(load "set-haskell.el")
 ;;(load "set-haskell-cabal.el")
-
-;;; scala language settings
-;;(load "set-scala.el")
 
 ;;; erlang mode settings
 ;;(load "set-erlang.el")
@@ -130,12 +127,12 @@
 ;;; Scheme
 ;;(set-variable (quote scheme-program-name) "scheme")
 
-;;(use-package racket-mode
-;;  :ensure t
-;;  :defer t
-;;  :config
-;;  (add-hook 'racket-mode-hook #'paredit-mode)
-;;  (add-hook 'racket-mode-hook #'rainbow-delimiters-mode))
+(use-package racket-mode
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'racket-mode-hook #'paredit-mode)
+  (add-hook 'racket-mode-hook #'rainbow-delimiters-mode))
 
 ;;; https://www.nongnu.org/geiser/
 ;; (use-package geiser

@@ -18,12 +18,16 @@
 
 ;;; FSharp
 (use-package fsharp-mode
+  :defer t
+  :ensure t
   :config
-  (if (eq system-type 'windows-nt)
-      (setq inferior-fsharp-program
-            "\"C:\\Program Files\\dotnet\\sdk\\2.1.503\\FSharp\\fsi.exe\"")
-    (setq fsharp-compile-command
-          "\"C:\\Program Files\\dotnet\\sdk\\2.1.503\\FSharp\\fsc.exe\"")))
+  (require 'eglot)
+  (add-hook 'fsharp-mode-hood 'highlight-indentation-mode)
+  )
+
+(use-package eglot-fharp
+  :defer t
+  :ensure t)
 
 ;; "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsi.exe\""
 ;; "\"C:\\Program Files\\dotnet\\sdk\\2.1.503\\FSharp\\fsi.exe\""
