@@ -58,3 +58,6 @@ projectile.cache
 .cache/
 .lsp-session-*
 .dap-breakpoints
+*.dll
+*.pdb
+/FsAutoComplete

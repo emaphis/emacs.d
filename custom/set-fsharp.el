@@ -6,15 +6,21 @@
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
-;; Keywords: emacs settings, fsharp, programming
-;; Compatibility: emacs 26.1
+;; Keywords: emacs settings, fsharp, programming, eglot
+;; Compatibility: emacs 27.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
-;;  FSharp settings on Windows.
+;;  FSharp settings on Windows, using egot.
 ;;
 ;;; Code:
+
+
+;;; Eglot
+(use-package eglot
+  :defer
+  :ensure t)
 
 ;;; FSharp
 (use-package fsharp-mode
@@ -22,12 +28,15 @@
   :ensure t
   :config
   (require 'eglot)
-  (add-hook 'fsharp-mode-hood 'highlight-indentation-mode)
+  ;;(add-hook 'fsharp-mode-hook #'highlight-indentation-mode)
+  ;;  (add-hook 'fsharp-mode-hook #'eglot-fsharp)
   )
 
-(use-package eglot-fharp
-  :defer t
-  :ensure t)
+(require 'eglot-fsharp)
+
+;; (use-package eglot-fharp
+;;   :defer t
+;;   :ens)
 
 ;; "\"C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\fsi.exe\""
 ;; "\"C:\\Program Files\\dotnet\\sdk\\2.1.503\\FSharp\\fsi.exe\""

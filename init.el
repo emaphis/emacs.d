@@ -113,7 +113,7 @@
 ;;(load "set-ruby.el")
 
 ;;; FSharp
-;;(load "set-fsharp.el")
+(load "set-fsharp.el")
 
 ;;; SML NJ
 ;;(load "set-sml.el")

@@ -52,12 +52,12 @@
 
 ;; nothing like experimenting with fonts!
 ;;(set-frame-font "Consolas 12")
-;;(set-frame-font "Cascadia Code 11")
+(set-frame-font "Cascadia Code 10")
 ;;(set-frame-font "Ubuntu Mono 10")
 ;;(set-frame-font "Consolas Bold 11")
 ;;(set-frame-font "IBM Plex Mono 9")
 ;;(set-frame-font "Inconsolata 11")
-(set-frame-font "DejaVu Sans Mono Book 11")
+;;(set-frame-font "DejaVu Sans Mono Book 11")
 ;;(set-frame-font "Nimbus Mono L 11")
 ;;(set-frame-font "Source Code Pro 10")
 ;;(set-frame-font "JetBrains Mono Medium")
