@@ -22,9 +22,10 @@
   :init
   (setq lsp-keymap-prefix "C-c l")  ; or 'C-l', 's-l'
   :config
-  (lsp-enable-which-key-intergration t))
+ ;; (lsp-enable-which-key-intergration t)
+  )
 
-(setq lsp-completion-provider :capf)
+;;(setq lsp-completion-provider :capf)
 
 
 (use-package lsp-ui

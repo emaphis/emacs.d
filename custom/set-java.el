@@ -21,7 +21,7 @@
 ;; requirements: JDK 1.7 or greater, Eclipse 4.4 (Luna)
 ;; download eclim: http://sourceforge.net/projects/eclim/files/eclim/
 ;; run installer: $ java -jar eclim_2.4.0.jar
-;; now install emacs eclim: https://github.com/senny/emacs-eclim
+;; now install Emacs eclim: https://github.com/senny/emacs-eclim
 ;; now start the server in ~/eclipse/eclimd
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

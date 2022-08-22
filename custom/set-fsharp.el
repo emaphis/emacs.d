@@ -5,7 +5,7 @@
 ;; Created: Feb 7, 2019
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
-;;
+;;rr55
 ;; Keywords: emacs settings, fsharp, programming, eglot
 ;; Compatibility: emacs 27.2
 ;;
@@ -18,9 +18,9 @@
 
 
 ;;; Eglot
-(use-package eglot
-  :defer
-  :ensure t)
+;; (use-package eglot
+;;   :defer
+;;   :ensure t)
 
 ;;; FSharp
 (use-package fsharp-mode
@@ -28,11 +28,11 @@
   :ensure t
   :config
   (require 'eglot)
-  ;;(add-hook 'fsharp-mode-hook #'highlight-indentation-mode)
-  ;;  (add-hook 'fsharp-mode-hook #'eglot-fsharp)
+  (add-hook 'fsharp-mode-hook #'highlight-indentation-mode)
+  (add-hook 'fsharp-mode-hook #'eglot-fsharp)
   )
 
-(require 'eglot-fsharp)
+;;(require 'eglot-fsharp)
 
 ;; (use-package eglot-fharp
 ;;   :defer t
