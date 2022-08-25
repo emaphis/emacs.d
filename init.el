@@ -91,7 +91,7 @@
 ;;(load "set-orgmode.el")
 
 ;;; LSP modes
-;;(load "set-lsp.el")
+(load "set-lsp.el")
 
 ;;; haskell settings - one of two:
 ;;(load "set-haskell.el")

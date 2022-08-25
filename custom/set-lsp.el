@@ -40,20 +40,19 @@
 
 (use-package lsp-treemacs)
 
-
 ;;; Typescript
-(use-package typescript-mode
-  :mode "\\.ts\\'"
-  :hook (typescript-mode . lsp-deferred)
-  :config
-  (setq typescript-indent-level 2))
+;; (use-package typescript-mode
+;;   :mode "\\.ts\\'"
+;;   :hook (typescript-mode . lsp-deferred)
+;;   :config
+;;   (setq typescript-indent-level 2))
 
 
 ;;; Java
-;; (use-package lsp-java
-;;   :config (add-hook 'java-mode-hook 'lsp))
+(use-package lsp-java
+  :config (add-hook 'java-mode-hook 'lsp))
 
-;;(use-package dap-java)
+(use-package dap-java)
 
 
 (provide 'set-lsp)

@@ -61,3 +61,4 @@ projectile.cache
 *.dll
 *.pdb
 /FsAutoComplete
+/workspace
