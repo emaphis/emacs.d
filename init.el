@@ -48,11 +48,11 @@
 
 ;;; use package setup.
 
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
+;; (unless (package-installed-p 'use-package)
+;;   (package-install 'use-package))
 
-(require 'use-package)
-(setq use-package-verbose t)
+;; (require 'use-package)
+;; (setq use-package-verbose t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,7 +70,7 @@
 ;;;  provides: uniquify, better settings
 (load "better-defaults.el")
 
-;;; general editing settings
+;;; general editing settings - Always keep
 ;;; continuation of better-defaults
 (load "set-base.el")
 
@@ -119,13 +119,13 @@
 ;;(load "set-sml.el")
 
 ;;; Common Lisp
-;;(load "set-lisp.el")
+(load "set-lisp.el")
 
 ;;; C++/C
 ;;(load "set-cpp.el")
 
 ;;; Scheme
-(load "set-scheme.el")
+;;(load "set-scheme.el")
 
 ;;; Miscellaneous packages
 (load "set-misc.el")

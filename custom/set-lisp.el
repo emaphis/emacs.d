@@ -1,6 +1,6 @@
 ;;; set-lisp.el -- Common Lisp settings
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2019, 2023  Ed Maphis
 ;;
 ;; Created: Feb 7, 2019
 ;;
@@ -29,12 +29,12 @@
   :config
   (add-hook 'slime-mode-hook #'paredit-mode)
   (add-hook 'slime-mode-hook #'rainbow-delimiters-mode)
-  (load (expand-file-name "~/quicklisp/slime-helper.el"))
-  (setq common-lisp-hyperspec-root         "/usr/local/share/doc/hyperspec/HyperSpec/"
+  (load (expand-file-name "~/.roswell/helper.el"))
+  (setq common-lisp-hyperspec-root "/usr/local/share/doc/hyperspec/HyperSpec/"
         common-lisp-hyperspec-symbol-table (concat common-lisp-hyperspec-root "Data/Map_Sym.txt")
         common-lisp-hyperspec-issuex-table (concat common-lisp-hyperspec-root "Data/Map_IssX.txt")))
 
-(setq inferior-lisp-program "sbcl")
+(setq inferior-lisp-program "ros -Q run")
 
 ;;; Scheme with Geiser.
 (use-package geiser
