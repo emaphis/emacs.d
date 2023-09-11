@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 27.1
+;; Compatibility: Emacs 29.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -32,10 +32,6 @@
 ;; (add-to-list 'package-archives
 ;;              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-;; (add-to-list 'package-archives
-;; 	         '("melpa" . "https://melpa.org/packages/") t)
-
-
 ;; keep the installed packages in .emacs.d/elpa;
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 
@@ -46,13 +42,8 @@
   (package-refresh-contents))
 
 
-;;; use package setup.
-
-;; (unless (package-installed-p 'use-package)
-;;   (package-install 'use-package))
-
-;; (require 'use-package)
-;; (setq use-package-verbose t)
+;;; use-package setup.
+;;  included in Emacs 29.1
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -75,7 +66,8 @@
 (load "set-base.el")
 
 ;;; Navagation - Ido or Ivy
-;;(load "set-ido.el") ; one of either ido or ivy.
+;;  Use one of either ido or ivy.
+;;(load "set-ido.el")
 (load "set-ivy.el")
 
 ;;; general programming settings
@@ -90,8 +82,8 @@
 ;;; Org-mode settings
 ;;(load "set-orgmode.el")
 
-;;; LSP modes
-(load "set-lsp.el")
+;;; LSP modes - use Eglot as build in package
+;;(load "set-lsp.el")
 
 ;;; haskell settings - one of two:
 ;;(load "set-haskell.el")

@@ -52,7 +52,7 @@
 
 ;; nothing like experimenting with fonts!
 ;;(set-frame-font "Consolas 12")
-(set-frame-font "Cascadia Code 10")
+(set-frame-font "Cascadia Code 9")
 ;;(set-frame-font "Ubuntu Mono 10")
 ;;(set-frame-font "Consolas Bold 11")
 ;;(set-frame-font "IBM Plex Mono 9")

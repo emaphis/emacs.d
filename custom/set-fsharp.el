@@ -3,11 +3,12 @@
 ;; Copyright (c) 2019 Ed Maphis
 ;;
 ;; Created: Feb 7, 2019
+;; Updated: Sept 11, 2023
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
-;;rr55
-;; Keywords: emacs settings, fsharp, programming, eglot
-;; Compatibility: emacs 28.2
+;;
+;; Keywords: emacs settings, fsharp, programming
+;; Compatibility: Emacs 29.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -17,21 +18,14 @@
 ;;; Code:
 
 
-;;; Eglot
-(use-package eglot
-  :defer
-  :ensure t)
-
 ;;; FSharp
 (use-package fsharp-mode
   :defer t
   :ensure t
   :config
-  (require 'eglot)
   (require 'eglot-fsharp)
   (add-hook 'fsharp-mode-hook #'highlight-indentation-mode)
-  (add-hook 'fsharp-mode-hook #'eglot-fsharp)
-  )
+  (add-hook 'fsharp-mode-hook #'eglot-fsharp)  )
 
 
 (provide 'set-fsharp)

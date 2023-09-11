@@ -22,11 +22,11 @@
 
 ;;; Code:
 
-;;; Company mode and flycheck turned on by defualt.
+;;; Company mode and flycheck turned on by default.
 
 ;;; turn on eldoc mode (I think this is now default in 25)
 
-(use-package lisp-mode
+(use-package elisp-mode
   :init
   (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
@@ -44,6 +44,11 @@
   :config
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook #'elisp-slime-nav-mode)))
+
+;;; Code evaluation tool hints for elisp
+(use-package eros
+  :ensure t)
+
 
 ;;; evaluation overlays
 ;;; https://github.com/xiongtx/eros

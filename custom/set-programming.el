@@ -37,6 +37,9 @@
   :config
   (global-aggressive-indent-mode 1))
 
+;;; temp
+(setq aggressive-indent-region-function
+      #'(lambda (x y) (let ((inhibit-message t)) (indent-region x y))))
 
 ;;; yasnippet
 ;;  http://joaotavora.github.io/yasnippet/
@@ -44,7 +47,8 @@
   :ensure t
   ;;:pin melpa-stable
   :init
-  (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
+  (setq yas-snippet-dirs
+        (list (expand-file-name "snippets" user-emacs-directory)))
   ;; (yas-global-mode 1)  ; TODO: error.
   )
 

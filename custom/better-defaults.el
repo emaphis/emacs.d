@@ -3,8 +3,8 @@
 ;; Copyright © 2013-2016 Phil Hagelberg and contributors
 
 ;; Author: Phil Hagelberg
-;; URL: https://github.com/technomancy/better-defaults
-;; Version: 0.1.3
+;; URL: https://git.sr.ht/~technomancy/better-defaults
+;; Version: 0.1.4
 ;; Created: 2013-04-16
 ;; Keywords: convenience
 
@@ -15,15 +15,12 @@
 
 ;;; Code:
 
-(setq user-full-name "Ed Maphis"
-      user-mail-address "emaphis85@gmail.com")
-
 ;; save dir  ???
-(defconst maph-savefile-dir (expand-file-name "savefile" user-emacs-directory))
+(defconst emaph-savefile-dir (expand-file-name "savefile" user-emacs-directory))
 
 ;; create the savefile dir if it doesn't exist
-(unless (file-exists-p maph-savefile-dir)
-  (make-directory maph-savefile-dir))
+(unless (file-exists-p emaph-savefile-dir)
+  (make-directory emaph-savefile-dir))
 
 
 ;; Newline at end of file
@@ -80,16 +77,19 @@
 
   (show-paren-mode 1)
   (setq-default indent-tabs-mode nil)
+  (savehist-mode 1)
   (setq save-interprogram-paste-before-kill t
         apropos-do-all t
         mouse-yank-at-point t
         require-final-newline t
         visible-bell t
         load-prefer-newer t
-        ediff-window-setup-function 'ediff-setup-windows-plain
-        save-place-file (concat user-emacs-directory "places")
-        backup-directory-alist `(("." . ,(concat user-emacs-directory
-                                                 "backups")))))
+        backup-by-copying t
+        frame-inhibit-implied-resize t
+        ediff-window-setup-function 'ediff-setup-windows-plain)
+
+  (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
+                                                 "backups"))))  )
 
 (message "... end better-defaults ...")
 (provide 'better-defaults)
