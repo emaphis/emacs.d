@@ -76,9 +76,9 @@
 ;; (use-package flycheck-joker
 ;;   :ensure t)
 
-(use-package flycheck-clj-kondo
-  :ensure t
-  :defer t)
+;; (use-package flycheck-clj-kondo
+;;   :ensure t
+;;   :defer t)
 
 
 (message "...end set-clojure.el")

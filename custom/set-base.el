@@ -13,7 +13,7 @@
 ;; Keywords: emacs settings
 ;; Compatibility: emacs 27.1
 ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;which;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
@@ -40,6 +40,7 @@
   :ensure t
   :bind ("C-c SPC" . ace-jump-mode))
 
+
 ;;; multiple cursors
 (use-package multiple-cursors
   :ensure t
@@ -49,11 +50,23 @@
          ("C-c C-<" . mc-mark-all-like-this)))
 
 
+;;; (global-whitespace-mode)
+(use-package whitespace
+  :init
+  (dolist (hook '(prog-mode-hook text-mode-hook))
+    (add-hook hook #'whitespace-mode))
+  (add-hook 'before-save-hook #'whitespace-cleanup)
+  :config
+  (setq whitespace-line-column 80) ;; limit line length
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
+
+
 ;;; Which key
 (use-package which-key
   :ensure t
   :config (which-key-mode +1)
   (setq which-key-idle-delay 1.2))
+
 
 (use-package undo-tree
   :ensure t

@@ -66,9 +66,10 @@
 (load "set-base.el")
 
 ;;; Navagation - Ido or Ivy
-;;  Use one of either ido or ivy.
+;;  Use one of either ido or ivy or vertico.
 ;;(load "set-ido.el")
-(load "set-ivy.el")
+;;(load "set-ivy.el")
+(load "set-vertico.el")
 
 ;;; general programming settings
 (load "set-programming.el")

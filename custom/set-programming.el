@@ -32,14 +32,14 @@
   (setq hl-todo-highlight-puntuation ":")
   (global-hl-todo-mode))
 
-(use-package aggressive-indent
-  :ensure t
-  :config
-  (global-aggressive-indent-mode 1))
+;; (use-package aggressive-indent
+;;   :ensure t
+;;   :config
+;;   (global-aggressive-indent-mode 1))
 
 ;;; temp
-(setq aggressive-indent-region-function
-      #'(lambda (x y) (let ((inhibit-message t)) (indent-region x y))))
+;; (setq aggressive-indent-region-function
+;;       #'(lambda (x y) (let ((inhibit-message t)) (indent-region x y))))
 
 ;;; yasnippet
 ;;  http://joaotavora.github.io/yasnippet/
@@ -95,38 +95,39 @@
 (use-package idle-highlight-mode
   :ensure t)
 
+;; Note using built-in flymake
+;;; flycheck
+;; (use-package flycheck
+;;   :ensure t
+;;   :init (global-flycheck-mode t))
 
-;; flycheck
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode t))
-
-;; TODO:  maybe try flycheck-inline
-;;; Show Flycheck errors in tooltip
-(use-package flycheck-pos-tip
-  :ensure t
-  ;;:disabled t
-  :after flycheck
-  :config (flycheck-pos-tip-mode))
+;; ;; TODO:  maybe try flycheck-inline
+;; ;;; Show Flycheck errors in tooltip
+;; (use-package flycheck-pos-tip
+;;   :ensure t
+;;   ;;:disabled t
+;;   :after flycheck
+;;   :config (flycheck-pos-tip-mode))
 
 
+;; NOTE: Provided by corfu mod now
 ;;; company mode
 ;;  http://company-mode.github.io/
-(use-package company
-  :after lsp-mode
-  :hook (prog-mode . company-mode)
-  :config
-  (progn
-    (global-company-mode 1)
-    (setq company-tooltip-flip-when-above t)))
+;; (use-package company
+;;   :after lsp-mode
+;;   :hook (prog-mode . company-mode)
+;;   :config
+;;   (progn
+;;     (global-company-mode 1)
+;;     (setq company-tooltip-flip-when-above t)))
 
-(use-package company-quickhelp
-  :ensure t
-  :after company
-  :bind (:map company-active-map
-              ("C-c h" . company-quickhelp-manual-begin))
-  :config
-  (company-quickhelp-mode 1))
+;; (use-package company-quickhelp
+;;   :ensure t
+;;   :after company
+;;   :bind (:map company-active-map
+;;               ("C-c h" . company-quickhelp-manual-begin))
+;;   :config
+;;   (company-quickhelp-mode 1))
 
 
 ;;; Magit
@@ -154,11 +155,11 @@
   (setq projectile-completion-system 'ivy)
   )
 
-(use-package counsel-projectile
-  :ensure t
-  :after (counsel projectile)
-  :config
-  (counsel-projectile-mode 1))
+;; (use-package counsel-projectile
+;;   :ensure t
+;;   :after (counsel projectile)
+;;   :config
+;;   (counsel-projectile-mode 1))
 
 
 (message "end set-programming.el")
