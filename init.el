@@ -1,6 +1,6 @@
 ;;; init.el ---  Emacs' intital configuration file.
 ;;
-;; Copyright (c) 2021 Ed Maphis
+;; Copyright (c) 2023 Ed Maphis
 ;;
 ;; Created: Aug 16 2014
 ;;
@@ -108,8 +108,8 @@
 ;;; FSharp
 (load "set-fsharp.el")
 
-;;; SML NJ
-;;(load "set-sml.el")
+;;; Scala Mode
+(load "set-scala.el")
 
 ;;; Common Lisp
 (load "set-lisp.el")
@@ -118,7 +118,7 @@
 ;;(load "set-cpp.el")
 
 ;;; Scheme
-;;(load "set-scheme.el")
+(load "set-scheme.el")
 
 ;;; Miscellaneous packages
 (load "set-misc.el")

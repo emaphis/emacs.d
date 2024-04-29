@@ -60,6 +60,8 @@
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
+;; Wrap lines at 80 characters
+(setq-default fill-column 80)
 
 ;;; Which key
 (use-package which-key

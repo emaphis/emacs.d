@@ -2,17 +2,17 @@
 ;;
 ;; Filename: set-clojure.el
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2023 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
 ;; Created: Aug 18 2014
-;; Updated: Aug 13 2020
+;; Updated: Sep 16 2023
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: Emacs settings, Clojure, Programming
-;; Compatibility: Emacs 27.1
+;; Compatibility: Emacs 29.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -33,8 +33,8 @@
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-  (require 'flycheck-clj-kondo)
-  ;;(add-hook 'clojure-mode-hook #'hl-sexp-mode)
+  ;;(require 'flycheck-clj-kondo)
+  (add-hook 'clojure-mode-hook #'hl-sexp-mode)
   )
 
 
@@ -65,20 +65,17 @@
 ;;   (cljr-add-keybindings-with-prefix "C-c C-r")
 ;;   (setq yas-minor-mode 1))
 
-;; TODO: check out this package:
-;; <https://github.com/wandersoncferreira/ivy-clojuredocs>
-
-;; (use-package cider-eval-sexp-fu
-;;   :ensure t
-;;   :defer t)
+(use-package cider-eval-sexp-fu
+  :ensure t
+  :defer t)
 
 ;;; Linters
-;; (use-package flycheck-joker
-;;   :ensure t)
+(use-package flymake-kondor
+  :ensure t
+  :hook (clojure-mode . flymake-kondor-setup))
 
-;; (use-package flycheck-clj-kondo
-;;   :ensure t
-;;   :defer t)
+;;(require #'flymake-kondor)
+(add-hook 'clojure-mode-hook #'flymake-kondor-setup)
 
 
 (message "...end set-clojure.el")

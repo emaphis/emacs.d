@@ -27,13 +27,16 @@
   (add-hook 'racket-mode-hook #'rainbow-delimiters-mode))
 
 ;;; https://www.nongnu.org/geiser/
-;; (use-package geiser
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   (add-hook 'geiser-mode-hook #'paredit-mode)
-;;   (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
+(use-package geiser
+  :ensure t
+  :defer t
+  :config
+  (require 'geiser-chez)
+  (add-hook 'geiser-mode-hook #'paredit-mode)
+  (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
 
+(use-package geiser-chez
+  :ensure t)
 
 (provide 'set-scheme)
 (message "... set-scheme ends ...")

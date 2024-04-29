@@ -17,16 +17,16 @@
 ;;
 ;;; Code:
 
-
 ;;; FSharp
 (use-package fsharp-mode
-  :defer t
+  ;;:defer t
   :ensure t
   :config
   (require 'eglot-fsharp)
   (setq inferior-fsharp-program "dotnet fsi --readline-")
   (add-hook 'fsharp-mode-hook #'highlight-indentation-mode)
   (add-hook 'fsharp-mode-hook #'eglot-fsharp)  )
+
 
 
 (provide 'set-fsharp)

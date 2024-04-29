@@ -95,7 +95,7 @@
 (use-package idle-highlight-mode
   :ensure t)
 
-;; Note using built-in flymake
+;; NOTE: using built-in flymake
 ;;; flycheck
 ;; (use-package flycheck
 ;;   :ensure t
@@ -108,6 +108,14 @@
 ;;   ;;:disabled t
 ;;   :after flycheck
 ;;   :config (flycheck-pos-tip-mode))
+
+
+(use-package flymake
+  :ensure nil  ; built in
+  :bind (([f8] . flymake-goto-next-error)
+         ([f7] . flymake-goto-prev-error))
+  :hook (prog-mode . (lambda () (flymake-mode t)))
+  :config (remove-hook 'flymake-diagnostic-functions #'flymake-proc-legacy-flymake))
 
 
 ;; NOTE: Provided by corfu mod now

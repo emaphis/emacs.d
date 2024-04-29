@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-scala.el
 ;;
-;; Copyright (c) 2016 Ed Maphis
+;; Copyright (c) 2016, 2023 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,13 +11,13 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings scala
-;; Compatibility: Emacs 25.1
+;; Compatibility: Emacs 29.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;;  settings for scala mode and ensime mode.
+;;  settings for scala mode using eglot.
 ;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -39,17 +39,18 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; Suggestions from:  http://ensime.github.io/editors/emacs/install/
 ;;
 
 ;;; Code:
 
-(use-package ensime
-  :ensure t)
+(use-package scala-mode
+  :ensure t
+  :interpreter
+  ("scala" . scala-mode)
+  :mode "\\.s\\(cala\\|bt\\)$")
 
 
 (message "end set-scala.el")
 (provide 'set-scala)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set-scala.el ends here
-
