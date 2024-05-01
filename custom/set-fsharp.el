@@ -3,7 +3,7 @@
 ;; Copyright (c) 2019 Ed Maphis
 ;;
 ;; Created: Feb 7, 2019
-;; Updated: Sept 11, 2023
+;; Updated: April 30, 2023
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
@@ -13,7 +13,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
-;;  FSharp settings on Windows, using egot.
+;;  FSharp settings on Windows, using eglot.
 ;;
 ;;; Code:
 
@@ -24,8 +24,8 @@
   :config
   (require 'eglot-fsharp)
   (setq inferior-fsharp-program "dotnet fsi --readline-")
-  (add-hook 'fsharp-mode-hook #'highlight-indentation-mode)
-  (add-hook 'fsharp-mode-hook #'eglot-fsharp)  )
+  ;;(setq 'fsharp-mode-hook 'higlight-)
+  (add-hook 'fsharp-mode-hook #'highlight-indentation-mode))
 
 
 

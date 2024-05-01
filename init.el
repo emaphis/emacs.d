@@ -80,6 +80,10 @@
 ;;; clojure settings
 (load "set-clojure.el")
 
+;;; keybind  - NOtE: emp
+(load "keybind.el")
+
+
 ;;; Org-mode settings
 ;;(load "set-orgmode.el")
 
