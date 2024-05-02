@@ -24,8 +24,9 @@
   :config
   (require 'eglot-fsharp)
   (setq inferior-fsharp-program "dotnet fsi --readline-")
-  ;;(setq 'fsharp-mode-hook 'higlight-)
-  (add-hook 'fsharp-mode-hook #'highlight-indentation-mode))
+  ;(setq 'fsharp-mode-hook 'highlight-indent-guides-mode)
+  ;(add-hook 'fsharp-mode-hook #'highlight-indentation-)
+  )
 
 
 

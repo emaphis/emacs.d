@@ -3,12 +3,12 @@
 ;; Copyright (c) 2020 Ed Maphis
 ;;
 ;; Created: Aug 11, 2020
-;; Updated: April 30, 2021
+;; Updated: May 1, 202
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 27.2
+;; Compatibility: Emacs 29.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -17,13 +17,15 @@
 ;;
 ;;; Code:
 
+;;(use-package ivy-mode)
+
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
   :init
-  (setq lsp-keymap-prefix "C-c l")  ; or 'C-l', 's-l'
-  :config
- ;; (lsp-enable-which-key-intergration t)
-  )
+  (setq lsp-keymap-prefix "C-c l")      ; or 'C-l', 's-l'
+  :hook
+  (fsharp-mode . lsp)
+  (lsp-mode . lsp-enable-which-key-integration)
+  :commands lsp)
 
 ;;(setq lsp-completion-provider :capf)
 
@@ -49,10 +51,10 @@
 
 
 ;;; Java
-(use-package lsp-java
-  :config (add-hook 'java-mode-hook 'lsp))
+;; (use-package lsp-java
+;;   :config (add-hook 'java-mode-hook 'lsp))
 
-(use-package dap-java)
+;;(use-package dap-java)
 
 
 (provide 'set-lsp)

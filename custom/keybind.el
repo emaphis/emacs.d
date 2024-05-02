@@ -25,10 +25,16 @@
   (interactive)
   (insert "5"))
 
-(global-set-key (kbd "C-c C-c e") 'nnr)
-(global-set-key (kbd "C-c C-c y") 'nnt)
-(global-set-key (kbd "C-c C-c d") 'nnf)
-(global-set-key (kbd "C-c C-c h") 'nng)
+(defun keys-set ()
+  (interactive)
+  (global-set-key (kbd "C-c C-d e") 'nnr)
+  (global-set-key (kbd "C-c C-d y") 'nnt)
+  (global-set-key (kbd "C-c C-d d") 'nnf)
+  (global-set-key (kbd "C-c C-d h") 'nng)
+  (global-set-key (kbd "C-c C-d l") 'eglot))
+
+(keys-set)
+
 ;;(global-set-key (kbd "C-c C-c  1") 'nn4)
 ;;(global-set-key (kbd "C-s 2") 'nn5)
 

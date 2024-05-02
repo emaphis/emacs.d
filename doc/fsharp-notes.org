@@ -1,0 +1,34 @@
+# fsharp and eglot notesb
+
+* Eglot mode notes
+
+M-x eglot-format (to reformat and reindent code)
+M-.   - Finding definitions and uses of identifiers.
+M-x eglot-rename
+M-x eglot-inlay-hints-mode
+M-x imenu
+
+M-x eglot-code-actions
+M-x eglot-code-action-organize-imports
+M-x eglot-code-action-quickfix
+M-x eglot-code-action-extract
+M-x eglot-code-action-inline
+M-x eglot-code-action-rewrite
+
+* fly-make notes
+
+* fsharp-mode notes
+C-c C-r	Evaluate region
+C-c C-f	Load current buffer into toplevel
+C-c C-e	Evaluate current toplevel phrase
+C-M-x	Evaluate current toplevel phrase
+C-M-h	Mark current toplevel phrase
+C-c C-s	Show interactive buffer
+C-c C-c	Compile with fsc
+C-c x	Run the executable
+C-c C-a	Open alternate file (.fsi or .fs)
+C-c l	Shift region to left
+C-c r	Shift region to right
+C-c <up>	Move cursor to the beginning of the block
+C-c C-d, M-.	Jump to definition of symbol at point
+C-c C-b, =M-,=	Return to where point was before jump.

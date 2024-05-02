@@ -120,7 +120,7 @@
 
 ;; NOTE: Provided by corfu mod now
 ;;; company mode
-;;  http://company-mode.github.io/
+;; https://company-mode.github.io/
 ;; (use-package company
 ;;   :after lsp-mode
 ;;   :hook (prog-mode . company-mode)

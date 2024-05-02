@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: Emacs 29.1
+;; Compatibility: Emacs 29.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -80,7 +80,7 @@
 ;;; clojure settings
 (load "set-clojure.el")
 
-;;; keybind  - NOtE: emp
+;;; keybind  - NOTE: temporary
 (load "keybind.el")
 
 
@@ -113,7 +113,7 @@
 (load "set-fsharp.el")
 
 ;;; Scala Mode
-(load "set-scala.el")
+;;(load "set-scala.el")
 
 ;;; Common Lisp
 (load "set-lisp.el")
@@ -122,7 +122,7 @@
 ;;(load "set-cpp.el")
 
 ;;; Scheme
-(load "set-scheme.el")
+;;(load "set-scheme.el")
 
 ;;; Miscellaneous packages
 (load "set-misc.el")

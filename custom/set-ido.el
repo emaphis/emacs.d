@@ -16,7 +16,7 @@
 ;;
 ;;; Code:
 
-;; TODO: ;;(setq ido-use-filename-at-point nil) 
+;; TODO: ;;(setq ido-use-filename-at-point nil)
 ;;(ido-ubiquitous-mode 1)
 
 (use-package ido
@@ -27,7 +27,7 @@
         ido-create-new-buffer 'always
         ido-use-filename-at-point 'guess
         ido-max-prospects 10
-        ido-save-directory-list-file (expand-file-name "ido.hist" maph-savefile-dir)
+        ido-save-directory-list-file (expand-file-name "ido.hist" emaph-savefile-dir)
         ido-default-file-method 'selected-window
         ido-auto-merge-work-directories-length -1)
   (ido-mode +1))

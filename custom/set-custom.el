@@ -49,7 +49,7 @@
  '(org-drill-mature-count-color "#005500")
  '(org-drill-new-count-color "#004488")
  '(package-selected-packages
-   '(geiser-chez geiser eglot-java eglot-jl scala-mode sly cider-eval-sexp-fu flymake-kondor corfu embark-consult embark orderless marginalia consult vertico eros highlight-indentation eglot-fsharp eglot eglot-fharp clojure-mode flyspell-correct paredit yasnippet-snippets racket-mode modus-vivendi-theme modus-operandi-theme dap-mode company-erlang fill-column-indicator ivy-erlang-complete faff-theme rainbow-delimiters dante parchment-theme zenburn-theme flycheck-irony irony-eldoc company-irony-c-headers company-irony emidje cider which-key nimbus-theme wttrin lorem-ipsum ace-window inf-ruby org-bullets org-bullet try hl-todo expand-region beacon smooth-scroll smooth-scrolling projectile company-jedi jedi flycheck-joker utop merlin tuareg erlang fsharp-mode yasnippet haskell-mode ess-site ess intero hl-sexp highlight-sexp moe-theme toxi-theme leuven-theme win-switch undo-tree solarized-theme sml-mode smartparens rainbow-mode monokai-theme markdown-mode magit idomenu ido-ubiquitous ido-hacks idle-highlight-mode gandalf-theme ensime elisp-slime-nav edts cyberpunk-theme company-ghc ace-jump-mode))
+   '(company-quickhelp company ivy-rich flyspell-correct-ivy counsel smex highlight-indent-guides tree-mode lsp-ivy lsp-ui ivy eglot fsharp-mode geiser-chez geiser scala-mode sly cider-eval-sexp-fu flymake-kondor corfu embark-consult embark orderless marginalia consult vertico eros highlight-indentation eglot-fharp clojure-mode flyspell-correct paredit yasnippet-snippets racket-mode modus-vivendi-theme modus-operandi-theme dap-mode company-erlang fill-column-indicator ivy-erlang-complete faff-theme rainbow-delimiters dante parchment-theme zenburn-theme flycheck-irony irony-eldoc company-irony-c-headers company-irony emidje cider which-key nimbus-theme wttrin lorem-ipsum ace-window inf-ruby org-bullets org-bullet try hl-todo expand-region beacon smooth-scroll smooth-scrolling projectile company-jedi jedi flycheck-joker utop merlin tuareg erlang yasnippet haskell-mode ess-site ess intero hl-sexp highlight-sexp moe-theme toxi-theme leuven-theme win-switch undo-tree solarized-theme sml-mode smartparens rainbow-mode monokai-theme markdown-mode magit idomenu ido-ubiquitous ido-hacks idle-highlight-mode gandalf-theme ensime elisp-slime-nav edts cyberpunk-theme company-ghc ace-jump-mode))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(show-paren-mode t)
@@ -80,17 +80,13 @@
      (360 . "#b6a0ff")))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
-   '(unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83"))
- '(xterm-color-names
-   ["black" "#ff8059" "#44bc44" "#eecc00" "#2fafff" "#feacd0" "#00d3d0" "gray65"])
- '(xterm-color-names-bright
-   ["gray35" "#f4923b" "#70c900" "#cfdf30" "#79a8ff" "#f78fe7" "#4ae8fc" "white"]))
+   '(unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
 
 
 (message "end set-custom.el")
