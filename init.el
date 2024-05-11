@@ -80,9 +80,6 @@
 ;;; clojure settings
 (load "set-clojure.el")
 
-;;; keybind  - NOTE: temporary
-(load "keybind.el")
-
 
 ;;; Org-mode settings
 ;;(load "set-orgmode.el")
@@ -123,6 +120,9 @@
 
 ;;; Scheme
 ;;(load "set-scheme.el")
+
+;;; sml mode
+;;(load "set-sml.el")
 
 ;;; Miscellaneous packages
 (load "set-misc.el")

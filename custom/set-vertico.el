@@ -265,8 +265,8 @@
 (use-package corfu
   ;; Optional customizations
   :custom
-  (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
-  (corfu-auto t)                    ;; Enable auto completion
+  (corfu-cycle t) ;; Enable cycling for `corfu-next/previous'
+  (corfu-auto t)  ;; Enable auto completion
   ;; (corfu-separator ?\s)          ;; Orderless field separator
   ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
   ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
@@ -284,10 +284,8 @@
   ;; This is recommended since Dabbrev can be used globally (M-/).
   ;; See also `corfu-excluded-modes'.
   :init
-  (corfu-popupinfo-mode)
+  (corfu-popupinfo-mode 1)
   (global-corfu-mode))
-
-
 
 ;; Use Dabbrev with Corfu!
 (use-package dabbrev
@@ -311,8 +309,6 @@
 (use-package flyspell-correct
   :after flyspell
   :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
-
-
 
 (provide 'set-vertico)
 (message "... set-vertico ends ...")

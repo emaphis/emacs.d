@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-base.el
 ;;
-;; Copyright (c) 2020 Ed Maphis
+;; Copyright (c) 2014,2024 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 27.1
+;; Compatibility: emacs 29.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;which;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -64,6 +64,7 @@
 (setq-default fill-column 80)
 
 ;;; Which key
+;;; https://github.com/justbur/emacs-which-key
 (use-package which-key
   :ensure t
   :config (which-key-mode +1)
@@ -102,12 +103,13 @@
 
 ;;; Documentation modes
 
+;; https://github.com/jrblevin/markdown-mode
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
-	 ("\\.md\\'" . markdown-mode)
-	 ("\\.markdown\\'" . markdown-mode))
+	     ("\\.md\\'" . markdown-mode)
+	     ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
 (use-package yaml-mode
@@ -201,6 +203,34 @@ the week."
            (insert (current-kill 0)))))
 
 (global-set-key (kbd "C-x M-r") #'eval-and-replace)
+
+;; This assumes you've installed the package via MELPA.
+(use-package ligature
+  :config
+  ;; Enable the "www" ligature in every possible major mode
+  (ligature-set-ligatures 't '("www"))
+  ;; Enable traditional ligature support in eww-mode, if the
+  ;; `variable-pitch' face supports it
+  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  ;; Enable all Cascadia Code ligatures in programming modes
+  (ligature-set-ligatures 'prog-mode
+                          '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+                            ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+                            "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+                            "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+                            "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+                            "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+                            "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+                            "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+                            ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+                            "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+                            "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+                            "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+                            "\\\\" "://"))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t))
+
 
 
 (provide 'set-base)

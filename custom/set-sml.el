@@ -7,13 +7,14 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, sml
-;; Compatibility: emacs 26.1
+;; Compatibility: emacs 29.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
 ;;  Settings for SML of NJ
 ;;  Using code if found on the Internet.
+;;  Trying out Eglot and Millet modes
 ;;; Code:
 
 
@@ -34,10 +35,10 @@
     (sml-prog-proc-send-buffer t))
   (bind-key "C-c C-b" 'my-sml-prog-proc-send-buffer sml-mode-map))
 
-(load "company-sml.el")
-(add-hook 'company-sml 'company-sml-setup)
+;;(load "company-sml.el")
+;;(add-hook 'company-sml 'company-sml-setup)
 
-(use-package flycheck-sml)
+;;(use-package flycheck-sml)
 
 
 
