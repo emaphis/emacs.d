@@ -18,9 +18,8 @@
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes nil)
  '(custom-safe-themes
-   '("0cf95236abcf59e05b1ea69b4edd53d293a5baec4fe4c3484543fee99bfd2204" "3ce3e62344de33a73d3e78fcecd065abd23d38b9aa91bcb5087b8db03f6919a6"))
+   '("cc3f311f61b7cee6c8a20a9799484fa61e4729a5607315122cac33c910407eec" "0dae3807ae732e44d9d9e97b0d05fef17fa2c718cc99dfa6d32440b5c0ea606c" "f079ef5189f9738cf5a2b4507bcaf83138ad22d9c9e32a537d61c9aae25502ef" "0cf95236abcf59e05b1ea69b4edd53d293a5baec4fe4c3484543fee99bfd2204" "3ce3e62344de33a73d3e78fcecd065abd23d38b9aa91bcb5087b8db03f6919a6"))
  '(fci-rule-color "#073642")
  '(global-display-line-numbers-mode t)
  '(highlight-symbol-colors
@@ -45,7 +44,8 @@
  '(org-drill-failed-count-color "#880000")
  '(org-drill-mature-count-color "#005500")
  '(org-drill-new-count-color "#004488")
- '(package-selected-packages 'nil)
+ '(package-selected-packages
+   '(zenburn-theme yasnippet-snippets yaml-mode wttrin which-key vertico undo-tree tree-mode sml-mode smex sly scala-mode rainbow-mode rainbow-delimiters racket-mode projectile paredit orderless nimbus-theme multiple-cursors modus-vivendi-theme modus-operandi-theme marginalia magit lsp-ui lsp-ivy lorem-ipsum ligature leuven-theme ivy-rich imenu-anywhere ido-completing-read+ idle-highlight-mode hl-todo highlight-indentation highlight-indent-guides geiser-chez flyspell-correct-ivy flymake-kondor flx-ido faff-theme expand-region eros embark-consult elisp-slime-nav eglot-fsharp dap-mode counsel corfu company-quickhelp cider-eval-sexp-fu cider beacon ace-jump-mode))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))

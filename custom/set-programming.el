@@ -153,21 +153,22 @@
   :hook ('prog-mode . rainbow-mode))
 
 
-;;; https://projectile.mx/
+;;; https://projectile.mx/projectile/index.html
 ;;; https://github.com/bbatsov/projectile
 (use-package projectile
   :ensure t
   :config
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1)
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-completion-system 'corfu)
   )
 
-;; (use-package counsel-projectile
-;;   :ensure t
-;;   :after (counsel projectile)
-;;   :config
-;;   (counsel-projectile-mode 1))
+
+(use-package counsel-projectile
+  :ensure t
+  :after (counsel projectile)
+  :config
+  (counsel-projectile-mode 1))
 
 
 (message "end set-programming.el")
