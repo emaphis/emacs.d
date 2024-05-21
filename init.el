@@ -58,7 +58,8 @@
 ;;; load ui settings early
 (load "~/.emacs.d/set-ui.el")
 
-;;;  provides: uniquify, better settings
+;;; provides: uniquify, better settings
+;;; https://git.sr.ht/~technomancy/better-defaults
 (load "better-defaults.el")
 
 ;;; general editing settings - Always keep
@@ -80,9 +81,8 @@
 ;;; clojure settings
 (load "set-clojure.el")
 
-
 ;;; Org-mode settings
-;;(load "set-orgmode.el")
+(load "set-orgmode.el")
 
 ;;; LSP modes - use Eglot as build in package
 ;;(load "set-lsp.el")
@@ -113,7 +113,7 @@
 ;;(load "set-scala.el")
 
 ;;; Common Lisp
-(load "set-lisp.el")
+;;(load "set-lisp.el")
 
 ;;; C++/C
 ;;(load "set-cpp.el")
@@ -125,10 +125,10 @@
 ;;(load "set-sml.el")
 
 ;;; Miscellaneous packages
-(load "set-misc.el")
+;;(load "set-misc.el")
 
 ;;; Keep emacs custom-settings in separate file
-(setq custom-file "~/.emacs.d/custom/set-custom.el")
+(setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 

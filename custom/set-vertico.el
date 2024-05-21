@@ -1,13 +1,13 @@
 ;;; set-template.el -- An Elisp file template
 ;;
-;; Copyright (c) 2023 Maphis
+;; Copyright (c) 2023,24 Maphis
 ;;
 ;; Created: Sep 13, 2023
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 29.1
+;; Compatibility: emacs 29.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -21,6 +21,7 @@
 ;;; VERTical Interactive COmpletion
 ;;; https://github.com/minad/vertico
 (use-package vertico
+  :ensure t
   :init
   (vertico-mode)
 
@@ -39,6 +40,7 @@
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
+  :ensure t
   :init
   (savehist-mode))
 
@@ -81,6 +83,7 @@
 ;;; consult.el - Consulting completing-read
 ;;; https://github.com/minad/consult
 (use-package consult
+  :ensure t
   ;; Replace bindings. Lazily loaded due by `use-package'.
   :bind (;; C-c bindings (mode-specific-map)
          ("C-c M-x" . consult-mode-command)
@@ -203,6 +206,7 @@
 ;;; https://github.com/minad/marginalia
 ;; Enable rich annotations using the Marginalia package
 (use-package marginalia
+  :ensure t
   ;; Either bind `marginalia-cycle' globally or only in the minibuffer
   :bind (("M-A" . marginalia-cycle)
          :map minibuffer-local-map
@@ -263,6 +267,7 @@
 ;;; corfu.el - Completion Overlay Region FUnction
 ;;; https://github.com/minad/corfu
 (use-package corfu
+  :ensure t
   ;; Optional customizations
   :custom
   (corfu-cycle t) ;; Enable cycling for `corfu-next/previous'
@@ -289,6 +294,7 @@
 
 ;; Use Dabbrev with Corfu!
 (use-package dabbrev
+  :ensure t
   ;; Swap M-/ and C-M-/
   :bind (("M-/" . dabbrev-completion)
          ("C-M-/" . dabbrev-expand))
@@ -305,10 +311,6 @@
   ("C-:" . avy-goto-char)
   ("C-'" . avy-goto-char-2))
 
-;; https://github.com/d12frosted/flyspell-correct
-(use-package flyspell-correct
-  :after flyspell
-  :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
 
 (provide 'set-vertico)
 (message "... set-vertico ends ...")

@@ -30,6 +30,7 @@
   )
 
 (use-package eglot-fsharp
+  :defer t
   :ensure t
   :after fsharp-mode
   :config

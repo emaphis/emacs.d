@@ -52,6 +52,7 @@
 
 ;;; (global-whitespace-mode)
 (use-package whitespace
+  :ensure t
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
@@ -151,6 +152,7 @@ the week."
 ;; NOTE: Use the ezwinports: https://sourceforge.net/projects/ezwinports/
 ;; Other versions don't seem to work
 (use-package flyspell
+  :ensure t
   :config
   (setq ispell-dictionary "en_US")
   (when (eq system-type 'windows-nt)
@@ -159,6 +161,12 @@ the week."
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'org-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
+
+;; https://github.com/d12frosted/flyspell-correct
+(use-package flyspell-correct
+  :ensure t
+  :after flyspell
+  :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
 
 
 ;;; Find unbound keys
@@ -206,6 +214,7 @@ the week."
 
 ;; This assumes you've installed the package via MELPA.
 (use-package ligature
+  :ensure t
   :config
   ;; Enable the "www" ligature in every possible major mode
   (ligature-set-ligatures 't '("www"))
@@ -230,7 +239,6 @@ the week."
   ;; Enables ligature checks globally in all buffers. You can also do it
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
-
 
 
 (provide 'set-base)

@@ -46,13 +46,11 @@
     (add-hook hook #'elisp-slime-nav-mode)))
 
 ;;; Code evaluation tool hints for elisp
-(use-package eros
-  :ensure t)
-
-
-;;; evaluation overlays
 ;;; https://github.com/xiongtx/eros
-;;(use-package )
+(use-package eros
+  :ensure t
+  :config
+  (eros-mode 1))
 
 
 (message "end set-elisp.el")

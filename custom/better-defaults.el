@@ -1,11 +1,12 @@
 ;;; better-defaults.el --- Fixing weird quirks and poor defaults
 
-;; Copyright © 2013-2016 Phil Hagelberg and contributors
+;; Copyright © 2013-2024 Phil Hagelberg and contributors
 
 ;; Author: Phil Hagelberg
 ;; URL: https://git.sr.ht/~technomancy/better-defaults
 ;; Version: 0.1.4
 ;; Created: 2013-04-16
+;; Updated: 2024-5-21
 ;; Keywords: convenience
 
 ;; This file is NOT part of GNU Emacs.
@@ -88,8 +89,9 @@
         frame-inhibit-implied-resize t
         ediff-window-setup-function 'ediff-setup-windows-plain)
 
-  (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
-                                                 "backups"))))  )
+  (unless backup-directory-alist
+    (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
+                                                   "backups"))))))
 
 (message "... end better-defaults ...")
 (provide 'better-defaults)

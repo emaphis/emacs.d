@@ -7,12 +7,12 @@
 ;; Author: Ed Maphis
 ;;
 ;; Created: Aug 18 2014
-;; Updated: Sep 16 2023
+;; Updated: May 21 2024
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: Emacs settings, Clojure, Programming
-;; Compatibility: Emacs 29.1
+;; Compatibility: Emacs 29.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -72,6 +72,7 @@
 ;;; Linters
 (use-package flymake-kondor
   :ensure t
+  :defer t
   :hook (clojure-mode . flymake-kondor-setup))
 
 ;;(require #'flymake-kondor)

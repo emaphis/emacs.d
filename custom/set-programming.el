@@ -118,7 +118,7 @@
   :config (remove-hook 'flymake-diagnostic-functions #'flymake-proc-legacy-flymake))
 
 
-;; NOTE: Provided by corfu mod now
+;; NOTE: Provided by corfu mode now
 ;;; company mode
 ;; https://company-mode.github.io/
 ;; (use-package company
@@ -160,10 +160,11 @@
   :config
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1)
-  (setq projectile-completion-system 'corfu)
+  (setq projectile-completion-system 'ivy)
   )
 
 
+;; Of course make sure you are rigged of counsel-mode
 (use-package counsel-projectile
   :ensure t
   :after (counsel projectile)

@@ -9,7 +9,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, org-mode
-;; Compatibility: emacs 26.1
+;; Compatibility: emacs 29.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -19,8 +19,8 @@
 ;;; Code:
 
 (use-package org-bullets
-  :ensure
-  :disabled
+  :ensure t
+  :defer t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 

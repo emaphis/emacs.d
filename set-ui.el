@@ -7,7 +7,7 @@
 ;; Created: Tuesday, October 4, 2016
 ;;
 ;;; Commentary:
-;; set basic UI setting early in the process
+;; set basic UI settings early in the process
 ;;
 ;;; CODE:
 
@@ -44,15 +44,15 @@
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 4)            ;; but maintain correct appearance
 
-(load-theme 'zenburn t)
+;;(load-theme 'zenburn t)
 ;;(load-theme 'leuven t)
 ;;(load-theme 'nimbus t)
 ;;(load-theme 'faff t)
-;;(load-theme 'modus-vivendi t)
+(load-theme 'modus-vivendi t)
 
 ;; nothing like experimenting with fonts!
 ;;(set-frame-font "Consolas 11")
-(set-frame-font "Cascadia Code 10")
+;;(set-frame-font "Cascadia Code 10")
 ;;(set-frame-font "Ubuntu Mono 10")
 ;;(set-frame-font "Consolas Bold 11")
 ;;(set-frame-font "IBM Plex Mono 9")
@@ -62,6 +62,28 @@
 ;;(set-frame-font "Source Code Pro 10")
 ;;(set-frame-font "JetBrains Mono Medium")
 ;;(set-frame-font "Liberation Mono 10")
+
+(set-face-attribute 'default nil
+  :font "Cascadia Code"
+  :height 100
+  :weight 'medium)
+(set-face-attribute 'variable-pitch nil
+  :font "DejaVu Sans"
+  :height 100
+  :weight 'medium)
+(set-face-attribute 'fixed-pitch nil
+  :font "Cascadia Code"
+  :height 100
+  :weight 'medium)
+;; Makes commented text and keywords italics.
+;; This is working in emacsclient but not emacs.
+;; Your font must have an italic face available.
+(set-face-attribute 'font-lock-comment-face nil
+  :slant 'italic)
+(set-face-attribute 'font-lock-keyword-face nil
+  :slant 'italic)
+;; |> <|
+
 
 ;;; display column number in mode-line
 (column-number-mode t)
