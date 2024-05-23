@@ -22,30 +22,16 @@
 ;;; FSharp
 (use-package fsharp-mode
   :defer t
-  :ensure t
-  :config
-  (setq inferior-fsharp-program "dotnet fsi --readline-")
-  ;;(setq 'fsharp-mode-hook 'highlight-indent-guides-mode)
-  ;;(add-hook 'fsharp-mode-hook #'highlight-indentation-)
-  )
+  :ensure t)
 
 (use-package eglot-fsharp
-  :defer t
   :ensure t
   :after fsharp-mode
   :config
-  (setq eglot-fsharp-server-install-dir "~/.dotnet/tools/")
-
-  ;; Start Eglot server manually for now.
-  ;;(add-hook 'fsharp-mode-hook #'eglot-ensure)
-
-  ;; This fixes https://github.com/fsharp/emacs-fsharp-mode/issues/341
-  ;; The original function used to prefix "dotnet" to the fsautocomplete path
-  (defun eglot-fsharp--path-to-server ()
-    "Return FsAutoComplete path."
-    (file-truename (concat eglot-fsharp-server-install-dir "fsautocomplete"
-                           (if (eq system-type 'windows-nt) ".exe" ""))))
+  (setq eglot-fsharp-server-install-dir nil)  ;; use dotnet install server.
+  ;;(add-hook 'fsharp-mode-hook #'eglot-ensure)  ;; let eglot install server.
   )
+
 
 (provide 'set-fsharp)
 (message "... set-fsharp ends ...")

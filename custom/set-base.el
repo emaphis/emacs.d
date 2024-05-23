@@ -52,7 +52,7 @@
 
 ;;; (global-whitespace-mode)
 (use-package whitespace
-  :ensure t
+  ;:ensure t  part of emacs
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
@@ -63,6 +63,7 @@
 
 ;; Wrap lines at 80 characters
 (setq-default fill-column 80)
+(global-display-fill-column-indicator-mode 1)
 
 ;;; Which key
 ;;; https://github.com/justbur/emacs-which-key
@@ -81,7 +82,7 @@
   (setq undo-tree-auto-save-history t))
 
 
-;; TODO: smooth scrolling
+;; TODO: smooth scrolling  -- Don't need in modern Emacs ??
 ;; (use-package smooth-scrolling
 ;;   :ensure
 ;;   :config
@@ -149,7 +150,8 @@ the week."
 ;;; misc settings
 
 ;;; flyspell - use hunspell instead of ispell
-;; NOTE: Use the ezwinports: https://sourceforge.net/projects/ezwinports/
+;; NOTE: Use the ezwinports: https://sourceforge.net/projects/ezwinports/  -OR-
+;; https://github.com/iquiw/hunspell-binary/
 ;; Other versions don't seem to work
 (use-package flyspell
   :ensure t
