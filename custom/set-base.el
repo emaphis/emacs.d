@@ -118,6 +118,9 @@
   :ensure t
   :defer t)
 
+(use-package csv-mode
+  :ensure t
+  :mode "\\.csv\\'")
 
 ;;; Insert Date:
 (require 'calendar)

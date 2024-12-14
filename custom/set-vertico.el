@@ -17,30 +17,15 @@
 ;;; Code:
 
 
-
 ;;; VERTical Interactive COmpletion
 ;;; https://github.com/minad/vertico
 (use-package vertico
   :ensure t
-  :init
-  (vertico-mode)
-
-  ;; Different scroll margin
-  ;; (setq vertico-scroll-margin 0)
-
-  ;; Show more candidates
-  ;; (setq vertico-count 20)
-
-  ;; Grow and shrink the Vertico minibuffer
-  ;; (setq vertico-resize t)
-
-  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
-  ;; (setq vertico-cycle t)
-  )
+  :hook (after-init . vertico-mode))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
-  :ensure t
+  :ensure nil  ; built-in
   :init
   (savehist-mode))
 
@@ -224,10 +209,10 @@
 ;;; https://github.com/oantolin/orderless
 (use-package orderless
   :ensure t
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
-
+  :config
+  (setq completion-styles '(orderless basic))
+  (setq completion-category-defaults nil)
+  (setq completion-category-overrrides nil))
 
 ;;; Embark: Emacs Mini-Buffer Actions Rooted in Keymaps
 ;;; https://github.com/oantolin/embark
@@ -264,33 +249,24 @@
   (embark-collect-mode . consult-preview-at-point-mode))
 
 
-;;; corfu.el - Completion Overlay Region FUnction
+;;; corfu.el - Completion Overlay Region Function
 ;;; https://github.com/minad/corfu
 (use-package corfu
   :ensure t
-  ;; Optional customizations
-  :custom
-  (corfu-cycle t) ;; Enable cycling for `corfu-next/previous'
-  (corfu-auto t)  ;; Enable auto completion
-  ;; (corfu-separator ?\s)          ;; Orderless field separator
-  ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
-  ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
-  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
-  ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
-  ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
-  ;; (corfu-scroll-margin 5)        ;; Use scroll margin
+  :hook (after-init . global-corfu-mode)
+  :bind (:map corfu-map ("<tab>" . corfu-complete))
+  :config
+  (setq tab-always-indent 'complete)
+  (setq corfu-preview-current nil)
+  (setq corfu-min-width 20)
 
-  ;; Enable Corfu only for certain modes.
-  ;; :hook ((prog-mode . corfu-mode)
-  ;;        (shell-mode . corfu-mode)
-  ;;        (eshell-mode . corfu-mode))
+  (setq corfu-popupinfo-delay '(1.25 . 0.5))
+  (corfu-popupinfo-mode 1) ; shows documentation after `corfu-popupinfo-delay'
 
-  ;; Recommended: Enable Corfu globally.
-  ;; This is recommended since Dabbrev can be used globally (M-/).
-  ;; See also `corfu-excluded-modes'.
-  :init
-  (corfu-popupinfo-mode 1)
-  (global-corfu-mode))
+  ;; Sort by input history (no need to modify `corfu-sort-function').
+  (with-eval-after-load 'savehist
+    (corfu-history-mode 1)
+    (add-to-list 'savehist-additional-variables 'corfu-history)))
 
 ;; Use Dabbrev with Corfu!
 (use-package dabbrev

@@ -17,6 +17,8 @@
 ;;
 ;;  See: https://arialdomartini.github.io/emacs-fsharp
 ;;
+;; Install F#  lsp server manually: dotnet tool install --global fsautocomplete
+
 ;;; Code:
 
 ;;; FSharp
@@ -28,8 +30,9 @@
   :ensure t
   :after fsharp-mode
   :config
-  (setq eglot-fsharp-server-install-dir nil)  ;; use dotnet install server.
-  ;;(add-hook 'fsharp-mode-hook #'eglot-ensure)  ;; let eglot install server.
+
+  ;; Install fsautocomplete manually.
+ ;; (add-hook 'fsharp-mode-hook #'eglot-ensure)  ;; let eglot install server.
   )
 
 

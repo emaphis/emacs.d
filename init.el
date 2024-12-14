@@ -44,6 +44,11 @@
 
 ;;; use-package setup.
 ;;  included in Emacs 29.1
+(when (< emacs-major-version 29)
+  (unless (package-installed-p 'use-package)
+    (unless package-archive-contents
+      (package-refresh-contents))
+    (package-install 'use-package)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -72,6 +77,12 @@
 ;;(load "set-ivy.el")
 (load "set-vertico.el")
 
+;; Set nerd fonts
+(load "set-nerdfonts")
+
+;; Set dired options
+(load "set-dired")
+
 ;;; general programming settings
 (load "set-programming.el")
 
@@ -87,24 +98,6 @@
 ;;; LSP modes - use Eglot as build in package
 ;;(load "set-lsp.el")
 
-;;; haskell settings - one of two:
-;;(load "set-haskell.el")
-;;(load "set-haskell-cabal.el")
-
-;;; erlang mode settings
-;;(load "set-erlang.el")
-
-;;; R settings
-;;(load "set-ess.el")
-
-;;; OCaml
-;;(load "set-ocaml.el")
-
-;;; Python with jedi
-;;(load "set-python.el")
-
-;;; Ruby with robe
-;;(load "set-ruby.el")
 
 ;;; FSharp
 (load "set-fsharp.el")
@@ -113,10 +106,7 @@
 ;;(load "set-scala.el")
 
 ;;; Common Lisp
-;;(load "set-lisp.el")
-
-;;; C++/C
-;;(load "set-cpp.el")
+(load "set-lisp.el")
 
 ;;; Scheme
 ;;(load "set-scheme.el")

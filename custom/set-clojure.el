@@ -22,7 +22,7 @@
 
 ;;; Code:
 
-;;; customizations are mostly from: http://cider.readthedocs.io/en/latest/
+;;; customizations are mostly from: https://docs.cider.mx/cider/index.html
 
 
 ;;(require 'clojure-mode)
@@ -34,7 +34,6 @@
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
   ;;(require 'flycheck-clj-kondo)
-  (add-hook 'clojure-mode-hook #'hl-sexp-mode)
   )
 
 

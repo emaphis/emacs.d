@@ -7,7 +7,7 @@ A setup that attempts to be modular. Modules are stored in the `custom` director
 
 Essentially based on the vertico, consult, orderless, maginalia, embark, corfu galaxy.
 
-Based on Technomancy's [Better Defaults](https://github.com/technomancy/better-defaults)
+Based on Technomancy's [Better Defaults](https://git.sr.ht/~technomancy/better-defaults)
 
 With many ideas from:
 
@@ -20,6 +20,10 @@ With many ideas from:
     [Zamansky's setup](https://github.com/zamansky/using-emacs)
 
     [Zamansky's videos](https://www.youtube.com/watch?v=49kBWM3RQQ8)
+
+    [Ashton Wiersdorf's setup](https://codeberg.org/ashton314/emacs-bedrock)
+
+    [Protesilaos Stavrou's basic setup](https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration)
 
 Including instructions on how to compile and install emacs on in local directories on Fedora Linux [install-fedora.md](./doc/install-fedora.md)
 
