@@ -112,7 +112,7 @@
 ;;(load "set-scheme.el")
 
 ;;; sml mode
-;;(load "set-sml.el")
+(load "set-sml.el")
 
 ;;; Miscellaneous packages
 ;;(load "set-misc.el")
