@@ -31,6 +31,12 @@
   :init
   )
 
+;; Enables the overlay of Common Lisp evaluation results directly into the buffer
+;; https://github.com/fosskers/sly-overlay
+(use-package sly-overlay
+  :ensure t)
+
+
 (setq inferior-lisp-program "sbcl")
 
 

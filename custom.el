@@ -15,38 +15,54 @@
  '(awesome-tray-mode-line-inactive-color "#323232")
  '(column-number-mode t)
  '(compilation-message-face 'default)
+ '(create-lockfiles nil)
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(custom-safe-themes
-   '("c5e7a36784b1955b28a89a39fef7c65ddc455b8e7fd70c6f5635cb21e4615670" "cc3f311f61b7cee6c8a20a9799484fa61e4729a5607315122cac33c910407eec" "0dae3807ae732e44d9d9e97b0d05fef17fa2c718cc99dfa6d32440b5c0ea606c" "f079ef5189f9738cf5a2b4507bcaf83138ad22d9c9e32a537d61c9aae25502ef" "0cf95236abcf59e05b1ea69b4edd53d293a5baec4fe4c3484543fee99bfd2204" "3ce3e62344de33a73d3e78fcecd065abd23d38b9aa91bcb5087b8db03f6919a6"))
+   '("c5e7a36784b1955b28a89a39fef7c65ddc455b8e7fd70c6f5635cb21e4615670"
+     "cc3f311f61b7cee6c8a20a9799484fa61e4729a5607315122cac33c910407eec"
+     "0dae3807ae732e44d9d9e97b0d05fef17fa2c718cc99dfa6d32440b5c0ea606c"
+     "f079ef5189f9738cf5a2b4507bcaf83138ad22d9c9e32a537d61c9aae25502ef"
+     "0cf95236abcf59e05b1ea69b4edd53d293a5baec4fe4c3484543fee99bfd2204"
+     "3ce3e62344de33a73d3e78fcecd065abd23d38b9aa91bcb5087b8db03f6919a6"))
  '(fci-rule-color "#073642")
  '(global-display-line-numbers-mode t)
  '(highlight-symbol-colors
-   (--map
-    (solarized-color-blend it "#002b36" 0.25)
-    '("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2")))
+   (--map (solarized-color-blend it "#002b36" 0.25)
+          '("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16"
+            "#268bd2")))
  '(highlight-symbol-foreground-color "#93a1a1")
  '(highlight-tail-colors '(("#2f4a00" . 0) ("#00415e" . 20)))
  '(hl-bg-colors
-   '("#7B6000" "#8B2C02" "#990A1B" "#93115C" "#3F4D91" "#00629D" "#00736F" "#546E00"))
+   '("#7B6000" "#8B2C02" "#990A1B" "#93115C" "#3F4D91" "#00629D" "#00736F"
+     "#546E00"))
  '(hl-fg-colors
-   '("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36"))
+   '("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36"
+     "#002b36"))
  '(hl-paren-colors '("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900"))
  '(hl-sexp-background-color "#efebe9")
  '(lsp-diagnostics-attributes
-   '((unnecessary :foreground "cornsilk4")
-     (deprecated :strike-through t)))
+   '((unnecessary :foreground "cornsilk4") (deprecated :strike-through t)))
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
-   '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4"))
+   '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198"
+     "#d33682" "#6c71c4"))
  '(org-drill-done-count-color "#663311")
  '(org-drill-failed-count-color "#880000")
  '(org-drill-mature-count-color "#005500")
  '(org-drill-new-count-color "#004488")
  '(package-selected-packages
-   '(trashed dired-subtree nerd-icons-dired nerd-icons-corfu nerd-icons-completion nerd-icons eglot 0blayout sly-overlay csv-mode org-bullets clojure-mode fsharp-mode eros-mode avy embark consult zenburn-theme yasnippet-snippets yaml-mode wttrin which-key vertico undo-tree tree-mode sml-mode smex sly scala-mode rainbow-mode rainbow-delimiters racket-mode projectile paredit orderless nimbus-theme multiple-cursors modus-vivendi-theme modus-operandi-theme marginalia magit lsp-ui lsp-ivy lorem-ipsum ligature leuven-theme ivy-rich imenu-anywhere ido-completing-read+ idle-highlight-mode hl-todo highlight-indentation highlight-indent-guides geiser-chez flyspell-correct-ivy flymake-kondor flx-ido faff-theme expand-region eros embark-consult elisp-slime-nav eglot-fsharp dap-mode counsel corfu company-quickhelp cider-eval-sexp-fu cider beacon ace-jump-mode))
+   '(ace-jump-mode avy beacon cider cider-eval-sexp-fu corfu counsel-projectile
+                   csv-mode dired-subtree eglot-fsharp elisp-slime-nav
+                   embark-consult eros expand-region flymake-kondor
+                   flyspell-correct geiser-chez hl-todo idle-highlight-mode
+                   imenu-anywhere ligature magit marginalia markdown-mode
+                   multiple-cursors nerd-icons-completion nerd-icons-corfu
+                   nerd-icons-dired orderless org-bullets paredit racket-mode
+                   rainbow-delimiters rainbow-mode sly sly-overlay trashed
+                   undo-tree vertico yaml-mode yasnippet-snippets))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
@@ -56,27 +72,17 @@
  '(vc-annotate-background nil)
  '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
-   '((20 . "#ff8059")
-     (40 . "#feacd0")
-     (60 . "#f78fe7")
-     (80 . "#f4923b")
-     (100 . "#eecc00")
-     (120 . "#cfdf30")
-     (140 . "#f8dec0")
-     (160 . "#bfebe0")
-     (180 . "#44bc44")
-     (200 . "#70c900")
-     (220 . "#6ae4b9")
-     (240 . "#4ae8fc")
-     (260 . "#00d3d0")
-     (280 . "#c6eaff")
-     (300 . "#2fafff")
-     (320 . "#79a8ff")
-     (340 . "#00bcff")
-     (360 . "#b6a0ff")))
+   '((20 . "#ff8059") (40 . "#feacd0") (60 . "#f78fe7") (80 . "#f4923b")
+     (100 . "#eecc00") (120 . "#cfdf30") (140 . "#f8dec0") (160 . "#bfebe0")
+     (180 . "#44bc44") (200 . "#70c900") (220 . "#6ae4b9") (240 . "#4ae8fc")
+     (260 . "#00d3d0") (280 . "#c6eaff") (300 . "#2fafff") (320 . "#79a8ff")
+     (340 . "#00bcff") (360 . "#b6a0ff")))
  '(vc-annotate-very-old-color nil)
+ '(warning-suppress-log-types '((unlock-file)))
  '(weechat-color-list
-   '(unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
+   '(unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900"
+                 "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682"
+                 "#00736F" "#2aa198" "#839496" "#657b83")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
