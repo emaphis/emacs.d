@@ -87,6 +87,8 @@
         load-prefer-newer t
         backup-by-copying t
         frame-inhibit-implied-resize t
+        read-file-name-completion-ignore-case t
+        read-buffer-completion-ignore-case t
         ediff-window-setup-function 'ediff-setup-windows-plain)
 
   (unless backup-directory-alist

@@ -17,12 +17,8 @@
 ;;
 ;;; Commentary:
 ;;
-;; download and install eclim: http://eclim.org/install.html
-;; requirements: JDK 1.7 or greater, Eclipse 4.4 (Luna)
-;; download eclim: http://sourceforge.net/projects/eclim/files/eclim/
-;; run installer: $ java -jar eclim_2.4.0.jar
-;; now install Emacs eclim: https://github.com/senny/emacs-eclim
-;; now start the server in ~/eclipse/eclimd
+;; Using java-mode, eglot, eglot-java
+;; <https://github.com/yveszoundi/eglot-java>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,48 +41,10 @@
 ;;
 ;;; Code:
 
-(require 'eclim)
-(global-eclim-mode)
 
-;;; control eclim:
-(require 'eclimd)
-
-;;; nonstandard eclipse installation area:
-(custom-set-variables
-  '(eclim-eclipse-dirs '("~/eclipse.bck"))
-  '(eclim-executable "~/eclipse.bck/eclim"))
-
-;;; Displaying compilation error messages in the echo area
-(setq help-at-pt-display-when-idle t)
-(setq help-at-pt-timer-delay 0.1)
-(help-at-pt-set-timer)
-
-;;; Company-mode
-;(require 'company)
-(require 'company-emacs-eclim)
-(company-emacs-eclim-setup)
-(global-company-mode t)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Flymake settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'flymake)
-
-;;(setq flymake-log-level -1) ;; 3 is debug
-
-;; On the fly checkstyle & pmd checking
-(defun my-java-flymake-init ()
-  (list "java-check.sh"
-        (list (flymake-init-create-temp-buffer-copy
-               'flymake-create-temp-with-folder-structure))))
-
-(add-to-list 'flymake-allowed-file-name-masks
-             '("\\.java$" my-java-flymake-init flymake-simple-cleanup))
 
 
 (message "end set-java.el")
 (provide 'set-java)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set-java.el ends here
-

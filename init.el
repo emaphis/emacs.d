@@ -109,10 +109,10 @@
 (load "set-lisp.el")
 
 ;;; Scheme
-;;(load "set-scheme.el")
+(load "set-scheme.el")
 
 ;;; sml mode
-(load "set-sml.el")
+;;(load "set-sml.el")
 
 ;;; Miscellaneous packages
 ;;(load "set-misc.el")
