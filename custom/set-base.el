@@ -126,7 +126,7 @@
 (require 'calendar)
 
 (defun insdate-insert-current-date (&optional omit-day-of-week-p)
-  "Insert today's date using the current locale.
+  "OMIT-DAY-OF-WEEK-P Insert today's date using the current locale.
 With a prefix argument, the date is inserted without the day of
 the week."
   (interactive "P*")
@@ -155,17 +155,18 @@ the week."
 ;;; flyspell - use hunspell instead of ispell
 ;; NOTE: Use the ezwinports: https://sourceforge.net/projects/ezwinports/  -OR-
 ;; https://github.com/iquiw/hunspell-binary/
+;; https://emacs.stackexchange.com/questions/80908/using-hunspell-in-emacs-on-windows-10
 ;; Other versions don't seem to work
-(use-package flyspell
+(use-package ispell
   :ensure t
-  :config
-  (setq ispell-dictionary "en_US")
-  (when (eq system-type 'windows-nt)
-    (add-to-list 'exec-path "c:/apps/hunspell/bin/"))
-  (setq ispell-program-name "hunspell") ; use hunspell instead of ispell
-  (add-hook 'text-mode-hook #'flyspell-mode)
-  (add-hook 'org-mode-hook #'flyspell-mode)
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
+  :init
+  (setenv "DICTIONARY" "en_US")
+  (setenv "DICPATH" "C:\\apps\\dict")
+  :if (eq system-type 'windows-nt)
+  :custom ((ispell-program-name "c:/apps/hunspell/bin/hunspell.exe")
+           (ispell-local-dictionary "en_US")
+           (ispell-local-dictionary-alist
+            '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8)))))
 
 ;; https://github.com/d12frosted/flyspell-correct
 (use-package flyspell-correct

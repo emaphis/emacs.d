@@ -1,13 +1,13 @@
 ;;; set-scheme.el -- Scheme mode settings
 ;;
-;; Copyright (c) 2021 Maphis
+;; Copyright (c) 2021, 2025 Maphis
 ;;
-;; Created: May 6, 2021
+;; Created: May 6, 2021, November 26, 2025
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 27.2
+;; Compatibility: emacs 30.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -31,7 +31,7 @@
   :ensure t
   :defer t
   :config
-  (require 'geiser-chez)
+  ;;(require 'geiser-chez)
   (add-hook 'geiser-mode-hook #'paredit-mode)
   (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
 
