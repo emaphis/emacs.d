@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: Emacs 29.2
+;; Compatibility: Emacs 30.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -90,23 +90,20 @@
 (load "set-elisp.el")
 
 ;;; clojure settings
-(load "set-clojure.el")
+;;(load "set-clojure.el")
 
 ;;; Org-mode settings
 (load "set-orgmode.el")
 
-;;; LSP modes - use Eglot as build in package
-;;(load "set-lsp.el")
-
 
 ;;; FSharp
-(load "set-fsharp.el")
+;;(load "set-fsharp.el")
 
 ;;; Scala Mode
 ;;(load "set-scala.el")
 
 ;;; Common Lisp
-(load "set-lisp.el")
+;;(load "set-lisp.el")
 
 ;;; Scheme
 (load "set-scheme.el")
@@ -115,7 +112,7 @@
 ;;(load "set-sml.el")
 
 ;;; Miscellaneous packages
-;;(load "set-misc.el")
+(load "set-misc.el")
 
 ;;; Keep emacs custom-settings in separate file
 (setq custom-file "~/.emacs.d/custom.el")

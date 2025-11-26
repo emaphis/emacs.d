@@ -21,7 +21,9 @@
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(custom-safe-themes
-   '("c5e7a36784b1955b28a89a39fef7c65ddc455b8e7fd70c6f5635cb21e4615670"
+   '("a94e15f0a3fd9e86430b4b8dadffc58faa0310168bcbc4fd3c1b687cf25e1f5d"
+     "6a4d13a6d49d70e3e2a590bae8467dbcb65728befb31c388edf43bcc369b51df"
+     "c5e7a36784b1955b28a89a39fef7c65ddc455b8e7fd70c6f5635cb21e4615670"
      "cc3f311f61b7cee6c8a20a9799484fa61e4729a5607315122cac33c910407eec"
      "0dae3807ae732e44d9d9e97b0d05fef17fa2c718cc99dfa6d32440b5c0ea606c"
      "f079ef5189f9738cf5a2b4507bcaf83138ad22d9c9e32a537d61c9aae25502ef"
@@ -54,16 +56,15 @@
  '(org-drill-mature-count-color "#005500")
  '(org-drill-new-count-color "#004488")
  '(package-selected-packages
-   '(0blayout ace-jump-mode ada-mode ada-ref-man ada-ts-mode avy beacon cider
-              cider-eval-sexp-fu corfu counsel-projectile csv-mode dired-subtree
-              eglot-fsharp elisp-slime-nav embark-consult eros expand-region
-              flymake-kondor flyspell-correct geiser-chez
-              gnu-elpa-keyring-update hl-todo idle-highlight-mode imenu-anywhere
-              ligature magit marginalia markdown-mode multiple-cursors
-              nerd-icons-completion nerd-icons-corfu nerd-icons-dired orderless
-              org-bullets paredit racket-mode rainbow-delimiters rainbow-mode
-              sly sly-overlay trashed undo-tree vertico yaml-mode
-              yasnippet-snippets))
+   '(ace-jump-mode avy beacon corfu counsel-projectile csv-mode dired-subtree eglot
+                   elisp-slime-nav embark-consult eros expand-region
+                   flyspell-correct geiser geiser-chez hl-todo
+                   idle-highlight-mode imenu-anywhere ligature lorem-ipsum magit
+                   marginalia markdown-mode multiple-cursors
+                   nerd-icons-completion nerd-icons-corfu nerd-icons-dired
+                   orderless org-bullets paredit racket-mode rainbow-delimiters
+                   rainbow-mode sml-mode trashed undo-tree vertico wttrin
+                   yaml-mode yasnippet-snippets))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))

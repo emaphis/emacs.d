@@ -35,14 +35,9 @@ smex-items
 # untracked directories
 /backups/
 /url/
-/back/
-/edts/
-/ensime/
-/distel/
-/distel-completion/
 /savefile/
-/irony/
 /eclipse.jdt.ls/
+/racket-mode/
 
 # untracked files
 places
