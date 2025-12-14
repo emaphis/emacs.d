@@ -97,7 +97,7 @@
 
 
 ;;; FSharp
-;;(load "set-fsharp.el")
+(load "set-fsharp.el")
 
 ;;; Scala Mode
 ;;(load "set-scala.el")
