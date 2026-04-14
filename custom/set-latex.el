@@ -1,15 +1,20 @@
 ;;; set-latex.el --- LaTeX / AUCTeX settings -*- lexical-binding: t; -*-
 
-;;; === HARD-CODED MiKTeX PATH (your exact install) ===
+;;; Commentary:
+;;; Created after a long hard fought afternoon with Grok.Requires MikTex and
+;;; SumatrqPDF to be installed in fixed paths.
+
+;;; CODE:
+
+;;; === MiKTeX PATH FIX ===
 (let ((miktex-bin "C:/Apps/MiKTeX/miktex/bin/x64"))
   (when (file-directory-p miktex-bin)
     (add-to-list 'exec-path miktex-bin t)
-    (setenv "PATH" (concat miktex-bin ";" (getenv "PATH")))
-    (message "✅ MiKTeX path added: %s" miktex-bin)))
+    (setenv "PATH" (concat miktex-bin ";" (getenv "PATH")))))
 
-(require 'tex-mik)   ; MiKTeX support
+(require 'tex-mik)
 
-;; Manually ensure XeLaTeX is available (Windows + custom MiKTeX fix)
+;; Manually register XeLaTeX (needed for custom MiKTeX)
 (eval-after-load "tex"
   '(progn
      (add-to-list 'TeX-command-list
@@ -29,17 +34,13 @@
         TeX-source-correlate-method 'synctex)
 
   :config
-  ;; === SumatraPDF - Excellent for Windows ===
+  ;; SumatraPDF (your custom location)
   (setq TeX-view-program-list
         '(("SumatraPDF" ("\"C:/Apps/SumatraPDF/SumatraPDF.exe\""
                          " -reuse-instance"
                          (mode-io-correlate " -forward-search %b %n ")
                          " %o"))))
-
-  (setq TeX-view-program-selection
-        '((output-pdf "SumatraPDF")))
-  ;;(setq TeX-view-program-list '(("PDF Tools" "emacsclient -n -e \"(pdf-tools-open-file \\\"%o\\\"\")")))
-  ;;(setq TeX-view-program-selection '((output-pdf "PDF Tools")))
+  (setq TeX-view-program-selection '((output-pdf "SumatraPDF")))
 
   (add-hook 'LaTeX-mode-hook #'TeX-fold-mode)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
@@ -54,13 +55,7 @@
 
 (use-package pdf-tools
   :ensure t
-  :mode ("\\.pdf\\'" . pdf-view-mode)
-  :config
-  (pdf-tools-install)
-  (setq pdf-view-resize-factor 1.15
-        pdf-view-display-size 'fit-page))
-
-
+  :mode ("\\.pdf\\'" . pdf-view-mode))
 
 (provide 'set-latex)
 ;;; set-latex.el ends here
