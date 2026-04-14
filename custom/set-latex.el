@@ -19,6 +19,25 @@
 
 ;;; LaTeX / AUCTeX settings
 
+;;; Force Emacs to inherit full shell environment on Windows
+(use-package exec-path-from-shell
+  :ensure t
+  :init
+  (when (memq window-system '(windows-nt))
+    (setq exec-path-from-shell-check-startup-files nil)
+    (exec-path-from-shell-initialize)))
+
+;;; === MiKTeX PATH FIX - MUST BE FIRST ===
+(let ((miktex-bin "C:/Apps/MiKTeX/miktex/bin/x64"))
+  (when (file-directory-p miktex-bin)
+    (add-to-list 'exec-path miktex-bin t) ; t = append at end
+    (setenv "PATH" (concat miktex-bin ";" (getenv "PATH")))
+    (message "✅ Added MiKTeX to exec-path: %s" miktex-bin)))
+
+
+;; Important for MiKTeX + AUCTeX
+(require 'tex-mik)   ; This loads MiKTeX-specific settings
+
 
 (use-package auctex
   :ensure t
@@ -46,6 +65,19 @@
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook #'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'TeX-source-correlate-mode))
+
+
+
+(use-package auctex
+  :ensure t
+  :defer t
+  :init
+  (setq TeX-auto-save t
+        TeX-parse-self t
+        TeX-engine 'xetex
+        TeX-source-correlate-mode t
+        TeX-source-correlate-method 'synctex))
+  ;; ... rest of your auctex config
 
 ;; Optional: Keep pdf-tools as fallback / for inside-Emacs viewing
 (use-package pdf-tools
