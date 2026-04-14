@@ -34,6 +34,8 @@
         TeX-source-correlate-method 'synctex)
 
   :config
+  ;; Yasnippet integration
+  (add-hook 'LaTeX-mode-hook #'yas-minor-mode)
   ;; SumatraPDF (your custom location)
   (setq TeX-view-program-list
         '(("SumatraPDF" ("\"C:/Apps/SumatraPDF/SumatraPDF.exe\""

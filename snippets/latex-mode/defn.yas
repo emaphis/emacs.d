@@ -1,0 +1,7 @@
+# name: Definition
+# key: defn
+# --
+\begin{definition}[${1:name}]
+\label{def:${2:label}}
+$0
+\end{definition}

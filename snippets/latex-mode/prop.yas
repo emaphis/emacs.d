@@ -1,0 +1,7 @@
+# name: Proposition
+# key: prop
+# --
+\begin{proposition}
+\label{prop:${1:label}}
+$0
+\end{proposition}

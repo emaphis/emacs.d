@@ -1,0 +1,7 @@
+# name: Theorem
+# key: thm
+# --
+\begin{theorem}[${1:name}]
+\label{thm:${2:label}}
+$0
+\end{theorem}
