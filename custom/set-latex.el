@@ -48,6 +48,13 @@
   (setq TeX-source-correlate-mode t
         TeX-source-correlate-method 'synctex))
 
+;;; Setup PDF tools
+(use-package pdf-tools
+  :ensure t
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  (pdf-tools-install))
+
 
 (provide 'set-latex)
 (message "... set-template ends ...")

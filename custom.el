@@ -63,9 +63,9 @@
                    imenu-anywhere indent-bars ligature lorem-ipsum magit
                    marginalia markdown-mode multiple-cursors
                    nerd-icons-completion nerd-icons-corfu nerd-icons-dired
-                   orderless org-bullets paredit racket-mode rainbow-delimiters
-                   rainbow-mode scala-mode sly sly-overlay trashed undo-tree
-                   vertico wttrin yaml-mode yasnippet-snippets))
+                   orderless org-bullets paredit pdf-tools racket-mode
+                   rainbow-delimiters rainbow-mode scala-mode sly sly-overlay
+                   trashed undo-tree vertico wttrin yaml-mode yasnippet-snippets))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
