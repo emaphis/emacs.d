@@ -2,7 +2,7 @@
 ;;
 ;; Filename: set-scala.el
 ;;
-;; Copyright (c) 2016, 2023 Ed Maphis
+;; Copyright (c) 2016, 2025 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,13 +11,15 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings scala
-;; Compatibility: Emacs 29.1
+;; Compatibility: Emacs 30.2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;;  settings for scala mode using eglot.
+;;  settings for scala mode using eglot/scalameta.
+;;
+;;  https://scalameta.org/metals/docs/editors/emacs/
 ;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -48,6 +50,20 @@
   :interpreter
   ("scala" . scala-mode)
   :mode "\\.s\\(cala\\|bt\\)$")
+
+;;; Enable sbt mode for executing sbt commands
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map)
+   ;; sbt-supershell kills sbt-mode:
+   ;;    https://github.com/hvesalai/emacs-sbt-mode/issues/152
+   (setq sbt:program-options '("-Dsbt.supershell=false")))
 
 
 (message "end set-scala.el")

@@ -96,14 +96,17 @@
 (load "set-orgmode.el")
 
 
+;;; Latex with Autex mode
+(load "set-latex.el")
+
 ;;; FSharp
 (load "set-fsharp.el")
 
 ;;; Scala Mode
-;;(load "set-scala.el")
+(load "set-scala.el")
 
 ;;; Common Lisp
-;;(load "set-lisp.el")
+(load "set-lisp.el")
 
 ;;; Scheme
 (load "set-scheme.el")

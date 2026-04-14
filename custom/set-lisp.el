@@ -1,6 +1,6 @@
 ;;; set-lisp.el -- Common Lisp settings
 ;;
-;; Copyright (c) 2019, 2023  Ed Maphis
+;; Copyright (c) 2019, 2025  Ed Maphis
 ;;
 ;; Created: Feb 7, 2019
 ;;
@@ -13,10 +13,11 @@
 
 ;;; Commentary:
 ;;  Common Lisp setup using Sly and SBCL
+;;  Setting up Common Lisp: <https://www.quicklisp.org/beta/>
 ;;
 ;;; Code:
 
-;; Common Lisp programming using SBCL
+;; Common Lisp programming using SBCL with Sly
 
 (use-package lisp-mode
   :init
@@ -37,7 +38,9 @@
   :ensure t)
 
 
-(setq inferior-lisp-program "sbcl")
+;;(setq inferior-lisp-program "sbcl")
+;;(setq inferior-lisp-program "clisp -K full")
+(setq inferior-lisp-program "clisp")
 
 
 (provide 'set-lisp)

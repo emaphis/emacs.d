@@ -56,15 +56,16 @@
  '(org-drill-mature-count-color "#005500")
  '(org-drill-new-count-color "#004488")
  '(package-selected-packages
-   '(ace-jump-mode avy beacon corfu counsel-projectile csv-mode dired-subtree
-                   eglot-fsharp elisp-slime-nav embark-consult eros
-                   expand-region flyspell-correct fsharp-mode geiser-chez
-                   hl-todo idle-highlight-mode imenu-anywhere ligature
-                   lorem-ipsum magit marginalia markdown-mode multiple-cursors
+   '(ace-jump-mode auctex avy beacon corfu counsel-projectile csv-mode
+                   dired-subtree eglot eglot-fsharp elisp-slime-nav
+                   embark-consult eros expand-region flyspell-correct
+                   fsharp-mode geiser-chez hl-todo idle-highlight-mode
+                   imenu-anywhere indent-bars ligature lorem-ipsum magit
+                   marginalia markdown-mode multiple-cursors
                    nerd-icons-completion nerd-icons-corfu nerd-icons-dired
                    orderless org-bullets paredit racket-mode rainbow-delimiters
-                   rainbow-mode trashed undo-tree vertico wttrin yaml-mode
-                   yasnippet-snippets))
+                   rainbow-mode scala-mode sly sly-overlay trashed undo-tree
+                   vertico wttrin yaml-mode yasnippet-snippets))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
