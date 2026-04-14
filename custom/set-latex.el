@@ -1,4 +1,4 @@
-;;; set-latex.el -- An Elisp file template
+;;; set-latex.el --- LaTeX / AUCTeX settings -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2026 Maphis
 ;;
@@ -17,7 +17,8 @@
 ;;; Code:
 
 
-;;; set-latex.el --- LaTeX / AUCTeX settings
+;;; LaTeX / AUCTeX settings
+
 
 (use-package auctex
   :ensure t
@@ -25,35 +26,39 @@
   :init
   (setq TeX-auto-save t
         TeX-parse-self t
-        TeX-engine 'xetex)          ; or 'luatex if you prefer
+        TeX-engine 'xetex               ; MiKTeX supports this well
+        TeX-source-correlate-mode t
+        TeX-source-correlate-method 'synctex)
 
   :config
-  ;; Basic viewer setup
-  (setq TeX-view-program-list '(("PDF Tools" "emacsclient -n -e \"(pdf-tools-open-file \\\"%o\\\"\")")))
-  (setq TeX-view-program-selection '((output-pdf "PDF Tools")))
+  ;; SumatraPDF - best for Windows
+  (setq TeX-view-program-list
+        '(("SumatraPDF" ("\"C:/Program Files/SumatraPDF/SumatraPDF.exe\""
+                         " -reuse-instance"
+                         (mode-io-correlate " -forward-search %b %n ")
+                         " %o"))))
 
-  ;; Enable folding, math input, etc.
+  (setq TeX-view-program-selection
+        '((output-pdf "SumatraPDF")))
+
+  ;; Hooks
   (add-hook 'LaTeX-mode-hook #'TeX-fold-mode)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook #'turn-on-reftex)
+  (add-hook 'LaTeX-mode-hook #'TeX-source-correlate-mode))
 
-  ;; RefTeX (great for labels, citations, TOC)
-  (use-package reftex
-    :ensure t
-    :config
-    (setq reftex-plug-into-AUCTeX t
-          reftex-label-alist '(AMSTeX)))  ; good for amsmath
-
-  ;; Optional but very nice
-  (setq TeX-source-correlate-mode t
-        TeX-source-correlate-method 'synctex))
-
-;;; Setup PDF tools
+;; Optional: Keep pdf-tools as fallback / for inside-Emacs viewing
 (use-package pdf-tools
   :ensure t
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
   (pdf-tools-install))
+
+(use-package reftex
+  :ensure t
+  :config
+  (setq reftex-plug-into-AUCTeX t
+        reftex-label-alist '(AMSTeX)))
 
 
 (provide 'set-latex)
