@@ -1,6 +1,6 @@
 ;;; init.el ---  Emacs' intital configuration file.
 ;;
-;; Copyright (c) 2023 Ed Maphis
+;; Copyright (c) 2026 Ed Maphis
 ;;
 ;; Created: Aug 16 2014
 ;;
@@ -63,9 +63,6 @@
 ;; stuff not on melpa
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
-;;; load ui settings early
-(load "~/.emacs.d/set-ui.el")
-
 ;;; provides: uniquify, better settings
 ;;; https://git.sr.ht/~technomancy/better-defaults
 (load "better-defaults.el")
@@ -103,10 +100,10 @@
 (load "set-latex.el")
 
 ;;; FSharp
-(load "set-fsharp.el")
+;;(load "set-fsharp.el")
 
 ;;; Scala Mode
-(load "set-scala.el")
+;;(load "set-scala.el")
 
 ;;; Common Lisp
 (load "set-lisp.el")

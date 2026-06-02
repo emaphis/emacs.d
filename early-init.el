@@ -1,6 +1,6 @@
 ;;; set-ui.el --- some basic UI settings.
 ;;
-;; Copyright (c) 2020 Ed Maphis
+;; Copyright (c) 2026 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -10,6 +10,9 @@
 ;; set basic UI settings early in the process
 ;;
 ;;; CODE:
+
+(message "... early-init ...")
+
 
 ;; I don't mind the splash screen.
 ;; (setq inhibit-splash-screen t)
@@ -95,6 +98,6 @@
 ;;; Highlight current line
 (global-hl-line-mode +1)
 
-(message "... end set-ui ...")
-(provide 'set-ui)
-;;; set-ui.el ends here
+(message "... end early-init ...")
+(provide 'early-init)
+;;; early-init.el ends here
