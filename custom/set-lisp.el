@@ -38,9 +38,9 @@
   :ensure t)
 
 
-;;(setq inferior-lisp-program "sbcl")
+(setq inferior-lisp-program "sbcl")
 ;;(setq inferior-lisp-program "clisp -K full")
-(setq inferior-lisp-program "clisp")
+;;(setq inferior-lisp-program "clisp")
 
 
 (provide 'set-lisp)

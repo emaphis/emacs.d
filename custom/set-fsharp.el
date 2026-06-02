@@ -22,14 +22,14 @@
 ;;; Code:
 
 ;;; FSharp
-(use-package fsharp-mode
-  :defer t
-  :ensure t)
+;; (use-package fsharp-mode
+;;   :defer t
+;;   :ensure t)
 
-(use-package eglot-fsharp
-  :ensure t
-  :after fsharp-mode
-  :config
+;; (use-package eglot-fsharp
+;;   :ensure t
+;;   :after fsharp-mode
+;;   :config
 
   ;; Install fsautocomplete manually.
  ;; (add-hook 'fsharp-mode-hook #'eglot-ensure)  ;; let eglot install server.

@@ -21,8 +21,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(ace-jump-mode auctex avy beacon cape corfu counsel-projectile csv-mode
-                   dired-subtree eglot-fsharp elisp-slime-nav embark-consult
-                   eros exec-path-from-shell expand-region flyspell-correct
+                   dired-subtree elisp-slime-nav embark-consult eros
+                   exec-path-from-shell expand-region flyspell-correct
                    fsharp-ts-mode geiser-chez hl-todo idle-highlight-mode
                    imenu-anywhere indent-bars ligature lorem-ipsum macrostep
                    magit marginalia markdown-mode multiple-cursors
