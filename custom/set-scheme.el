@@ -1,13 +1,13 @@
-;;; set-scheme.el -- Scheme mode settings
+;;; set-scheme.el -- Scheme mode settings  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2021, 2025 Maphis
+;; Copyright (c) 2021, 2026 Maphis
 ;;
 ;; Created: May 6, 2021, November 26, 2025
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 30.2
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

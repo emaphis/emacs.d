@@ -1,8 +1,8 @@
-;;; set-clojure.el --- clojure module settings file
+;;; set-clojure.el --- clojure module settings file  -*- lexical-binding: t; -*-
 ;;
 ;; Filename: set-clojure.el
 ;;
-;; Copyright (c) 2023 Ed Maphis
+;; Copyright (c) 2023,26 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -12,7 +12,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: Emacs settings, Clojure, Programming
-;; Compatibility: Emacs 29.2
+;; Compatibility: Emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

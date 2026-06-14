@@ -1,4 +1,4 @@
-;;; set-lsp.el -- Set up lsp modes for emacs.
+;;; set-lsp.el -- Set up lsp modes for emacs.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2020 Ed Maphis
 ;;
@@ -8,7 +8,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: Emacs 29.2
+;; Compatibility: Emacs 30.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

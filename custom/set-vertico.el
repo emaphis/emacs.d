@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 30.2
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

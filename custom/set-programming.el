@@ -1,6 +1,6 @@
-;;; set-programming.el ---  General programming settings.
+;;; set-programming.el ---  General programming settings.  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2019, 2021
+;; Copyright (c) 2019, 2026
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -9,7 +9,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, programming
-;; Compatibility: emacs 28.2
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

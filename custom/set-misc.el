@@ -1,13 +1,13 @@
-;;; set-misc.el -- Miscellaneous settings and packages
+;;; set-misc.el -- Miscellaneous settings and packages  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2026 Ed Maphis
 ;;
 ;; Created: Feb 7, 2019
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 27.1
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

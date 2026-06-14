@@ -1,6 +1,6 @@
-;;; set-orgmode.el -- Orgmode settings
+;;; set-orgmode.el -- Orgmode settings  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2019, 2026 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -9,7 +9,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, org-mode
-;; Compatibility: emacs 29.2
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

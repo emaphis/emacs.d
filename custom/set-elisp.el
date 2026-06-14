@@ -1,6 +1,6 @@
-;;; set-elisp.el ---  Emacs lisp programming customizations.
+;;; set-elisp.el ---  Emacs lisp programming customizations.  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2019,2021
+;; Copyright (c) 2019,2026
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -9,7 +9,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: Emacs 27.1
+;; Compatibility: Emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

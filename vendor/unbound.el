@@ -1,4 +1,4 @@
-;;; unbound.el --- Find convenient unbound keystrokes
+;;; unbound.el --- Find convenient unbound keystrokes  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2007 Davis Herring
 

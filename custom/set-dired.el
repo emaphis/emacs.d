@@ -1,4 +1,4 @@
-;;; set-dired.el -- Set up built-in Dired mode
+;;; set-dired.el -- Set up built-in Dired mode  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2024 Maphis
 ;;
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 29.1
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

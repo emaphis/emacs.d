@@ -1,13 +1,13 @@
-;;; set-nerdfonts.el -- Set up and use nerd fonts
+;;; set-nerdfonts.el -- Set up and use nerd fonts  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2024 Maphis
+;; Copyright (c) 2024, 2026 Maphis
 ;;
 ;; Created: Dec 12, 2024
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 29.1
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

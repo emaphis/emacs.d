@@ -1,4 +1,4 @@
-;;; set-scala.el ---  settings for  Emacs' scala modes.
+;;; set-scala.el ---  settings for  Emacs' scala modes.  -*- lexical-binding: t; -*-
 ;;
 ;; Filename: set-scala.el
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings scala
-;; Compatibility: Emacs 30.2
+;; Compatibility: Emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

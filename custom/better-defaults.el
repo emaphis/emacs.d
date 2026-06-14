@@ -1,4 +1,4 @@
-;;; better-defaults.el --- Fixing weird quirks and poor defaults
+;;; better-defaults.el --- Fixing weird quirks and poor defaults  -*- lexical-binding: t; -*-
 
 ;; Copyright © 2013-2024 Phil Hagelberg and contributors
 

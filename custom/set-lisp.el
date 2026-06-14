@@ -1,13 +1,13 @@
-;;; set-lisp.el -- Common Lisp settings
+;;; set-lisp.el -- Common Lisp settings  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2019, 2025  Ed Maphis
+;; Copyright (c) 2019, 2026  Ed Maphis
 ;;
 ;; Created: Feb 7, 2019
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, common lsip
-;; Compatibility: emacs 26.1
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

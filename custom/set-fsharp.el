@@ -1,6 +1,6 @@
-;;; set-fsharp.el -- FSharp settings on Windows
+;;; set-fsharp.el -- FSharp settings on Windows  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2019,24 Ed Maphis
+;; Copyright (c) 2019,26 Ed Maphis
 ;;
 ;; Created: Feb 7, 2019
 ;; Updated: May 11, 2024
@@ -8,7 +8,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, fsharp, programming
-;; Compatibility: Emacs 29.2
+;; Compatibility: Emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

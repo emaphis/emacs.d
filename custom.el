@@ -1,5 +1,5 @@
-;;; custom.el -- Emacs customizations
-;; Copyright © 2016,24 Ed Maphis
+;;; custom.el -- Emacs customizations  -*- lexical-binding: t; -*-
+;; Copyright © 2016,26 Ed Maphis
 
 ;;; Commentary:
 ;;  Customary custom file for emacs

@@ -1,8 +1,8 @@
-;;; set-base.el ---  Emacs' set-base file.
+;;; set-base.el ---  Emacs' set-base file.  -*- lexical-binding: t; -*-
 ;;
 ;; Filename: set-base.el
 ;;
-;; Copyright (c) 2014,2024 Ed Maphis
+;; Copyright (c) 2014,2026 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;
@@ -11,7 +11,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: emacs 29.2
+;; Compatibility: emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;which;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
