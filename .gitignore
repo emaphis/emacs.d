@@ -36,8 +36,8 @@ smex-items
 /backups/
 /url/
 /savefile/
-/eclipse.jdt.ls/
 /racket-mode/
+/tree-sitter/
 
 # untracked files
 places
@@ -46,7 +46,7 @@ ac-comphist.dat
 cider-history
 abbrev_defs
 recentf
-projectile-bookmarks.eld
+*.eld
 projectile.cache
 .mc-lists.el
 /transient/history.el
@@ -55,6 +55,7 @@ projectile.cache
 .dap-breakpoints
 *.dll
 *.pdb
+*history
 /FsAutoComplete
 /workspace
 history

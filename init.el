@@ -63,6 +63,9 @@
 ;; stuff not on melpa
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
+;;; load ui settings early
+(load "~/.emacs.d/set-ui.el")
+
 ;;; provides: uniquify, better settings
 ;;; https://git.sr.ht/~technomancy/better-defaults
 (load "better-defaults.el")
@@ -100,7 +103,7 @@
 (load "set-latex.el")
 
 ;;; FSharp
-;;(load "set-fsharp.el")
+(load "set-fsharp.el")
 
 ;;; Scala Mode
 ;;(load "set-scala.el")
@@ -112,7 +115,7 @@
 (load "set-scheme.el")
 
 ;;; sml mode
-;;(load "set-sml.el")
+(load "set-sml.el")
 
 ;;; Miscellaneous packages
 (load "set-misc.el")

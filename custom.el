@@ -28,8 +28,9 @@
                    magit marginalia markdown-mode multiple-cursors
                    nerd-icons-completion nerd-icons-corfu nerd-icons-dired
                    orderless org-bullets paredit pdf-tools racket-mode
-                   rainbow-delimiters rainbow-mode scala-mode sly-overlay
-                   trashed undo-tree vertico wttrin yaml-mode yasnippet-snippets)))
+                   rainbow-delimiters rainbow-mode scala-mode sicp sly-overlay
+                   sml-mode trashed treesit-auto undo-tree vertico wttrin
+                   yaml-mode yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

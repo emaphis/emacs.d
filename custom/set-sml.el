@@ -1,13 +1,13 @@
-;;; set-sml.el -- An Elisp file template
+;;; set-sml.el -- An Elisp file template  -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2019 Ed Maphis
+;; Copyright (c) 2019, Ed Maphis
 ;;
 ;; Created: July 4, 2018
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings, sml
-;; Compatibility: emacs 29.1
+;; Compatibility: emacs 30.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -33,13 +33,15 @@
       (sleep-for 0.2)
       (sml-run "sml" ""))
     (sml-prog-proc-send-buffer t))
-  (bind-key "C-c C-b" 'my-sml-prog-proc-send-buffer sml-mode-map))
+  (bind-key "C-c C-b" 'my-sml-prog-proc-send-buffer sml-mode-map)
+  (push (lambda () electric-indent-local-mode 1) sml-mode-hook))
 
-;;(load "company-sml.el")
-;;(add-hook 'company-sml 'company-sml-setup)
 
-;;(use-package flycheck-sml)
-
+(use-package eglot
+  :ensure t
+  :hook ((sml-mode . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs '((sml-mode) "millet-ls")))
 
 
 (provide 'set-sml)
