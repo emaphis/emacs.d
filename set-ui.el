@@ -1,6 +1,6 @@
 ;;; set-ui.el --- some basic UI settings. -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2020 Ed Maphis
+;; Copyright (c) 2020,26 Ed Maphis
 ;;
 ;; Author: Ed Maphis
 ;;

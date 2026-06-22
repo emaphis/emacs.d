@@ -31,6 +31,7 @@
 (setq package-archives
       '(("gnu"   . "https://elpa.gnu.org/packages/")
         ("melpa" . "https://melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
         ("org" . "https://orgmode.org/elpa/")
         ("nongnu" . "https://elpa.nongnu.org/nongnu/")
         ))
@@ -93,7 +94,7 @@
 (load "set-elisp.el")
 
 ;;; clojure settings
-;;(load "set-clojure.el")
+;(load "set-clojure.el")
 
 ;;; Org-mode settings
 (load "set-orgmode.el")

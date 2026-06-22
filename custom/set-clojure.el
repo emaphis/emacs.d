@@ -40,7 +40,7 @@
 ;;(require 'cider)
 (use-package cider
   :ensure t
-  :defer t
+  :pin melpa-stable
   :config
   ;; Mode related stuff
   (add-hook 'cider-mode-hook #'eldoc-mode)
@@ -49,7 +49,7 @@
   (setq cider-repl-use-pretty-printing t)
   (setq cider-repl-result-prefix ";; => ")
   (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'paredit-mode)
+  ;;(add-hook 'cider-repl-mode-hook #'paredit-mode)
   (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode))
 
 
@@ -70,8 +70,6 @@
 
 ;;; Linters
 (use-package flymake-kondor
-  :ensure t
-  :defer t
   :hook (clojure-mode . flymake-kondor-setup))
 
 ;;(require #'flymake-kondor)

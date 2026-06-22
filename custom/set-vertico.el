@@ -63,7 +63,7 @@
 
   ;; Enable indentation+completion using the TAB key.
   ;; `completion-at-point' is often bound to M-TAB.
-  (setq tab-always-indent 'complete)
+  ;;(setq tab-always-indent 'complete)
   )
 
 
@@ -162,8 +162,8 @@
    consult-theme :preview-key '(:debounce 0.2 any)
    consult-ripgrep consult-git-grep consult-grep
    consult-bookmark consult-recent-file consult-xref
-   consult--source-bookmark consult--source-file-register
-   consult--source-recent-file consult--source-project-recent-file
+   consult-source-bookmark consult-source-file-register
+   consult-source-recent-file consult-source-project-recent-file
    ;; :preview-key "M-."
    :preview-key '(:debounce 0.4 any))
 
@@ -258,7 +258,6 @@
 
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
-  :ensure t ; only need to install it, embark loads it after consult if found
   :after (embark consult)
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
@@ -267,7 +266,6 @@
 ;;; corfu.el - Completion Overlay Region Function
 ;;; https://github.com/minad/corfu
 (use-package corfu
-  :ensure t
   :commands (corfu-mode global-corfu-mode)
 
   ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
@@ -282,9 +280,15 @@
   (read-extended-command-predicate #'command-completion-default-include-p)
   ;; Disable Ispell completion function. As an alternative try `cape-dict'.
   (text-mode-ispell-word-completion nil)
-  (tab-always-indent 'complete)
+  ;;(tab-always-indent 'complete)
+  (corfu-popupinfo-mode)
 
   :config
+  ;; Enable auto completion, configure delay, trigger and quitting
+  (setq corfu-auto t
+      corfu-auto-delay 0.2
+      corfu-auto-trigger "." ;; Custom trigger characters
+      corfu-quit-no-match 'separator) ;; or t
   ;; Recommended: Enable Corfu globally.  Recommended since many modes provide
   ;; Capfs and Dabbrev can be used globally (M-/).  See also the customization
   ;; variable `global-corfu-modes' to exclude certain modes.

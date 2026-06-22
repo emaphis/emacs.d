@@ -16,7 +16,7 @@
 ;;; Commentary:
 ;;
 ;;  Settings and modes of general usefulness for programming.
-;;  Modes and setting for specific languages will go in there
+;;  Modes and setting for specific languages will go in it's
 ;;; own file.
 ;;
 
@@ -95,20 +95,6 @@
 (use-package idle-highlight-mode
   :ensure t)
 
-;; NOTE: using built-in flymake
-;;; flycheck
-;; (use-package flycheck
-;;   :ensure t
-;;   :init (global-flycheck-mode t))
-
-;; ;; TODO:  maybe try flycheck-inline
-;; ;;; Show Flycheck errors in tooltip
-;; (use-package flycheck-pos-tip
-;;   :ensure t
-;;   ;;:disabled t
-;;   :after flycheck
-;;   :config (flycheck-pos-tip-mode))
-
 
 (use-package flymake
   :ensure nil  ; built in
@@ -116,26 +102,6 @@
          ([f7] . flymake-goto-prev-error))
   :hook (prog-mode . (lambda () (flymake-mode t)))
   :config (remove-hook 'flymake-diagnostic-functions #'flymake-proc-legacy-flymake))
-
-
-;; NOTE: Provided by corfu mode now
-;;; company mode
-;; https://company-mode.github.io/
-;; (use-package company
-;;   :after lsp-mode
-;;   :hook (prog-mode . company-mode)
-;;   :config
-;;   (progn
-;;     (global-company-mode 1)
-;;     (setq company-tooltip-flip-when-above t)))
-
-;; (use-package company-quickhelp
-;;   :ensure t
-;;   :after company
-;;   :bind (:map company-active-map
-;;               ("C-c h" . company-quickhelp-manual-begin))
-;;   :config
-;;   (company-quickhelp-mode 1))
 
 
 ;;; Magit
@@ -170,6 +136,17 @@
   :after (counsel projectile)
   :config
   (counsel-projectile-mode 1))
+
+;; NOTE: Give me back my 4 spaces tab insert using Corfu/eglot setup.
+(defun insert-four-spaces ()
+  "Insert exactly four spaces (for when Tab belongs to Corfu/Eglot)."
+  (interactive)
+  (insert "    "))
+
+;; Recommended bindings - pick what feels natural
+(global-set-key (kbd "C-c SPC")     #'insert-four-spaces)   ; safe and easy
+;;(global-set-key (kbd "<backtab>")   #'insert-four-spaces)   ; Shift+Tab
+;; (global-set-key (kbd "M-SPC")    #'insert-four-spaces)   ; uncomment if you want
 
 
 (message "end set-programming.el")
