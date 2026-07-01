@@ -107,7 +107,7 @@
 (load "set-fsharp.el")
 
 ;;; Scala Mode
-;;(load "set-scala.el")
+(load "set-scala.el")
 
 ;;; Common Lisp
 (load "set-lisp.el")

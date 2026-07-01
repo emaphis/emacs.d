@@ -46,7 +46,6 @@
 ;;; Code:
 
 (use-package scala-mode
-  :ensure t
   :interpreter
   ("scala" . scala-mode)
   :mode "\\.s\\(cala\\|bt\\)$")

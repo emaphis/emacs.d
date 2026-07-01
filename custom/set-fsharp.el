@@ -3,7 +3,7 @@
 ;; Copyright (c) 2019,26 Ed Maphis
 ;;
 ;; Created: Feb 7, 2019
-;; Updated: June 14, 2026
+;; Updated: June 24, 2026
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
@@ -13,7 +13,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
-;;  FSharp settings on Windows, using eglot.
+;;  FSharp settings on Windows, using eglot, and fharp-ts-mode.
 ;;
 ;;  See: https://arialdomartini.github.io/emacs-fsharp
 ;;
@@ -22,23 +22,6 @@
 ;;; Code:
 
 ;;; FSharp
-;; (use-package fsharp-mode
-;;   :defer t
-;;   :ensure t)
-
-;; (use-package eglot-fsharp
-;;   :ensure t
-;;   :after fsharp-mode
-;;   :config
-
-  ;; Install fsautocomplete manually.
- ;; (add-hook 'fsharp-mode-hook #'eglot-ensure)  ;; let eglot install server.
-
-
-(use-package treesit-auto
-  :config
-  (global-treesit-auto-mode))
-
 
 ;; See: https://bbatsov.github.io/fsharp-ts-mode/
 (use-package fsharp-ts-mode
@@ -54,6 +37,8 @@
   (require 'fsharp-ts-info)
   (add-hook 'fsharp-ts-mode-hook #'fsharp-ts-lens-mode)
   (add-hook 'fsharp-ts-mode-hook #'fsharp-ts-info-mode)
+  (setq fsharp-ts-eglot-pipeline-hints t)
+  (add-hook 'fsharp-ts-mode-hook #'eglot-inlay-hints-mode)
   (setq fsharp-ts-guess-indent-offset t))
 
 
