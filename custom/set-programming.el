@@ -123,11 +123,11 @@
 ;;; https://github.com/bbatsov/projectile
 (use-package projectile
   :ensure t
-  :config
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  :init
   (projectile-mode +1)
-  (setq projectile-completion-system 'ivy)
-  )
+   :bind (:map prog-mode-map
+               ("s-p" . projectile-command-map)
+               ("C-c p" . projectile-command-map)))
 
 
 ;; Of course make sure you are rigged of counsel-mode

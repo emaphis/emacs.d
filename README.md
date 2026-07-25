@@ -25,6 +25,8 @@ With many ideas from:
 
     [Protesilaos Stavrou's basic setup](https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration)
 
+    [Bedrock Emacs](https://codeberg.org/ashton314/emacs-bedrock)
+
 Including instructions on how to compile and install emacs on in local directories on Fedora Linux [install-fedora.md](./doc/install-fedora.md)
 
 A handy key binding reference: [key-bind.org](./doc/key-bind.org) acsessible with the C-h C-d key combo.
