@@ -7,7 +7,7 @@
 ;; Created: Tuesday, October 4, 2016
 ;;
 ;;; Commentary:
-;; set basic UI settings early in the process
+;; set basic UI settings early in the process to prevent UI flashing
 ;;
 ;;; CODE:
 

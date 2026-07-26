@@ -39,4 +39,4 @@
 
 (provide 'set-nerdfonts)
 (message "... set-nerdfonts ends ...")
-;;; set-template.el ends here
+;;; set-nerdfonts.el ends here

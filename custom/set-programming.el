@@ -103,6 +103,12 @@
   :hook (prog-mode . (lambda () (flymake-mode t)))
   :config (remove-hook 'flymake-diagnostic-functions #'flymake-proc-legacy-flymake))
 
+;; The bundled transient can be too old for recent magit/cider/projectile (and
+;; can mess up magit).  Let package.el upgrade built-in packages so the newer
+;; ELPA transient is installed and used instead of the built-in one.
+(setq package-install-upgrade-built-in t)
+(use-package transient)
+
 
 ;;; Magit
 (use-package magit

@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emaphis/emacs.d
 ;;
 ;; Keywords: emacs settings
-;; Compatibility: Emacs 30.2
+;; Compatibility: Emacs 31.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -26,33 +26,28 @@
 ;;; packages and repositories
 
 (require 'package)
-(setq package-enable-at-startup nil)
 
 (setq package-archives
-      '(("gnu"   . "https://elpa.gnu.org/packages/")
-        ("melpa" . "https://melpa.org/packages/")
+      '(("melpa" . "https://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")
-        ("org" . "https://orgmode.org/elpa/")
-        ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-        ))
+        ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
 ;; keep the installed packages in .emacs.d/elpa;
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 
 (package-initialize)
 
+
 ;; update package metadata when local cache is missing
 (unless package-archive-contents
   (package-refresh-contents))
 
 
-;;; use-package setup.
-;;  included in Emacs 29.1
-(when (< emacs-major-version 29)
-  (unless (package-installed-p 'use-package)
-    (unless package-archive-contents
-      (package-refresh-contents))
-    (package-install 'use-package)))
+;;; load ui settings early
+(load "~/.emacs.d/set-ui.el")
+
+(setq user-full-name "Ed Maphis"
+      user-mail-address "emaphis85@gmail.com")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -61,28 +56,30 @@
 ;; custom settings
 (add-to-list 'load-path "~/.emacs.d/custom")
 
-;; stuff not on melpa
+;; customizations not on melpa
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
-;;; load ui settings early
-(load "~/.emacs.d/set-ui.el")
 
 ;;; provides: uniquify, better settings
 ;;; https://git.sr.ht/~technomancy/better-defaults
 (load "better-defaults.el")
 
+(setq use-package-always-ensure t)
+(setq use-package-verbose t)
+
+
 ;;; general editing settings - Always keep
 ;;; continuation of better-defaults
 (load "set-base.el")
 
-;;; Navagation - Ido or Ivy
+;;; Navagation - vetico, ido or ivy.
 ;;  Use one of either ido or ivy or vertico.
 ;;(load "set-ido.el")
 ;;(load "set-ivy.el")
 (load "set-vertico.el")
 
 ;; Set nerd fonts
-(load "set-nerdfonts")
+(load "set-nerdfonts.el")
 
 ;; Set dired options
 (load "set-dired")
@@ -90,15 +87,17 @@
 ;;; general programming settings
 (load "set-programming.el")
 
+;;; Corfu completion
+(load "set-corfu.el")
+
 ;;; elisp mode settings
 (load "set-elisp.el")
 
 ;;; clojure settings
-;(load "set-clojure.el")
+(load "set-clojure.el")
 
 ;;; Org-mode settings
 (load "set-orgmode.el")
-
 
 ;;; Latex with Autex mode
 (load "set-latex.el")

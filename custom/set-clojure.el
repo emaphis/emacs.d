@@ -32,9 +32,7 @@
   :config
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'subword-mode)
-  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-  ;;(require 'flycheck-clj-kondo)
-  )
+  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
 
 ;;(require 'cider)
@@ -69,11 +67,10 @@
   :defer t)
 
 ;;; Linters
+;; https://github.com/turbo-cafe/flymake-kondor
 (use-package flymake-kondor
   :hook (clojure-mode . flymake-kondor-setup))
 
-;;(require #'flymake-kondor)
-(add-hook 'clojure-mode-hook #'flymake-kondor-setup)
 
 
 (message "...end set-clojure.el")

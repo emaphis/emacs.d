@@ -9,7 +9,7 @@
 ;; Created: Aug 16 2014
 ;;
 ;; URL: https://github.com/emaphis/emacs.d
-;;
+;;d
 ;; Keywords: emacs settings
 ;; Compatibility: emacs 31.1
 ;;
