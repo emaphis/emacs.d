@@ -35,7 +35,7 @@
   ;; Disable Ispell completion function. As an alternative try `cape-dict'.
   (text-mode-ispell-word-completion nil)
   ;;(tab-always-indent 'complete)
-  (corfu-popupinfo-mode)
+  (corfu-popupinfo-mode 1)
 
   :config
   ;; Enable auto completion, configure delay, trigger and quitting

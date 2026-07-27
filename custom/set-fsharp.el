@@ -26,19 +26,15 @@
 ;; See: https://bbatsov.github.io/fsharp-ts-mode/
 (use-package fsharp-ts-mode
   ;;:ensure t
-  :hook ((fsharp-ts-mode . fsharp-ts-repl-minor-mode)
-         (fsharp-ts-mode . fsharp-ts-dotnet-mode)
-         (fsharp-ts-mode . eglot-ensure)
-         ;;(fsharp-ts-mode . prettify-symbols-mode) ;; using a font with ligatures
-         )
   :config
   (require 'fsharp-ts-eglot)
   (require 'fsharp-ts-lens)
   (require 'fsharp-ts-info)
   (add-hook 'fsharp-ts-mode-hook #'fsharp-ts-lens-mode)
   (add-hook 'fsharp-ts-mode-hook #'fsharp-ts-info-mode)
-  (setq fsharp-ts-eglot-pipeline-hints t)
   (add-hook 'fsharp-ts-mode-hook #'eglot-inlay-hints-mode)
+  (add-hook 'fsharp-ts-mode-hook #'fsharp-ts-repl-minor-mode)
+  (setq fsharp-ts-eglot-pipeline-hints t)
   (setq fsharp-ts-guess-indent-offset t))
 
 
