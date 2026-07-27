@@ -20,6 +20,7 @@
 ;; Common Lisp programming using SBCL with Sly
 
 (use-package lisp-mode
+  :ensure nil  ; build in
   :init
   (add-hook 'lisp-mode-hook #'paredit-mode)
   (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)

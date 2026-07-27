@@ -22,11 +22,12 @@
 
 ;;; Code:
 
-;;; Company mode and flycheck turned on by default.
+;;; Corfu mode and flymake turned on by default.
 
 ;;; turn on eldoc mode (I think this is now default in 25)
 
 (use-package elisp-mode
+  :ensure nil ;; build in
   :init
   (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
