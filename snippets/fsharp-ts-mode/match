@@ -1,7 +1,6 @@
-# name: Discriminated Union
-# key: du
+# name: Match expression
+# key: match
 # --
-type ${1:Name} =
-    | ${2:Case1}
-    | ${3:Case2} of ${4:Type}
-    $0
+match ${1:expr} with
+| ${2:pattern} -> $0
+| _ ->
