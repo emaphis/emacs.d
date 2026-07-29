@@ -1,0 +1,5 @@
+# name: For loop with index
+# key: foridx
+# --
+for ${1:i}, ${2:x} in ${3:collection} |> Seq.indexed do
+    $0

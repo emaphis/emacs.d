@@ -1,0 +1,7 @@
+# name: Try/with
+# key: try
+# --
+try
+    $1
+with
+| ${2:ex} -> $0

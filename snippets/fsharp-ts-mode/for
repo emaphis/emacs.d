@@ -1,0 +1,5 @@
+# name: For loop (sequence)
+# key: for
+# --
+for ${1:x} in ${2:collection} do
+    $0
