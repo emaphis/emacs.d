@@ -1,0 +1,7 @@
+# name: Record type
+# key: rec
+# --
+type ${1:Name} = {
+    ${2:Field}: ${3:Type}
+    $0
+}

@@ -1,0 +1,7 @@
+# name: Discriminated Union
+# key: du
+# --
+type ${1:Name} =
+    | ${2:Case1}
+    | ${3:Case2} of ${4:Type}
+    $0

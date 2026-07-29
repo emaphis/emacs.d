@@ -1,0 +1,6 @@
+# name: Task computation expression
+# key: task
+# --
+task {
+    $0
+}

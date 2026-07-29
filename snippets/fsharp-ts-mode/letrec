@@ -1,0 +1,4 @@
+# name: Recursive let
+# key: letrec
+# --
+let rec ${1:name} ${2:args} = $0

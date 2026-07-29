@@ -1,0 +1,5 @@
+# name: List comprehension
+# key: list
+# --
+[ ${1:for} ${2:x} in ${3:collection} do
+    yield $0 ]

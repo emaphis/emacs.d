@@ -1,0 +1,4 @@
+# name: Let binding with type
+# key: lt
+# --
+let ${1:name}: ${2:type} = $0

@@ -1,0 +1,6 @@
+# name: Async computation expression
+# key: async
+# --
+async {
+    $0
+}

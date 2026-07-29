@@ -1,0 +1,6 @@
+# name: xUnit Fact test
+# key: test
+# --
+[<Fact>]
+let ``${1:test description}`` () =
+    $0

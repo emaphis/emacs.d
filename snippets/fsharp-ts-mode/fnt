@@ -1,0 +1,4 @@
+# name: Function with type
+# key: fnt
+# --
+let ${1:name} (${2:arg}: ${3:type}) : ${4:returnType} = $0
