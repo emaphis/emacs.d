@@ -39,6 +39,7 @@ smex-items
 /savefile/
 /racket-mode/
 /tree-sitter/
+/snippets/fsharp-ts-mode/
 
 # untracked files
 places

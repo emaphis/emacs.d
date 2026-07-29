@@ -19,6 +19,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(corfu-popupinfo-mode nil nil nil "Customized with use-package corfu")
  '(custom-safe-themes
    '("4261f54934cbe7729e34057c902ec02a5348a414e5d0b3fe66b05f1d9bd194fd"
      "967c23e9ba179b80560774419f081df22e7674aac23c5c550b817e4a1ce7d058"
@@ -29,7 +30,7 @@
      "8a015b9c62f50bf58bf2e71c875c060b0e217212b62d65b0b4a0cf7328dbb76c" default))
  '(package-selected-packages
    '(aa-edit-mode ace-jump-mode auctex avy beacon cape cider cider-eval-sexp-fu
-                  clojure-mode corfu counsel-projectile csv-mode dired-subtree
+                  corfu counsel-projectile csv-mode dired-subtree
                   elisp-slime-nav embark-consult eros exec-path-from-shell
                   expand-region faff-theme flymake-kondor flyspell-correct
                   fsharp-ts-mode geiser-chez hl-todo idle-highlight-mode
@@ -37,8 +38,8 @@
                   macrostep magit marginalia markdown-mode multiple-cursors
                   nerd-icons-completion nerd-icons-corfu nerd-icons-dired
                   nimbus-theme orderless org-bullets paredit pdf-tools
-                  racket-mode rainbow-delimiters rainbow-mode scala-mode
-                  scala-ts-mode sicp sly-overlay sml-mode sml-ts-mode trashed
+                  racket-mode rainbow-delimiters rainbow-mode sbt-mode
+                  scala-mode scala-ts-mode sicp sly-overlay sml-ts-mode trashed
                   treesit-auto undo-tree vertico wttrin yaml-mode
                   yasnippet-snippets)))
 (custom-set-faces

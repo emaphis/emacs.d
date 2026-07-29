@@ -49,15 +49,13 @@
   :init
   (setq yas-snippet-dirs
         (list (expand-file-name "snippets" user-emacs-directory)))
-  ;; (yas-global-mode 1)  ; TODO: error.
-  )
+  :config
+  (yas-global-mode 1))
 
 ;; https://github.com/AndreaCrotti/yasnippet-snippets
 (use-package yasnippet-snippets
   :ensure t
-  :after yasnippet
-  ;;:pin melpa-stable
-  )
+  :after yasnippet)
 
 
 ;;; smartparens
@@ -92,12 +90,23 @@
   :config
   (show-paren-mode +1))
 
-(use-package idle-highlight-mode
-  :ensure t)
+(use-package idle-highlight-mode)
 
+;;https://gluer.org/blog/eglot-keybindings-that-i-use/
+(use-package eglot
+  :bind
+  (:map eglot-mode-map
+	    ("C-c l a" . eglot-code-actions)
+	    ("C-c l r" . eglot-rename)
+	    ("C-c l h" . eldoc)
+	    ("C-c l f" . eglot-format)
+	    ("C-c l F" . eglot-format-buffer)
+	    ("C-c l d" . xref-find-definitions-at-mouse)
+	    ;; sometimes ionide acts up
+	    ("C-c l R" . eglot-reconnect)))
 
 (use-package flymake
-  :ensure nil  ; built in
+  :ensure nil                           ; built in
   :bind (([f8] . flymake-goto-next-error)
          ([f7] . flymake-goto-prev-error))
   :hook (prog-mode . (lambda () (flymake-mode t)))
