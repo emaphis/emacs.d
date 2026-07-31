@@ -37,7 +37,7 @@
   :config
   (global-corfu-mode)
 
-  ;; Popup documentation
+  ;; Documentation popup
   (corfu-popupinfo-mode 1)
   (setq corfu-popupinfo-delay '(0.5 . 0.2)))  ; first show after 0.5s, then update faster
 
