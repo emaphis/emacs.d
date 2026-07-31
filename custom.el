@@ -40,7 +40,7 @@
                   nimbus-theme orderless org-bullets paredit pdf-tools
                   racket-mode rainbow-delimiters rainbow-mode sbt-mode
                   scala-mode scala-ts-mode sicp sly-overlay sml-ts-mode trashed
-                  treesit-auto undo-tree vertico wttrin yaml-mode
+                  treesit-auto undo-tree vertico wttrin yaml-mode yasnippet-capf
                   yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

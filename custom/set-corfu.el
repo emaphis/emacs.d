@@ -20,33 +20,27 @@
 ;;; corfu.el - Completion Overlay Region Function
 ;;; https://github.com/minad/corfu
 (use-package corfu
-  :commands (corfu-mode global-corfu-mode)
-
-  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
   :hook ((prog-mode . corfu-mode)
          (shell-mode . corfu-mode)
          (eshell-mode . corfu-mode))
-
   :custom
-  (corfu-cycle t)            ;; Enable cycling for `corfu-next/rpevious'
-  (corfu-auto t)             ;; Enable auto completion
-  ;; Hide commands in M-x which do not apply to the current mode.
-  (read-extended-command-predicate #'command-completion-default-include-p)
-  ;; Disable Ispell completion function. As an alternative try `cape-dict'.
-  (text-mode-ispell-word-completion nil)
-  ;;(tab-always-indent 'complete)
-  (corfu-popupinfo-mode 1)
+  (corfu-cycle t)
+  (corfu-auto t)
+  (corfu-auto-delay 0.25)          ; slightly more relaxed than 0.2
+  (corfu-auto-prefix 2)            ; start after 2 characters (good balance)
+  (corfu-auto-trigger ".")         ; still trigger immediately after .
+  (corfu-quit-no-match 'separator)
+  (corfu-preselect 'prompt)
+  (corfu-preview-current nil)      ; optional: less visual noise
+  (corfu-on-exact-match nil)       ; don't auto-insert exact matches
 
   :config
-  ;; Enable auto completion, configure delay, trigger and quitting
-  (setq corfu-auto t
-      corfu-auto-delay 0.2
-      corfu-auto-trigger "." ;; Custom trigger characters
-      corfu-quit-no-match 'separator) ;; or t
-  ;; Recommended: Enable Corfu globally.  Recommended since many modes provide
-  ;; Capfs and Dabbrev can be used globally (M-/).  See also the customization
-  ;; variable `global-corfu-modes' to exclude certain modes.
-  (global-corfu-mode))
+  (global-corfu-mode)
+
+  ;; Popup documentation
+  (corfu-popupinfo-mode 1)
+  (setq corfu-popupinfo-delay '(0.5 . 0.2)))  ; first show after 0.5s, then update faster
+
 
 ;;; Cape, or Completion At Point Extensions, extends the capabilities of
 ;;; in-buffer completion. It integrates with Corfu or the default completion UI,
@@ -60,6 +54,27 @@
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file)
   (add-hook 'completion-at-point-functions #'cape-elisp-block))
+
+
+(use-package yasnippet-capf
+  :ensure t
+  :after (cape yasnippet)
+  :config
+  ;; Optional: make it available globally too
+  (add-to-list 'completion-at-point-functions #'yasnippet-capf))
+
+
+(defun my/eglot-capf ()
+  "Combine Eglot + Yasnippet (and optionally other Cape backends)."
+  (setq-local completion-at-point-functions
+              (list (cape-capf-super
+                     #'eglot-completion-at-point
+                     #'yasnippet-capf
+                     ;; optional extras:
+                     #'cape-dabbrev
+                     #'cape-file))))
+
+(add-hook 'eglot-managed-mode-hook #'my/eglot-capf)
 
 
 ;; Use Dabbrev with Corfu!
