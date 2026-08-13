@@ -21,11 +21,16 @@ With many ideas from:
 
     [Zamansky's videos](https://www.youtube.com/watch?v=49kBWM3RQQ8)
 
+	Minimalistic setups:
+
     [Ashton Wiersdorf's setup](https://codeberg.org/ashton314/emacs-bedrock)
 
     [Protesilaos Stavrou's basic setup](https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration)
 
     [Bedrock Emacs](https://codeberg.org/ashton314/emacs-bedrock)
+
+	[Emacs-Solo](https://github.com/LionyxML/emacs-solo)
+
 
 Including instructions on how to compile and install emacs on in local directories on Fedora Linux [install-fedora.md](./doc/install-fedora.md)
 
