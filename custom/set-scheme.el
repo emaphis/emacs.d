@@ -20,7 +20,6 @@
 ;;(set-variable (quote scheme-program-name) "scheme")
 
 (use-package racket-mode
-  :ensure t
   :defer t
   :config
   (add-hook 'racket-mode-hook #'paredit-mode)
@@ -28,15 +27,14 @@
 
 ;;; https://www.nongnu.org/geiser/
 (use-package geiser
-  :ensure t
   :defer t
   :config
   ;;(require 'geiser-chez)
   (add-hook 'geiser-mode-hook #'paredit-mode)
   (add-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
 
-(use-package geiser-chez
-  :ensure t)
+(use-package geiser-chez)
+
 
 (provide 'set-scheme)
 (message "... set-scheme ends ...")

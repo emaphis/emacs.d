@@ -1,4 +1,4 @@
-;;; set-ivy.el -- Ivy, Counsel, Swiper settngs
+;;; set-ivy.el -- Ivy, Counsel, Swiper settngs   -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2019 Ed Maphis
 ;;
@@ -22,7 +22,6 @@
 
 
 (use-package ace-window
-  :ensure t
   :config
   (global-set-key (kbd "s-w") 'ace-window)
   (global-set-key [remap other-window] #'ace-window)
@@ -31,7 +30,6 @@
      ((t (:inherit ace-jump-face-foreground :height 3.0))))))
 
 (use-package counsel
-  :ensure t
   :config
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
@@ -49,7 +47,6 @@
 
 
 (use-package ivy
-  :ensure t
   ;; :diminish (ivy-mode)
   :bind (("C-x b" . ivy-switch-buffer))
   :config
@@ -63,14 +60,12 @@
 
 ;;; search utility
 (use-package swiper
-  :ensure t
   :config
   (global-set-key (kbd "\C-s") 'swiper)
   (global-set-key (kbd "\C-r") 'swiper))
 
 ;;; jump to chars in buffer
 (use-package avy
-  :ensure t
   :bind
   ("C-:" . avy-goto-char)
   ("C-'" . avy-goto-char-2))
@@ -78,7 +73,6 @@
 ;;; Spell checking with ivy
 ;; https://github.com/d12frosted/flyspell-correct
 (use-package flyspell-correct
-  :ensure t
   :after flyspell
   :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
 
@@ -88,7 +82,6 @@
 ;;; TODO: try ivy-rich
 ;; https://github.com/Yevgnen/ivy-rich
 (use-package ivy-rich
-  :ensure t
   :init
   (ivy-rich-mode 1))
 

@@ -37,11 +37,7 @@
   (push (lambda () electric-indent-local-mode 1) sml-mode-hook))
 
 
-(use-package eglot
-  :ensure t
-  :hook ((sml-mode . eglot-ensure))
-  :config
-  (add-to-list 'eglot-server-programs '((sml-mode) "millet-ls")))
+(add-to-list 'eglot-server-programs '((sml-mode) "millet-ls"))
 
 
 (provide 'set-sml)

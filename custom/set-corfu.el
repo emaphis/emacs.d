@@ -58,7 +58,6 @@
 
 
 (use-package yasnippet-capf
-  :ensure t
   :after (cape yasnippet)
   :config
   ;; Optional: make it available globally too

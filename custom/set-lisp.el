@@ -28,15 +28,11 @@
 
 
 ;; Common Lisp programming using SBCL and Sly
-(use-package sly
-  :ensure t
-  :init
-  )
+(use-package sly )
 
 ;; Enables the overlay of Common Lisp evaluation results directly into the buffer
 ;; https://github.com/fosskers/sly-overlay
-(use-package sly-overlay
-  :ensure t)
+(use-package sly-overlay)
 
 
 (setq inferior-lisp-program "sbcl")

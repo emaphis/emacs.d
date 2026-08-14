@@ -35,7 +35,6 @@
 ;; The dired-subtree package provides commands to quickly view the contents
 ;; of a folder with the TAB key.
 (use-package dired-subtree
-  :ensure t
   :after dired
   :bind
   ( :map dired-mode-map
@@ -49,7 +48,6 @@
 ;; We set up Dired to move deleted files to the system trash. The trashed
 ;; package is then useful to provide a Dired-like interface for that compartment
 (use-package trashed
-  :ensure t
   :commands (trashed)
   :config
   (setq trashed-action-confirmer 'y-or-n-p)
@@ -60,4 +58,4 @@
 
 (provide 'set-dired)
 (message "... set-dired ends ...")
-;;; set-template.el ends here
+;;; set-dired.el ends here

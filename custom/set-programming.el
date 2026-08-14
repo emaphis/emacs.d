@@ -27,13 +27,11 @@
 
 ;;; hi-light TODO:
 (use-package hl-todo
-  :ensure t
   :config
   (setq hl-todo-highlight-puntuation ":")
   (global-hl-todo-mode))
 
 ;; (use-package aggressive-indent
-;;   :ensure t
 ;;   :config
 ;;   (global-aggressive-indent-mode 1))
 
@@ -44,7 +42,6 @@
 ;;; yasnippet
 ;;  http://joaotavora.github.io/yasnippet/
 (use-package yasnippet
-  :ensure t
   ;;:pin melpa-stable
   :init
   (setq yas-snippet-dirs
@@ -54,7 +51,6 @@
 
 ;; https://github.com/AndreaCrotti/yasnippet-snippets
 (use-package yasnippet-snippets
-  :ensure t
   :after yasnippet)
 
 
@@ -75,7 +71,6 @@
 ;; http://mumble.net/~campbell/emacs/paredit/paredit.html
 ;; http://pub.gajendra.net/src/paredit-refcard.pdf
 (use-package paredit
-  :ensure t
   :config
   (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
   ;; enable in the *scratch* buffer
@@ -95,6 +90,7 @@
 
 ;;https://gluer.org/blog/eglot-keybindings-that-i-use/
 (use-package eglot
+  :ensure nil
   :bind
   (:map eglot-mode-map
 	    ("C-c l a" . eglot-code-actions)
@@ -107,7 +103,7 @@
 	    ("C-c l R" . eglot-reconnect)))
 
 (use-package flymake
-  :ensure nil                           ; built in
+  :ensure nil
   :bind (([f8] . flymake-goto-next-error)
          ([f7] . flymake-goto-prev-error))
   :hook (prog-mode . (lambda () (flymake-mode t)))
@@ -122,23 +118,19 @@
 
 ;;; Magit
 (use-package magit
-  :ensure t
   :bind (("C-x g" . magit-status)))  ; every one is doing it.
 
 
 (use-package rainbow-delimiters
-  :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
-  :ensure t
   :hook ('prog-mode . rainbow-mode))
 
 
 ;;; https://projectile.mx/projectile/index.html
 ;;; https://github.com/bbatsov/projectile
 (use-package projectile
-  :ensure t
   :init
   (projectile-mode +1)
    :bind (:map prog-mode-map
@@ -148,7 +140,6 @@
 
 ;; Of course make sure you are rigged of counsel-mode
 (use-package counsel-projectile
-  :ensure t
   :after (counsel projectile)
   :config
   (counsel-projectile-mode 1))

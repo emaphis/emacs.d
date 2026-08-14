@@ -34,6 +34,9 @@
 ;; It's a waste of time to resize frame during startup.
 (setq frame-inhibit-implied-resize t)
 
+;; Setting *-resize-pixelwise to `t' lets frames/windows resize
+;; smoothly at sub-character increments
+(setq frame-resize-pixelwise t)
 
 (provide 'early-init)
 ;;; early-init.el ends here

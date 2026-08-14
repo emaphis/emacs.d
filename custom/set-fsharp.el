@@ -25,7 +25,6 @@
 
 ;; See: https://bbatsov.github.io/fsharp-ts-mode/
 (use-package fsharp-ts-mode
-  ;;:ensure t
   :config
   (require 'fsharp-ts-eglot)
   (require 'fsharp-ts-lens)

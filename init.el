@@ -64,6 +64,8 @@
 ;;; https://git.sr.ht/~technomancy/better-defaults
 (load "better-defaults.el")
 
+;; Tell use-package to install if missing by default
+;; Use `:ensure nil' in packages you *don't* want to install
 (setq use-package-always-ensure t)
 (setq use-package-verbose t)
 

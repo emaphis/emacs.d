@@ -41,7 +41,6 @@
 
 ;;; slime nav
 (use-package elisp-slime-nav
-  :ensure t
   :config
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook #'elisp-slime-nav-mode)))
@@ -49,7 +48,6 @@
 ;;; Code evaluation tool hints for elisp
 ;;; https://github.com/xiongtx/eros
 (use-package eros
-  :ensure t
   :config
   (eros-mode 1))
 

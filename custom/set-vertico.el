@@ -22,7 +22,6 @@
 ;;; Vertico provides a vertical completion interface, making it easier to
 ;;; navigate and select from completion candidates (e.g., when `M-x` is pressed).
 (use-package vertico
-  :ensure t
   :hook (after-init . vertico-mode))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
@@ -72,7 +71,6 @@
 ;;; Consult offers a suite of commands for efficient searching, previewing, and
 ;;; interacting with buffers, file contents, and more, improving various tasks.
 (use-package consult
-  :ensure t
   ;; Replace bindings. Lazily loaded due by `use-package'.
   :bind (;; C-c bindings (mode-specific-map)
          ("C-c M-x" . consult-mode-command)
@@ -198,7 +196,6 @@
 ;;; In addition to that, Marginalia also enhances Vertico by adding rich
 ;;; annotations to the completion candidates displayed in Vertico's interface.
 (use-package marginalia
-  :ensure t
   :commands (marginalia-mode marginalia-cylce)
   :hook (after-init . marginalia-mode))
 
@@ -209,7 +206,6 @@
 ;;; to input multiple patterns separated by spaces, which Orderless then
 ;;; matches in any order against the candidates.
 (use-package orderless
-  :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
@@ -222,7 +218,6 @@
 ;;; improving user efficiency and workflow within Emacs. Together, they create a
 ;;; cohesive and powerful environment for managing completions and interactions.
 (use-package embark
-  :ensure t
   ;; Embark is an Emacs package that acts like a context menu, allowing
   ;; users to perform context-sensitive actions on selected items
   ;; directly from the completion interface.

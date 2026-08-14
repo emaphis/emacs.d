@@ -24,7 +24,6 @@
                   '(xetex "XeLaTeX" "xelatex" "xelatex" "xelatex"))))
 
 (use-package auctex
-  :ensure t
   :defer t
   :init
   (setq TeX-auto-save t
@@ -50,13 +49,11 @@
   (add-hook 'LaTeX-mode-hook #'TeX-source-correlate-mode))
 
 (use-package reftex
-  :ensure t
   :config
   (setq reftex-plug-into-AUCTeX t
         reftex-label-alist '(AMSTeX)))
 
 (use-package pdf-tools
-  :ensure t
   :mode ("\\.pdf\\'" . pdf-view-mode))
 
 (provide 'set-latex)

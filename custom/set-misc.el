@@ -22,14 +22,12 @@
 ;; C-c l s - lorem-ipsum-insert-sentences
 ;; C-c l l - lorem-ipsum-insert-list
 (use-package lorem-ipsum
-  :ensure t
   :config
   (lorem-ipsum-use-default-bindings))
 
 
 ;;; weather from wttr.in
 (use-package wttrin
-  :ensure t
   :commands (wttrin)
   :init
   (setq wttrin-default-cities '("Painesville,Ohio"

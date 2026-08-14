@@ -25,25 +25,19 @@
 
 ;;; Code:
 
-;; TODO: list-buffers vs. ibuffer
-;;(defalias #'list-buffers #'ibuffer)
-
 
 (use-package imenu-anywhere
-  :ensure t
   :bind (("C-c i" . imenu-anywhere)
          ("s-i" . imenu-anywhere)))
 
 
 ;;; ace jump mode
 (use-package ace-jump-mode
-  :ensure t
   :bind ("C-c SPC" . ace-jump-mode))
 
 
 ;;; multiple cursors
 (use-package multiple-cursors
-  :ensure t
   :bind (("C-S-c C-S-c" . mc/edit-lines)
          ("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-ths)
@@ -52,7 +46,7 @@
 
 ;;; (global-whitespace-mode)
 (use-package whitespace
-  ;:ensure t  part of emacs
+  :ensure nil   ; part of emacs
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
@@ -68,13 +62,11 @@
 ;;; Which key
 ;;; https://github.com/justbur/emacs-which-key
 (use-package which-key
-  :ensure t
   :config (which-key-mode +1)
   (setq which-key-idle-delay 1.2))
 
 
 (use-package undo-tree
-  :ensure t
   :config
   ;; autosave the undo-tree history
   (setq undo-tree-history-directory-alist
@@ -84,13 +76,11 @@
 
 ;; TODO: smooth scrolling  -- Don't need in modern Emacs ??
 ;; (use-package smooth-scrolling
-;;   :ensure
 ;;   :config
 ;;   (smooth-scrolling-mode 1))
 
 
 (use-package beacon
-  :ensure t
   :config
   (beacon-mode 1)
   ;;(setq beacon-color "#666600")
@@ -98,7 +88,6 @@
 
 
 (use-package expand-region
-  :ensure t
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
 
@@ -107,7 +96,6 @@
 
 ;; https://github.com/jrblevin/markdown-mode
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
 	     ("\\.md\\'" . markdown-mode)
@@ -115,11 +103,9 @@
   :init (setq markdown-command "multimarkdown"))
 
 (use-package yaml-mode
-  :ensure t
   :defer t)
 
 (use-package csv-mode
-  :ensure t
   :mode "\\.csv\\'")
 
 ;;; Insert Date:
@@ -137,7 +123,6 @@ the week."
 
 
 ;;(use-package calendar
-;;  :ensure t
 ;;  :config
 ;;  (defun insdate-insert-current-date (&optional omit-day-of-week-p)
 ;;    "Insert today's date using the current locale.
@@ -158,7 +143,6 @@ the week."
 ;; https://emacs.stackexchange.com/questions/80908/using-hunspell-in-emacs-on-windows-10
 ;; Other versions don't seem to work
 (use-package ispell
-  :ensure t
   :init
   (setenv "DICTIONARY" "en_US")
   (setenv "DICPATH" "C:\\apps\\dict")
@@ -170,7 +154,6 @@ the week."
 
 ;; https://github.com/d12frosted/flyspell-correct
 (use-package flyspell-correct
-  :ensure t
   :after flyspell
   :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
 

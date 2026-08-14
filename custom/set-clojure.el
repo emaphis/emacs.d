@@ -27,7 +27,6 @@
 
 ;;(require 'clojure-mode)
 (use-package clojure-mode
-  :ensure t
   :defer t
   :config
   (add-hook 'clojure-mode-hook #'paredit-mode)
@@ -37,7 +36,6 @@
 
 ;;(require 'cider)
 (use-package cider
-  :ensure t
   :pin melpa-stable
   :config
   ;; Mode related stuff
@@ -52,7 +50,6 @@
 
 
 ;; (use-package clj-refactor
-;;   :ensure t
 ;;   :defer t
 ;;   :config
 ;;   (add-hook 'clojure-mode-hook (lambda ()
@@ -63,14 +60,12 @@
 ;;   (setq yas-minor-mode 1))
 
 (use-package cider-eval-sexp-fu
-  :ensure t
   :defer t)
 
 ;;; Linters
 ;; https://github.com/turbo-cafe/flymake-kondor
 (use-package flymake-kondor
   :hook (clojure-mode . flymake-kondor-setup))
-
 
 
 (message "...end set-clojure.el")
