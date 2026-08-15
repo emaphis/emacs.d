@@ -1,5 +1,15 @@
 Just some quick notes.
-* TODO:
+
+** Essays on the fundamentals of Emacs completion framework
+https://www.chiply.dev/#sitemap
+https://www.chiply.dev/post-june-emacs-carnival
+https://www.chiply.dev/post-ask-emacs
+https://www.chiply.dev/post-vompeccc-fruits
+https://www.chiply.dev/post-vompeccc  - 3/2/2026
+https://www.chiply.dev/post-vompeccc-showcase
+
+
+** TODO:
 look at: https://github.com/BrunoBonacci/lambdamacs/
 - for ideas
 
@@ -95,5 +105,3 @@ C-c C-k - compile file
 
 ** testing
 C-c C-t n - run tests for namespace
-
-
