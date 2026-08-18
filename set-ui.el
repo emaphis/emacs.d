@@ -39,11 +39,11 @@
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 4)            ;; but maintain correct appearance
 
-;;(load-theme 'zenburn t)
+(load-theme 'zenburn t)
 ;;(load-theme 'leuven t)
 ;;(load-theme 'nimbus t)
 ;;(load-theme 'faff t)
-(load-theme 'modus-vivendi t)
+;;(load-theme 'modus-vivendi t)
 
 ;; nothing like experimenting with fonts!
 ;;(set-frame-font "Consolas 11")
@@ -70,11 +70,12 @@
   :font "Cascadia Code"
   :height 100
   :weight 'medium)
+
 ;; Makes commented text and keywords italics.
 ;; This is working in emacsclient but not emacs.
 ;; Your font must have an italic face available.
 (set-face-attribute 'font-lock-comment-face nil
-  :slant 'italic)
+                    :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil
   :slant 'italic)
 ;; |> <|

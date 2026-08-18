@@ -26,9 +26,59 @@
 ;;; Code:
 
 
+;;; Performance tweeks
+;;  https://emacsredux.com/blog/2026/04/07/stealing-from-the-best-emacs-configs/
+
+;; Disable Bidirectional Text Scanning (Doom Emacs)
+;; Unless you use Arabic or Hebrew
+(setq-default bidi-display-reordering 'left-to-right
+              bidi-paragraph-direction 'left-to-right)
+(setq bidi-inhibit-bpa t)
+
+;; Skip Fontification During Input
+(setq redisplay-skip-fontification-on-input t)
+
+;; Increase Process Output Buffer for LSP
+;; Tweek for LSP or Eglot
+(setq read-process-output-max (* 4 1024 1024)) ; 4MB
+
+;; Don’t Render Cursors in Non-Focused Windows
+(setq-default cursor-in-non-selected-windows nil)
+(setq highlight-nonselected-windows nil)
+
+
+;; Prevent ffap from Pinging Hostnames
+(setq ffap-machine-p-known 'reject)
+
+
+;;; Kill Ring (Emacs’s Clipboard History) and Clipboard
+
+;; Save the Clipboard Before Killing
+;; C-y gets the kill, and M-y gets you back to the URL.
+(setq save-interprogram-paste-before-kill t)
+
+;; No Duplicates in the Kill Ring
+(setq kill-do-not-save-duplicates t)
+
+
+;; Persist the Kill Ring Across Sessions
+(setq savehist-additional-variables
+      '(search-ring regexp-search-ring kill-ring))
+
+;; the kill ring can accumulate text properties (fonts, overlays, etc.) that bloat the savehist file.
+
+(add-hook 'savehist-save-hook
+          (lambda ()
+            (setq kill-ring
+                  (mapcar #'substring-no-properties
+                          (cl-remove-if-not #'stringp kill-ring)))))
+
+
+
 (use-package imenu-anywhere
   :bind (("C-c i" . imenu-anywhere)
          ("s-i" . imenu-anywhere)))
+
 
 
 ;;; ace jump mode
