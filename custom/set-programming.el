@@ -91,6 +91,7 @@
 ;;https://gluer.org/blog/eglot-keybindings-that-i-use/
 (use-package eglot
   :ensure nil
+  ;;:config
   :bind
   (:map eglot-mode-map
 	    ("C-c l a" . eglot-code-actions)

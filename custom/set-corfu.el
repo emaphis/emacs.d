@@ -17,23 +17,28 @@
 ;;; Code:
 
 
-
 ;;; corfu.el - Completion Overlay Region Function
 ;;; https://github.com/minad/corfu
 (use-package corfu
+  :custom
+  (corfu-cycle t)                       ; Enable cycling for `corfu-next/previous'
+  ;(corfu-quit-at-boundary nil)         ; Never quit at completion boundary
+  (corfu-quit-no-match 'separator)      ; Never quit, even if there is no match
+  (corfu-preselect 'prompt)             ; Preselect the prompt
+  (corfu-preview-current nil)           ; optional: less visual noise
+  (corfu-on-exact-match nil)            ; don't auto-insert exact matches
+
+  ;; Corfu auto
+  (setq corfu-auto t
+      corfu-auto-delay 0.25             ; slightly more relaxed than 0.2
+      (corfu-auto-prefix 2)             ; start after 2 characters (good balance)
+      corfu-auto-trigger "."            ; still trigger immediately after .
+      corfu-quit-no-match 'separator)   ; or t
+
+  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
   :hook ((prog-mode . corfu-mode)
          (shell-mode . corfu-mode)
          (eshell-mode . corfu-mode))
-  :custom
-  (corfu-cycle t)
-  (corfu-auto t)
-  (corfu-auto-delay 0.25)              ; slightly more relaxed than 0.2
-  (corfu-auto-prefix 2)                ; start after 2 characters (good balance)
-  (corfu-auto-trigger ".")             ; still trigger immediately after .
-  (corfu-quit-no-match 'separator)
-  (corfu-preselect 'prompt)
-  (corfu-preview-current nil)           ; optional: less visual noise
-  (corfu-on-exact-match nil)            ; don't auto-insert exact matches
 
   :config
   (global-corfu-mode)

@@ -21,7 +21,8 @@
  ;; If there is more than one, they won't work right.
  '(corfu-popupinfo-mode nil nil nil "Customized with use-package corfu")
  '(custom-safe-themes
-   '("4261f54934cbe7729e34057c902ec02a5348a414e5d0b3fe66b05f1d9bd194fd"
+   '("e3d79830f93fa6203e519dc0a6a8358470ef16496d9ba314fd2b5777564b17d9"
+     "4261f54934cbe7729e34057c902ec02a5348a414e5d0b3fe66b05f1d9bd194fd"
      "967c23e9ba179b80560774419f081df22e7674aac23c5c550b817e4a1ce7d058"
      "28f3ac0f5fade64dc7e27abe9d32e7d85576c40940977e8e319f25055d3a28b7"
      "2493d0ad0bb94bd2ad297a6d76288751a532fd6d8d6af694ac14008caa6b7fa2"
@@ -41,7 +42,7 @@
                   racket-mode rainbow-delimiters rainbow-mode sbt-mode
                   scala-mode scala-ts-mode sicp sly-overlay sml-ts-mode trashed
                   treesit-auto undo-tree vertico wttrin yaml-mode yasnippet-capf
-                  yasnippet-snippets)))
+                  yasnippet-snippets zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
