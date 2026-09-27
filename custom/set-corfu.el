@@ -31,17 +31,19 @@
   ;; Corfu auto
   (setq corfu-auto t
       corfu-auto-delay 0.25             ; slightly more relaxed than 0.2
-      (corfu-auto-prefix 2)             ; start after 2 characters (good balance)
+      corfu-auto-prefix 2               ; start after 2 characters (good balance)
       corfu-auto-trigger "."            ; still trigger immediately after .
       corfu-quit-no-match 'separator)   ; or t
 
   ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
-  :hook ((prog-mode . corfu-mode)
-         (shell-mode . corfu-mode)
-         (eshell-mode . corfu-mode))
+  ;; :hook ((prog-mode . corfu-mode)
+  ;;        (shell-mode . corfu-mode)
+  ;;        (eshell-mode . corfu-mode))
 
   :config
   (global-corfu-mode)
+
+  (corfu-history-mode +1)
 
   ;; Documentation popup
   (corfu-popupinfo-mode 1)
